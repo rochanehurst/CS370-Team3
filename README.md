@@ -1,5 +1,7 @@
-This Branch is for features that are unfinished
+Main Branch: Fully tested software and features
 
-This is to keep main functioning
+Testing: Testing Features to implement
+
+Developing: For features that are not ready to be added to the software
 
 ToDo

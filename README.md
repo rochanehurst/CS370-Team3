@@ -1,7 +1,7 @@
-This branch is for testing finished features
+Main Branch: Fully tested software and features
 
-When a developed feature is finished, create a pull request to put testing branch up to date
+Testing: Testing Features to implement
 
-Once testing is concluded, create a pull request to put main branch up to date
+Developing: For features that are not ready to be added to the software
 
 ToDo

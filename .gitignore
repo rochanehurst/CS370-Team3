@@ -80,3 +80,4 @@ CMakeLists.txt.user*
 .rcc/
 .uic/
 /build*/
+WhatAmIDoing/.qtcreator/project.json.user

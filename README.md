@@ -1,5 +1,1 @@
-Main Branch: Fully tested software and features
-
-Testing: Testing Features to implement
-
-ToDo
+Where ideas go to die

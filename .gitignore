@@ -1,0 +1,21 @@
+# Qt build artifacts
+build*/
+*.o
+*.obj
+*.so
+*.exe
+*.dll
+*.app
+*.user
+*.autosave
+*.qtc_clangd/
+CMakeFiles/
+CMakeCache.txt
+*.ninja
+*.cmake
+*.log
+*.idx
+*.plist
+
+# macOS junk
+.DS_Store

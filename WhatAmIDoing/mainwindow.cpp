@@ -1,0 +1,24 @@
+#include "mainwindow.h"
+#include "ui_mainwindow.h"
+#include "createclass.h"
+
+MainWindow::MainWindow(QWidget *parent)
+    : QMainWindow(parent)
+    , ui(new Ui::MainWindow)
+{
+    ui->setupUi(this);
+    setWindowTitle("Cluster Fuck");
+}
+
+MainWindow::~MainWindow()
+{
+    delete ui;
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+    Dialog classCreator;
+    classCreator.setModal(true);
+    classCreator.exec();    // creates window
+}
+

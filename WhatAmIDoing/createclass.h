@@ -29,7 +29,7 @@ private slots:
 private:
     Ui::Dialog *ui;
     QStringListModel *model;
-    QStringList items = {};
+    QStringList days = {};
     const QStringList dayOrder = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
 };
 

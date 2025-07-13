@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>375</height>
+    <width>420</width>
+    <height>400</height>
    </rect>
   </property>
   <property name="palette">
@@ -486,10 +486,10 @@
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>40</x>
+      <x>60</x>
       <y>30</y>
-      <width>321</width>
-      <height>311</height>
+      <width>301</width>
+      <height>331</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
@@ -670,8 +670,8 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>126</width>
-          <height>92</height>
+          <width>106</width>
+          <height>96</height>
          </rect>
         </property>
         <widget class="QCheckBox" name="chk_mon">
@@ -680,7 +680,7 @@
            <x>0</x>
            <y>0</y>
            <width>76</width>
-           <height>21</height>
+           <height>16</height>
           </rect>
          </property>
          <property name="text">
@@ -693,7 +693,7 @@
            <x>0</x>
            <y>20</y>
            <width>76</width>
-           <height>21</height>
+           <height>16</height>
           </rect>
          </property>
          <property name="text">
@@ -706,7 +706,7 @@
            <x>0</x>
            <y>40</y>
            <width>81</width>
-           <height>21</height>
+           <height>16</height>
           </rect>
          </property>
          <property name="text">
@@ -719,7 +719,7 @@
            <x>0</x>
            <y>60</y>
            <width>76</width>
-           <height>21</height>
+           <height>16</height>
           </rect>
          </property>
          <property name="text">
@@ -732,7 +732,7 @@
            <x>0</x>
            <y>80</y>
            <width>81</width>
-           <height>21</height>
+           <height>16</height>
           </rect>
          </property>
          <property name="text">

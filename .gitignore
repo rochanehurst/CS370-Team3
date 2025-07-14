@@ -16,9 +16,8 @@ CMakeCache.txt
 *.log
 *.idx
 *.plist
+*.user
 
 # macOS junk
 .DS_Store
 *.user
-370-project/370-Project/CMakeLists.txt.user
-370-project/370-Project/CMakeLists.txt.user.930a5fe

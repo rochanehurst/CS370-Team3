@@ -14,15 +14,6 @@
 # EXTERNAL cache entries
 ########################
 
-//Value Computed by CMake
-370-Project_BINARY_DIR:STATIC=C:/Users/coleo/Desktop/CS370-Team3-Github/370-project/370-Project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug
-
-//Value Computed by CMake
-370-Project_IS_TOP_LEVEL:STATIC=ON
-
-//Value Computed by CMake
-370-Project_SOURCE_DIR:STATIC=C:/Users/coleo/Desktop/CS370-Team3-Github/370-project/370-Project
-
 //Path to a program.
 CMAKE_ADDR2LINE:FILEPATH=C:/Qt/Tools/mingw1310_64/bin/addr2line.exe
 
@@ -47,13 +38,13 @@ CMAKE_CXX_COMPILER_AR:FILEPATH=C:/Qt/Tools/mingw1310_64/bin/gcc-ar.exe
 CMAKE_CXX_COMPILER_RANLIB:FILEPATH=C:/Qt/Tools/mingw1310_64/bin/gcc-ranlib.exe
 
 //Flags used by the CXX compiler during all build types.
-CMAKE_CXX_FLAGS:STRING=-DQT_QML_DEBUG
+CMAKE_CXX_FLAGS:STRING=
 
 //Flags used by the CXX compiler during DEBUG builds.
 CMAKE_CXX_FLAGS_DEBUG:STRING=-g
 
 //No help, variable specified on the command line.
-CMAKE_CXX_FLAGS_INIT:STRING=-DQT_QML_DEBUG
+CMAKE_CXX_FLAGS_INIT:STRING=
 
 //Flags used by the CXX compiler during MINSIZEREL builds.
 CMAKE_CXX_FLAGS_MINSIZEREL:STRING=-Os -DNDEBUG
@@ -141,7 +132,7 @@ CMAKE_INSTALL_MANDIR:PATH=
 CMAKE_INSTALL_OLDINCLUDEDIR:PATH=/usr/include
 
 //Install path prefix, prepended onto install directories.
-CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/370-Project
+CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/WhatAmIDoing
 
 //Run-time variable data (LOCALSTATEDIR/run)
 CMAKE_INSTALL_RUNSTATEDIR:PATH=
@@ -203,7 +194,7 @@ CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 CMAKE_PROJECT_INCLUDE_BEFORE:FILEPATH=C:/Users/coleo/Desktop/CS370-Team3-Github/370-project/370-Project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/.qtc/package-manager/auto-setup.cmake
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=370-Project
+CMAKE_PROJECT_NAME:STATIC=WhatAmIDoing
 
 //Value Computed by CMake
 CMAKE_PROJECT_VERSION:STATIC=0.1
@@ -381,6 +372,15 @@ Vulkan_LIBRARY:FILEPATH=Vulkan_LIBRARY-NOTFOUND
 
 //Path to a program.
 WINDEPLOYQT_EXECUTABLE:FILEPATH=C:/Qt/6.9.1/mingw_64/bin/windeployqt.exe
+
+//Value Computed by CMake
+WhatAmIDoing_BINARY_DIR:STATIC=C:/Users/coleo/Desktop/CS370-Team3-Github/370-project/370-Project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug
+
+//Value Computed by CMake
+WhatAmIDoing_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+WhatAmIDoing_SOURCE_DIR:STATIC=C:/Users/coleo/Desktop/CS370-Team3-Github/370-project/370-Project
 
 
 ########################
@@ -1354,5 +1354,5 @@ Vulkan_LIBRARY-ADVANCED:INTERNAL=1
 //linker supports push/pop state
 _CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED:INTERNAL=TRUE
 //CMAKE_INSTALL_PREFIX during last run
-_GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=C:/Program Files (x86)/370-Project
+_GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=C:/Program Files (x86)/WhatAmIDoing
 

@@ -2,7 +2,11 @@
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
+<<<<<<< Updated upstream
   set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/WhatAmIDoing")
+=======
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/370-Project")
+>>>>>>> Stashed changes
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,11 +42,19 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+<<<<<<< Updated upstream
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "C:/Users/coleo/Desktop/CS370-Team3-Github/370-project/370-Project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/WhatAmIDoing.exe")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/WhatAmIDoing.exe" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/WhatAmIDoing.exe")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "C:/Qt/Tools/mingw1310_64/bin/strip.exe" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/WhatAmIDoing.exe")
+=======
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "C:/Users/coleo/Desktop/CS370-Team3-Github/370-project/370-Project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-Project.exe")
+  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/370-Project.exe" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/370-Project.exe")
+    if(CMAKE_INSTALL_DO_STRIP)
+      execute_process(COMMAND "C:/Qt/Tools/mingw1310_64/bin/strip.exe" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/370-Project.exe")
+>>>>>>> Stashed changes
     endif()
   endif()
 endif()

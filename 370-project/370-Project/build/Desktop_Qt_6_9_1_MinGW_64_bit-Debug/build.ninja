@@ -12,7 +12,11 @@
 
 # =============================================================================
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 # Project: WhatAmIDoing
+=======
+# Project: 370-Project
+>>>>>>> Stashed changes
 =======
 # Project: 370-Project
 >>>>>>> Stashed changes
@@ -45,6 +49,7 @@ include CMakeFiles/rules.ninja
 
 cmake_ninja_workdir = C$:/Users/coleo/Desktop/CS370-Team3-Github/370-project/370-Project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/
 # =============================================================================
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 # Object build statements for EXECUTABLE target WhatAmIDoing
 
@@ -114,6 +119,8 @@ build WhatAmIDoing.exe: CXX_EXECUTABLE_LINKER__WhatAmIDoing_Debug CMakeFiles/Wha
   TARGET_IMPLIB = libWhatAmIDoing.dll.a
   TARGET_PDB = WhatAmIDoing.pdb
 =======
+=======
+>>>>>>> Stashed changes
 # Object build statements for EXECUTABLE target 370-Project
 
 
@@ -181,6 +188,9 @@ build 370-Project.exe: CXX_EXECUTABLE_LINKER__370-Project_Debug CMakeFiles/370-P
   TARGET_FILE = 370-Project.exe
   TARGET_IMPLIB = lib370-Project.dll.a
   TARGET_PDB = 370-Project.pdb
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 
@@ -252,6 +262,7 @@ build install/strip: phony CMakeFiles/install/strip.util
 
 #############################################
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 # Utility command for WhatAmIDoing_autogen_timestamp_deps
 
 build WhatAmIDoing_autogen_timestamp_deps: phony
@@ -271,6 +282,8 @@ build WhatAmIDoing_autogen/timestamp WhatAmIDoing_autogen/mocs_compilation.cpp |
   DESC = Automatic MOC and UIC for target WhatAmIDoing
   depfile = CMakeFiles\d\3a7c2516ff51b796c9acf27d497d933f4d0c8e3fece5fc2dfbf7bf8e8e928b36.d
 =======
+=======
+>>>>>>> Stashed changes
 # Utility command for 370-Project_autogen_timestamp_deps
 
 build 370-Project_autogen_timestamp_deps: phony
@@ -289,6 +302,9 @@ build 370-Project_autogen/timestamp 370-Project_autogen/mocs_compilation.cpp | $
   COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\coleo\Desktop\CS370-Team3-Github\370-project\370-Project\build\Desktop_Qt_6_9_1_MinGW_64_bit-Debug && C:\Qt\Tools\CMake_64\bin\cmake.exe -E cmake_autogen C:/Users/coleo/Desktop/CS370-Team3-Github/370-project/370-Project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/CMakeFiles/370-Project_autogen.dir/AutogenInfo.json Debug && C:\Qt\Tools\CMake_64\bin\cmake.exe -E touch C:/Users/coleo/Desktop/CS370-Team3-Github/370-project/370-Project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-Project_autogen/timestamp && C:\Qt\Tools\CMake_64\bin\cmake.exe -E cmake_transform_depfile Ninja gccdepfile C:/Users/coleo/Desktop/CS370-Team3-Github/370-project/370-Project C:/Users/coleo/Desktop/CS370-Team3-Github/370-project/370-Project C:/Users/coleo/Desktop/CS370-Team3-Github/370-project/370-Project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug C:/Users/coleo/Desktop/CS370-Team3-Github/370-project/370-Project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug C:/Users/coleo/Desktop/CS370-Team3-Github/370-project/370-Project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-Project_autogen/deps C:/Users/coleo/Desktop/CS370-Team3-Github/370-project/370-Project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/CMakeFiles/d/08a4263b599b9c7ff4637448d6683c603df47b8c1fdf3c5f0da30513e3f1226b.d"
   DESC = Automatic MOC and UIC for target 370-Project
   depfile = CMakeFiles\d\08a4263b599b9c7ff4637448d6683c603df47b8c1fdf3c5f0da30513e3f1226b.d
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   deps = gcc
   restat = 1
@@ -296,9 +312,15 @@ build 370-Project_autogen/timestamp 370-Project_autogen/mocs_compilation.cpp | $
 
 #############################################
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 # Phony custom command for CMakeFiles\WhatAmIDoing_autogen
 
 build CMakeFiles/WhatAmIDoing_autogen WhatAmIDoing_autogen/include/ui_mainwindow.h WhatAmIDoing_autogen/include/ui_createclass.h | ${cmake_ninja_workdir}CMakeFiles/WhatAmIDoing_autogen ${cmake_ninja_workdir}WhatAmIDoing_autogen/include/ui_mainwindow.h ${cmake_ninja_workdir}WhatAmIDoing_autogen/include/ui_createclass.h: phony WhatAmIDoing_autogen/timestamp || WhatAmIDoing_autogen_timestamp_deps
+=======
+# Phony custom command for CMakeFiles\370-Project_autogen
+
+build CMakeFiles/370-Project_autogen 370-Project_autogen/include/ui_mainwindow.h 370-Project_autogen/include/ui_createclass.h | ${cmake_ninja_workdir}CMakeFiles/370-Project_autogen ${cmake_ninja_workdir}370-Project_autogen/include/ui_mainwindow.h ${cmake_ninja_workdir}370-Project_autogen/include/ui_createclass.h: phony 370-Project_autogen/timestamp || 370-Project_autogen_timestamp_deps
+>>>>>>> Stashed changes
 =======
 # Phony custom command for CMakeFiles\370-Project_autogen
 
@@ -309,7 +331,11 @@ build CMakeFiles/370-Project_autogen 370-Project_autogen/include/ui_mainwindow.h
 # Target aliases.
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 build WhatAmIDoing: phony WhatAmIDoing.exe
+=======
+build 370-Project: phony 370-Project.exe
+>>>>>>> Stashed changes
 =======
 build 370-Project: phony 370-Project.exe
 >>>>>>> Stashed changes
@@ -323,7 +349,11 @@ build 370-Project: phony 370-Project.exe
 # Folder: C:/Users/coleo/Desktop/CS370-Team3-Github/370-project/370-Project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 build all: phony WhatAmIDoing.exe
+=======
+build all: phony 370-Project.exe
+>>>>>>> Stashed changes
 =======
 build all: phony 370-Project.exe
 >>>>>>> Stashed changes

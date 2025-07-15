@@ -15,7 +15,10 @@
 ########################
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 //Value Computed by CMake
 370-Project_BINARY_DIR:STATIC=C:/Users/coleo/Desktop/CS370-Team3-Github/370-project/370-Project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug
 
@@ -25,6 +28,9 @@
 //Value Computed by CMake
 370-Project_SOURCE_DIR:STATIC=C:/Users/coleo/Desktop/CS370-Team3-Github/370-project/370-Project
 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 //Path to a program.
 CMAKE_ADDR2LINE:FILEPATH=C:/Qt/Tools/mingw1310_64/bin/addr2line.exe
@@ -51,7 +57,11 @@ CMAKE_CXX_COMPILER_RANLIB:FILEPATH=C:/Qt/Tools/mingw1310_64/bin/gcc-ranlib.exe
 
 //Flags used by the CXX compiler during all build types.
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 CMAKE_CXX_FLAGS:STRING=
+=======
+CMAKE_CXX_FLAGS:STRING=-DQT_QML_DEBUG
+>>>>>>> Stashed changes
 =======
 CMAKE_CXX_FLAGS:STRING=-DQT_QML_DEBUG
 >>>>>>> Stashed changes
@@ -61,7 +71,11 @@ CMAKE_CXX_FLAGS_DEBUG:STRING=-g
 
 //No help, variable specified on the command line.
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 CMAKE_CXX_FLAGS_INIT:STRING=
+=======
+CMAKE_CXX_FLAGS_INIT:STRING=-DQT_QML_DEBUG
+>>>>>>> Stashed changes
 =======
 CMAKE_CXX_FLAGS_INIT:STRING=-DQT_QML_DEBUG
 >>>>>>> Stashed changes
@@ -153,7 +167,11 @@ CMAKE_INSTALL_OLDINCLUDEDIR:PATH=/usr/include
 
 //Install path prefix, prepended onto install directories.
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/WhatAmIDoing
+=======
+CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/370-Project
+>>>>>>> Stashed changes
 =======
 CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/370-Project
 >>>>>>> Stashed changes
@@ -219,7 +237,11 @@ CMAKE_PROJECT_INCLUDE_BEFORE:FILEPATH=C:/Users/coleo/Desktop/CS370-Team3-Github/
 
 //Value Computed by CMake
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 CMAKE_PROJECT_NAME:STATIC=WhatAmIDoing
+=======
+CMAKE_PROJECT_NAME:STATIC=370-Project
+>>>>>>> Stashed changes
 =======
 CMAKE_PROJECT_NAME:STATIC=370-Project
 >>>>>>> Stashed changes
@@ -402,6 +424,7 @@ Vulkan_LIBRARY:FILEPATH=Vulkan_LIBRARY-NOTFOUND
 WINDEPLOYQT_EXECUTABLE:FILEPATH=C:/Qt/6.9.1/mingw_64/bin/windeployqt.exe
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 //Value Computed by CMake
 WhatAmIDoing_BINARY_DIR:STATIC=C:/Users/coleo/Desktop/CS370-Team3-Github/370-project/370-Project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug
 
@@ -411,6 +434,8 @@ WhatAmIDoing_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 WhatAmIDoing_SOURCE_DIR:STATIC=C:/Users/coleo/Desktop/CS370-Team3-Github/370-project/370-Project
 
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 
@@ -1386,7 +1411,11 @@ Vulkan_LIBRARY-ADVANCED:INTERNAL=1
 _CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED:INTERNAL=TRUE
 //CMAKE_INSTALL_PREFIX during last run
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 _GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=C:/Program Files (x86)/WhatAmIDoing
+=======
+_GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=C:/Program Files (x86)/370-Project
+>>>>>>> Stashed changes
 =======
 _GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=C:/Program Files (x86)/370-Project
 >>>>>>> Stashed changes

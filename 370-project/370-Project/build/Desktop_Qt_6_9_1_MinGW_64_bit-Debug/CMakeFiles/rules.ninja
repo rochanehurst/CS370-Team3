@@ -7,7 +7,11 @@
 
 # =============================================================================
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 # Project: WhatAmIDoing
+=======
+# Project: 370-Project
+>>>>>>> Stashed changes
 =======
 # Project: 370-Project
 >>>>>>> Stashed changes
@@ -19,7 +23,11 @@
 # Rule for compiling CXX files.
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 rule CXX_COMPILER__WhatAmIDoing_unscanned_Debug
+=======
+rule CXX_COMPILER__370-Project_unscanned_Debug
+>>>>>>> Stashed changes
 =======
 rule CXX_COMPILER__370-Project_unscanned_Debug
 >>>>>>> Stashed changes
@@ -33,7 +41,11 @@ rule CXX_COMPILER__370-Project_unscanned_Debug
 # Rule for linking CXX executable.
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 rule CXX_EXECUTABLE_LINKER__WhatAmIDoing_Debug
+=======
+rule CXX_EXECUTABLE_LINKER__370-Project_Debug
+>>>>>>> Stashed changes
 =======
 rule CXX_EXECUTABLE_LINKER__370-Project_Debug
 >>>>>>> Stashed changes

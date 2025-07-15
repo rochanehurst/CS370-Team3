@@ -156,10 +156,14 @@ C:/Users/coleo/Desktop/CS370-Team3-Github/370-project/370-Project/build/Desktop_
   C:/Qt/6.9.1/mingw_64/include/QtGui/qwindowdefs_win.h \
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QCheckBox \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QDialog \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qabstractbutton.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qcheckbox.h \
+=======
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QDialog \
+>>>>>>> Stashed changes
 =======
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QDialog \
 >>>>>>> Stashed changes

@@ -2,7 +2,11 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QDialog>
 #include <QObject>
+#include <QVector>
+
+#include "createclass.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -24,8 +28,13 @@ private slots:
 
     void on_class_edit_del_clicked();
 
+    void on_classVectorTestButton_clicked();
+
+    void on_classCreatorButton_clicked();
+
 private:
     Ui::MainWindow *ui;
+    QVector<ClassInfo> classes;
 };
 
 class class_Base : public QObject

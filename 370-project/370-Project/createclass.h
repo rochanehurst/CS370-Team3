@@ -3,6 +3,30 @@
 
 #include <QDialog>
 #include <QStringListModel>
+#include <QCheckBox>
+
+using namespace std;
+
+struct ClassInfo {
+    QString school;
+    QString name;
+    QString building;
+    QString startTime;
+    QString endTime;
+    QString days;
+    bool online;
+
+    void print() const{
+        qDebug() << "\nSchool: " << school
+                 << "\nName: " << name
+                 << "\nBuilding: " << building
+                 << "\nStarts at: " << startTime
+                 << "\nEnds at:" << endTime
+                 << "\nOn days: " << days
+                 << "\nIs Online?: " << online;
+    }
+};
+
 namespace Ui {
 class Dialog;
 }
@@ -15,22 +39,33 @@ public:
     explicit Dialog(QWidget *parent = nullptr);
     ~Dialog();
 
+    ClassInfo getData() const;
+
 private slots:
-    void on_addDay_clicked();
 
-    void on_removeDay_clicked();
+    void on_confirmButtonBox_accepted();
 
-    void update();
+    void on_confirmButtonBox_rejected();
 
-    void on_buttonBox_accepted();
+    void fourDayChecker(QObject *sender, bool disable);
 
-    void on_buttonBox_rejected();
+    void on_MWF_stateChanged(int arg1);
+
+    void on_TR_stateChanged(int arg1);
+
+    void createClass();
+
+    QString dayStringCreate();
+
+    void on_timeStart_userTimeChanged(const QTime &time);
+
+    void on_timeStop_userTimeChanged(const QTime &time);
 
 private:
     Ui::Dialog *ui;
     QStringListModel *model;
-    QStringList days = {};
-    const QStringList dayOrder = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
+    QVector<QCheckBox*> checkboxes;
+    ClassInfo classInfo;
 };
 
 #endif // CREATECLASS_H

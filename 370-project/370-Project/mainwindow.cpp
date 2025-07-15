@@ -12,3 +12,9 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+void MainWindow::on_frame_customContextMenuRequested(const QPoint &pos)
+{
+
+}
+

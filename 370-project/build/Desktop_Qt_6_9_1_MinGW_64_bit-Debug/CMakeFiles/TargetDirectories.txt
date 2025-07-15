@@ -1,9 +1,0 @@
-C:/Users/coleo/Desktop/CS370-Project Backup/370-Project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/CMakeFiles/WhatAmIDoing.dir
-C:/Users/coleo/Desktop/CS370-Project Backup/370-Project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/CMakeFiles/edit_cache.dir
-C:/Users/coleo/Desktop/CS370-Project Backup/370-Project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/CMakeFiles/rebuild_cache.dir
-C:/Users/coleo/Desktop/CS370-Project Backup/370-Project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/CMakeFiles/list_install_components.dir
-C:/Users/coleo/Desktop/CS370-Project Backup/370-Project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/CMakeFiles/install.dir
-C:/Users/coleo/Desktop/CS370-Project Backup/370-Project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/CMakeFiles/install/local.dir
-C:/Users/coleo/Desktop/CS370-Project Backup/370-Project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/CMakeFiles/install/strip.dir
-C:/Users/coleo/Desktop/CS370-Project Backup/370-Project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/CMakeFiles/WhatAmIDoing_autogen_timestamp_deps.dir
-C:/Users/coleo/Desktop/CS370-Project Backup/370-Project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/CMakeFiles/WhatAmIDoing_autogen.dir

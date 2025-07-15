@@ -51,6 +51,3 @@ void MainWindow::on_classVectorTestButton_clicked()
         classData.print();
     }
 }
-
-
-

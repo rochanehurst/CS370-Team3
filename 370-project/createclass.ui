@@ -82,8 +82,8 @@
      <colorrole role="BrightText">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>170</red>
-        <green>255</green>
+        <red>255</red>
+        <green>0</green>
         <blue>0</blue>
        </color>
       </brush>
@@ -237,8 +237,8 @@
      <colorrole role="BrightText">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>170</red>
-        <green>255</green>
+        <red>255</red>
+        <green>0</green>
         <blue>0</blue>
        </color>
       </brush>
@@ -401,8 +401,8 @@
      <colorrole role="BrightText">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>170</red>
-        <green>255</green>
+        <red>255</red>
+        <green>0</green>
         <blue>0</blue>
        </color>
       </brush>
@@ -937,6 +937,9 @@
          <height>125</height>
         </size>
        </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Select days in which class occurs&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
        <property name="frameShape">
         <enum>QFrame::Shape::StyledPanel</enum>
        </property>
@@ -995,6 +998,9 @@
          <width>160</width>
          <height>25</height>
         </size>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Is the class online?&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
        <property name="layoutDirection">
         <enum>Qt::LayoutDirection::LeftToRight</enum>

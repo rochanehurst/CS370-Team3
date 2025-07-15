@@ -34,6 +34,19 @@ Dialog::Dialog(QWidget *parent)
             checkboxes.push_back(checkbox);
         }
     }
+
+    // changes disabled checkboxes to be a nice gray instead of a bright ass neon green
+    for (auto* day : checkboxes){
+        day->setStyleSheet(R"(
+        QCheckBox:disabled {
+            color: gray; /* text color */
+        }
+        QCheckBox::indicator:disabled {
+            background-color: gray; /* box color */
+            border: 1px solid darkgray;
+        }
+    )");
+    }
 }
 
 Dialog::~Dialog()
@@ -164,4 +177,3 @@ void Dialog::on_timeStop_userTimeChanged(const QTime &time)
         ui->timeStart->setTime(otherTime);
     }
 }
-

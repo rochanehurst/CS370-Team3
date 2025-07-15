@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< Updated upstream
     <list default="true" id="ddc3ae75-9350-4d84-9fd8-08926e608c48" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/.cmake/api/v1/reply.prev/cache-v2-7fd7a5a9e0045c2d30e5.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/.cmake/api/v1/reply.prev/cmakeFiles-v1-ac7ce2666fe68ee96e23.json" beforeDir="false" />
@@ -49,6 +50,9 @@
       <change beforePath="$PROJECT_DIR$/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/CMakeFiles/rules.ninja" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/qtcsettings.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/qtcsettings.cmake" afterDir="false" />
     </list>
+=======
+    <list default="true" id="db123411-b0ba-4f40-ad84-e786cc6d19c8" name="Changes" comment="" />
+>>>>>>> Stashed changes
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -66,14 +70,22 @@
     <option name="minorVersion" value="2.2" />
     <option name="productBranch" value="Classic" />
   </component>
+<<<<<<< Updated upstream
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
   <component name="ProjectId" id="2ztEyOFEPyoF55iTO1DUpwsCoAy" />
+=======
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 0
+}]]></component>
+  <component name="ProjectId" id="2ztf9Wm5SW4IjBpdu0oz6p56nX6" />
+>>>>>>> Stashed changes
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< Updated upstream
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.RadMigrateCodeStyle&quot;: &quot;true&quot;,
@@ -103,4 +115,31 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+=======
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.RadMigrateCodeStyle": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "beef",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="db123411-b0ba-4f40-ad84-e786cc6d19c8" name="Changes" comment="" />
+      <created>1752555139208</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1752555139208</updated>
+      <workItem from="1752555140454" duration="4000" />
+    </task>
+    <servers />
+  </component>
+>>>>>>> Stashed changes
 </project>

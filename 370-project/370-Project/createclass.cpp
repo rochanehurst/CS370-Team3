@@ -56,6 +56,7 @@ QString Dialog::dayStringCreate(){
     return dayString;
 }
 
+<<<<<<< Updated upstream
 void Dialog::createClass()
 {
     ClassInfo* newClass = new ClassInfo;
@@ -72,6 +73,26 @@ void Dialog::createClass()
 
 void Dialog::on_confirmButtonBox_accepted()
 {
+=======
+ClassInfo Dialog::getData() const {
+    return classInfo;
+}
+
+void Dialog::createClass()
+{
+    classInfo.school = ui->schoolComboBox->currentText();
+    classInfo.name = ui->className->text();
+    classInfo.building = ui->buildingName->text();
+    classInfo.startTime = ui->timeStart->text();
+    classInfo.endTime = ui->timeStop->text();
+    classInfo.days = dayStringCreate();
+    classInfo.online = ui->onlineCheckBox->isChecked();
+
+}
+
+void Dialog::on_confirmButtonBox_accepted()
+{
+>>>>>>> Stashed changes
     if ((mwf + tuth) > 0){
         createClass();
         accept();

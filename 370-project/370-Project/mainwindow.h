@@ -2,7 +2,14 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+<<<<<<< Updated upstream
 #include <QDialog>
+=======
+#include <QObject>
+#include <QVector>
+
+#include "createclass.h"
+>>>>>>> Stashed changes
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -21,7 +28,12 @@ public:
 private slots:
     void on_pushButton_clicked();
 
+    void on_classVectorTestButton_clicked();
+
+    void on_classCreatorButton_clicked();
+
 private:
     Ui::MainWindow *ui;
+    QVector<ClassInfo> classes;
 };
 #endif // MAINWINDOW_H

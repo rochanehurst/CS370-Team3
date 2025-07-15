@@ -17,7 +17,11 @@ struct ClassInfo {
     bool online;
 
     void print() const{
+<<<<<<< Updated upstream
         qDebug() << "School: " << school
+=======
+        qDebug() << "\nSchool: " << school
+>>>>>>> Stashed changes
                  << "\nName: " << name
                  << "\nBuilding: " << building
                  << "\nStarts at: " << startTime
@@ -38,6 +42,8 @@ class Dialog : public QDialog
 public:
     explicit Dialog(QWidget *parent = nullptr);
     ~Dialog();
+
+    ClassInfo getData() const;
 
 private slots:
 
@@ -63,7 +69,11 @@ private:
     Ui::Dialog *ui;
     QStringListModel *model;
     QVector<QCheckBox*> checkboxes;
+<<<<<<< Updated upstream
     vector<ClassInfo*> classes;
+=======
+    ClassInfo classInfo;
+>>>>>>> Stashed changes
 };
 
 #endif // CREATECLASS_H

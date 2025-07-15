@@ -1,42 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
-<<<<<<< HEAD
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
-=======
  <class>Dialog</class>
  <widget class="QDialog" name="Dialog">
   <property name="enabled">
    <bool>true</bool>
   </property>
->>>>>>> origin/beef
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-<<<<<<< HEAD
-    <width>420</width>
-    <height>400</height>
+    <width>300</width>
+    <height>329</height>
    </rect>
   </property>
-=======
-    <width>500</width>
-    <height>500</height>
-   </rect>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="minimumSize">
    <size>
-    <width>500</width>
-    <height>500</height>
+    <width>300</width>
+    <height>300</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>500</width>
-    <height>500</height>
+    <width>400</width>
+    <height>400</height>
    </size>
   </property>
->>>>>>> origin/beef
   <property name="palette">
    <palette>
     <active>
@@ -88,8 +82,8 @@
      <colorrole role="BrightText">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>170</red>
-        <green>255</green>
+        <red>255</red>
+        <green>0</green>
         <blue>0</blue>
        </color>
       </brush>
@@ -243,8 +237,8 @@
      <colorrole role="BrightText">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>170</red>
-        <green>255</green>
+        <red>255</red>
+        <green>0</green>
         <blue>0</blue>
        </color>
       </brush>
@@ -407,8 +401,8 @@
      <colorrole role="BrightText">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>170</red>
-        <green>255</green>
+        <red>255</red>
+        <green>0</green>
         <blue>0</blue>
        </color>
       </brush>
@@ -507,52 +501,50 @@
    </palette>
   </property>
   <property name="windowTitle">
-<<<<<<< HEAD
-   <string>MainWindow</string>
+   <string>Dialog</string>
   </property>
-  <widget class="QWidget" name="centralwidget">
-   <widget class="QWidget" name="layoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>60</x>
-      <y>30</y>
-      <width>301</width>
-      <height>331</height>
-     </rect>
-    </property>
-    <layout class="QGridLayout" name="gridLayout">
-     <item row="3" column="1">
-      <widget class="QDoubleSpinBox" name="timeSpinBox">
-       <property name="toolTip">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;How long class is&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+  <property name="toolTip">
+   <string/>
+  </property>
+  <property name="sizeGripEnabled">
+   <bool>true</bool>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_3">
+   <item row="3" column="0">
+    <layout class="QFormLayout" name="mainFormLayout">
+     <item row="0" column="0">
+      <widget class="QLabel" name="schoolNameLabel">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
        </property>
-       <property name="whatsThis">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Use this if you are unsure of what time your class begins or ends.&lt;br/&gt;This label will automatically update when start or end times are changed&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>24</height>
+        </size>
        </property>
-      </widget>
-     </item>
-     <item row="1" column="3">
-      <widget class="QLabel" name="lbl_building">
        <property name="toolTip">
         <string/>
        </property>
        <property name="text">
-        <string>Building</string>
+        <string>School</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
        </property>
       </widget>
      </item>
-     <item row="0" column="1" colspan="2">
-      <widget class="QLineEdit" name="className">
-       <property name="toolTip">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enter class name&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="4">
+     <item row="0" column="1">
       <widget class="QComboBox" name="schoolComboBox">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
        <property name="toolTip">
         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Your school&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
@@ -566,117 +558,20 @@
        </item>
       </widget>
      </item>
-     <item row="2" column="0">
-      <widget class="QLabel" name="lbl_end">
-       <property name="toolTip">
-        <string/>
-       </property>
-       <property name="text">
-        <string>End</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="3">
-      <widget class="QLabel" name="lbl_days">
-       <property name="toolTip">
-        <string/>
-       </property>
-       <property name="text">
-        <string>Days</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="0" colspan="5">
-      <widget class="QDialogButtonBox" name="buttonBox">
-       <property name="orientation">
-        <enum>Qt::Orientation::Horizontal</enum>
-       </property>
-       <property name="standardButtons">
-        <set>QDialogButtonBox::StandardButton::Cancel|QDialogButtonBox::StandardButton::Ok</set>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="1" colspan="2">
-      <widget class="QTimeEdit" name="timeStop">
-       <property name="toolTip">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Set class end time&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="0">
-      <widget class="QLabel" name="lbl_length">
-       <property name="toolTip">
-        <string/>
-       </property>
-       <property name="text">
-        <string>Length</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="3">
-      <widget class="QLabel" name="lbl_school">
-       <property name="toolTip">
-        <string/>
-       </property>
-       <property name="text">
-        <string>School</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="2">
-      <widget class="QLabel" name="lbl_hours">
-       <property name="toolTip">
-        <string/>
-       </property>
-       <property name="text">
-        <string>Hours</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="4">
-      <widget class="QLineEdit" name="buildingName">
-       <property name="toolTip">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enter building name&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-       </property>
-      </widget>
-     </item>
      <item row="1" column="0">
-      <widget class="QLabel" name="lbl_start">
-       <property name="toolTip">
-        <string/>
+      <widget class="QLabel" name="nameLabel">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
        </property>
-       <property name="text">
-        <string>Start</string>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>24</height>
+        </size>
        </property>
-       <property name="alignment">
-        <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="1" colspan="2">
-      <widget class="QTimeEdit" name="timeStart">
-       <property name="toolTip">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Set class start time&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="0">
-      <widget class="QLabel" name="lbl_name">
        <property name="toolTip">
         <string/>
        </property>
@@ -688,368 +583,457 @@
        </property>
       </widget>
      </item>
-     <item row="2" column="4" rowspan="2">
-      <widget class="QScrollArea" name="scrollArea">
-       <property name="widgetResizable">
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="className">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enter class name&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="buildingNameLabel">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>24</height>
+        </size>
+       </property>
+       <property name="toolTip">
+        <string/>
+       </property>
+       <property name="text">
+        <string>Building</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLineEdit" name="buildingName">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enter building name&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="startTimeLabel">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>24</height>
+        </size>
+       </property>
+       <property name="toolTip">
+        <string/>
+       </property>
+       <property name="text">
+        <string>Duration</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <layout class="QHBoxLayout" name="classTimeLayout_2">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QTimeEdit" name="timeStart">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>24</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Set class start time&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="accelerated">
+          <bool>false</bool>
+         </property>
+         <property name="dateTime">
+          <datetime>
+           <hour>7</hour>
+           <minute>30</minute>
+           <second>0</second>
+           <year>2000</year>
+           <month>1</month>
+           <day>1</day>
+          </datetime>
+         </property>
+         <property name="maximumDateTime">
+          <datetime>
+           <hour>21</hour>
+           <minute>0</minute>
+           <second>0</second>
+           <year>2000</year>
+           <month>1</month>
+           <day>1</day>
+          </datetime>
+         </property>
+         <property name="minimumDateTime">
+          <datetime>
+           <hour>7</hour>
+           <minute>30</minute>
+           <second>0</second>
+           <year>2000</year>
+           <month>1</month>
+           <day>1</day>
+          </datetime>
+         </property>
+         <property name="maximumDate">
+          <date>
+           <year>2000</year>
+           <month>1</month>
+           <day>1</day>
+          </date>
+         </property>
+         <property name="minimumDate">
+          <date>
+           <year>2000</year>
+           <month>1</month>
+           <day>1</day>
+          </date>
+         </property>
+         <property name="maximumTime">
+          <time>
+           <hour>21</hour>
+           <minute>0</minute>
+           <second>0</second>
+          </time>
+         </property>
+         <property name="minimumTime">
+          <time>
+           <hour>7</hour>
+           <minute>30</minute>
+           <second>0</second>
+          </time>
+         </property>
+         <property name="displayFormat">
+          <string>h:mm AP</string>
+         </property>
+         <property name="time">
+          <time>
+           <hour>7</hour>
+           <minute>30</minute>
+           <second>0</second>
+          </time>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="endTimeLabel">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>20</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="text">
+          <string>to</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTimeEdit" name="timeStop">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>24</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Set class end time&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="accelerated">
+          <bool>false</bool>
+         </property>
+         <property name="maximumDateTime">
+          <datetime>
+           <hour>22</hour>
+           <minute>0</minute>
+           <second>0</second>
+           <year>2000</year>
+           <month>3</month>
+           <day>1</day>
+          </datetime>
+         </property>
+         <property name="minimumDateTime">
+          <datetime>
+           <hour>8</hour>
+           <minute>30</minute>
+           <second>0</second>
+           <year>2000</year>
+           <month>1</month>
+           <day>1</day>
+          </datetime>
+         </property>
+         <property name="maximumDate">
+          <date>
+           <year>2000</year>
+           <month>3</month>
+           <day>1</day>
+          </date>
+         </property>
+         <property name="minimumDate">
+          <date>
+           <year>2000</year>
+           <month>1</month>
+           <day>1</day>
+          </date>
+         </property>
+         <property name="maximumTime">
+          <time>
+           <hour>22</hour>
+           <minute>0</minute>
+           <second>0</second>
+          </time>
+         </property>
+         <property name="minimumTime">
+          <time>
+           <hour>8</hour>
+           <minute>30</minute>
+           <second>0</second>
+          </time>
+         </property>
+         <property name="time">
+          <time>
+           <hour>8</hour>
+           <minute>30</minute>
+           <second>0</second>
+          </time>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Orientation::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="daysLabel">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>125</height>
+        </size>
+       </property>
+       <property name="toolTip">
+        <string/>
+       </property>
+       <property name="text">
+        <string>Days</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QFrame" name="days">
+       <property name="enabled">
         <bool>true</bool>
        </property>
-       <widget class="QWidget" name="scrollAreaWidgetContents">
-=======
-   <string>Dialog</string>
-  </property>
-  <property name="toolTip">
-   <string/>
-  </property>
-  <property name="sizeGripEnabled">
-   <bool>true</bool>
-  </property>
-  <widget class="QWidget" name="layoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>90</x>
-     <y>70</y>
-     <width>321</width>
-     <height>341</height>
-    </rect>
-   </property>
-   <layout class="QGridLayout" name="gridLayout">
-    <item row="4" column="0" colspan="5">
-     <widget class="QDialogButtonBox" name="buttonBox">
-      <property name="orientation">
-       <enum>Qt::Orientation::Horizontal</enum>
-      </property>
-      <property name="standardButtons">
-       <set>QDialogButtonBox::StandardButton::Cancel|QDialogButtonBox::StandardButton::Ok</set>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="4">
-     <widget class="QComboBox" name="schoolComboBox">
-      <property name="toolTip">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Your school&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-      <property name="currentText">
-       <string>CSUSM</string>
-      </property>
-      <item>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>125</height>
+        </size>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::Shape::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Shadow::Raised</enum>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <widget class="QCheckBox" name="monday">
+          <property name="text">
+           <string>Monday</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="tuesday">
+          <property name="text">
+           <string>Tuesday</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="wednesday">
+          <property name="text">
+           <string>Wednesday</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="thursday">
+          <property name="text">
+           <string>Thursday</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="friday">
+          <property name="text">
+           <string>Friday</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item row="5" column="0">
+      <widget class="QCheckBox" name="onlineCheckBox">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>160</width>
+         <height>25</height>
+        </size>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::LayoutDirection::LeftToRight</enum>
+       </property>
        <property name="text">
-        <string>CSUSM</string>
+        <string>Online?</string>
        </property>
-      </item>
-     </widget>
-    </item>
-    <item row="2" column="3">
-     <widget class="QLabel" name="label_5">
-      <property name="toolTip">
-       <string/>
-      </property>
-      <property name="text">
-       <string>Days</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="3">
-     <widget class="QLabel" name="label_7">
-      <property name="toolTip">
-       <string/>
-      </property>
-      <property name="text">
-       <string>School</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="4">
-     <widget class="QLineEdit" name="buildingName">
-      <property name="toolTip">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enter building name&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="1" colspan="2">
-     <widget class="QTimeEdit" name="timeStop">
-      <property name="toolTip">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Set class end time&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="2">
-     <widget class="QLabel" name="label_9">
-      <property name="toolTip">
-       <string/>
-      </property>
-      <property name="text">
-       <string>Hours</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="0">
-     <widget class="QLabel" name="label">
-      <property name="toolTip">
-       <string/>
-      </property>
-      <property name="text">
-       <string>Name</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="3">
-     <widget class="QLabel" name="label_4">
-      <property name="toolTip">
-       <string/>
-      </property>
-      <property name="text">
-       <string>Building</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="0">
-     <widget class="QLabel" name="label_8">
-      <property name="toolTip">
-       <string/>
-      </property>
-      <property name="text">
-       <string>Length</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="1" colspan="2">
-     <widget class="QLineEdit" name="className">
-      <property name="toolTip">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enter class name&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="0">
-     <widget class="QLabel" name="label_2">
-      <property name="toolTip">
-       <string/>
-      </property>
-      <property name="text">
-       <string>Start</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="1" colspan="2">
-     <widget class="QTimeEdit" name="timeStart">
-      <property name="toolTip">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Set class start time&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="1">
-     <widget class="QDoubleSpinBox" name="timeSpinBox">
-      <property name="toolTip">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;How long class is&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-      <property name="whatsThis">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Use this if you are unsure of what time your class begins or ends.&lt;br/&gt;This label will automatically update when start or end times are changed&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="0">
-     <widget class="QLabel" name="label_3">
-      <property name="toolTip">
-       <string/>
-      </property>
-      <property name="text">
-       <string>End</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="4" rowspan="2">
-     <widget class="QScrollArea" name="scrollArea">
-      <property name="widgetResizable">
-       <bool>true</bool>
-      </property>
-      <widget class="QWidget" name="scrollAreaWidgetContents">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>0</y>
-         <width>126</width>
-         <height>97</height>
-        </rect>
+      </widget>
+     </item>
+     <item row="5" column="1">
+      <widget class="QDialogButtonBox" name="confirmButtonBox">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
        </property>
-       <widget class="QCheckBox" name="mondayCheck">
->>>>>>> origin/beef
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>0</y>
-<<<<<<< HEAD
-          <width>106</width>
-          <height>96</height>
-         </rect>
-        </property>
-        <widget class="QCheckBox" name="chk_mon">
-         <property name="geometry">
-          <rect>
-           <x>0</x>
-           <y>0</y>
-           <width>76</width>
-           <height>16</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>Monday</string>
-         </property>
-        </widget>
-        <widget class="QCheckBox" name="chk_tue">
-         <property name="geometry">
-          <rect>
-           <x>0</x>
-           <y>20</y>
-           <width>76</width>
-           <height>16</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>Tuesday</string>
-         </property>
-        </widget>
-        <widget class="QCheckBox" name="chk_wed">
-         <property name="geometry">
-          <rect>
-           <x>0</x>
-           <y>40</y>
-           <width>81</width>
-           <height>16</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>Wednesday</string>
-         </property>
-        </widget>
-        <widget class="QCheckBox" name="chk_thu">
-         <property name="geometry">
-          <rect>
-           <x>0</x>
-           <y>60</y>
-           <width>76</width>
-           <height>16</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>Thursday</string>
-         </property>
-        </widget>
-        <widget class="QCheckBox" name="chk_fri">
-         <property name="geometry">
-          <rect>
-           <x>0</x>
-           <y>80</y>
-           <width>81</width>
-           <height>16</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>Friday</string>
-         </property>
-        </widget>
-       </widget>
+       <property name="orientation">
+        <enum>Qt::Orientation::Horizontal</enum>
+       </property>
+       <property name="standardButtons">
+        <set>QDialogButtonBox::StandardButton::Cancel|QDialogButtonBox::StandardButton::Ok</set>
+       </property>
       </widget>
      </item>
     </layout>
-   </widget>
-  </widget>
+   </item>
+  </layout>
  </widget>
- <resources/>
- <connections/>
-=======
-          <width>76</width>
-          <height>16</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Monday</string>
-        </property>
-       </widget>
-       <widget class="QCheckBox" name="checkBox">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>20</y>
-          <width>76</width>
-          <height>16</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Tuesday</string>
-        </property>
-       </widget>
-       <widget class="QCheckBox" name="checkBox_2">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>40</y>
-          <width>81</width>
-          <height>16</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Wednesday</string>
-        </property>
-       </widget>
-       <widget class="QCheckBox" name="checkBox_3">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>60</y>
-          <width>76</width>
-          <height>16</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Thursday</string>
-        </property>
-       </widget>
-       <widget class="QCheckBox" name="checkBox_4">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>80</y>
-          <width>76</width>
-          <height>16</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Friday</string>
-        </property>
-       </widget>
-      </widget>
-     </widget>
-    </item>
-   </layout>
-  </widget>
- </widget>
+ <tabstops>
+  <tabstop>friday</tabstop>
+  <tabstop>tuesday</tabstop>
+  <tabstop>wednesday</tabstop>
+  <tabstop>thursday</tabstop>
+ </tabstops>
  <resources/>
  <connections>
   <connection>
-   <sender>buttonBox</sender>
+   <sender>confirmButtonBox</sender>
    <signal>rejected()</signal>
    <receiver>Dialog</receiver>
    <slot>reject()</slot>
@@ -1065,7 +1049,7 @@
    </hints>
   </connection>
   <connection>
-   <sender>buttonBox</sender>
+   <sender>confirmButtonBox</sender>
    <signal>accepted()</signal>
    <receiver>Dialog</receiver>
    <slot>accept()</slot>
@@ -1081,5 +1065,4 @@
    </hints>
   </connection>
  </connections>
->>>>>>> origin/beef
 </ui>

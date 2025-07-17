@@ -42,6 +42,9 @@ void ClassInfoFrame::createFrame(const ClassInfo info){
     setTime(info.startTime, info.endTime);
     setDays(info.days);
     setOnline(info.online);
+
+
+    qDebug() << "After CreateFrame has been called " << ui.toolButton->popupMode() << ", " << ui.toolButton->toolButtonStyle() << ", " << ui.toolButton->arrowType();
 }
 
 void ClassInfoFrame::setClassName(const QString &name){

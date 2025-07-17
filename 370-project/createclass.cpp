@@ -20,12 +20,12 @@ Dialog::Dialog(QWidget *parent)
     disconnect(ui->confirmButtonBox, &QDialogButtonBox::accepted, this, &QDialog::accept);
     disconnect(ui->confirmButtonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
 
-    connect(ui->monday, &QCheckBox::checkStateChanged, this, &Dialog::on_MWF_stateChanged);
-    connect(ui->wednesday, &QCheckBox::checkStateChanged, this, &Dialog::on_MWF_stateChanged);
-    connect(ui->friday, &QCheckBox::checkStateChanged, this, &Dialog::on_MWF_stateChanged);
+    connect(ui->monday, &QCheckBox::checkStateChanged, this, &Dialog::onMWFStateChanged);
+    connect(ui->wednesday, &QCheckBox::checkStateChanged, this, &Dialog::onMWFStateChanged);
+    connect(ui->friday, &QCheckBox::checkStateChanged, this, &Dialog::onMWFStateChanged);
 
-    connect(ui->tuesday, &QCheckBox::checkStateChanged, this, &Dialog::on_TR_stateChanged);
-    connect(ui->thursday, &QCheckBox::checkStateChanged, this, &Dialog::on_TR_stateChanged);
+    connect(ui->tuesday, &QCheckBox::checkStateChanged, this, &Dialog::onTRStateChanged);
+    connect(ui->thursday, &QCheckBox::checkStateChanged, this, &Dialog::onTRStateChanged);
 
     // Create an array of checkboxes
     const auto& children = ui->days->children();
@@ -33,19 +33,6 @@ Dialog::Dialog(QWidget *parent)
         if (QCheckBox* checkbox = qobject_cast<QCheckBox*>(child)) {
             checkboxes.push_back(checkbox);
         }
-    }
-
-    // changes disabled checkboxes to be a nice gray instead of a bright ass neon green
-    for (auto* day : checkboxes){
-        day->setStyleSheet(R"(
-        QCheckBox:disabled {
-            color: gray; /* text color */
-        }
-        QCheckBox::indicator:disabled {
-            background-color: gray; /* box color */
-            border: 1px solid darkgray;
-        }
-    )");
     }
 }
 
@@ -130,7 +117,7 @@ void Dialog::fourDayChecker(QObject *sender, bool disable){
     else { ui->tuesday->setDisabled(disable); }
 }
 
-void Dialog::on_MWF_stateChanged(int arg1)
+void Dialog::onMWFStateChanged(int arg1)
 {
     bool disabled = false;
 
@@ -149,7 +136,7 @@ void Dialog::on_MWF_stateChanged(int arg1)
 
 
 
-void Dialog::on_TR_stateChanged(int arg1)
+void Dialog::onTRStateChanged(int arg1)
 {
     bool disabled = false;
 

@@ -49,9 +49,9 @@ private slots:
 
     void fourDayChecker(QObject *sender, bool disable);
 
-    void on_MWF_stateChanged(int arg1);
+    void onMWFStateChanged(int arg1);
 
-    void on_TR_stateChanged(int arg1);
+    void onTRStateChanged(int arg1);
 
     void createClass();
 

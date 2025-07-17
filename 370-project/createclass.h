@@ -61,6 +61,8 @@ private slots:
 
     void on_timeStop_userTimeChanged(const QTime &time);
 
+    void on_onlineCheckBox_stateChanged(int arg1);
+
 private:
     Ui::Dialog *ui;
     QStringListModel *model;

@@ -159,10 +159,17 @@ C:/Users/coleo/Desktop/CS370-Team3-Github/370-project/370-Project/build/Desktop_
   C:/Qt/6.9.1/mingw_64/include/QtGui/qwindowdefs_win.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QCheckBox \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QDialog \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QFrame \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QMainWindow \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QVBoxLayout \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qabstractbutton.h \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qboxlayout.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qcheckbox.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qdialog.h \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qframe.h \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgridlayout.h \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlayout.h \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlayoutitem.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qmainwindow.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qsizepolicy.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtabwidget.h \
@@ -381,4 +388,5 @@ C:/Users/coleo/Desktop/CS370-Team3-Github/370-project/370-Project/build/Desktop_
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/time.h \
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h \
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
+  C:/Users/coleo/Desktop/CS370-Team3-Github/370-project/class_info_unit.h \
   C:/Users/coleo/Desktop/CS370-Team3-Github/370-project/createclass.h

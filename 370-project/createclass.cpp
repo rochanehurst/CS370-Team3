@@ -78,22 +78,35 @@ void Dialog::createClass()
 {
     classInfo.school = ui->schoolComboBox->currentText();
     classInfo.name = ui->className->text();
-    classInfo.building = ui->buildingName->text();
+
+    if (ui->onlineCheckBox->isChecked()){ classInfo.building = "Online Class"; }
+    else { classInfo.building = ui->buildingName->text(); }
+
     classInfo.startTime = ui->timeStart->text();
     classInfo.endTime = ui->timeStop->text();
     classInfo.days = dayStringCreate();
     classInfo.online = ui->onlineCheckBox->isChecked();
 
+    mwf = 0;
+    tuth = 0;
 }
 
 void Dialog::on_confirmButtonBox_accepted()
 {
-    if ((mwf + tuth) > 0){
-        createClass();
-        accept();
+    if (ui->className->text().isEmpty()){
+        QMessageBox::critical(this, "Error", "Enter class name");
         return;
     }
-    QMessageBox::critical(this, "Error", "No day selected");
+    if (ui->buildingName->text().isEmpty() && !ui->onlineCheckBox->isChecked()){
+        QMessageBox::critical(this, "Error", "Enter building name");
+        return;
+    }
+    if ((mwf + tuth) <= 0){
+        QMessageBox::critical(this, "Error", "Select a day");
+        return;
+    }
+    createClass();
+    accept();
 }
 
 
@@ -110,14 +123,12 @@ void Dialog::on_confirmButtonBox_rejected()
     }
 }
 
-
 // prevents all days from being checked
 void Dialog::fourDayChecker(QObject *sender, bool disable){
     QCheckBox* checkbox = qobject_cast<QCheckBox*>(sender);
     if (checkbox->objectName() == "tuesday"){ ui->thursday->setDisabled(disable); }
     else { ui->tuesday->setDisabled(disable); }
 }
-
 
 void Dialog::on_MWF_stateChanged(int arg1)
 {
@@ -177,3 +188,20 @@ void Dialog::on_timeStop_userTimeChanged(const QTime &time)
         ui->timeStart->setTime(otherTime);
     }
 }
+
+void Dialog::on_onlineCheckBox_stateChanged(int arg1)
+{
+    switch(arg1){
+        case 0:
+            ui->buildingName->setDisabled(false);
+            break;
+        case 2:
+            ui->buildingName->setDisabled(true);
+            break;
+        default:
+            ui->buildingName->setDisabled(false);
+            break;
+    }
+
+}
+

@@ -34,6 +34,65 @@ Dialog::Dialog(QWidget *parent)
             checkboxes.push_back(checkbox);
         }
     }
+    mwf = 0;
+    tuth = 0;
+}
+
+Dialog::Dialog(ClassInfo info, QWidget *parent)
+    : QDialog(parent)
+    , ui(new Ui::Dialog)
+{
+    ui->setupUi(this);
+    setWindowTitle("Edit Class");
+
+    // Allows pop up warnings without closing window
+    disconnect(ui->confirmButtonBox, &QDialogButtonBox::accepted, this, &QDialog::accept);
+    disconnect(ui->confirmButtonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
+
+    connect(ui->monday, &QCheckBox::checkStateChanged, this, &Dialog::onMWFStateChanged);
+    connect(ui->wednesday, &QCheckBox::checkStateChanged, this, &Dialog::onMWFStateChanged);
+    connect(ui->friday, &QCheckBox::checkStateChanged, this, &Dialog::onMWFStateChanged);
+
+    connect(ui->tuesday, &QCheckBox::checkStateChanged, this, &Dialog::onTRStateChanged);
+    connect(ui->thursday, &QCheckBox::checkStateChanged, this, &Dialog::onTRStateChanged);
+
+    // Create an array of checkboxes
+    const auto& children = ui->days->children();
+    for (QObject* child : children) {
+        if (QCheckBox* checkbox = qobject_cast<QCheckBox*>(child)) {
+            checkboxes.push_back(checkbox);
+        }
+    }
+    mwf = 0;
+    tuth = 0;
+    editClass(info);
+}
+
+void Dialog::editClass(ClassInfo info){
+    ui->className->setText(info.name);
+    ui->buildingName->setText(info.building);
+
+    Qt::CheckState online_state = Qt::Unchecked;
+    if (info.online) { online_state = Qt::Checked; }
+    ui->onlineCheckBox->setCheckState(online_state);
+
+    QString format = "h:mm AP";
+    ui->timeStart->setTime(QTime::fromString(info.startTime, format));
+    ui->timeStop->setTime(QTime::fromString(info.endTime, format));
+
+    bool tuesday = false, thursday = false;
+
+    for (QChar const day : info.days){
+        // High chance there is a better way to do this, I'm just too dumb
+        if (day == "M") { ui->monday->setCheckState(Qt::Checked);}
+        if (day == "T") { tuesday = true; }
+        if (day == "W") { ui->wednesday->setCheckState(Qt::Checked); }
+        if (day == "R") { thursday = true; }
+        if (day == "F") { ui->friday->setCheckState(Qt::Checked); }
+    }
+    if (tuesday) { ui->tuesday->setCheckState(Qt::Checked); }
+    if (thursday) { ui->thursday->setCheckState(Qt::Checked); }
+
 }
 
 Dialog::~Dialog()

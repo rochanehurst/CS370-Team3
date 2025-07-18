@@ -33,7 +33,6 @@ ClassInfoFrame::ClassInfoFrame(QWidget* parent): QFrame(parent)
 }
 
 void ClassInfoFrame::editFrame(){
-    qDebug() << "Gonna edit, I swear it";
     Dialog editor(getData());
     editor.setModal(true);
     if (editor.exec() == QDialog::Accepted) { createFrame(editor.getData()); }

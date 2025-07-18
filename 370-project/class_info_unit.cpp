@@ -16,14 +16,24 @@ ClassInfoFrame::ClassInfoFrame(QWidget* parent): QFrame(parent)
     QMenu* menu = new QMenu(this);
     menu->addAction("Edit", this, SLOT(option1()));
     menu->addAction("Delete", this, SLOT(option2()));
-
     ui.toolButton->setMenu(menu);
+
+    /* DEBUG Tools
+    QToolButton::ToolButtonPopupMode ClassInfoFrame::getPopup(){
+        return ui.toolButton->popupMode();
+    }
+    Qt::ToolButtonStyle ClassInfoFrame::getButtonText(){
+        return ui.toolButton->toolButtonStyle();
+    }
+    Qt::ArrowType ClassInfoFrame::ArrowType(){
+        return ui.toolButton->arrowType();
+    }
+    */
 }
 
 ClassInfo ClassInfoFrame::getData(){
     return data;
 }
-
 
 void ClassInfoFrame::createFrame(const ClassInfo info){
     data = info;

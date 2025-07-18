@@ -55,9 +55,9 @@
      <colorrole role="Dark">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>170</red>
-        <green>255</green>
-        <blue>0</blue>
+        <red>111</red>
+        <green>111</green>
+        <blue>111</blue>
        </color>
       </brush>
      </colorrole>
@@ -210,9 +210,9 @@
      <colorrole role="Dark">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>170</red>
-        <green>255</green>
-        <blue>0</blue>
+        <red>111</red>
+        <green>111</green>
+        <blue>111</blue>
        </color>
       </brush>
      </colorrole>
@@ -347,9 +347,9 @@
      <colorrole role="WindowText">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>170</red>
-        <green>255</green>
-        <blue>0</blue>
+        <red>111</red>
+        <green>111</green>
+        <blue>111</blue>
        </color>
       </brush>
      </colorrole>
@@ -374,9 +374,9 @@
      <colorrole role="Dark">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>170</red>
-        <green>255</green>
-        <blue>0</blue>
+        <red>111</red>
+        <green>111</green>
+        <blue>111</blue>
        </color>
       </brush>
      </colorrole>
@@ -392,9 +392,9 @@
      <colorrole role="Text">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>170</red>
-        <green>255</green>
-        <blue>0</blue>
+        <red>111</red>
+        <green>111</green>
+        <blue>111</blue>
        </color>
       </brush>
      </colorrole>
@@ -410,9 +410,9 @@
      <colorrole role="ButtonText">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>170</red>
-        <green>255</green>
-        <blue>0</blue>
+        <red>111</red>
+        <green>111</green>
+        <blue>111</blue>
        </color>
       </brush>
      </colorrole>
@@ -501,7 +501,11 @@
    </palette>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Creat Class</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="resources.qrc">
+    <normaloff>:/icons/icons/Create Class Icon Placeholder.png</normaloff>:/icons/icons/Create Class Icon Placeholder.png</iconset>
   </property>
   <property name="toolTip">
    <string/>
@@ -1036,7 +1040,9 @@
   <tabstop>wednesday</tabstop>
   <tabstop>thursday</tabstop>
  </tabstops>
- <resources/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>confirmButtonBox</sender>

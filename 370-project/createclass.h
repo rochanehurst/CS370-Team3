@@ -49,9 +49,9 @@ private slots:
 
     void fourDayChecker(QObject *sender, bool disable);
 
-    void on_MWF_stateChanged(int arg1);
+    void onMWFStateChanged(int arg1);
 
-    void on_TR_stateChanged(int arg1);
+    void onTRStateChanged(int arg1);
 
     void createClass();
 
@@ -60,6 +60,8 @@ private slots:
     void on_timeStart_userTimeChanged(const QTime &time);
 
     void on_timeStop_userTimeChanged(const QTime &time);
+
+    void on_onlineCheckBox_stateChanged(int arg1);
 
 private:
     Ui::Dialog *ui;

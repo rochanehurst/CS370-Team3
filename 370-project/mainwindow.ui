@@ -40,9 +40,9 @@
      <colorrole role="Dark">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>170</red>
-        <green>255</green>
-        <blue>0</blue>
+        <red>111</red>
+        <green>111</green>
+        <blue>111</blue>
        </color>
       </brush>
      </colorrole>
@@ -67,8 +67,8 @@
      <colorrole role="BrightText">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>170</red>
-        <green>255</green>
+        <red>255</red>
+        <green>0</green>
         <blue>0</blue>
        </color>
       </brush>
@@ -195,9 +195,9 @@
      <colorrole role="Dark">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>170</red>
-        <green>255</green>
-        <blue>0</blue>
+        <red>111</red>
+        <green>111</green>
+        <blue>111</blue>
        </color>
       </brush>
      </colorrole>
@@ -222,8 +222,8 @@
      <colorrole role="BrightText">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>170</red>
-        <green>255</green>
+        <red>255</red>
+        <green>0</green>
         <blue>0</blue>
        </color>
       </brush>
@@ -332,9 +332,9 @@
      <colorrole role="WindowText">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>170</red>
-        <green>255</green>
-        <blue>0</blue>
+        <red>111</red>
+        <green>111</green>
+        <blue>111</blue>
        </color>
       </brush>
      </colorrole>
@@ -359,9 +359,9 @@
      <colorrole role="Dark">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>170</red>
-        <green>255</green>
-        <blue>0</blue>
+        <red>111</red>
+        <green>111</green>
+        <blue>111</blue>
        </color>
       </brush>
      </colorrole>
@@ -377,17 +377,17 @@
      <colorrole role="Text">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>170</red>
-        <green>255</green>
-        <blue>0</blue>
+        <red>111</red>
+        <green>111</green>
+        <blue>111</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="BrightText">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>170</red>
-        <green>255</green>
+        <red>255</red>
+        <green>0</green>
         <blue>0</blue>
        </color>
       </brush>
@@ -395,9 +395,9 @@
      <colorrole role="ButtonText">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>170</red>
-        <green>255</green>
-        <blue>0</blue>
+        <red>111</red>
+        <green>111</green>
+        <blue>111</blue>
        </color>
       </brush>
      </colorrole>
@@ -491,7 +491,14 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Cluster Scheduling App</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="resources.qrc">
+    <normaloff>:/icons/icons/Cluster Window Icon Placeholder.png</normaloff>:/icons/icons/Cluster Window Icon Placeholder.png</iconset>
+  </property>
+  <property name="toolButtonStyle">
+   <enum>Qt::ToolButtonStyle::ToolButtonTextOnly</enum>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="classCreatorButton">
@@ -504,7 +511,7 @@
      </rect>
     </property>
     <property name="sizePolicy">
-     <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
       <horstretch>0</horstretch>
       <verstretch>0</verstretch>
      </sizepolicy>
@@ -520,6 +527,17 @@
       <family>Lucida Console</family>
       <pointsize>24</pointsize>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	background-color: rgb(11, 40, 85);
+	color: white;
+}
+
+QPushButton:hover {
+	background-color: rgb(5, 20, 40);
+	color: white;
+}</string>
     </property>
     <property name="text">
      <string>+</string>
@@ -580,6 +598,8 @@
    </widget>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

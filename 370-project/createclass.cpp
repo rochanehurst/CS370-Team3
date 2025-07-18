@@ -81,15 +81,15 @@ void Dialog::createClass()
 void Dialog::on_confirmButtonBox_accepted()
 {
     if (ui->className->text().isEmpty()){
-        QMessageBox::critical(this, "Error", "Enter class name");
+        QMessageBox::critical(this, "Error", "Please enter a class name.");
         return;
     }
     if (ui->buildingName->text().isEmpty() && !ui->onlineCheckBox->isChecked()){
-        QMessageBox::critical(this, "Error", "Enter building name");
+        QMessageBox::critical(this, "Error", "Please enter a building name");
         return;
     }
     if ((mwf + tuth) <= 0){
-        QMessageBox::critical(this, "Error", "Select a day");
+        QMessageBox::critical(this, "Error", "You must choose at least one day.");
         return;
     }
     createClass();

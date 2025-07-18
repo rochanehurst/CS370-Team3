@@ -675,6 +675,15 @@ QLabel:hover{
           </color>
          </brush>
         </colorrole>
+        <colorrole role="Highlight">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>31</red>
+           <green>155</green>
+           <blue>93</blue>
+          </color>
+         </brush>
+        </colorrole>
         <colorrole role="PlaceholderText">
          <brush brushstyle="SolidPattern">
           <color alpha="128">
@@ -737,6 +746,15 @@ QLabel:hover{
            <red>11</red>
            <green>40</green>
            <blue>85</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Highlight">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>31</red>
+           <green>155</green>
+           <blue>93</blue>
           </color>
          </brush>
         </colorrole>
@@ -805,6 +823,15 @@ QLabel:hover{
           </color>
          </brush>
         </colorrole>
+        <colorrole role="Highlight">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>31</red>
+           <green>155</green>
+           <blue>93</blue>
+          </color>
+         </brush>
+        </colorrole>
         <colorrole role="PlaceholderText">
          <brush brushstyle="SolidPattern">
           <color alpha="128">
@@ -835,11 +862,14 @@ QToolButton::menu-indicator{
      <property name="text">
       <string>...</string>
      </property>
+     <property name="icon">
+      <iconset theme="QIcon::ThemeIcon::DocumentProperties"/>
+     </property>
      <property name="popupMode">
       <enum>QToolButton::ToolButtonPopupMode::InstantPopup</enum>
      </property>
      <property name="toolButtonStyle">
-      <enum>Qt::ToolButtonStyle::ToolButtonTextBesideIcon</enum>
+      <enum>Qt::ToolButtonStyle::ToolButtonIconOnly</enum>
      </property>
      <property name="arrowType">
       <enum>Qt::ArrowType::NoArrow</enum>

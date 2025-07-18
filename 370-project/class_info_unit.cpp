@@ -56,7 +56,9 @@ void ClassInfoFrame::createFrame(const ClassInfo info){
 }
 
 void ClassInfoFrame::setClassName(const QString &name){
-    ui.class_name_label->setText(name);
+    QString name_shortened = name;
+    if (name.length() > 16){ name_shortened = name_shortened.left(13) + "..."; }
+    ui.class_name_label->setText(name_shortened);
 }
 
 void ClassInfoFrame::setLocation(const QString &location){

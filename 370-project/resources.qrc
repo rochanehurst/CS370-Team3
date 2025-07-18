@@ -2,5 +2,6 @@
     <qresource prefix="/icons">
         <file>icons/Cluster Window Icon Placeholder.png</file>
         <file>icons/Create Class Icon Placeholder.png</file>
+        <file>icons/green-pencil-isolated-on-white-png.png</file>
     </qresource>
 </RCC>

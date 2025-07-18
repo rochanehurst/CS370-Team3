@@ -44,6 +44,8 @@ Dialog::Dialog(ClassInfo info, QWidget *parent)
 {
     ui->setupUi(this);
     setWindowTitle("Edit Class");
+    QIcon icon(":/icons/icons/green-pencil-isolated-on-white-png.png");
+    setWindowIcon(icon);
 
     // Allows pop up warnings without closing window
     disconnect(ui->confirmButtonBox, &QDialogButtonBox::accepted, this, &QDialog::accept);

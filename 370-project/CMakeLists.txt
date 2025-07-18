@@ -29,6 +29,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         class_info_unit.ui
         class_info_unit.h
         class_info_unit.cpp
+        resources.qrc
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET 370-Project APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR

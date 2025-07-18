@@ -37,11 +37,14 @@ class Dialog : public QDialog
 
 public:
     explicit Dialog(QWidget *parent = nullptr);
+    explicit Dialog(ClassInfo info, QWidget *parent = nullptr);
     ~Dialog();
 
     ClassInfo getData() const;
 
 private slots:
+
+    void editClass(ClassInfo info);
 
     void on_confirmButtonBox_accepted();
 

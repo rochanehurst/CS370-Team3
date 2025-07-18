@@ -26,6 +26,9 @@ private slots:
     void setDays(const QString &days);
     void setOnline(const bool &online);
 
+    void editFrame();
+    void deleteFrame();
+
 private:
     Ui::class_info_frame ui;
     ClassInfo data;

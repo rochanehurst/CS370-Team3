@@ -1,5 +1,6 @@
 #include "class_info_unit.h"
 #include "ui_class_info_unit.h"
+#include "createclass.h"
 
 #include <QMenu>
 
@@ -14,8 +15,8 @@ ClassInfoFrame::ClassInfoFrame(QWidget* parent): QFrame(parent)
 
     // Create tool button options
     QMenu* menu = new QMenu(this);
-    menu->addAction("Edit", this, SLOT(option1()));
-    menu->addAction("Delete", this, SLOT(option2()));
+    menu->addAction("Edit", this, SLOT(editFrame()));
+    menu->addAction("Delete", this, SLOT(deleteFrame()));
     ui.toolButton->setMenu(menu);
 
     /* DEBUG Tools
@@ -29,6 +30,17 @@ ClassInfoFrame::ClassInfoFrame(QWidget* parent): QFrame(parent)
         return ui.toolButton->arrowType();
     }
     */
+}
+
+void ClassInfoFrame::editFrame(){
+    qDebug() << "Gonna edit, I swear it";
+    Dialog editor(getData());
+    editor.setModal(true);
+    if (editor.exec() == QDialog::Accepted) { createFrame(editor.getData()); }
+}
+
+void ClassInfoFrame::deleteFrame(){
+    qDebug() << "Gonna delete it, I swear it";
 }
 
 ClassInfo ClassInfoFrame::getData(){

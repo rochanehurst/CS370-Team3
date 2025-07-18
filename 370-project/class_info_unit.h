@@ -14,6 +14,11 @@ public:
     void createFrame(const ClassInfo class_info);
     ClassInfo getData();
 
+    // Some Debug Tools
+    // QToolButton::ToolButtonPopupMode getPopup();
+    // Qt::ToolButtonStyle getButtonText();
+    // Qt::ArrowType ArrowType();
+
 private slots:
     void setClassName(const QString &name);
     void setLocation(const QString &location);

@@ -1,3 +1,4 @@
+// createclass.cpp
 #include "createclass.h"
 #include "ui_createclass.h"
 
@@ -15,49 +16,51 @@ Dialog::Dialog(QWidget *parent)
 {
     ui->setupUi(this);
     setWindowTitle("Create Class");
-
-    // Allows pop up warnings without closing window
-    disconnect(ui->confirmButtonBox, &QDialogButtonBox::accepted, this, &QDialog::accept);
-    disconnect(ui->confirmButtonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
-
-    connect(ui->monday, &QCheckBox::checkStateChanged, this, &Dialog::onMWFStateChanged);
-    connect(ui->wednesday, &QCheckBox::checkStateChanged, this, &Dialog::onMWFStateChanged);
-    connect(ui->friday, &QCheckBox::checkStateChanged, this, &Dialog::onMWFStateChanged);
-
-    connect(ui->tuesday, &QCheckBox::checkStateChanged, this, &Dialog::onTRStateChanged);
-    connect(ui->thursday, &QCheckBox::checkStateChanged, this, &Dialog::onTRStateChanged);
-
-    // Create an array of checkboxes
-    const auto& children = ui->days->children();
-    for (QObject* child : children) {
-        if (QCheckBox* checkbox = qobject_cast<QCheckBox*>(child)) {
-            checkboxes.push_back(checkbox);
-        }
-    }
-    mwf = 0;
-    tuth = 0;
+    setupConnections();
+    setupCheckboxes();
+    resetCounters();
 }
 
-Dialog::Dialog(ClassInfo info, QWidget *parent)
+Dialog::Dialog(const ClassInfo &info, QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::Dialog)
 {
     ui->setupUi(this);
     setWindowTitle("Edit Class");
-    QIcon icon(":/icons/icons/green-pencil-isolated-on-white-png.png");
+
+    QIcon icon(":/icons/icons/sign-up-icon-signup-square-box-on-transparent-background-free-png.png");
     setWindowIcon(icon);
 
-    // Allows pop up warnings without closing window
+    setupConnections();
+    setupCheckboxes();
+    resetCounters();
+    editClass(info);
+}
+
+Dialog::~Dialog()
+{
+    delete ui;
+}
+
+// Allows pop up warnings without closing window
+void Dialog::setupConnections(){
     disconnect(ui->confirmButtonBox, &QDialogButtonBox::accepted, this, &QDialog::accept);
     disconnect(ui->confirmButtonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
+
+    connect(ui->confirmButtonBox, &QDialogButtonBox::accepted, this, &Dialog::handleConfirmAccepted);
+    connect(ui->confirmButtonBox, &QDialogButtonBox::rejected, this, &Dialog::handleConfirmRejected);
+    connect(ui->timeStart, &QTimeEdit::userTimeChanged, this, &Dialog::startTimeChangeHandler);
+    connect(ui->timeStop, &QTimeEdit::userTimeChanged, this, &Dialog::endTimeChangeHandler);
+    connect(ui->onlineCheckBox, &QCheckBox::checkStateChanged, this, &Dialog::onlineStateChangeHandler);
 
     connect(ui->monday, &QCheckBox::checkStateChanged, this, &Dialog::onMWFStateChanged);
     connect(ui->wednesday, &QCheckBox::checkStateChanged, this, &Dialog::onMWFStateChanged);
     connect(ui->friday, &QCheckBox::checkStateChanged, this, &Dialog::onMWFStateChanged);
-
     connect(ui->tuesday, &QCheckBox::checkStateChanged, this, &Dialog::onTRStateChanged);
     connect(ui->thursday, &QCheckBox::checkStateChanged, this, &Dialog::onTRStateChanged);
+}
 
+void Dialog::setupCheckboxes(){
     // Create an array of checkboxes
     const auto& children = ui->days->children();
     for (QObject* child : children) {
@@ -65,9 +68,11 @@ Dialog::Dialog(ClassInfo info, QWidget *parent)
             checkboxes.push_back(checkbox);
         }
     }
+}
+
+void Dialog::resetCounters(){
     mwf = 0;
     tuth = 0;
-    editClass(info);
 }
 
 void Dialog::editClass(ClassInfo info){
@@ -84,7 +89,7 @@ void Dialog::editClass(ClassInfo info){
 
     bool tuesday = false, thursday = false;
 
-    for (QChar const day : info.days){
+    for (const QChar &day : info.days){
         // High chance there is a better way to do this, I'm just too dumb
         if (day == "M") { ui->monday->setCheckState(Qt::Checked);}
         if (day == "T") { tuesday = true; }
@@ -97,14 +102,10 @@ void Dialog::editClass(ClassInfo info){
 
 }
 
-Dialog::~Dialog()
-{
-    delete ui;
-}
 
 QString Dialog::dayStringCreate(){
     QString dayString;
-    for (QCheckBox* const day : checkboxes){
+    for (const QCheckBox* day : checkboxes){
         if (day->isChecked()){
             // High chance there is a better way to do this, I'm just too dumb
             if (day->objectName() == "monday") { dayString.append("M"); }
@@ -121,7 +122,6 @@ ClassInfo Dialog::getData() const {
     return classInfo;
 }
 
-
 void Dialog::createClass()
 {
     classInfo.school = ui->schoolComboBox->currentText();
@@ -135,11 +135,10 @@ void Dialog::createClass()
     classInfo.days = dayStringCreate();
     classInfo.online = ui->onlineCheckBox->isChecked();
 
-    mwf = 0;
-    tuth = 0;
+    resetCounters();
 }
 
-void Dialog::on_confirmButtonBox_accepted()
+void Dialog::handleConfirmAccepted()
 {
     if (ui->className->text().isEmpty()){
         QMessageBox::critical(this, "Error", "Enter class name");
@@ -158,7 +157,7 @@ void Dialog::on_confirmButtonBox_accepted()
 }
 
 
-void Dialog::on_confirmButtonBox_rejected()
+void Dialog::handleConfirmRejected()
 {
     auto accepted = QMessageBox::question(
         this,
@@ -218,7 +217,7 @@ void Dialog::onTRStateChanged(int arg1)
 }
 
 // prevents time start from being higher than time stop
-void Dialog::on_timeStart_userTimeChanged(const QTime &time)
+void Dialog::startTimeChangeHandler(const QTime &time)
 {
     QTime otherTime = ui->timeStop->time();
     if (time.hour() >= otherTime.hour()){
@@ -228,7 +227,7 @@ void Dialog::on_timeStart_userTimeChanged(const QTime &time)
 }
 
 // prevents time stop from being lower than time start
-void Dialog::on_timeStop_userTimeChanged(const QTime &time)
+void Dialog::endTimeChangeHandler(const QTime &time)
 {
     QTime otherTime = ui->timeStart->time();
     if (time.hour() <= otherTime.hour()){
@@ -237,7 +236,7 @@ void Dialog::on_timeStop_userTimeChanged(const QTime &time)
     }
 }
 
-void Dialog::on_onlineCheckBox_stateChanged(int arg1)
+void Dialog::onlineStateChangeHandler(int arg1)
 {
     switch(arg1){
         case 0:

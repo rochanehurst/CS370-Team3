@@ -1,5 +1,6 @@
 C:/Users/coleo/Desktop/CS370-Team3-Github/370-project/370-Project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-Project_autogen/EWIEGA46WW/moc_mainwindow.cpp: C:/Users/coleo/Desktop/CS370-Team3-Github/370-project/mainwindow.h \
   C:/Users/coleo/Desktop/CS370-Team3-Github/370-project/370-Project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-Project_autogen/moc_predefs.h \
+  C:/Qt/6.9.1/mingw_64/include/QtCore/QDebug \
   C:/Qt/6.9.1/mingw_64/include/QtCore/QObject \
   C:/Qt/6.9.1/mingw_64/include/QtCore/QStringListModel \
   C:/Qt/6.9.1/mingw_64/include/QtCore/QVector \

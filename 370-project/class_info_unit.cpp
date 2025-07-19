@@ -4,11 +4,6 @@
 
 #include <QMenu>
 
-// There is a quirk with the tool button
-// When you click it, the text inside the button disappears
-// It functions normally, you can select and read the menus just fine
-// The "..." disappears
-
 ClassInfoFrame::ClassInfoFrame(QWidget* parent): QFrame(parent)
 {
     ui.setupUi(this);
@@ -18,32 +13,6 @@ ClassInfoFrame::ClassInfoFrame(QWidget* parent): QFrame(parent)
     menu->addAction("Edit", this, SLOT(editFrame()));
     menu->addAction("Delete", this, SLOT(deleteFrame()));
     ui.toolButton->setMenu(menu);
-
-    /* DEBUG Tools
-    QToolButton::ToolButtonPopupMode ClassInfoFrame::getPopup(){
-        return ui.toolButton->popupMode();
-    }
-    Qt::ToolButtonStyle ClassInfoFrame::getButtonText(){
-        return ui.toolButton->toolButtonStyle();
-    }
-    Qt::ArrowType ClassInfoFrame::ArrowType(){
-        return ui.toolButton->arrowType();
-    }
-    */
-}
-
-void ClassInfoFrame::editFrame(){
-    Dialog editor(getData());
-    editor.setModal(true);
-    if (editor.exec() == QDialog::Accepted) { createFrame(editor.getData()); }
-}
-
-void ClassInfoFrame::deleteFrame(){
-    qDebug() << "Gonna delete it, I swear it";
-}
-
-ClassInfo ClassInfoFrame::getData(){
-    return data;
 }
 
 void ClassInfoFrame::createFrame(const ClassInfo info){
@@ -53,7 +22,30 @@ void ClassInfoFrame::createFrame(const ClassInfo info){
     setTime(info.startTime, info.endTime);
     setDays(info.days);
     setOnline(info.online);
+
+    setIcon();
 }
+
+ClassInfo ClassInfoFrame::getData(){
+    return data;
+}
+
+void ClassInfoFrame::editFrame(){
+    Dialog editor(getData());
+    editor.setModal(true);
+    if (editor.exec() == QDialog::Accepted) { createFrame(editor.getData()); }
+}
+
+void ClassInfoFrame::deleteFrame(){
+    this->deleteLater();
+}
+
+void ClassInfoFrame::setIcon(){
+    QIcon icon(":/icons/icons/Windows_Settings_app_icon.png");
+    ui.toolButton->setIcon(icon);
+    ui.toolButton->setIconSize(QSize(24,24));
+}
+
 
 void ClassInfoFrame::setClassName(const QString &name){
     QString name_shortened = name;

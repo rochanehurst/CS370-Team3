@@ -820,6 +820,9 @@ QLabel:hover{
        </disabled>
       </palette>
      </property>
+     <property name="toolTip">
+      <string>Options</string>
+     </property>
      <property name="styleSheet">
       <string notr="true">QToolButton {
 	background-color: rgb(11, 40, 85);
@@ -836,13 +839,23 @@ QToolButton::menu-indicator{
 }</string>
      </property>
      <property name="text">
-      <string>...</string>
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>icons/Windows_Settings_app_icon.png</normaloff>icons/Windows_Settings_app_icon.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>24</width>
+       <height>24</height>
+      </size>
      </property>
      <property name="popupMode">
       <enum>QToolButton::ToolButtonPopupMode::InstantPopup</enum>
      </property>
      <property name="toolButtonStyle">
-      <enum>Qt::ToolButtonStyle::ToolButtonTextBesideIcon</enum>
+      <enum>Qt::ToolButtonStyle::ToolButtonIconOnly</enum>
      </property>
      <property name="arrowType">
       <enum>Qt::ArrowType::NoArrow</enum>

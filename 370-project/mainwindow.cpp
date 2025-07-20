@@ -11,8 +11,9 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    connect(ui->classCreatorButton, &QAbstractButton::clicked, this, &MainWindow::createClassButtonHandler);
 
-    // initalize layout in scroll area
+    // Initalize layout in scroll area
     classListLayout = qobject_cast<QVBoxLayout*>(ui->scrollAreaWidgetContents->layout());
     if (!classListLayout){
         classListLayout = new QVBoxLayout(ui->scrollAreaWidgetContents);
@@ -23,6 +24,9 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
+    // Call save data
+    // Will save data before closing
+    // One problem: will not save if program crashes
     delete ui;
 }
 
@@ -38,22 +42,19 @@ void MainWindow::createClassFrame(const ClassInfo& class_info)
 
 void MainWindow::editClassFrame(ClassInfoFrame* class_data){
     // TODO
-    // Should be almost identical to on_classCreatorButton_clicked()
+    // Should be almost identical to createClassButtonHandler()
     // Form should be filled out with class_data_info
     ClassInfo edit_data = class_data->getData();
-
-    // Use edit_data to fill out create class form
 }
 
 void MainWindow::deleteClassFrame(ClassInfoFrame* class_data)
 {
     // TODO
-    // Connect with toolbox menu
     // Remove from save file
     classListLayout->removeWidget(class_data);
 }
 
-void MainWindow::on_classCreatorButton_clicked()
+void MainWindow::createClassButtonHandler()
 {
     Dialog classCreator;
     classCreator.setModal(true);

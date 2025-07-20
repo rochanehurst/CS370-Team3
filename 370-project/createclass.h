@@ -1,9 +1,11 @@
+// createclass.h
 #ifndef CREATECLASS_H
 #define CREATECLASS_H
 
 #include <QDialog>
 #include <QStringListModel>
 #include <QCheckBox>
+#include <QDebug>
 
 using namespace std;
 
@@ -37,15 +39,21 @@ class Dialog : public QDialog
 
 public:
     explicit Dialog(QWidget *parent = nullptr);
+
+    explicit Dialog(const ClassInfo &info, QWidget *parent = nullptr);
+
     ~Dialog();
 
     ClassInfo getData() const;
 
 private slots:
+    void createClass();
 
-    void on_confirmButtonBox_accepted();
+    void editClass(ClassInfo info);
 
-    void on_confirmButtonBox_rejected();
+    void handleConfirmAccepted();
+
+    void handleConfirmRejected();
 
     void fourDayChecker(QObject *sender, bool disable);
 
@@ -53,21 +61,29 @@ private slots:
 
     void onTRStateChanged(int arg1);
 
-    void createClass();
+    void setupConnections();
+
+    void setupCheckboxes();
+
+    void resetCounters();
+
+    void startTimeChangeHandler(const QTime &time);
+
+    void endTimeChangeHandler(const QTime &time);
+
+    void onlineStateChangeHandler(int arg1);
 
     QString dayStringCreate();
 
-    void on_timeStart_userTimeChanged(const QTime &time);
-
-    void on_timeStop_userTimeChanged(const QTime &time);
-
-    void on_onlineCheckBox_stateChanged(int arg1);
-
 private:
     Ui::Dialog *ui;
+
     QStringListModel *model;
+
     QVector<QCheckBox*> checkboxes;
+
     ClassInfo classInfo;
+
 };
 
 #endif // CREATECLASS_H

@@ -596,6 +596,9 @@ QLabel:hover{
      <property name="text">
       <string>CLASS NAME</string>
      </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
     </widget>
    </item>
    <item row="0" column="2" alignment="Qt::AlignmentFlag::AlignRight">
@@ -675,15 +678,6 @@ QLabel:hover{
           </color>
          </brush>
         </colorrole>
-        <colorrole role="Highlight">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>31</red>
-           <green>155</green>
-           <blue>93</blue>
-          </color>
-         </brush>
-        </colorrole>
         <colorrole role="PlaceholderText">
          <brush brushstyle="SolidPattern">
           <color alpha="128">
@@ -746,15 +740,6 @@ QLabel:hover{
            <red>11</red>
            <green>40</green>
            <blue>85</blue>
-          </color>
-         </brush>
-        </colorrole>
-        <colorrole role="Highlight">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>31</red>
-           <green>155</green>
-           <blue>93</blue>
           </color>
          </brush>
         </colorrole>
@@ -823,15 +808,6 @@ QLabel:hover{
           </color>
          </brush>
         </colorrole>
-        <colorrole role="Highlight">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>31</red>
-           <green>155</green>
-           <blue>93</blue>
-          </color>
-         </brush>
-        </colorrole>
         <colorrole role="PlaceholderText">
          <brush brushstyle="SolidPattern">
           <color alpha="128">
@@ -843,6 +819,9 @@ QLabel:hover{
         </colorrole>
        </disabled>
       </palette>
+     </property>
+     <property name="toolTip">
+      <string>Options</string>
      </property>
      <property name="styleSheet">
       <string notr="true">QToolButton {
@@ -860,10 +839,17 @@ QToolButton::menu-indicator{
 }</string>
      </property>
      <property name="text">
-      <string>...</string>
+      <string/>
      </property>
      <property name="icon">
-      <iconset theme="QIcon::ThemeIcon::DocumentProperties"/>
+      <iconset>
+       <normaloff>icons/Windows_Settings_app_icon.png</normaloff>icons/Windows_Settings_app_icon.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>24</width>
+       <height>24</height>
+      </size>
      </property>
      <property name="popupMode">
       <enum>QToolButton::ToolButtonPopupMode::InstantPopup</enum>

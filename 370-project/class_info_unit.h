@@ -11,23 +11,31 @@ class ClassInfoFrame : public QFrame
 
 public:
     explicit ClassInfoFrame(QWidget* parent = nullptr);
-    void createFrame(const ClassInfo class_info);
-    ClassInfo getData();
 
-    // Some Debug Tools
-    // QToolButton::ToolButtonPopupMode getPopup();
-    // Qt::ToolButtonStyle getButtonText();
-    // Qt::ArrowType ArrowType();
+    void createFrame(const ClassInfo class_info);
+
+    ClassInfo getData();
 
 private slots:
     void setClassName(const QString &name);
+
     void setLocation(const QString &location);
+
     void setTime(const QString &start, const QString &stop);
+
     void setDays(const QString &days);
+
     void setOnline(const bool &online);
+
+    void setIcon();
+
+    void editFrame();
+
+    void deleteFrame();
 
 private:
     Ui::class_info_frame ui;
+
     ClassInfo data;
 };
 #endif // CLASS_INFO_UNIT_H

@@ -13,6 +13,7 @@
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
+
 class MainWindow;
 }
 QT_END_NAMESPACE
@@ -26,9 +27,12 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_classCreatorButton_clicked();
+    void createClassButtonHandler();
+
     void createClassFrame(const ClassInfo& class_info);
+
     void deleteClassFrame(ClassInfoFrame* class_data);
+
     void editClassFrame(ClassInfoFrame* class_data);
 
 private:

@@ -1,12 +1,8 @@
 #include "class_info_unit.h"
 #include "ui_class_info_unit.h"
+#include "createclass.h"
 
 #include <QMenu>
-
-// There is a quirk with the tool button
-// When you click it, the text inside the button disappears
-// It functions normally, you can select and read the menus just fine
-// The "..." disappears
 
 ClassInfoFrame::ClassInfoFrame(QWidget* parent): QFrame(parent)
 {
@@ -14,25 +10,9 @@ ClassInfoFrame::ClassInfoFrame(QWidget* parent): QFrame(parent)
 
     // Create tool button options
     QMenu* menu = new QMenu(this);
-    menu->addAction("Edit", this, SLOT(option1()));
-    menu->addAction("Delete", this, SLOT(option2()));
+    menu->addAction("Edit", this, SLOT(editFrame()));
+    menu->addAction("Delete", this, SLOT(deleteFrame()));
     ui.toolButton->setMenu(menu);
-
-    /* DEBUG Tools
-    QToolButton::ToolButtonPopupMode ClassInfoFrame::getPopup(){
-        return ui.toolButton->popupMode();
-    }
-    Qt::ToolButtonStyle ClassInfoFrame::getButtonText(){
-        return ui.toolButton->toolButtonStyle();
-    }
-    Qt::ArrowType ClassInfoFrame::ArrowType(){
-        return ui.toolButton->arrowType();
-    }
-    */
-}
-
-ClassInfo ClassInfoFrame::getData(){
-    return data;
 }
 
 void ClassInfoFrame::createFrame(const ClassInfo info){
@@ -42,10 +22,35 @@ void ClassInfoFrame::createFrame(const ClassInfo info){
     setTime(info.startTime, info.endTime);
     setDays(info.days);
     setOnline(info.online);
+
+    setIcon();
 }
 
+ClassInfo ClassInfoFrame::getData(){
+    return data;
+}
+
+void ClassInfoFrame::editFrame(){
+    Dialog editor(getData());
+    editor.setModal(true);
+    if (editor.exec() == QDialog::Accepted) { createFrame(editor.getData()); }
+}
+
+void ClassInfoFrame::deleteFrame(){
+    this->deleteLater();
+}
+
+void ClassInfoFrame::setIcon(){
+    QIcon icon(":/icons/icons/Windows_Settings_app_icon.png");
+    ui.toolButton->setIcon(icon);
+    ui.toolButton->setIconSize(QSize(24,24));
+}
+
+
 void ClassInfoFrame::setClassName(const QString &name){
-    ui.class_name_label->setText(name);
+    QString name_shortened = name;
+    if (name.length() > 16){ name_shortened = name_shortened.left(13) + "..."; }
+    ui.class_name_label->setText(name_shortened);
 }
 
 void ClassInfoFrame::setLocation(const QString &location){
@@ -65,4 +70,3 @@ void ClassInfoFrame::setOnline(const bool &online){
     if (online){ ui.online_label->setText("Online"); }
     else{ ui.online_label->setText("In Person"); }
 }
-

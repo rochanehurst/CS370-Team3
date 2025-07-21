@@ -14,7 +14,7 @@ public:
 
     void createFrame(const ClassInfo class_info);
 
-    ClassInfo getData();
+    ClassInfo getFrameData();
 
 private slots:
     void setClassName(const QString &name);
@@ -29,13 +29,13 @@ private slots:
 
     void setIcon();
 
-    void editFrame();
+    void editFrameData();
 
-    void deleteFrame();
+    void deleteFrameData();
 
 private:
     Ui::class_info_frame ui;
 
-    ClassInfo data;
+    ClassInfo frame_data;
 };
 #endif // CLASS_INFO_UNIT_H

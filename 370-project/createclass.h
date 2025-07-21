@@ -47,19 +47,19 @@ public:
     ClassInfo getData() const;
 
 private slots:
-    void createClass();
+    void createClassForm();
 
-    void editClass(ClassInfo info);
+    void editClassFrame(ClassInfo class_form_info);
 
     void handleConfirmAccepted();
 
     void handleConfirmRejected();
 
-    void fourDayChecker(QObject *sender, bool disable);
+    void fourDayChecker(QObject *sender, bool disabled);
 
-    void onMWFStateChanged(int arg1);
+    void onMWFStateChanged(int state);
 
-    void onTRStateChanged(int arg1);
+    void onTRStateChanged(int state);
 
     void setupConnections();
 
@@ -71,7 +71,7 @@ private slots:
 
     void endTimeChangeHandler(const QTime &time);
 
-    void onlineStateChangeHandler(int arg1);
+    void onlineStateChangeHandler(int state);
 
     QString dayStringCreate();
 
@@ -82,7 +82,7 @@ private:
 
     QVector<QCheckBox*> checkboxes;
 
-    ClassInfo classInfo;
+    ClassInfo class_form_info;
 
 };
 

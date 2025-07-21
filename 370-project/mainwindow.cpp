@@ -8,18 +8,18 @@
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+    , ui(new Ui::main_window)
 {
     ui->setupUi(this);
-    connect(ui->classCreatorButton, &QAbstractButton::clicked, this, &MainWindow::createClassButtonHandler);
+    connect(ui->class_creator_button, &QAbstractButton::clicked, this, &MainWindow::createClassButtonHandler);
 
     // Initalize layout in scroll area
-    classListLayout = qobject_cast<QVBoxLayout*>(ui->scrollAreaWidgetContents->layout());
-    if (!classListLayout){
-        classListLayout = new QVBoxLayout(ui->scrollAreaWidgetContents);
-        ui->scrollAreaWidgetContents->setLayout(classListLayout);
+    class_list_layout = qobject_cast<QVBoxLayout*>(ui->class_scroll_area->layout());
+    if (!class_list_layout){
+        class_list_layout = new QVBoxLayout(ui->class_scroll_area);
+        ui->class_scroll_area->setLayout(class_list_layout);
     }
-    classListLayout->setAlignment(Qt::AlignHCenter | Qt::AlignTop);
+    class_list_layout->setAlignment(Qt::AlignHCenter | Qt::AlignTop);
 }
 
 MainWindow::~MainWindow()
@@ -37,21 +37,21 @@ void MainWindow::createClassFrame(const ClassInfo& class_info)
     // ADD TO SAVE FILE
     ClassInfoFrame* class_data = new ClassInfoFrame();
     class_data->createFrame(class_info);
-    classListLayout->addWidget(class_data);
+    class_list_layout->addWidget(class_data);
 }
 
 void MainWindow::editClassFrame(ClassInfoFrame* class_data){
     // TODO
     // Should be almost identical to createClassButtonHandler()
     // Form should be filled out with class_data_info
-    ClassInfo edit_data = class_data->getData();
+    ClassInfo edit_data = class_data->getFrameData();
 }
 
 void MainWindow::deleteClassFrame(ClassInfoFrame* class_data)
 {
     // TODO
     // Remove from save file
-    classListLayout->removeWidget(class_data);
+    class_list_layout->removeWidget(class_data);
 }
 
 void MainWindow::createClassButtonHandler()

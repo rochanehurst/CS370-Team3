@@ -14,7 +14,7 @@
 QT_BEGIN_NAMESPACE
 namespace Ui {
 
-class MainWindow;
+class main_window;
 }
 QT_END_NAMESPACE
 
@@ -36,13 +36,13 @@ private slots:
     void editClassFrame(ClassInfoFrame* class_data);
 
 private:
-    Ui::MainWindow *ui;
+    Ui::main_window *ui;
 
-    QVector<ClassInfo> class_info;  // stores the data model
+    QVector<ClassInfo> class_info;
 
-    QVector<ClassInfoFrame*> class_data_containers;  // stores the actual QFrame widgets
+    QVector<ClassInfoFrame*> class_data_containers;
 
-    QVBoxLayout* classListLayout;  // layout where the frames get added
+    QVBoxLayout* class_list_layout;
 };
 
 #endif // MAINWINDOW_H

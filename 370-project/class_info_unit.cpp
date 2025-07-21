@@ -10,46 +10,55 @@ ClassInfoFrame::ClassInfoFrame(QWidget* parent): QFrame(parent)
 
     // Create tool button options
     QMenu* menu = new QMenu(this);
-    menu->addAction("Edit", this, SLOT(editFrame()));
-    menu->addAction("Delete", this, SLOT(deleteFrame()));
-    ui.toolButton->setMenu(menu);
+    menu->addAction("Edit", this, SLOT(editFrameData()));
+    menu->addAction("Delete", this, SLOT(deleteFrameData()));
+    ui.tool_button->setMenu(menu);
 }
 
-void ClassInfoFrame::createFrame(const ClassInfo info){
-    data = info;
-    setClassName(info.name);
-    setLocation(info.building);
-    setTime(info.startTime, info.endTime);
-    setDays(info.days);
-    setOnline(info.online);
+void ClassInfoFrame::createFrame(const ClassInfo class_info){
+    frame_data = class_info;
+    ui.class_name_label->setToolTip(class_info.name);
+
+    setClassName(class_info.name);
+    setLocation(class_info.building);
+    setTime(class_info.startTime, class_info.endTime);
+    setDays(class_info.days);
+    setOnline(class_info.online);
 
     setIcon();
 }
 
-ClassInfo ClassInfoFrame::getData(){
-    return data;
-}
 
-void ClassInfoFrame::editFrame(){
-    Dialog editor(getData());
+void ClassInfoFrame::editFrameData(){
+    Dialog editor(getFrameData());
     editor.setModal(true);
     if (editor.exec() == QDialog::Accepted) { createFrame(editor.getData()); }
 }
 
-void ClassInfoFrame::deleteFrame(){
+
+ClassInfo ClassInfoFrame::getFrameData(){
+    return frame_data;
+}
+
+
+void ClassInfoFrame::deleteFrameData(){
     this->deleteLater();
 }
 
 void ClassInfoFrame::setIcon(){
     QIcon icon(":/icons/icons/Windows_Settings_app_icon.png");
-    ui.toolButton->setIcon(icon);
-    ui.toolButton->setIconSize(QSize(24,24));
+    ui.tool_button->setIcon(icon);
+    ui.tool_button->setIconSize(QSize(24,24));
 }
 
 
 void ClassInfoFrame::setClassName(const QString &name){
+    int name_length = 24;
     QString name_shortened = name;
-    if (name.length() > 16){ name_shortened = name_shortened.left(13) + "..."; }
+    if (name.length() > name_length)
+    {
+        name_shortened = name_shortened.left(name_length - 3) + "...";
+    }
     ui.class_name_label->setText(name_shortened);
 }
 

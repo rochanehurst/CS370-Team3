@@ -9,7 +9,6 @@
 #include <QVBoxLayout>
 
 #include "createclass.h"
-#include "class_info_unit.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -28,21 +27,20 @@ public:
 
 private slots:
     void createClassButtonHandler();
-
     void createClassFrame(const ClassInfo& class_info);
-
-    void deleteClassFrame(ClassInfoFrame* class_data);
-
-    void editClassFrame(ClassInfoFrame* class_data);
+    void editSave();
+    void removeFromSave();
+    void clearSchedule();
+    void debugPopulateList();
 
 private:
-    Ui::main_window *ui;
+    void setupConnections();
+    void setupClassListLayout();
 
-    QVector<ClassInfo> class_info;
-
-    QVector<ClassInfoFrame*> class_data_containers;
-
-    QVBoxLayout* class_list_layout;
+private:
+    Ui::main_window *ui_;
+    QVector<ClassInfo> class_infos_;
+    QVBoxLayout* class_list_layout_;
 };
 
 #endif // MAINWINDOW_H

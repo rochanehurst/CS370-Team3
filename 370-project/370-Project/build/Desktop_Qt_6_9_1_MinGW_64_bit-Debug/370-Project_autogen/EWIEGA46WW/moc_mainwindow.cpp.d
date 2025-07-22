@@ -389,5 +389,4 @@ C:/Users/coleo/Desktop/CS370-Team3-Github/370-project/370-Project/build/Desktop_
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/time.h \
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h \
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
-  C:/Users/coleo/Desktop/CS370-Team3-Github/370-project/class_info_unit.h \
   C:/Users/coleo/Desktop/CS370-Team3-Github/370-project/createclass.h

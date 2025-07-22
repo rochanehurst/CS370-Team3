@@ -7,8 +7,6 @@
 #include <QCheckBox>
 #include <QDebug>
 
-using namespace std;
-
 struct ClassInfo {
     QString school;
     QString name;
@@ -39,50 +37,36 @@ class Dialog : public QDialog
 
 public:
     explicit Dialog(QWidget *parent = nullptr);
-
     explicit Dialog(const ClassInfo &info, QWidget *parent = nullptr);
-
     ~Dialog();
 
     ClassInfo getData() const;
 
 private slots:
-    void createClassForm();
-
-    void editClassFrame(ClassInfo class_form_info);
-
     void handleConfirmAccepted();
-
     void handleConfirmRejected();
 
-    void fourDayChecker(QObject *sender, bool disabled);
-
     void onMWFStateChanged(int state);
-
     void onTRStateChanged(int state);
 
-    void setupConnections();
-
-    void setupCheckboxes();
-
-    void resetCounters();
-
     void startTimeChangeHandler(const QTime &time);
-
     void endTimeChangeHandler(const QTime &time);
-
     void onlineStateChangeHandler(int state);
 
-    QString dayStringCreate();
+private:
+    void setupConnections();
+    void setupCheckboxes();
+    void resetCounters();
+
+    void createClassForm();
+    void editClassFrame(const ClassInfo& class_form_info);
+    void fourDayChecker(QObject *sender, bool disabled);
+    QString dayStringCreate() const;
 
 private:
-    Ui::Dialog *ui;
-
-    QStringListModel *model;
-
-    QVector<QCheckBox*> checkboxes;
-
-    ClassInfo class_form_info;
+    Ui::Dialog *ui_ {};
+    QVector<QCheckBox*> checkboxes_;
+    ClassInfo class_form_info_;
 
 };
 

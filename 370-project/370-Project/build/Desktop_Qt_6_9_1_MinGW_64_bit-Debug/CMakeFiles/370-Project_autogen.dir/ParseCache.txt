@@ -1155,7 +1155,6 @@ C:/Users/coleo/Desktop/CS370-Team3-Github/370-project/mainwindow.h
  mdp:C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h
  mdp:C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h
  mdp:C:/Users/coleo/Desktop/CS370-Team3-Github/370-project/370-Project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-Project_autogen/moc_predefs.h
- mdp:C:/Users/coleo/Desktop/CS370-Team3-Github/370-project/class_info_unit.h
  mdp:C:/Users/coleo/Desktop/CS370-Team3-Github/370-project/createclass.h
  mdp:C:/Users/coleo/Desktop/CS370-Team3-Github/370-project/mainwindow.h
 C:/Users/coleo/Desktop/CS370-Team3-Github/370-project/class_info_unit.cpp

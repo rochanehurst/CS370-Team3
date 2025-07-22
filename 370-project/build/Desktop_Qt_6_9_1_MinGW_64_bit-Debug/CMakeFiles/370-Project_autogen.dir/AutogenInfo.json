@@ -362,6 +362,12 @@
 			"MU",
 			"EWIEGA46WW/moc_mainwindow.cpp",
 			null
+		],
+		[
+			"C:/crying/CS370-Team3/370-project/savestuff.h",
+			"MU",
+			"EWIEGA46WW/moc_savestuff.cpp",
+			null
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
@@ -438,7 +444,8 @@
 		[ "C:/crying/CS370-Team3/370-project/class_info_unit.cpp", "MU", null ],
 		[ "C:/crying/CS370-Team3/370-project/createclass.cpp", "MU", null ],
 		[ "C:/crying/CS370-Team3/370-project/main.cpp", "MU", null ],
-		[ "C:/crying/CS370-Team3/370-project/mainwindow.cpp", "MU", null ]
+		[ "C:/crying/CS370-Team3/370-project/mainwindow.cpp", "MU", null ],
+		[ "C:/crying/CS370-Team3/370-project/savestuff.cpp", "MU", null ]
 	],
 	"UIC_OPTIONS" : [],
 	"UIC_SEARCH_PATHS" : [],

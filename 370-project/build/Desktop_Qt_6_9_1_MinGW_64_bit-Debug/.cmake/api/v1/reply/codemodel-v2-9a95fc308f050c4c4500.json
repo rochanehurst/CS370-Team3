@@ -7,7 +7,7 @@
 				{
 					"build" : ".",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-.-Debug-a5fc0ba9248703a92b66.json",
+					"jsonFile" : "directory-.-Debug-593e577ccc19fd22842a.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.16"
@@ -44,7 +44,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "370-Project::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-370-Project-Debug-7b6de0cbcfe4e6778339.json",
+					"jsonFile" : "target-370-Project-Debug-b3e8122b009a0e33d68f.json",
 					"name" : "370-Project",
 					"projectIndex" : 0
 				},

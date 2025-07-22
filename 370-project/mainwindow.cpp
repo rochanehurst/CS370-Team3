@@ -5,6 +5,10 @@
 #include <QFrame>
 #include <QApplication>
 #include <QWidget>
+#include <iostream>
+#include <fstream>
+#include <QMessageBox>
+using namespace std;
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -20,6 +24,16 @@ MainWindow::MainWindow(QWidget *parent)
         ui->scrollAreaWidgetContents->setLayout(classListLayout);
     }
     classListLayout->setAlignment(Qt::AlignHCenter | Qt::AlignTop);
+
+    // save file
+    ofstream SaveFile("cluster_save.txt");
+    if (!SaveFile.is_open()) {
+        QMessageBox::critical(this, "Error", "Save file has failed to open.");
+        return;
+    } else {
+        QMessageBox::critical(this, "Non-error", "File has opened successfully.");
+        return;
+    }
 }
 
 MainWindow::~MainWindow()
@@ -28,6 +42,7 @@ MainWindow::~MainWindow()
     // Will save data before closing
     // One problem: will not save if program crashes
     delete ui;
+
 }
 
 

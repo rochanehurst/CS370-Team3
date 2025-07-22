@@ -1,5 +1,6 @@
 C:/crying/CS370-Team3/370-project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-Project_autogen/EWIEGA46WW/moc_class_info_unit.cpp: C:/crying/CS370-Team3/370-project/class_info_unit.h \
   C:/crying/CS370-Team3/370-project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-Project_autogen/moc_predefs.h \
+  C:/QT/6.9.1/mingw_64/include/QtCore/QDebug \
   C:/QT/6.9.1/mingw_64/include/QtCore/QStringListModel \
   C:/QT/6.9.1/mingw_64/include/QtCore/q17memory.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/q20functional.h \

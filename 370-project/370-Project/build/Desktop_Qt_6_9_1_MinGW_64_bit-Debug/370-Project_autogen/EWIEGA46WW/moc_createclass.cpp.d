@@ -1,7 +1,6 @@
 C:/Users/coleo/Desktop/CS370-Team3-Github/370-project/370-Project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-Project_autogen/EWIEGA46WW/moc_createclass.cpp: C:/Users/coleo/Desktop/CS370-Team3-Github/370-project/createclass.h \
   C:/Users/coleo/Desktop/CS370-Team3-Github/370-project/370-Project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-Project_autogen/moc_predefs.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/QDebug \
-  C:/Qt/6.9.1/mingw_64/include/QtCore/QStringListModel \
   C:/Qt/6.9.1/mingw_64/include/QtCore/q17memory.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/q20functional.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/q20iterator.h \
@@ -9,7 +8,6 @@ C:/Users/coleo/Desktop/CS370-Team3-Github/370-project/370-Project/build/Desktop_
   C:/Qt/6.9.1/mingw_64/include/QtCore/q20type_traits.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/q20utility.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/q23utility.h \
-  C:/Qt/6.9.1/mingw_64/include/QtCore/qabstractitemmodel.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qalgorithms.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qanystringview.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qarraydata.h \
@@ -93,7 +91,6 @@ C:/Users/coleo/Desktop/CS370-Team3-Github/370-project/370-Project/build/Desktop_
   C:/Qt/6.9.1/mingw_64/include/QtCore/qstringconverter_base.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qstringfwd.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qstringlist.h \
-  C:/Qt/6.9.1/mingw_64/include/QtCore/qstringlistmodel.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qstringliteral.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qstringmatcher.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qstringtokenizer.h \

@@ -3,7 +3,6 @@
 #define CREATECLASS_H
 
 #include <QDialog>
-#include <QStringListModel>
 #include <QCheckBox>
 #include <QDebug>
 

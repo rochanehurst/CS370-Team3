@@ -2,9 +2,7 @@
 #include "createclass.h"
 #include "ui_createclass.h"
 
-#include <QStringListModel>
 #include <QMessageBox>
-#include <QDebug>
 #include <QCheckBox>
 
 constexpr auto TUESDAY_OBJ_NAME = "tuesday";

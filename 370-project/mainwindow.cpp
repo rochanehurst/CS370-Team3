@@ -1,10 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "createclass.h"
 #include "class_info_unit.h"
 
-#include <QFrame>
-#include <QApplication>
 #include <QWidget>
 
 MainWindow::MainWindow(QWidget *parent)
@@ -50,7 +47,7 @@ void MainWindow::editSave() {
 }
 
 void MainWindow::removeFromSave() {
-// TODO: Remove deleted class info from save file
+    // TODO: Remove deleted class info from save file
 }
 
 void MainWindow::createClassButtonHandler() {
@@ -58,7 +55,7 @@ void MainWindow::createClassButtonHandler() {
     classCreator.setModal(true);
     if (classCreator.exec() == QDialog::Accepted) {
         ClassInfo classData = classCreator.getData();       // Retrieve data from the dialog
-        class_infos_.append(classData);                       // Store in MainWindow’s QVector
+        class_infos_.append(classData);                     // Store in MainWindow’s QVector
         createClassFrame(classData);
         // TODO: Append class data to save file
     }
@@ -73,21 +70,57 @@ void MainWindow::clearSchedule() {
     }
 }
 
+// Below functions are for debug only
+// ***MARKED FOR REMOVAL***
 
-void MainWindow::debugPopulateList()
-{
-    for (int i = 1; i <= 5; i++){
-        ClassInfo* debug_info = new ClassInfo;
-        debug_info->name = "test" + QString::number(i);
-        debug_info->days = "MWF";
-        debug_info->startTime = "7:30 AM";
-        debug_info->endTime = "8:30 AM";
-        debug_info->online = true;
-
-        ClassInfoFrame* debug_data = new ClassInfoFrame();
-        debug_data->createFrame(*debug_info);
-        class_list_layout_->addWidget(debug_data);
-
-    }
+void MainWindow::debugAddClasstoList(ClassInfo* tester) {
+    ClassInfoFrame* debug_data = new ClassInfoFrame();
+    debug_data->createFrame(*tester);
+    class_list_layout_->addWidget(debug_data);
 }
+
+ClassInfo* MainWindow::debugCreateClass(QString name,
+                                  QString days,
+                                  QString start,
+                                  QString end,
+                                  IsOnline online,
+                                  QString building) {
+    ClassInfo* tester = new ClassInfo;
+    tester->name = name;
+    tester->days = days;
+    tester->startTime = start;
+    tester->endTime = end;
+    tester->online = (online == IsOnline::Yes);
+    tester->building = building;
+
+    return tester;
+}
+
+void MainWindow::debugPopulateList() {
+
+    debugAddClasstoList(debugCreateClass("testClass1", "M",
+                                         "9:30 AM", "1:30 AM",
+                                         IsOnline::No,
+                                         "Markstein Hall"));
+
+    debugAddClasstoList(debugCreateClass("testClass2", "T",
+                                         "1:30 PM", "4:45 PM",
+                                         IsOnline::No,
+                                         "University Hall"));
+
+    debugAddClasstoList(debugCreateClass("testClass3", "MWF",
+                                         "7:30 AM", "8:20 AM",
+                                         IsOnline::Yes));
+
+    debugAddClasstoList(debugCreateClass("testClass4", "TR",
+                                         "5:00 AM", "6:50 AM",
+                                         IsOnline::No,
+                                         "Science Hall 1"));
+
+    debugAddClasstoList(debugCreateClass("testClass5", "F",
+                                         "10:00 AM", "1:20 PM",
+                                         IsOnline::No,
+                                         "Arts Building"));
+}
+
 

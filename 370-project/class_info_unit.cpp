@@ -1,7 +1,5 @@
 //class_info_unit.cpp
 #include "class_info_unit.h"
-#include "ui_class_info_unit.h"
-#include "createclass.h"
 
 #include <QMenu>
 

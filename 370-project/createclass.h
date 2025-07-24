@@ -3,11 +3,8 @@
 #define CREATECLASS_H
 
 #include <QDialog>
-#include <QStringListModel>
 #include <QCheckBox>
 #include <QDebug>
-
-using namespace std;
 
 struct ClassInfo {
     QString school;
@@ -39,50 +36,36 @@ class Dialog : public QDialog
 
 public:
     explicit Dialog(QWidget *parent = nullptr);
-
     explicit Dialog(const ClassInfo &info, QWidget *parent = nullptr);
-
     ~Dialog();
 
     ClassInfo getData() const;
 
 private slots:
-    void createClass();
-
-    void editClass(ClassInfo info);
-
     void handleConfirmAccepted();
-
     void handleConfirmRejected();
 
-    void fourDayChecker(QObject *sender, bool disable);
-
-    void onMWFStateChanged(int arg1);
-
-    void onTRStateChanged(int arg1);
-
-    void setupConnections();
-
-    void setupCheckboxes();
-
-    void resetCounters();
+    void onMWFStateChanged(int state);
+    void onTRStateChanged(int state);
 
     void startTimeChangeHandler(const QTime &time);
-
     void endTimeChangeHandler(const QTime &time);
-
-    void onlineStateChangeHandler(int arg1);
-
-    QString dayStringCreate();
+    void onlineStateChangeHandler(int state);
 
 private:
-    Ui::Dialog *ui;
+    void setupConnections();
+    void setupCheckboxes();
+    void resetCounters();
 
-    QStringListModel *model;
+    void createClassForm();
+    void editClassFrame(const ClassInfo& class_form_info);
+    void fourDayChecker(QObject *sender, bool disabled);
+    QString dayStringCreate() const;
 
-    QVector<QCheckBox*> checkboxes;
-
-    ClassInfo classInfo;
+private:
+    Ui::Dialog *ui_ {};
+    QVector<QCheckBox*> checkboxes_;
+    ClassInfo class_form_info_;
 
 };
 

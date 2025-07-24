@@ -2,8 +2,6 @@
 #define MAINWINDOW_H
 
 #include "createclass.h"
-#include "search.h"
-
 
 #include <QMainWindow>
 #include <QDialog>

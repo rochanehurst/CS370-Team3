@@ -12,6 +12,7 @@ int mwf = 0;
 int tuth = 0;
 int sa = 0;
 
+
 // Create form constructor
 Dialog::Dialog(QWidget *parent)
     : QDialog(parent)
@@ -34,6 +35,7 @@ Dialog::Dialog(const ClassInfo &info, QWidget *parent)
 
     QIcon icon(":/icons/icons/sign-up-icon-signup-square-box-on-transparent-background-free-png.png");
     setWindowIcon(icon);
+    declareCheckboxes();
     setupConnections();
     setupCheckboxes();
     resetCounters();
@@ -42,6 +44,17 @@ Dialog::Dialog(const ClassInfo &info, QWidget *parent)
 
 Dialog::~Dialog() {
     delete ui_;
+}
+
+void Dialog::declareCheckboxes(){
+    dayHandlers = {
+        { ui_->monday,    [this](int state){ onMWFStateChanged(state); } },
+        { ui_->wednesday, [this](int state){ onMWFStateChanged(state); } },
+        { ui_->friday,    [this](int state){ onMWFStateChanged(state); } },
+        { ui_->tuesday,   [this](int state){ onTRStateChanged(state); } },
+        { ui_->thursday,  [this](int state){ onTRStateChanged(state); } },
+        { ui_->saturday,  [this](int state){ onSaStateChanged(state); } }
+    };
 }
 
 // Allows pop up warnings without closing window
@@ -54,11 +67,17 @@ void Dialog::setupConnections() {
     connect(ui_->time_start, &QTimeEdit::userTimeChanged, this, &Dialog::startTimeChangeHandler);
     connect(ui_->time_stop, &QTimeEdit::userTimeChanged, this, &Dialog::endTimeChangeHandler);
 
-    connect(ui_->monday, &QCheckBox::checkStateChanged, this, &Dialog::onMWFStateChanged);
-    connect(ui_->tuesday, &QCheckBox::checkStateChanged, this, &Dialog::onTRStateChanged);
-    connect(ui_->wednesday, &QCheckBox::checkStateChanged, this, &Dialog::onMWFStateChanged);
-    connect(ui_->thursday, &QCheckBox::checkStateChanged, this, &Dialog::onTRStateChanged);
-    connect(ui_->friday, &QCheckBox::checkStateChanged, this, &Dialog::onMWFStateChanged);
+    // MWF
+    for (QCheckBox* box : {ui_->monday, ui_->wednesday, ui_->friday}) {
+        connect(box, &QCheckBox::checkStateChanged, this, &Dialog::onMWFStateChanged);
+    }
+
+    // TR
+    for (QCheckBox* box : {ui_->tuesday, ui_->thursday}) {
+        connect(box, &QCheckBox::checkStateChanged, this, &Dialog::onTRStateChanged);
+    }
+
+    // Saturday
     connect(ui_->saturday, &QCheckBox::checkStateChanged, this, &Dialog::onSaStateChanged);
 }
 
@@ -79,12 +98,12 @@ void Dialog::resetCounters() {
 }
 
 void Dialog::handleConfirmAccepted() {
-    if (ui_->class_name->text().isEmpty()) {
-        QMessageBox::critical(this, "Error", "Enter class name");
-        return;
-    }
     if (ui_->building_name->currentText() == "--SELECT BUILDING--"){
         QMessageBox::critical(this, "Error", "Select a building");
+        return;
+    }
+    if (ui_->class_name->text().isEmpty()) {
+        QMessageBox::critical(this, "Error", "Enter class name");
         return;
     }
     if ((mwf + tuth + sa) <= 0) {

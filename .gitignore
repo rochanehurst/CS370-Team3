@@ -92,3 +92,10 @@ build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/Testing/Temporary/
 /370-project/370-Project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug
 *.ninja
 370-project/370-Project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/CMakeFiles/370-Project_autogen.dir/AutogenInfo.json
+*.bin
+370-project/370-Project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/CMakeFiles/CMakeConfigureLog.yaml
+*.cmake
+*.yaml
+/370-project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-Project_autogen
+*.ninja
+/370-project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug

@@ -49,6 +49,7 @@ private slots:
     void endTimeChangeHandler(const QTime &time);
 
 private:
+    void declareCheckboxes();
     void setupConnections();
     void setupCheckboxes();
     void resetCounters();
@@ -62,6 +63,7 @@ private:
     Ui::Dialog *ui_ {};
     QVector<QCheckBox*> checkboxes_;
     ClassInfo class_form_info_;
+    QMap<QCheckBox*, std::function<void(int)>> dayHandlers;
 
 };
 

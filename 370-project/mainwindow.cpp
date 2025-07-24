@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "class_info_unit.h"
+#include "search.h"
 
 #include <QMenu>
 #include <QIcon>

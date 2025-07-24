@@ -14,9 +14,9 @@ American Indian Studies,AIS  150 - Introduction to Federal Indian Law and Policy
 Anthropology,ANTH  240 - Introduction to Biological Anthropology,41310,Lauren Schwartz,Soc & Behavioral Sci Bldg 1104,MoWe 5:30PM - 6:45PM
 Arabic,ARAB  101 - Beginning Arabic I,41283,Fatim-Zahra Samir,Markstein Hall 213,MoWe 5:30PM - 6:45PM
 Arabic,ARAB  101 - Beginning Arabic I,43973,Fatim-Zahra Samir,Academic Hall 315,TuTh 10:30AM - 11:45AM
-"Art, Media and Design",AMD  105 - Digital Photography,41559,Patricia Zambrano,Arts Building 340,Tu 8:00AM - 9:50AM
-"Art, Media and Design",AMD  105 - Digital Photography,41560,Patricia Zambrano,Arts Building 340,Tu 10:00AM - 11:50AM
-"Art, Media and Design",AMD  105 - Digital Photography,44112,Tatiana Sizonenko,Arts Building 220,Fr 12:30PM - 3:20PM
+Art, Media and Design,AMD  105 - Digital Photography,41559,Patricia Zambrano,Arts Building 340,Tu 8:00AM - 9:50AM
+Art, Media and Design,AMD  105 - Digital Photography,41560,Patricia Zambrano,Arts Building 340,Tu 10:00AM - 11:50AM
+Art, Media and Design,AMD  105 - Digital Photography,44112,Tatiana Sizonenko,Arts Building 220,Fr 12:30PM - 3:20PM
 Biological Sciences,BIOL  104 - Principles of Biology: Human Emphasis,42130,Sujal Phadke,Kellogg Library 1111,TuTh 4:00PM - 5:15PM
 Biological Sciences,BIOL  104 - Principles of Biology: Human Emphasis,42450,Sujal Phadke,Science Hall II 157,We 9:30AM - 12:20PM
 Biological Sciences,BIOL  104 - Principles of Biology: Human Emphasis,42451,Khoosheh Gosink,Science Hall II 157,Th 9:30AM - 12:20PM
@@ -48,9 +48,9 @@ Business Administration,BUS  300 - Business Professional Development,44098,Alan 
 Business Administration,BUS  300 - Business Professional Development,40157,Roger Herzler,Synchronous Virtual Instr,Th 5:00PM - 8:50PM
 Business Administration,BUS  300 - Business Professional Development,40106,Roger Herzler,Synchronous Virtual Instr,Fr 2:30PM - 6:20PM
 Business Administration - MBA,BA   71 - Workshops,41703,To be Announced,Markstein Hall 104,Sa 12:30PM - 3:15PM | Sa 9:00AM - 11:45AM
-Business Administration - MBA,BA   71 - Workshops,43242,"Catalin Ratiu, | David Grooms, | Melissa Simnitt | Mohammad Oskoorouchi,",Markstein Hall 104,MoTuWeTh 5:30PM - 8:15PM
+Business Administration - MBA,BA   71 - Workshops,43242,Catalin Ratiu, | David Grooms, | Melissa Simnitt | Mohammad Oskoorouchi,,Markstein Hall 104,MoTuWeTh 5:30PM - 8:15PM
 Business Administration - MBA,BA   71 - Workshops,43243,Mohammad Oskoorouchi,Markstein Hall 104,MoWe 5:30PM - 8:15PM
-Business Administration - MBA,BA   71 - Workshops,41695,"David DeBoskey | David DeBoskey, | Marco Casalins",Markstein Hall 104 | Synchronous Virtual Instr,Sa 12:30PM - 3:15PM | Sa 9:00AM - 11:45AM | We 7:00PM - 9:45PM
+Business Administration - MBA,BA   71 - Workshops,41695,David DeBoskey | David DeBoskey, | Marco Casalins,Markstein Hall 104 | Synchronous Virtual Instr,Sa 12:30PM - 3:15PM | Sa 9:00AM - 11:45AM | We 7:00PM - 9:45PM
 Business Administration - MBA,BA   71 - Workshops,41698,Bill Burns,Markstein Hall 103,Sa 12:30PM - 3:15PM | Sa 9:00AM - 11:45AM
 Business Administration - MBA,BA   71 - Workshops,41696,Shawn Park,Markstein Hall 104 | Synchronous Virtual Instr,Sa 12:30PM - 3:15PM | Sa 9:00AM - 11:45AM | We 7:00PM - 9:45PM
 Business Administration - MBA,BA   71 - Workshops,41697,Paul Barton,Asynchronous Virtual Instr | Markstein Hall 104,Sa 12:30PM - 3:15PM | Sa 9:00AM - 11:45AM | We 7:00PM - 9:45PM
@@ -153,7 +153,7 @@ Education,EDUC  350 - Foundations of Teaching as a Profession,43241,Jon Centofra
 Education,EDUC  350 - Foundations of Teaching as a Profession,43928,Rebecca Brooks,Synchronous Virtual Instr,We 5:30PM - 8:20PM
 Education,EDUC  350 - Foundations of Teaching as a Profession,40230,Ana Hernandez,Synchronous Virtual Instr,Mo 5:30PM - 8:20PM
 Education,EDUC  350 - Foundations of Teaching as a Profession,40235,Ana Hernandez,Synchronous Virtual Instr,We 5:30PM - 8:20PM
-Education Math and Science,"EDST  450 - Undergraduate Mathematics and Science Teaching and Learning, Theory and Practice",40493,Debbie DeRoma,Markstein Hall 208,Tu 5:30PM - 6:20PM
+Education Math and Science,EDST  450 - Undergraduate Mathematics and Science Teaching and Learning, Theory and Practice,40493,Debbie DeRoma,Markstein Hall 208,Tu 5:30PM - 6:20PM
 Education Multiple Subject,EDMS  511 - Elementary Teaching and Learning I,40239,Julie Harris Neiger,University Hall 444,Tu 9:00AM - 11:50AM
 Education Multiple Subject,EDMS  511 - Elementary Teaching and Learning I,40240,Julie Harris Neiger,University Hall 444,Mo 1:00PM - 3:50PM
 Education Multiple Subject,EDMS  511 - Elementary Teaching and Learning I,40251,Cassiopeia Guthrie,Mt San Jacinto College 219,Mo 9:00AM - 11:50AM
@@ -191,10 +191,10 @@ Electrical Engineering,EE  110 - Electrical Engineering Clinic I,42695,Mark Ober
 Electrical Engineering,EE  110 - Electrical Engineering Clinic I,42985,To be Announced,Science Hall II 243,Mo 9:30AM - 12:20PM
 Electrical Engineering,EE  110 - Electrical Engineering Clinic I,42987,Jerald Pinter,Viasat Engineering Pav 5109,Th 1:00PM - 3:50PM
 Entrepreneurship,ENTR  321 - New Venture Creation,43817,William Byun,Markstein Hall 105,Fr 8:30AM - 12:20PM
-Environmental Studies,"ENVS  301 - Place, Power, and the Environment",40611,Anne Dabb,Soc & Behavioral Sci Bldg 2111,Mo 5:30PM - 8:20PM
-Environmental Studies,"ENVS  301 - Place, Power, and the Environment",43837,Gabriel Valle,Kellogg Library 1106,TuTh 2:30PM - 3:45PM
-Environmental Studies,"ENVS  301 - Place, Power, and the Environment",43838,Shannon Swanson,Soc & Behavioral Sci Bldg 1102,TuTh 2:30PM - 3:45PM
-Environmental Studies,"ENVS  301 - Place, Power, and the Environment",41677,Gabriel Valle,Soc & Behavioral Sci Bldg1108G,Fr 11:30AM - 2:20PM
+Environmental Studies,ENVS  301 - Place, Power, and the Environment,40611,Anne Dabb,Soc & Behavioral Sci Bldg 2111,Mo 5:30PM - 8:20PM
+Environmental Studies,ENVS  301 - Place, Power, and the Environment,43837,Gabriel Valle,Kellogg Library 1106,TuTh 2:30PM - 3:45PM
+Environmental Studies,ENVS  301 - Place, Power, and the Environment,43838,Shannon Swanson,Soc & Behavioral Sci Bldg 1102,TuTh 2:30PM - 3:45PM
+Environmental Studies,ENVS  301 - Place, Power, and the Environment,41677,Gabriel Valle,Soc & Behavioral Sci Bldg1108G,Fr 11:30AM - 2:20PM
 Film Studies,FMST  100 - Introduction to Cinema,44199,Andrew Stewart,Markstein Hall 308,MoWeFr 9:30AM - 10:20AM
 Finance,FIN  302 - Foundations of Finance,41739,To be Announced,Markstein Hall 125,Tu 1:00PM - 2:50PM
 Finance,FIN  302 - Foundations of Finance,42837,Jedediah Baker,Arts Building 240,We 7:30PM - 9:20PM
@@ -206,7 +206,7 @@ French,FREN  101 - Beginning French I,40621,Fatim-Zahra Samir,University Hall 44
 French,FREN  101 - Beginning French I,43974,Carol Cujec,Markstein Hall 209,MoWeFr 11:30AM - 12:20PM
 GE Science,GES  100 - The Physical Science Around Us,44014,Selakilli Thiyagarajah,Synchronous Virtual Instr,Th 1:00PM - 3:50PM
 GE Science,GES  100 - The Physical Science Around Us,42989,To be Announced,Science Hall II 242,TuTh 2:30PM - 3:45PM
-GE Science,GES  100 - The Physical Science Around Us,42360,"Chong Kim, | Leila Abrous-Sasanka",Arts Building 240,TuTh 9:00AM - 10:15AM
+GE Science,GES  100 - The Physical Science Around Us,42360,Chong Kim, | Leila Abrous-Sasanka,Arts Building 240,TuTh 9:00AM - 10:15AM
 GE Writing,GEW  101A - Writing as Critical Inquiry,41620,Sean Farley,Markstein Hall 203,MoWe 6:30PM - 8:20PM
 Geography,GEOG  201 - World Regional Geography,41173,David Lulka,Soc & Behavioral Sci Bldg 1105,MoWe 5:30PM - 6:45PM
 Geography,GEOG  201 - World Regional Geography,41463,Scott Munroe,Soc & Behavioral Sci Bldg1108G,TuTh 5:30PM - 6:45PM
@@ -278,12 +278,12 @@ Management,MGMT  302 - Foundations of Organizational Behavior,41800,Luciana Simi
 Management,MGMT  302 - Foundations of Organizational Behavior,43940,David Berry,Mt San Jacinto College 219,Fr 12:30PM - 2:20PM
 Management,MGMT  302 - Foundations of Organizational Behavior,41758,Vanessa Shum,Markstein Hall 103,MoWe 10:30AM - 12:20PM
 Management,MGMT  302 - Foundations of Organizational Behavior,43820,Yasuko Shirakawa,Markstein Hall 105,Tu 7:00PM - 8:50PM
-Management,MGMT  302 - Foundations of Organizational Behavior,41754,"David Berry | Rajnandini (Raj) Pillai,",Markstein Hall 125,Tu 10:00AM - 11:50AM
+Management,MGMT  302 - Foundations of Organizational Behavior,41754,David Berry | Rajnandini (Raj) Pillai,,Markstein Hall 125,Tu 10:00AM - 11:50AM
 Management,MGMT  302 - Foundations of Organizational Behavior,41756,Jeffrey Kohles,Markstein Hall 105,TuTh 10:00AM - 11:50AM
 Management,MGMT  302 - Foundations of Organizational Behavior,41853,Jeffrey Kohles,Markstein Hall 105,TuTh 1:00PM - 2:50PM
 Management,MGMT  302 - Foundations of Organizational Behavior,41820,Luciana Simion,Markstein Hall 103,MoWe 2:30PM - 4:20PM
 Management,MGMT  302 - Foundations of Organizational Behavior,41821,Mark Monahan,Markstein Hall 105,MoWe 8:30AM - 10:20AM
-Management,MGMT  302 - Foundations of Organizational Behavior,43244,"Emily Tarr, | Quynh Pham",Markstein Hall 104,TuTh 5:30PM - 8:15PM
+Management,MGMT  302 - Foundations of Organizational Behavior,43244,Emily Tarr, | Quynh Pham,Markstein Hall 104,TuTh 5:30PM - 8:15PM
 Management,MGMT  302 - Foundations of Organizational Behavior,43331,Catalin Ratiu | To be Announced,Markstein Hall 104 | Markstein Hall 208,Th 5:30PM - 8:15PM | Tu 5:30PM - 8:15PM | TuTh 5:30PM - 8:15PM
 Management Information Sys,MIS  302 - Foundations of Management Information Systems,41861,Pari Sebt,Markstein Hall 304,Fr 8:30AM - 10:20AM
 Management Information Sys,MIS  302 - Foundations of Management Information Systems,43726,To be Announced,Mt San Jacinto College 219,We 4:30PM - 6:20PM
@@ -389,10 +389,10 @@ Nursing,NURS  200 - Introduction to Nursing Practice,42883,To be Announced,Async
 Nursing,NURS  200 - Introduction to Nursing Practice,42844,To be Announced,Asynchronous Virtual Instr | UNIV 343 - Nursing Exclusive U | University Hall 100,Fr 9:00AM - 12:20PM | FrSa 12:00AM - 12:00AM | Sa 1:00PM - 3:20PM
 Nursing,NURS  200 - Introduction to Nursing Practice,42880,To be Announced,Asynchronous Virtual Instr | UNIV 343 - Nursing Exclusive U | University Hall 100,Fr 1:00PM - 3:20PM | FrSa 12:00AM - 12:00AM | Sa 9:00AM - 12:20PM
 Operations Management,OM  302 - Foundations of Operations Management,41768,Robert Showghi,Academic Hall 102,Mo 6:30PM - 8:20PM
-Operations Management,OM  302 - Foundations of Operations Management,41771,"Hedayat Alibeiki, | Matthew Tasooji",Academic Hall 102,We 2:30PM - 4:20PM
+Operations Management,OM  302 - Foundations of Operations Management,41771,Hedayat Alibeiki, | Matthew Tasooji,Academic Hall 102,We 2:30PM - 4:20PM
 Operations Management,OM  302 - Foundations of Operations Management,43728,To be Announced,Mt San Jacinto College 219,Fr 10:30AM - 12:20PM
 Operations Management,OM  302 - Foundations of Operations Management,41767,Bahar Viniche,Markstein Hall 305,TuTh 1:00PM - 2:50PM
-Operations Management,OM  302 - Foundations of Operations Management,43330,"Hedayat Alibeiki, | Matthew Tasooji",Markstein Hall 104,MoWe 5:30PM - 8:15PM
+Operations Management,OM  302 - Foundations of Operations Management,43330,Hedayat Alibeiki, | Matthew Tasooji,Markstein Hall 104,MoWe 5:30PM - 8:15PM
 Philosophy,PHIL  340 - Ethics and the Environment,44074,Anne Dabb,Kellogg Library 1111,We 8:30AM - 11:20AM
 Physics,PHYS  100 - Introduction to Being a Physicist,42518,Stephen Tsui,Science Hall II 202,We 9:30AM - 10:20AM
 Physics,PHYS  100 - Introduction to Being a Physicist,42436,To be Announced,Science Hall II 245,Th 7:30AM - 10:20AM
@@ -401,7 +401,7 @@ Physics,PHYS  100 - Introduction to Being a Physicist,43477,To be Announced,Mtg 
 Physics,PHYS  100 - Introduction to Being a Physicist,42398,Chong Kim,Science Hall II 242,TuTh 10:30AM - 11:45AM
 Physics,PHYS  100 - Introduction to Being a Physicist,42432,Suzanne Montgomery,Science Hall II 245,Tu 1:00PM - 3:50PM
 Physics,PHYS  100 - Introduction to Being a Physicist,42431,Chong Kim,Science Hall II 245,Tu 4:00PM - 6:50PM
-Physics,PHYS  100 - Introduction to Being a Physicist,42410,"Edward Price, | Stephen Tsui",Science Hall II 242,MoWeFr 12:30PM - 1:20PM
+Physics,PHYS  100 - Introduction to Being a Physicist,42410,Edward Price, | Stephen Tsui,Science Hall II 242,MoWeFr 12:30PM - 1:20PM
 Physics,PHYS  100 - Introduction to Being a Physicist,42399,Suzanne Montgomery,Science Hall II 242,MoWeFr 8:30AM - 9:20AM
 Physics,PHYS  100 - Introduction to Being a Physicist,42429,Michael Burin,Science Hall II 245,Mo 11:30AM - 2:20PM
 Physics,PHYS  100 - Introduction to Being a Physicist,42725,Jim Means,Synchronous Virtual Instr,Mo 5:30PM - 7:20PM

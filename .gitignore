@@ -1,21 +1,64 @@
-# Qt build artifacts
-build*/
+# C++ object and binary files
 *.o
 *.obj
+*.a
 *.so
-*.exe
 *.dll
+*.exe
+*.lib
 *.app
-*.user
-*.autosave
-*.qtc_clangd/
-CMakeFiles/
-CMakeCache.txt
-*.ninja
-*.cmake
-*.log
-*.idx
-*.plist
+*.bin
 
-# macOS junk
+# Qt-generated files
+moc_*.cpp
+ui_*.h
+qrc_*.cpp
+*_autogen/
+*.qrc.depends
+
+# Qt Creator
+*.user
+*.user.*
+*.autosave
+*.pro.user*
+*.qbs.user*
+*.qmlproject.user
+*.creator.*
+*.directory
+.qmake.cache
+.qmake.stash
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+*.cmake
+build*/       # matches build/ and build-* folders
+*.ninja
+.ninja_deps
+.ninja_log
+
+# IDEs and temp files
 .DS_Store
+Thumbs.db
+*.swp
+*~
+*.log
+*.rej
+*.orig
+*.debug
+*.idx
+*.yaml
+
+# Testing and coverage
+Testing/
+*.gcno
+*.gcda
+*.gcov
+
+# Python cache
+__pycache__/
+*.pyc
+/370-project/370-Project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/.qtc/package-manager
+370-project/370-Project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/.qtc_clangd/compile_commands.json

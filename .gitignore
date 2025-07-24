@@ -1,92 +1,64 @@
-# This file is used to ignore files which are generated
-# ----------------------------------------------------------------------------
-
-*~
-*.autosave
-*.a
-*.core
-*.moc
+# C++ object and binary files
 *.o
 *.obj
-*.orig
-*.rej
+*.a
 *.so
-*.so.*
-*_pch.h.cpp
-*_resource.rc
-*.qm
-.#*
-*.*#
-core
-!core/
-tags
-.DS_Store
-.directory
-*.debug
-Makefile*
-*.prl
+*.dll
+*.exe
+*.lib
 *.app
+*.bin
+
+# Qt-generated files
 moc_*.cpp
 ui_*.h
 qrc_*.cpp
-Thumbs.db
-*.res
-*.rc
-/.qmake.cache
-/.qmake.stash
+*_autogen/
+*.qrc.depends
 
-# qtcreator generated files
+# Qt Creator
+*.user
+*.user.*
+*.autosave
 *.pro.user*
 *.qbs.user*
-CMakeLists.txt.user*
+*.qmlproject.user
+*.creator.*
+*.directory
+.qmake.cache
+.qmake.stash
 
-# xemacs temporary files
-*.flc
+# CMake
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+*.cmake
+build*/       # matches build/ and build-* folders
+*.ninja
+.ninja_deps
+.ninja_log
 
-# Vim temporary files
-.*.swp
-
-# Visual Studio generated files
-*.ib_pdb_index
-*.idb
-*.ilk
-*.pdb
-*.sln
-*.suo
-*.vcproj
-*vcproj.*.*.user
-*.ncb
-*.sdf
-*.opensdf
-*.vcxproj
-*vcxproj.*
-
-# MinGW generated files
-*.Debug
-*.Release
-
-# Python byte code
-*.pyc
-
-# Binaries
-# --------
-*.dll
-*.exe
-
-# Directories with generated files
-.moc/
-.obj/
-.pch/
-.rcc/
-.uic/
-/build*/
-WhatAmIDoing/.qtcreator/project.json.user
-370-project/370-Project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/Testing/Temporary/LastTest.log
-build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/Testing/Temporary/
-370-project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/Testing/Temporary/LastTest.log
-370-project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/Testing/Temporary/LastTest.log
+# IDEs and temp files
+.DS_Store
+Thumbs.db
+*.swp
+*~
 *.log
+*.rej
+*.orig
+*.debug
 *.idx
-370-project/370-Project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/.ninja_log
-370-project/370-Project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/.ninja_deps
-/370-project/370-Project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug
+*.yaml
+
+# Testing and coverage
+Testing/
+*.gcno
+*.gcda
+*.gcov
+
+# Python cache
+__pycache__/
+*.pyc
+/370-project/370-Project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/.qtc/package-manager
+370-project/370-Project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/.qtc_clangd/compile_commands.json

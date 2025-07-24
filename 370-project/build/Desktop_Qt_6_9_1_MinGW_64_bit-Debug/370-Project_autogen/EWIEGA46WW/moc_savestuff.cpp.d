@@ -1,4 +1,4 @@
-C:/crying/CS370-Team3/370-project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-Project_autogen/EWIEGA46WW/moc_mainwindow.cpp: C:/crying/CS370-Team3/370-project/mainwindow.h \
+C:/crying/CS370-Team3/370-project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-Project_autogen/EWIEGA46WW/moc_savestuff.cpp: C:/crying/CS370-Team3/370-project/savestuff.h \
   C:/crying/CS370-Team3/370-project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-Project_autogen/moc_predefs.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/QDebug \
   C:/QT/6.9.1/mingw_64/include/QtCore/QObject \

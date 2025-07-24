@@ -8,10 +8,30 @@
 #include <QFrame>
 #include <QVBoxLayout>
 
-#include "createclass.h"
-#include "class_info_unit.h"
+#include <QMessageBox>
+#include <fstream>
+#include <string>
+using namespace std;
 
-QT_BEGIN_NAMESPACE
+#include "mainwindow.h"
+#include "createclass.h"
+//#include "class_info_unit.h"
+
+class SaveFeature {
+private:
+    ofstream SaveFile;
+
+public:
+    SaveFeature(const string& filename);
+
+    void addToSave(const ClassInfo& data, const string& filename);
+
+    void deleteFromSave();
+
+    void loadSaveData(const string& filename, const ClassInfo& data);
+};
+
+/* QT_BEGIN_NAMESPACE
 namespace Ui {
 
 class MainWindow;
@@ -43,6 +63,6 @@ private:
     QVector<ClassInfoFrame*> class_data_containers;  // stores the actual QFrame widgets
 
     QVBoxLayout* classListLayout;  // layout where the frames get added
-};
+}; */
 
 #endif // SAVESTUFF_H

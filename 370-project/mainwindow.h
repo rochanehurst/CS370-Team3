@@ -7,9 +7,14 @@
 #include <QVector>
 #include <QFrame>
 #include <QVBoxLayout>
+//#include <iostream>
+#include <fstream>
+using namespace std;
 
 #include "createclass.h"
 #include "class_info_unit.h"
+#include "savestuff.h"
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -25,6 +30,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    //extern ofstream SaveFile;
 
 private slots:
     void createClassButtonHandler();

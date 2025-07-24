@@ -30,8 +30,8 @@ numOfClass = 0
 
 start_time = time.time()
 
-wait = WebDriverWait(driver, 60)
-short_wait = WebDriverWait(driver, 20)
+wait = WebDriverWait(driver, 1200) # Time out after 20 minutes
+
 
 for subject in subjects["Subject"]:
     # Re-locate iframe after clearing

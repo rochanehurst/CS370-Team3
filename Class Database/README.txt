@@ -2,24 +2,25 @@
 CREATED BY: Cole Leahy
 LAST UPDATED: 7/16/2025
 ------------------------------
-NOTICE: THIS PROGRAM ONLY WORKS ON WINDOWS DEVICES
+*** THIS PROGRAM ONLY WORKS ON WINDOWS DEVICES ***
 
 DESCRIPTION OF PROGRAM
 ------------------------------
 data_extractor goes through the csusm course catalog.
 It goes through every subject, recording data from each class available.
-The program only goes through FALL 2025.
+*** LAST UPDATED FOR FALL 2025 ***
 ------------------------------
 
 DATA FOLDER
 ------------------------------
 - 	csusm_classes.csv: contains data gathered by the program
+	*** DO NOT MODIFY THIS FILE ***
 
 -	csusm_classes.xlsx: Excel spreadsheet that contains the csv data.
-	NOTICE: the .xlsx does not update automatically. Updates must be done manually.
-
+	*** THIS FILE DOES NOT UPDATE AUTOMATICALLY. UPDATES WILL NEED TO BE DONE MANUALLY USING THE CSV FILE ***
+	
 - 	subjects.csv is a file that contains all available classes. 
-	NOTICE: Modification to this file can cause problems. Edit at your own risk.
+	*** DO NOT MODIFY THIS FILE ***
 ------------------------------
 
 BUILD FOLDER
@@ -43,7 +44,6 @@ REQUIREMENTS:
 -	BeautifulSoup
 -	Pandas
 -	LXML
-
 -	ChromeDriver AND Google Chrome
 ------------------------------
 
@@ -54,8 +54,10 @@ pip install selenium
 pip install beautifulsoup4
 pip install pandas
 pip install lxml
+------------------------------
 
-TO INSTALL CHROMEDRIVE:
+INSTALLING CHROMEDRIVE
+------------------------------
 go to: https://sites.google.com/chromium.org/driver/
 ------------------------------
 

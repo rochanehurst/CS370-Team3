@@ -10,6 +10,7 @@ constexpr auto THURSDAY_OBJ_NAME = "thursday";
 
 int mwf = 0;
 int tuth = 0;
+int sa = 0;
 
 // Create form constructor
 Dialog::Dialog(QWidget *parent)
@@ -52,13 +53,13 @@ void Dialog::setupConnections() {
     connect(ui_->confirm_button_box, &QDialogButtonBox::rejected, this, &Dialog::handleConfirmRejected);
     connect(ui_->time_start, &QTimeEdit::userTimeChanged, this, &Dialog::startTimeChangeHandler);
     connect(ui_->time_stop, &QTimeEdit::userTimeChanged, this, &Dialog::endTimeChangeHandler);
-    connect(ui_->online_check_box, &QCheckBox::checkStateChanged, this, &Dialog::onlineStateChangeHandler);
 
     connect(ui_->monday, &QCheckBox::checkStateChanged, this, &Dialog::onMWFStateChanged);
     connect(ui_->tuesday, &QCheckBox::checkStateChanged, this, &Dialog::onTRStateChanged);
     connect(ui_->wednesday, &QCheckBox::checkStateChanged, this, &Dialog::onMWFStateChanged);
     connect(ui_->thursday, &QCheckBox::checkStateChanged, this, &Dialog::onTRStateChanged);
     connect(ui_->friday, &QCheckBox::checkStateChanged, this, &Dialog::onMWFStateChanged);
+    connect(ui_->saturday, &QCheckBox::checkStateChanged, this, &Dialog::onSaStateChanged);
 }
 
 void Dialog::setupCheckboxes() {
@@ -74,6 +75,7 @@ void Dialog::setupCheckboxes() {
 void Dialog::resetCounters() {
     mwf = 0;
     tuth = 0;
+    sa = 0;
 }
 
 void Dialog::handleConfirmAccepted() {
@@ -81,11 +83,11 @@ void Dialog::handleConfirmAccepted() {
         QMessageBox::critical(this, "Error", "Enter class name");
         return;
     }
-    if (ui_->building_name->text().isEmpty() && !ui_->online_check_box->isChecked()) {
-        QMessageBox::critical(this, "Error", "Enter building name");
+    if (ui_->building_name->currentText() == "--SELECT BUILDING--"){
+        QMessageBox::critical(this, "Error", "Select a building");
         return;
     }
-    if ((mwf + tuth) <= 0) {
+    if ((mwf + tuth + sa) <= 0) {
         QMessageBox::critical(this, "Error", "Select a day");
         return;
     }
@@ -108,12 +110,13 @@ void Dialog::handleConfirmRejected() {
 
 void Dialog::onMWFStateChanged(int state) {
     if (state == Qt::Checked) {
-        mwf++;
+        mwf++; sa++;
     }
     else if (state == Qt::Unchecked) {
-        mwf--;
+        mwf--; sa--;
     }
 
+    bool sa_disabled = (sa > 0);
     bool disabled = (mwf > 0 && mwf != 3);
     // MTWF or MWRF are valid
     ui_->tuesday->setDisabled(disabled);
@@ -121,16 +124,18 @@ void Dialog::onMWFStateChanged(int state) {
 
     ui_->thursday->setDisabled(disabled);
     ui_->thursday->setChecked(false);
+    ui_->saturday->setDisabled(sa_disabled);
 }
 
 void Dialog::onTRStateChanged(int state) {
     if (state == Qt::Checked) {
-        tuth++;
+        tuth++; sa++;
     }
     else if (state == Qt::Unchecked) {
-        tuth--;
+        tuth--; sa--;
     }
 
+    bool sa_disabled = (sa > 0);
     bool disabled = (tuth > 0);
 
     if (mwf == 3) {
@@ -140,6 +145,18 @@ void Dialog::onTRStateChanged(int state) {
     ui_->monday->setDisabled(disabled);
     ui_->wednesday->setDisabled(disabled);
     ui_->friday->setDisabled(disabled);
+    ui_->saturday->setDisabled(sa_disabled);
+}
+
+void Dialog::onSaStateChanged(int state){
+    bool disabled = (state ? Qt::Checked : Qt::Unchecked);
+    if (disabled) sa++;
+    else sa--;
+    for (int i = 0; i < checkboxes_.size(); ++i) {
+        QCheckBox* day = checkboxes_.at(i);
+        if (day->objectName() == "saturday") continue;
+        day->setDisabled(disabled);
+    }
 }
 
 // Prevents time start from being higher than time stop
@@ -160,34 +177,12 @@ void Dialog::endTimeChangeHandler(const QTime &time) {
     }
 }
 
-void Dialog::onlineStateChangeHandler(int state) {
-    switch(state) {
-        case Qt::Unchecked:
-            ui_->building_name->setDisabled(false);
-            break;
-        case Qt::Checked:
-            ui_->building_name->setDisabled(true);
-            break;
-        default:
-            ui_->building_name->setDisabled(false);
-            break;
-    } 
-}
-
 void Dialog::createClassForm() {
-    class_form_info_.school = ui_->school_combo_box->currentText();
     class_form_info_.name = ui_->class_name->text();
-
-    if (ui_->online_check_box->isChecked()) {
-        class_form_info_.building = "Online Class";
-    }
-    else {
-        class_form_info_.building = ui_->building_name->text();
-    }
+    class_form_info_.building = ui_->building_name->currentText();
     class_form_info_.startTime = ui_->time_start->text();
     class_form_info_.endTime = ui_->time_stop->text();
     class_form_info_.days = dayStringCreate();
-    class_form_info_.online = ui_->online_check_box->isChecked();
 
     resetCounters();
 }
@@ -198,15 +193,14 @@ void Dialog::editClassFrame(const ClassInfo& classFormInfo){
         { 'T', ui_->tuesday },
         { 'W', ui_->wednesday },
         { 'R', ui_->thursday },
-        { 'F', ui_->friday }
+        { 'F', ui_->friday },
+        { 'S', ui_->saturday }
     };
 
     ui_->class_name->setText(classFormInfo.name);
-    ui_->building_name->setText(classFormInfo.building);
 
-    // True: set Checked | False: set Unchecked
-    ui_->online_check_box->setCheckState(
-        classFormInfo.online ? Qt::Checked : Qt::Unchecked);
+    int building_index = ui_->building_name->findText(classFormInfo.building);
+    ui_->building_name->setCurrentIndex(building_index);
 
     QString format = "h:mm AP";
     ui_->time_start->setTime(QTime::fromString(classFormInfo.startTime, format));
@@ -220,12 +214,9 @@ void Dialog::editClassFrame(const ClassInfo& classFormInfo){
             dayMap[day]->setCheckState(Qt::Checked);
         }
     }
-    if (tuesday) {
-        ui_->tuesday->setCheckState(Qt::Checked);
-    }
-    if (thursday) {
-        ui_->thursday->setCheckState(Qt::Checked);
-    }
+    if (tuesday)     ui_->tuesday->setCheckState(Qt::Checked);
+    if (thursday)    ui_->thursday->setCheckState(Qt::Checked);
+
 }
 
 QString Dialog::dayStringCreate() const {

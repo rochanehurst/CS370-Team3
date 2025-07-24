@@ -536,13 +536,13 @@
       </property>
       <property name="minimumSize">
        <size>
-        <width>300</width>
+        <width>330</width>
         <height>400</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
-        <width>300</width>
+        <width>330</width>
         <height>16777215</height>
        </size>
       </property>
@@ -557,7 +557,7 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>298</width>
+         <width>328</width>
          <height>481</height>
         </rect>
        </property>
@@ -709,6 +709,10 @@
 QPushButton:hover {
 	background-color: rgb(5, 20, 40);
 	color: white;
+}
+QPushButton::menu-indicator { 
+	image: none; 
+	width: 0px; 
 }</string>
         </property>
         <property name="text">

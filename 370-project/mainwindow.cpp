@@ -2,6 +2,9 @@
 #include "ui_mainwindow.h"
 #include "class_info_unit.h"
 
+#include <QMenu>
+#include <QIcon>
+#include <QSize>
 #include <QWidget>
 
 MainWindow::MainWindow(QWidget *parent)
@@ -13,11 +16,20 @@ MainWindow::MainWindow(QWidget *parent)
 
     // Initalize layout in scroll area
     setupClassListLayout();
+    setupMenu();
 }
 
 MainWindow::~MainWindow() {
     // TODO: Persist data to file before exit
     delete ui_;
+}
+
+void MainWindow::setupMenu(){
+    // Create button options
+    QMenu* menu = new QMenu(this);
+    menu->addAction("Manually add class", this, &MainWindow::createClassButtonHandler);
+    menu->addAction("Search for class", this, &MainWindow::searchClass);
+    ui_->class_creator_button->setMenu(menu);
 }
 
 void MainWindow::setupConnections() {
@@ -51,10 +63,10 @@ void MainWindow::removeFromSave() {
 }
 
 void MainWindow::createClassButtonHandler() {
-    Dialog classCreator;
-    classCreator.setModal(true);
-    if (classCreator.exec() == QDialog::Accepted) {
-        ClassInfo classData = classCreator.getData();       // Retrieve data from the dialog
+    Dialog class_creator;
+    class_creator.setModal(true);
+    if (class_creator.exec() == QDialog::Accepted) {
+        ClassInfo classData = class_creator.getData();       // Retrieve data from the dialog
         class_infos_.append(classData);                     // Store in MainWindow’s QVector
         createClassFrame(classData);
         // TODO: Append class data to save file
@@ -70,9 +82,14 @@ void MainWindow::clearSchedule() {
     }
 }
 
+void MainWindow::searchClass(){
+    search search_class;
+    search_class.setModal(true);
+    search_class.exec();
+}
+
 // Below functions are for debug only
 // ***MARKED FOR REMOVAL***
-
 void MainWindow::debugAddClasstoList(ClassInfo* tester) {
     ClassInfoFrame* debug_data = new ClassInfoFrame();
     debug_data->createFrame(*tester);
@@ -83,16 +100,13 @@ ClassInfo* MainWindow::debugCreateClass(QString name,
                                   QString days,
                                   QString start,
                                   QString end,
-                                  IsOnline online,
                                   QString building) {
     ClassInfo* tester = new ClassInfo;
     tester->name = name;
     tester->days = days;
     tester->startTime = start;
     tester->endTime = end;
-    tester->online = (online == IsOnline::Yes);
     tester->building = building;
-
     return tester;
 }
 
@@ -100,27 +114,23 @@ void MainWindow::debugPopulateList() {
 
     debugAddClasstoList(debugCreateClass("testClass1", "M",
                                          "9:30 AM", "1:30 AM",
-                                         IsOnline::No,
-                                         "Markstein Hall"));
+                                         "Social and Behavioral Sciences Building (SBSB)"));
 
     debugAddClasstoList(debugCreateClass("testClass2", "T",
                                          "1:30 PM", "4:45 PM",
-                                         IsOnline::No,
-                                         "University Hall"));
+                                         "University Hall (UNIV)"));
 
     debugAddClasstoList(debugCreateClass("testClass3", "MWF",
                                          "7:30 AM", "8:20 AM",
-                                         IsOnline::Yes));
+                                         "ONLINE CLASS"));
 
     debugAddClasstoList(debugCreateClass("testClass4", "TR",
                                          "5:00 AM", "6:50 AM",
-                                         IsOnline::No,
-                                         "Science Hall 1"));
+                                         "Science Hall I (SCI 1)"));
 
     debugAddClasstoList(debugCreateClass("testClass5", "F",
                                          "10:00 AM", "1:20 PM",
-                                         IsOnline::No,
-                                         "Arts Building"));
+                                         "Arts Building (ARTS)"));
 }
 
 

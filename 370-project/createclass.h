@@ -7,22 +7,18 @@
 #include <QDebug>
 
 struct ClassInfo {
-    QString school;
     QString name;
     QString building;
     QString startTime;
     QString endTime;
     QString days;
-    bool online;
 
     void print() const{
-        qDebug() << "\nSchool: " << school
-                 << "\nName: " << name
+        qDebug() << "\nName: " << name
                  << "\nBuilding: " << building
                  << "\nStarts at: " << startTime
                  << "\nEnds at:" << endTime
-                 << "\nOn days: " << days
-                 << "\nIs Online?: " << online;
+                 << "\nOn days: " << days;
     }
 };
 
@@ -47,10 +43,10 @@ private slots:
 
     void onMWFStateChanged(int state);
     void onTRStateChanged(int state);
+    void onSaStateChanged(int state);
 
     void startTimeChangeHandler(const QTime &time);
     void endTimeChangeHandler(const QTime &time);
-    void onlineStateChangeHandler(int state);
 
 private:
     void setupConnections();

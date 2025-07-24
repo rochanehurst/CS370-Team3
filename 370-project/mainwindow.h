@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include "createclass.h"
+#include "search.h"
 
 
 #include <QMainWindow>
@@ -16,11 +17,6 @@ namespace Ui {
 class main_window;
 }
 QT_END_NAMESPACE
-
-enum class IsOnline{
-    Yes,
-    No
-};
 
 class MainWindow : public QMainWindow
 {
@@ -37,20 +33,21 @@ private slots:
     void editSave();
     void removeFromSave();
     void clearSchedule();
+    void searchClass();
 
     void debugPopulateList();
 
 private:
     void setupConnections();
     void setupClassListLayout();
+    void setupMenu();
 
     void debugAddClasstoList(ClassInfo* tester);
     ClassInfo* debugCreateClass(QString name,
                           QString days,
                           QString start,
                           QString end,
-                          IsOnline online,
-                          QString building = "Online Class");
+                          QString building);
 
 
 private:

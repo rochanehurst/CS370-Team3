@@ -75,13 +75,13 @@
 			{
 				"command" : 4,
 				"file" : 1,
-				"line" : 71,
+				"line" : 76,
 				"parent" : 0
 			},
 			{
 				"command" : 5,
 				"file" : 1,
-				"line" : 54,
+				"line" : 59,
 				"parent" : 0
 			},
 			{
@@ -381,7 +381,8 @@
 				2,
 				7,
 				10,
-				17
+				13,
+				22
 			]
 		}
 	],
@@ -507,7 +508,8 @@
 				2,
 				7,
 				10,
-				17
+				13,
+				22
 			]
 		},
 		{
@@ -518,9 +520,11 @@
 				6,
 				9,
 				12,
-				13,
-				14,
-				15
+				16,
+				17,
+				18,
+				19,
+				20
 			]
 		},
 		{
@@ -529,7 +533,9 @@
 			[
 				4,
 				5,
-				8
+				8,
+				14,
+				15
 			]
 		},
 		{
@@ -543,15 +549,15 @@
 			"name" : "",
 			"sourceIndexes" : 
 			[
-				16
+				21
 			]
 		},
 		{
 			"name" : "CMake Rules",
 			"sourceIndexes" : 
 			[
-				18,
-				19
+				23,
+				24
 			]
 		}
 	],
@@ -629,6 +635,22 @@
 			"sourceGroupIndex" : 1
 		},
 		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "savestuff.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"path" : "class_search.ui",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 4,
+			"path" : "class_search_v2.ui",
+			"sourceGroupIndex" : 2
+		},
+		{
 			"backtrace" : 0,
 			"isGenerated" : true,
 			"path" : "build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-Project_autogen/include/ui_mainwindow.h",
@@ -644,6 +666,18 @@
 			"backtrace" : 0,
 			"isGenerated" : true,
 			"path" : "build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-Project_autogen/include/ui_class_info_unit.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-Project_autogen/include/ui_class_search.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-Project_autogen/include/ui_class_search_v2.h",
 			"sourceGroupIndex" : 1
 		},
 		{

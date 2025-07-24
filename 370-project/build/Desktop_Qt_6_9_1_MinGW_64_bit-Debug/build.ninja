@@ -200,7 +200,7 @@ build 370-Project_autogen_timestamp_deps: phony
 #############################################
 # Utility command for 370-Project_autogen
 
-build 370-Project_autogen: phony CMakeFiles/370-Project_autogen 370-Project_autogen/include/ui_mainwindow.h 370-Project_autogen/include/ui_createclass.h 370-Project_autogen/include/ui_class_info_unit.h 370-Project_autogen/timestamp 370-Project_autogen/mocs_compilation.cpp 370-Project_autogen_timestamp_deps
+build 370-Project_autogen: phony CMakeFiles/370-Project_autogen 370-Project_autogen/include/ui_mainwindow.h 370-Project_autogen/include/ui_createclass.h 370-Project_autogen/include/ui_class_info_unit.h 370-Project_autogen/include/ui_class_search_v2.h 370-Project_autogen/timestamp 370-Project_autogen/mocs_compilation.cpp 370-Project_autogen_timestamp_deps
 
 
 #############################################
@@ -226,7 +226,7 @@ build 370-Project_autogen/EWIEGA46WW/qrc_resources.cpp | ${cmake_ninja_workdir}3
 #############################################
 # Phony custom command for CMakeFiles\370-Project_autogen
 
-build CMakeFiles/370-Project_autogen 370-Project_autogen/include/ui_mainwindow.h 370-Project_autogen/include/ui_createclass.h 370-Project_autogen/include/ui_class_info_unit.h | ${cmake_ninja_workdir}CMakeFiles/370-Project_autogen ${cmake_ninja_workdir}370-Project_autogen/include/ui_mainwindow.h ${cmake_ninja_workdir}370-Project_autogen/include/ui_createclass.h ${cmake_ninja_workdir}370-Project_autogen/include/ui_class_info_unit.h: phony 370-Project_autogen/timestamp || 370-Project_autogen_timestamp_deps
+build CMakeFiles/370-Project_autogen 370-Project_autogen/include/ui_mainwindow.h 370-Project_autogen/include/ui_createclass.h 370-Project_autogen/include/ui_class_info_unit.h 370-Project_autogen/include/ui_class_search_v2.h | ${cmake_ninja_workdir}CMakeFiles/370-Project_autogen ${cmake_ninja_workdir}370-Project_autogen/include/ui_mainwindow.h ${cmake_ninja_workdir}370-Project_autogen/include/ui_createclass.h ${cmake_ninja_workdir}370-Project_autogen/include/ui_class_info_unit.h ${cmake_ninja_workdir}370-Project_autogen/include/ui_class_search_v2.h: phony 370-Project_autogen/timestamp || 370-Project_autogen_timestamp_deps
 
 # =============================================================================
 # Target aliases.

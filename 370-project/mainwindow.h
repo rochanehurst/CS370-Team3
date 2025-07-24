@@ -19,7 +19,7 @@ using namespace std;
 QT_BEGIN_NAMESPACE
 namespace Ui {
 
-class MainWindow;
+class main_window;
 }
 QT_END_NAMESPACE
 
@@ -43,7 +43,7 @@ private slots:
 
     void editSave();
     void removeFromSave();
-    void clearSchedule()
+    void clearSchedule();
 
     void debugPopulateList();
 
@@ -64,12 +64,12 @@ private:
                           QString building = "Online Class");
 
 private:
-    Ui::MainWindow *ui;
-    QVector<ClassInfo> class_info;  // stores the data model
+    Ui::main_window *ui_;
+    QVector<ClassInfo> class_infos_;  // stores the data model
 
     //QVector<ClassInfoFrame*> class_data_containers;  // stores the actual QFrame widgets
 
-    QVBoxLayout* class_List_Layout;  // layout where the frames get added
+    QVBoxLayout* class_list_layout_;  // layout where the frames get added
 };
 
 #endif // MAINWINDOW_H

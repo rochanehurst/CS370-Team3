@@ -1,1 +1,0 @@
-CSUSM,Software Engineering,Markstein Hall,7:30 AM,8:30 AM,TR,false

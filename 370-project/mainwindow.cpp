@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "createclass.h"
 #include "savestuff.h"
+#include "class_info_unit.h"
 
 #include <QFrame>
 #include <QApplication>
@@ -61,12 +62,12 @@ void MainWindow::removeFromSave() {
     // TODO: Remove deleted class info from save file
 }
 
-void MainWindow::editClassFrame(ClassInfoFrame* class_data){
-    // TODO
-    // Should be almost identical to createClassButtonHandler()
-    // Form should be filled out with class_data_info
-    ClassInfo edit_data = class_data->getData();
-}
+// void MainWindow::editClassFrame(ClassInfoFrame* class_data){
+//     // TODO
+//     // Should be almost identical to createClassButtonHandler()
+//     // Form should be filled out with class_data_info
+//     ClassInfo edit_data = class_data->getData();
+// }
 
 // void MainWindow::deleteClassFrame(ClassInfoFrame* class_data)
 // {
@@ -98,7 +99,7 @@ void MainWindow::clearSchedule() {
 // Below functions are for debug only
 // ***MARKED FOR REMOVAL***
 
-void MainWindow::debugAddClasstoList(ClassInfo* tester) {
+void MainWindow::debugAddClassToList(ClassInfo* tester) {
     ClassInfoFrame* debug_data = new ClassInfoFrame();
     debug_data->createFrame(*tester);
     class_list_layout_->addWidget(debug_data);
@@ -123,26 +124,26 @@ ClassInfo* MainWindow::debugCreateClass(QString name,
 
 void MainWindow::debugPopulateList() {
 
-    debugAddClasstoList(debugCreateClass("testClass1", "M",
+    debugAddClassToList(debugCreateClass("testClass1", "M",
                                          "9:30 AM", "1:30 AM",
                                          IsOnline::No,
                                          "Markstein Hall"));
 
-    debugAddClasstoList(debugCreateClass("testClass2", "T",
+    debugAddClassToList(debugCreateClass("testClass2", "T",
                                          "1:30 PM", "4:45 PM",
                                          IsOnline::No,
                                          "University Hall"));
 
-    debugAddClasstoList(debugCreateClass("testClass3", "MWF",
+    debugAddClassToList(debugCreateClass("testClass3", "MWF",
                                          "7:30 AM", "8:20 AM",
                                          IsOnline::Yes));
 
-    debugAddClasstoList(debugCreateClass("testClass4", "TR",
+    debugAddClassToList(debugCreateClass("testClass4", "TR",
                                          "5:00 AM", "6:50 AM",
                                          IsOnline::No,
                                          "Science Hall 1"));
 
-    debugAddClasstoList(debugCreateClass("testClass5", "F",
+    debugAddClassToList(debugCreateClass("testClass5", "F",
                                          "10:00 AM", "1:20 PM",
                                          IsOnline::No,
                                          "Arts Building"));

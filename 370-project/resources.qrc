@@ -2,5 +2,9 @@
     <qresource prefix="/icons">
         <file>icons/Cluster Window Icon Placeholder.png</file>
         <file>icons/Create Class Icon Placeholder.png</file>
+        <file>icons/Windows_Settings_app_icon.png</file>
+        <file>icons/sign-up-icon-signup-square-box-on-transparent-background-free-png.png</file>
+        <file>icons/add_button.png</file>
+        <file>icons/trash-can-icon.png</file>
     </qresource>
 </RCC>

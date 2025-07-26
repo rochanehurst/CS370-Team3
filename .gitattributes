@@ -1,3 +1,1 @@
-# Prefers to replace files in branch with our files
-# Should prevent garbage merge data from occuring
 * merge=ours

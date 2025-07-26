@@ -1,7 +1,7 @@
 # ninja log v6
-128	4305	7750290934882294	C:/crying/CS370-Team3/370-project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-Project_autogen/mocs_compilation.cpp	d275021aa6747f04
 128	4305	7750290934882294	370-Project_autogen/timestamp	d275021aa6747f04
 128	4305	7750290934882294	C:/crying/CS370-Team3/370-project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-Project_autogen/timestamp	d275021aa6747f04
+128	4305	7750290934882294	C:/crying/CS370-Team3/370-project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-Project_autogen/mocs_compilation.cpp	d275021aa6747f04
 128	4305	7750290934882294	370-Project_autogen/mocs_compilation.cpp	d275021aa6747f04
 4571	4880	7745012349181061	370-Project_autogen/EWIEGA46WW/qrc_resources.cpp	6bc2f7f18ffbf3c0
 4571	4880	7745012349181061	C:/crying/CS370-Team3/370-project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-Project_autogen/EWIEGA46WW/qrc_resources.cpp	6bc2f7f18ffbf3c0
@@ -9,7 +9,7 @@
 4308	19243	7750290976677890	CMakeFiles/370-Project.dir/370-Project_autogen/mocs_compilation.cpp.obj	46b6ce7565ba9ede
 4333	21663	7750290976917189	CMakeFiles/370-Project.dir/mainwindow.cpp.obj	ef97808848ce2d6
 28492	31797	7745012585764849	CMakeFiles/370-Project.dir/370-Project_autogen/EWIEGA46WW/qrc_resources.cpp.obj	5ed5e4e0f994f85c
-21663	35645	7750291150223042	CMakeFiles/370-Project.dir/savestuff.cpp.obj	88f9fa3b67c351f
 19243	33612	7750291126032469	CMakeFiles/370-Project.dir/class_info_unit.cpp.obj	8af0ee8f5a15de21
+21663	35645	7750291150223042	CMakeFiles/370-Project.dir/savestuff.cpp.obj	88f9fa3b67c351f
 18613	35770	7750291119719237	CMakeFiles/370-Project.dir/createclass.cpp.obj	82ee238e4b431981
 35771	37662	7750291291303983	370-Project.exe	39732e57fd375784

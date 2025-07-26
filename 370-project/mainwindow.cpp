@@ -1,15 +1,23 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+<<<<<<< HEAD
 #include "createclass.h"
 #include "savestuff.h"
+=======
+>>>>>>> 7dabfc36730817542fab985d1e88bd8c3b446888
 #include "class_info_unit.h"
 #include "search.h"
 
-#include <QFrame>
-#include <QApplication>
+#include <QMenu>
+#include <QIcon>
+#include <QSize>
 #include <QWidget>
+<<<<<<< HEAD
 #include <QMessageBox>
 using namespace std;
+=======
+#include <QLayout>
+>>>>>>> 7dabfc36730817542fab985d1e88bd8c3b446888
 
 string filename = "cluster_savedata.txt";
 SaveFeature s(filename);
@@ -24,6 +32,7 @@ MainWindow::MainWindow(QWidget *parent)
     // Initalize layout in scroll area
     setupClassListLayout();
     setupMenu();
+<<<<<<< HEAD
 }
 
 MainWindow::~MainWindow() {
@@ -32,6 +41,14 @@ MainWindow::~MainWindow() {
     // One problem: will not save if program crashes
     delete ui_;
 
+=======
+    initMap();
+}
+
+MainWindow::~MainWindow() {
+    // TODO: Persist data to file before exit
+    delete ui_;
+>>>>>>> 7dabfc36730817542fab985d1e88bd8c3b446888
 }
 
 void MainWindow::setupMenu(){
@@ -72,6 +89,7 @@ void MainWindow::removeFromSave() {
     // TODO: Remove deleted class info from save file
 }
 
+<<<<<<< HEAD
 // void MainWindow::editClassFrame(ClassInfoFrame* class_data){
 //     // TODO
 //     // Should be almost identical to createClassButtonHandler()
@@ -94,6 +112,15 @@ void MainWindow::createClassButtonHandler() {
         class_infos_.append(classData);                     // Store in MainWindow’s QVector
         createClassFrame(classData);
         s.addToSave(classData, filename);
+=======
+void MainWindow::createClassButtonHandler() {
+    Dialog class_creator;
+    class_creator.setModal(true);
+    if (class_creator.exec() == QDialog::Accepted) {
+        ClassInfo classData = class_creator.getData();       // Retrieve data from the dialog
+        class_infos_.append(classData);                     // Store in MainWindow’s QVector
+        createClassFrame(classData);
+>>>>>>> 7dabfc36730817542fab985d1e88bd8c3b446888
         // TODO: Append class data to save file
     }
 }
@@ -115,8 +142,12 @@ void MainWindow::searchClass(){
 
 // Below functions are for debug only
 // ***MARKED FOR REMOVAL***
+<<<<<<< HEAD
 
 void MainWindow::debugAddClassToList(ClassInfo* tester) {
+=======
+void MainWindow::debugAddClasstoList(ClassInfo* tester) {
+>>>>>>> 7dabfc36730817542fab985d1e88bd8c3b446888
     ClassInfoFrame* debug_data = new ClassInfoFrame();
     debug_data->createFrame(*tester);
     class_list_layout_->addWidget(debug_data);
@@ -126,21 +157,29 @@ ClassInfo* MainWindow::debugCreateClass(QString name,
                                   QString days,
                                   QString start,
                                   QString end,
+<<<<<<< HEAD
                                   IsOnline online,
+=======
+>>>>>>> 7dabfc36730817542fab985d1e88bd8c3b446888
                                   QString building) {
     ClassInfo* tester = new ClassInfo;
     tester->name = name;
     tester->days = days;
     tester->startTime = start;
     tester->endTime = end;
+<<<<<<< HEAD
     tester->online = (online == IsOnline::Yes);
     tester->building = building;
 
+=======
+    tester->building = building;
+>>>>>>> 7dabfc36730817542fab985d1e88bd8c3b446888
     return tester;
 }
 
 void MainWindow::debugPopulateList() {
 
+<<<<<<< HEAD
     debugAddClassToList(debugCreateClass("testClass1", "M",
                                          "9:30 AM", "1:30 AM",
                                          IsOnline::No,
@@ -165,3 +204,92 @@ void MainWindow::debugPopulateList() {
                                          IsOnline::No,
                                          "Arts Building"));
 }
+=======
+    debugAddClasstoList(debugCreateClass("testClass1", "M",
+                                         "9:30 AM", "1:30 AM",
+                                         "Social and Behavioral Sciences Building (SBSB)"));
+
+    debugAddClasstoList(debugCreateClass("testClass2", "T",
+                                         "1:30 PM", "4:45 PM",
+                                         "University Hall (UNIV)"));
+
+    debugAddClasstoList(debugCreateClass("testClass3", "MWF",
+                                         "7:30 AM", "8:20 AM",
+                                         "ONLINE CLASS"));
+
+    debugAddClasstoList(debugCreateClass("testClass4", "TR",
+                                         "5:00 AM", "6:50 AM",
+                                         "Science Hall I (SCI 1)"));
+
+    debugAddClasstoList(debugCreateClass("testClass5", "F",
+                                         "10:00 AM", "1:20 PM",
+                                         "Arts Building (ARTS)"));
+}
+
+//added by Raymond Las Pinas
+//function that uses the placeholder in mainwindow.ui and initializes a map
+void MainWindow::initMap() {
+    // get placeholder widget where the map'll be inserted
+    QWidget* mapPlaceholder = ui_->map_placeholder;
+    if (!mapPlaceholder) { //for debugging
+        qWarning("Map placeholder widget not found!");
+        return;
+    }
+
+    //get the parent widget containing placeholder
+    QWidget* parentWidget = mapPlaceholder->parentWidget();
+    if (!parentWidget) { //for debugging
+        qWarning("Map placeholder has no parent!");
+        return;
+    }
+
+    //get layout of parent widget
+    QLayout* layout = parentWidget->layout();
+    if (!layout) { //for debugging
+        qWarning("Parent widget has no layout!");
+        return;
+    }
+
+    // casting layout into a QGridLayout
+    QGridLayout* gridLayout = qobject_cast<QGridLayout*>(layout);
+    if (!gridLayout) { //for debugging
+        qWarning("Parent layout is not a QGridLayout!");
+        return;
+    }
+
+    // find the placeholder's position in the grid
+    int row, column, rowSpan, columnSpan;
+    bool found = false;
+    for (int i = 0; i < gridLayout->count(); ++i) {
+        QLayoutItem* item = gridLayout->itemAt(i);
+        if (item->widget() == mapPlaceholder) {
+            gridLayout->getItemPosition(i, &row, &column, &rowSpan, &columnSpan);
+            found = true;
+            break;
+        }
+    }
+    if (!found) { //for debugging
+        qWarning("Map placeholder not found in grid layout!");
+        return;
+    }
+
+    // create the map widget
+    mapWidget = new QQuickWidget(this);
+    mapWidget->setResizeMode(QQuickWidget::SizeRootObjectToView); //resize map
+    mapWidget->setSource(QUrl(QStringLiteral("../../map.qml"))); //load map file
+
+    // remove and hide placeholder widget
+    gridLayout->removeWidget(mapPlaceholder);
+    mapPlaceholder->hide();
+    mapPlaceholder->setParent(nullptr); //disconnect from layout
+
+    // add map widget to exact position as the placeholder
+    gridLayout->addWidget(mapWidget, row, column, rowSpan, columnSpan);
+
+    //show map
+    mapWidget->show();
+
+}
+
+
+>>>>>>> 7dabfc36730817542fab985d1e88bd8c3b446888

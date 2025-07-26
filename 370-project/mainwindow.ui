@@ -655,7 +655,11 @@
         </property>
         <property name="font">
          <font>
+<<<<<<< HEAD
           <family>Courier New</family>
+=======
+          <family>Trebuchet MS</family>
+>>>>>>> 7dabfc36730817542fab985d1e88bd8c3b446888
           <pointsize>20</pointsize>
           <bold>true</bold>
          </font>
@@ -843,7 +847,11 @@ QPushButton:hover {
           </property>
           <property name="font">
            <font>
+<<<<<<< HEAD
             <family>Courier New</family>
+=======
+            <family>Trebuchet MS</family>
+>>>>>>> 7dabfc36730817542fab985d1e88bd8c3b446888
             <pointsize>18</pointsize>
             <bold>true</bold>
            </font>
@@ -885,8 +893,13 @@ QPushButton:hover {
       </property>
       <property name="font">
        <font>
+<<<<<<< HEAD
         <family>Courier New</family>
         <pointsize>20</pointsize>
+=======
+        <family>Trebuchet MS</family>
+        <pointsize>18</pointsize>
+>>>>>>> 7dabfc36730817542fab985d1e88bd8c3b446888
         <bold>true</bold>
        </font>
       </property>
@@ -936,9 +949,14 @@ QPushButton:hover {
       </property>
       <property name="font">
        <font>
+<<<<<<< HEAD
         <family>Courier New</family>
         <pointsize>12</pointsize>
         <bold>true</bold>
+=======
+        <family>Lucida Console</family>
+        <pointsize>12</pointsize>
+>>>>>>> 7dabfc36730817542fab985d1e88bd8c3b446888
        </font>
       </property>
       <property name="cursor">

@@ -70,3 +70,7 @@ void ClassInfoFrame::setTime(const QString& start, const QString& stop) {
 void ClassInfoFrame::setDays(const QString& days) {
     ui_.days_label->setText(days);
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7dabfc36730817542fab985d1e88bd8c3b446888

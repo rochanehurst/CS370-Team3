@@ -29,11 +29,8 @@ set(PROJECT_SOURCES
         class_info_unit.h
         class_info_unit.cpp
         resources.qrc
-<<<<<<< HEAD
         savestuff.h
         savestuff.cpp
-=======
->>>>>>> 7dabfc36730817542fab985d1e88bd8c3b446888
         search.ui
         search.h
         search.cpp

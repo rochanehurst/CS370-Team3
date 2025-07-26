@@ -3,6 +3,7 @@
 #include "createclass.h"
 #include "savestuff.h"
 #include "class_info_unit.h"
+#include "search.h"
 
 #include <QFrame>
 #include <QApplication>
@@ -22,6 +23,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     // Initalize layout in scroll area
     setupClassListLayout();
+    setupMenu();
 }
 
 MainWindow::~MainWindow() {
@@ -30,6 +32,14 @@ MainWindow::~MainWindow() {
     // One problem: will not save if program crashes
     delete ui_;
 
+}
+
+void MainWindow::setupMenu(){
+    // Create button options
+    QMenu* menu = new QMenu(this);
+    menu->addAction("Manually add class", this, &MainWindow::createClassButtonHandler);
+    menu->addAction("Search for class", this, &MainWindow::searchClass);
+    ui_->class_creator_button->setMenu(menu);
 }
 
 void MainWindow::setupConnections() {
@@ -83,6 +93,7 @@ void MainWindow::createClassButtonHandler() {
         ClassInfo classData = classCreator.getData();       // Retrieve data from the dialog
         class_infos_.append(classData);                     // Store in MainWindow’s QVector
         createClassFrame(classData);
+        s.addToSave(classData, filename);
         // TODO: Append class data to save file
     }
 }
@@ -94,6 +105,12 @@ void MainWindow::clearSchedule() {
         delete child->widget();
         delete child;
     }
+}
+
+void MainWindow::searchClass(){
+    search search_class;
+    search_class.setModal(true);
+    search_class.exec();
 }
 
 // Below functions are for debug only

@@ -23,10 +23,6 @@ class main_window;
 }
 QT_END_NAMESPACE
 
-enum class IsOnline{
-    Yes,
-    No
-};
 
 class MainWindow : public QMainWindow
 {
@@ -44,6 +40,7 @@ private slots:
     void editSave();
     void removeFromSave();
     void clearSchedule();
+    void searchClass();
 
     void debugPopulateList();
 
@@ -54,6 +51,7 @@ private slots:
 private:
     void setupConnections();
     void setupClassListLayout();
+    void setupMenu();
 
     void debugAddClassToList(ClassInfo* tester);
     ClassInfo* debugCreateClass(QString name,

@@ -7,6 +7,7 @@
 #include <QDialog>
 #include <QVector>
 #include <QVBoxLayout>
+#include <QQuickWidget>
 
 
 QT_BEGIN_NAMESPACE
@@ -15,6 +16,8 @@ namespace Ui {
 class main_window;
 }
 QT_END_NAMESPACE
+
+class QQuickWidget; // added for Map
 
 class MainWindow : public QMainWindow
 {
@@ -46,7 +49,9 @@ private:
                           QString start,
                           QString end,
                           QString building);
-
+    //added for Map
+    void initMap();
+    QQuickWidget* mapWidget = nullptr;
 
 private:
     Ui::main_window *ui_;

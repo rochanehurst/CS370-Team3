@@ -7,6 +7,7 @@
 #include <QIcon>
 #include <QSize>
 #include <QWidget>
+#include <QLayout>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -18,6 +19,7 @@ MainWindow::MainWindow(QWidget *parent)
     // Initalize layout in scroll area
     setupClassListLayout();
     setupMenu();
+    initMap();
 }
 
 MainWindow::~MainWindow() {
@@ -132,6 +134,71 @@ void MainWindow::debugPopulateList() {
     debugAddClasstoList(debugCreateClass("testClass5", "F",
                                          "10:00 AM", "1:20 PM",
                                          "Arts Building (ARTS)"));
+}
+
+//added by Raymond Las Pinas
+//function that uses the placeholder in mainwindow.ui and initializes a map
+void MainWindow::initMap() {
+    // get placeholder widget where the map'll be inserted
+    QWidget* mapPlaceholder = ui_->map_placeholder;
+    if (!mapPlaceholder) { //for debugging
+        qWarning("Map placeholder widget not found!");
+        return;
+    }
+
+    //get the parent widget containing placeholder
+    QWidget* parentWidget = mapPlaceholder->parentWidget();
+    if (!parentWidget) { //for debugging
+        qWarning("Map placeholder has no parent!");
+        return;
+    }
+
+    //get layout of parent widget
+    QLayout* layout = parentWidget->layout();
+    if (!layout) { //for debugging
+        qWarning("Parent widget has no layout!");
+        return;
+    }
+
+    // casting layout into a QGridLayout
+    QGridLayout* gridLayout = qobject_cast<QGridLayout*>(layout);
+    if (!gridLayout) { //for debugging
+        qWarning("Parent layout is not a QGridLayout!");
+        return;
+    }
+
+    // find the placeholder's position in the grid
+    int row, column, rowSpan, columnSpan;
+    bool found = false;
+    for (int i = 0; i < gridLayout->count(); ++i) {
+        QLayoutItem* item = gridLayout->itemAt(i);
+        if (item->widget() == mapPlaceholder) {
+            gridLayout->getItemPosition(i, &row, &column, &rowSpan, &columnSpan);
+            found = true;
+            break;
+        }
+    }
+    if (!found) { //for debugging
+        qWarning("Map placeholder not found in grid layout!");
+        return;
+    }
+
+    // create the map widget
+    mapWidget = new QQuickWidget(this);
+    mapWidget->setResizeMode(QQuickWidget::SizeRootObjectToView); //resize map
+    mapWidget->setSource(QUrl(QStringLiteral("../../map.qml"))); //load map file
+
+    // remove and hide placeholder widget
+    gridLayout->removeWidget(mapPlaceholder);
+    mapPlaceholder->hide();
+    mapPlaceholder->setParent(nullptr); //disconnect from layout
+
+    // add map widget to exact position as the placeholder
+    gridLayout->addWidget(mapWidget, row, column, rowSpan, columnSpan);
+
+    //show map
+    mapWidget->show();
+
 }
 
 

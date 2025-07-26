@@ -24,7 +24,6 @@ void ClassInfoFrame::createFrame(const ClassInfo& class_info) {
     setLocation(class_info.building);
     setTime(class_info.startTime, class_info.endTime);
     setDays(class_info.days);
-    setOnline(class_info.online);
 }
 
 void ClassInfoFrame::editFrameData() {
@@ -70,8 +69,4 @@ void ClassInfoFrame::setTime(const QString& start, const QString& stop) {
 
 void ClassInfoFrame::setDays(const QString& days) {
     ui_.days_label->setText(days);
-}
-
-void ClassInfoFrame::setOnline(bool online) {
-    ui_.online_label->setText(online ? "Online" : "In Person");
 }

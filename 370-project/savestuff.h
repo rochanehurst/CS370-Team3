@@ -19,7 +19,7 @@ using namespace std;
 
 class SaveFeature {
 private:
-    ofstream SaveFile;
+    fstream SaveFile;
 
 public:
     SaveFeature(const string& filename);

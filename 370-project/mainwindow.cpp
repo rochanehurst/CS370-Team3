@@ -1,10 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-<<<<<<< HEAD
 #include "createclass.h"
 #include "savestuff.h"
-=======
->>>>>>> 7dabfc36730817542fab985d1e88bd8c3b446888
 #include "class_info_unit.h"
 #include "search.h"
 
@@ -12,12 +9,9 @@
 #include <QIcon>
 #include <QSize>
 #include <QWidget>
-<<<<<<< HEAD
 #include <QMessageBox>
-using namespace std;
-=======
 #include <QLayout>
->>>>>>> 7dabfc36730817542fab985d1e88bd8c3b446888
+using namespace std;
 
 string filename = "cluster_savedata.txt";
 SaveFeature s(filename);
@@ -32,23 +26,14 @@ MainWindow::MainWindow(QWidget *parent)
     // Initalize layout in scroll area
     setupClassListLayout();
     setupMenu();
-<<<<<<< HEAD
+    // load funct here
 }
 
-MainWindow::~MainWindow() {
-    // Call save data
-    // Will save data before closing
-    // One problem: will not save if program crashes
-    delete ui_;
-
-=======
-    initMap();
-}
 
 MainWindow::~MainWindow() {
     // TODO: Persist data to file before exit
     delete ui_;
->>>>>>> 7dabfc36730817542fab985d1e88bd8c3b446888
+    initMap();
 }
 
 void MainWindow::setupMenu(){
@@ -89,7 +74,6 @@ void MainWindow::removeFromSave() {
     // TODO: Remove deleted class info from save file
 }
 
-<<<<<<< HEAD
 // void MainWindow::editClassFrame(ClassInfoFrame* class_data){
 //     // TODO
 //     // Should be almost identical to createClassButtonHandler()
@@ -112,18 +96,7 @@ void MainWindow::createClassButtonHandler() {
         class_infos_.append(classData);                     // Store in MainWindow’s QVector
         createClassFrame(classData);
         s.addToSave(classData, filename);
-=======
-void MainWindow::createClassButtonHandler() {
-    Dialog class_creator;
-    class_creator.setModal(true);
-    if (class_creator.exec() == QDialog::Accepted) {
-        ClassInfo classData = class_creator.getData();       // Retrieve data from the dialog
-        class_infos_.append(classData);                     // Store in MainWindow’s QVector
-        createClassFrame(classData);
->>>>>>> 7dabfc36730817542fab985d1e88bd8c3b446888
-        // TODO: Append class data to save file
-    }
-}
+
 
 void MainWindow::clearSchedule() {
     if (class_list_layout_->count() == 0) return;
@@ -142,12 +115,8 @@ void MainWindow::searchClass(){
 
 // Below functions are for debug only
 // ***MARKED FOR REMOVAL***
-<<<<<<< HEAD
 
 void MainWindow::debugAddClassToList(ClassInfo* tester) {
-=======
-void MainWindow::debugAddClasstoList(ClassInfo* tester) {
->>>>>>> 7dabfc36730817542fab985d1e88bd8c3b446888
     ClassInfoFrame* debug_data = new ClassInfoFrame();
     debug_data->createFrame(*tester);
     class_list_layout_->addWidget(debug_data);
@@ -157,54 +126,20 @@ ClassInfo* MainWindow::debugCreateClass(QString name,
                                   QString days,
                                   QString start,
                                   QString end,
-<<<<<<< HEAD
-                                  IsOnline online,
-=======
->>>>>>> 7dabfc36730817542fab985d1e88bd8c3b446888
+                                  //IsOnline online,
                                   QString building) {
     ClassInfo* tester = new ClassInfo;
     tester->name = name;
     tester->days = days;
     tester->startTime = start;
     tester->endTime = end;
-<<<<<<< HEAD
-    tester->online = (online == IsOnline::Yes);
+    //tester->online = (online == IsOnline::Yes);
     tester->building = building;
-
-=======
-    tester->building = building;
->>>>>>> 7dabfc36730817542fab985d1e88bd8c3b446888
     return tester;
 }
 
 void MainWindow::debugPopulateList() {
 
-<<<<<<< HEAD
-    debugAddClassToList(debugCreateClass("testClass1", "M",
-                                         "9:30 AM", "1:30 AM",
-                                         IsOnline::No,
-                                         "Markstein Hall"));
-
-    debugAddClassToList(debugCreateClass("testClass2", "T",
-                                         "1:30 PM", "4:45 PM",
-                                         IsOnline::No,
-                                         "University Hall"));
-
-    debugAddClassToList(debugCreateClass("testClass3", "MWF",
-                                         "7:30 AM", "8:20 AM",
-                                         IsOnline::Yes));
-
-    debugAddClassToList(debugCreateClass("testClass4", "TR",
-                                         "5:00 AM", "6:50 AM",
-                                         IsOnline::No,
-                                         "Science Hall 1"));
-
-    debugAddClassToList(debugCreateClass("testClass5", "F",
-                                         "10:00 AM", "1:20 PM",
-                                         IsOnline::No,
-                                         "Arts Building"));
-}
-=======
     debugAddClasstoList(debugCreateClass("testClass1", "M",
                                          "9:30 AM", "1:30 AM",
                                          "Social and Behavioral Sciences Building (SBSB)"));
@@ -290,6 +225,3 @@ void MainWindow::initMap() {
     mapWidget->show();
 
 }
-
-
->>>>>>> 7dabfc36730817542fab985d1e88bd8c3b446888

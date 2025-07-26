@@ -24,6 +24,8 @@ set(PROJECT_SOURCES
         class_info_unit.h
         class_info_unit.cpp
         resources.qrc
+        savestuff.h
+        savestuff.cpp
         search.ui
         search.h
         search.cpp

@@ -12,9 +12,7 @@
 # Qt-generated files
 moc_*.cpp
 ui_*.h
-qrc_*.cpp
 *_autogen/
-*.qrc.depends
 
 # Qt Creator
 *.user

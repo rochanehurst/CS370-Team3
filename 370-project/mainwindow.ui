@@ -655,7 +655,7 @@
         </property>
         <property name="font">
          <font>
-          <family>Trebuchet MS</family>
+          <family>Courier New</family>
           <pointsize>20</pointsize>
           <bold>true</bold>
          </font>
@@ -843,7 +843,7 @@ QPushButton:hover {
           </property>
           <property name="font">
            <font>
-            <family>Trebuchet MS</family>
+            <family>Courier New</family>
             <pointsize>18</pointsize>
             <bold>true</bold>
            </font>
@@ -885,8 +885,8 @@ QPushButton:hover {
       </property>
       <property name="font">
        <font>
-        <family>Trebuchet MS</family>
-        <pointsize>18</pointsize>
+        <family>Courier New</family>
+        <pointsize>20</pointsize>
         <bold>true</bold>
        </font>
       </property>
@@ -936,8 +936,9 @@ QPushButton:hover {
       </property>
       <property name="font">
        <font>
-        <family>Lucida Console</family>
+        <family>Courier New</family>
         <pointsize>12</pointsize>
+        <bold>true</bold>
        </font>
       </property>
       <property name="cursor">

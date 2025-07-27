@@ -4,17 +4,20 @@
 #include <QDialog>
 #include <QCheckBox>
 
+QT_BEGIN_NAMESPACE
 namespace Ui {
-class search;
+class Search;
 }
+QT_END_NAMESPACE
 
-class search : public QDialog
+class Search : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit search(QWidget *parent = nullptr);
-    ~search();
+    //explicit Search(QWidget *parent = nullptr);
+    Search(QWidget *parent = nullptr);
+    ~Search();
 
 private slots:
     void updateSearch();
@@ -25,7 +28,7 @@ private:
     void loadCSV(const QString& filePath);
 
 private:
-    Ui::search *ui_;
+    Ui::Search *ui_;
     QMap<QCheckBox*, std::function<void(int)>> dayHandlers;
 };
 

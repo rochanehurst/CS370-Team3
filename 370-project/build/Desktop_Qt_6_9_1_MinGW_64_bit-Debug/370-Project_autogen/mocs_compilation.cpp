@@ -3,3 +3,4 @@
 #include "EWIEGA46WW/moc_createclass.cpp"
 #include "EWIEGA46WW/moc_mainwindow.cpp"
 #include "EWIEGA46WW/moc_savestuff.cpp"
+#include "EWIEGA46WW/moc_search.cpp"

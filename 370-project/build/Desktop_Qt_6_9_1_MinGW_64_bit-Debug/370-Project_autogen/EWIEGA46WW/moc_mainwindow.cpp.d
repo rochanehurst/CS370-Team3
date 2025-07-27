@@ -1,7 +1,14 @@
 C:/crying/CS370-Team3/370-project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-Project_autogen/EWIEGA46WW/moc_mainwindow.cpp: C:/crying/CS370-Team3/370-project/mainwindow.h \
   C:/crying/CS370-Team3/370-project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-Project_autogen/moc_predefs.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/QDebug \
+  C:/QT/6.9.1/mingw_64/include/QtCore/QEvent \
+  C:/QT/6.9.1/mingw_64/include/QtCore/QList \
+  C:/QT/6.9.1/mingw_64/include/QtCore/QMargins \
   C:/QT/6.9.1/mingw_64/include/QtCore/QObject \
+  C:/QT/6.9.1/mingw_64/include/QtCore/QRect \
+  C:/QT/6.9.1/mingw_64/include/QtCore/QRectF \
+  C:/QT/6.9.1/mingw_64/include/QtCore/QSize \
+  C:/QT/6.9.1/mingw_64/include/QtCore/QSizeF \
   C:/QT/6.9.1/mingw_64/include/QtCore/QVector \
   C:/QT/6.9.1/mingw_64/include/QtCore/q17memory.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/q20functional.h \
@@ -10,6 +17,7 @@ C:/crying/CS370-Team3/370-project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-
   C:/QT/6.9.1/mingw_64/include/QtCore/q20type_traits.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/q20utility.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/q23utility.h \
+  C:/QT/6.9.1/mingw_64/include/QtCore/qabstracteventdispatcher.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qalgorithms.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qanystringview.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qarraydata.h \
@@ -19,11 +27,13 @@ C:/crying/CS370-Team3/370-project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-
   C:/QT/6.9.1/mingw_64/include/QtCore/qatomic.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qatomic_cxx11.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qbasicatomic.h \
+  C:/QT/6.9.1/mingw_64/include/QtCore/qbasictimer.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qbindingstorage.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qbytearray.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qbytearrayalgorithms.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qbytearraylist.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qbytearrayview.h \
+  C:/QT/6.9.1/mingw_64/include/QtCore/qcalendar.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qchar.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qcompare.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qcompare_impl.h \
@@ -35,10 +45,17 @@ C:/crying/CS370-Team3/370-project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-
   C:/QT/6.9.1/mingw_64/include/QtCore/qcontainerinfo.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qcontainertools_impl.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qcontiguouscache.h \
+  C:/QT/6.9.1/mingw_64/include/QtCore/qcoreapplication.h \
+  C:/QT/6.9.1/mingw_64/include/QtCore/qcoreapplication_platform.h \
+  C:/QT/6.9.1/mingw_64/include/QtCore/qcoreevent.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qdarwinhelpers.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qdatastream.h \
+  C:/QT/6.9.1/mingw_64/include/QtCore/qdatetime.h \
+  C:/QT/6.9.1/mingw_64/include/QtCore/qdeadlinetimer.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qdebug.h \
+  C:/QT/6.9.1/mingw_64/include/QtCore/qelapsedtimer.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qendian.h \
+  C:/QT/6.9.1/mingw_64/include/QtCore/qeventloop.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qexceptionhandling.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qflags.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qfloat16.h \
@@ -50,21 +67,25 @@ C:/crying/CS370-Team3/370-project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-
   C:/QT/6.9.1/mingw_64/include/QtCore/qglobalstatic.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qhash.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qhashfunctions.h \
+  C:/QT/6.9.1/mingw_64/include/QtCore/qiodevice.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qiodevicebase.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qiterable.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qiterator.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qlatin1stringview.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qline.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qlist.h \
+  C:/QT/6.9.1/mingw_64/include/QtCore/qlocale.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qlogging.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qmalloc.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qmap.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qmargins.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qmath.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qmetacontainer.h \
+  C:/QT/6.9.1/mingw_64/include/QtCore/qmetaobject.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qmetatype.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qminmax.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qnamespace.h \
+  C:/QT/6.9.1/mingw_64/include/QtCore/qnativeinterface.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qnumeric.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qobject.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qobject_impl.h \
@@ -73,6 +94,7 @@ C:/crying/CS370-Team3/370-project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-
   C:/QT/6.9.1/mingw_64/include/QtCore/qoverload.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qpair.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qpoint.h \
+  C:/QT/6.9.1/mingw_64/include/QtCore/qpointer.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qprocessordetection.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qrect.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qrefcount.h \
@@ -121,57 +143,108 @@ C:/crying/CS370-Team3/370-project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-
   C:/QT/6.9.1/mingw_64/include/QtCore/qtversion.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qtversionchecks.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qtypeinfo.h \
+  C:/QT/6.9.1/mingw_64/include/QtCore/qtyperevision.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qtypes.h \
+  C:/QT/6.9.1/mingw_64/include/QtCore/qurl.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qutf8stringview.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qvariant.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qvarlengtharray.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qvector.h \
+  C:/QT/6.9.1/mingw_64/include/QtCore/qversionnumber.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qversiontagging.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qxptype_traits.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qyieldcpu.h \
+  C:/QT/6.9.1/mingw_64/include/QtGui/QMatrix4x4 \
+  C:/QT/6.9.1/mingw_64/include/QtGui/QTransform \
   C:/QT/6.9.1/mingw_64/include/QtGui/qaction.h \
   C:/QT/6.9.1/mingw_64/include/QtGui/qbitmap.h \
   C:/QT/6.9.1/mingw_64/include/QtGui/qbrush.h \
   C:/QT/6.9.1/mingw_64/include/QtGui/qcolor.h \
   C:/QT/6.9.1/mingw_64/include/QtGui/qcursor.h \
+  C:/QT/6.9.1/mingw_64/include/QtGui/qevent.h \
+  C:/QT/6.9.1/mingw_64/include/QtGui/qeventpoint.h \
   C:/QT/6.9.1/mingw_64/include/QtGui/qfont.h \
   C:/QT/6.9.1/mingw_64/include/QtGui/qfontinfo.h \
   C:/QT/6.9.1/mingw_64/include/QtGui/qfontmetrics.h \
   C:/QT/6.9.1/mingw_64/include/QtGui/qfontvariableaxis.h \
+  C:/QT/6.9.1/mingw_64/include/QtGui/qgenericmatrix.h \
+  C:/QT/6.9.1/mingw_64/include/QtGui/qguiapplication.h \
+  C:/QT/6.9.1/mingw_64/include/QtGui/qguiapplication_platform.h \
   C:/QT/6.9.1/mingw_64/include/QtGui/qicon.h \
   C:/QT/6.9.1/mingw_64/include/QtGui/qimage.h \
+  C:/QT/6.9.1/mingw_64/include/QtGui/qinputdevice.h \
+  C:/QT/6.9.1/mingw_64/include/QtGui/qinputmethod.h \
   C:/QT/6.9.1/mingw_64/include/QtGui/qkeysequence.h \
+  C:/QT/6.9.1/mingw_64/include/QtGui/qmatrix4x4.h \
   C:/QT/6.9.1/mingw_64/include/QtGui/qpaintdevice.h \
   C:/QT/6.9.1/mingw_64/include/QtGui/qpalette.h \
   C:/QT/6.9.1/mingw_64/include/QtGui/qpixelformat.h \
   C:/QT/6.9.1/mingw_64/include/QtGui/qpixmap.h \
+  C:/QT/6.9.1/mingw_64/include/QtGui/qpointingdevice.h \
   C:/QT/6.9.1/mingw_64/include/QtGui/qpolygon.h \
+  C:/QT/6.9.1/mingw_64/include/QtGui/qquaternion.h \
   C:/QT/6.9.1/mingw_64/include/QtGui/qregion.h \
   C:/QT/6.9.1/mingw_64/include/QtGui/qrgb.h \
   C:/QT/6.9.1/mingw_64/include/QtGui/qrgba64.h \
+  C:/QT/6.9.1/mingw_64/include/QtGui/qscreen.h \
+  C:/QT/6.9.1/mingw_64/include/QtGui/qscreen_platform.h \
+  C:/QT/6.9.1/mingw_64/include/QtGui/qsurface.h \
+  C:/QT/6.9.1/mingw_64/include/QtGui/qsurfaceformat.h \
   C:/QT/6.9.1/mingw_64/include/QtGui/qtgui-config.h \
   C:/QT/6.9.1/mingw_64/include/QtGui/qtguiexports.h \
   C:/QT/6.9.1/mingw_64/include/QtGui/qtguiglobal.h \
   C:/QT/6.9.1/mingw_64/include/QtGui/qtransform.h \
+  C:/QT/6.9.1/mingw_64/include/QtGui/qvector2d.h \
+  C:/QT/6.9.1/mingw_64/include/QtGui/qvector3d.h \
+  C:/QT/6.9.1/mingw_64/include/QtGui/qvector4d.h \
+  C:/QT/6.9.1/mingw_64/include/QtGui/qvectornd.h \
+  C:/QT/6.9.1/mingw_64/include/QtGui/qwindow.h \
   C:/QT/6.9.1/mingw_64/include/QtGui/qwindowdefs.h \
   C:/QT/6.9.1/mingw_64/include/QtGui/qwindowdefs_win.h \
+  C:/QT/6.9.1/mingw_64/include/QtNetwork/qtnetwork-config.h \
+  C:/QT/6.9.1/mingw_64/include/QtNetwork/qtnetworkexports.h \
+  C:/QT/6.9.1/mingw_64/include/QtNetwork/qtnetworkglobal.h \
+  C:/QT/6.9.1/mingw_64/include/QtQml/qjsnumbercoercion.h \
+  C:/QT/6.9.1/mingw_64/include/QtQml/qjsprimitivevalue.h \
+  C:/QT/6.9.1/mingw_64/include/QtQml/qjsvalue.h \
+  C:/QT/6.9.1/mingw_64/include/QtQml/qqml.h \
+  C:/QT/6.9.1/mingw_64/include/QtQml/qqmldebug.h \
+  C:/QT/6.9.1/mingw_64/include/QtQml/qqmlerror.h \
+  C:/QT/6.9.1/mingw_64/include/QtQml/qqmlinfo.h \
+  C:/QT/6.9.1/mingw_64/include/QtQml/qqmllist.h \
+  C:/QT/6.9.1/mingw_64/include/QtQml/qqmlparserstatus.h \
+  C:/QT/6.9.1/mingw_64/include/QtQml/qqmlprivate.h \
+  C:/QT/6.9.1/mingw_64/include/QtQml/qqmlpropertyvaluesource.h \
+  C:/QT/6.9.1/mingw_64/include/QtQml/qqmlregistration.h \
+  C:/QT/6.9.1/mingw_64/include/QtQml/qtqml-config.h \
+  C:/QT/6.9.1/mingw_64/include/QtQml/qtqmlexports.h \
+  C:/QT/6.9.1/mingw_64/include/QtQml/qtqmlglobal.h \
+  C:/QT/6.9.1/mingw_64/include/QtQmlIntegration/qqmlintegration.h \
+  C:/QT/6.9.1/mingw_64/include/QtQuick/qquickwindow.h \
+  C:/QT/6.9.1/mingw_64/include/QtQuick/qsggeometry.h \
+  C:/QT/6.9.1/mingw_64/include/QtQuick/qsgnode.h \
+  C:/QT/6.9.1/mingw_64/include/QtQuick/qsgrendererinterface.h \
+  C:/QT/6.9.1/mingw_64/include/QtQuick/qtquick-config.h \
+  C:/QT/6.9.1/mingw_64/include/QtQuick/qtquickexports.h \
+  C:/QT/6.9.1/mingw_64/include/QtQuick/qtquickglobal.h \
+  C:/QT/6.9.1/mingw_64/include/QtQuickWidgets/QQuickWidget \
+  C:/QT/6.9.1/mingw_64/include/QtQuickWidgets/qquickwidget.h \
+  C:/QT/6.9.1/mingw_64/include/QtQuickWidgets/qtquickwidgetsexports.h \
+  C:/QT/6.9.1/mingw_64/include/QtQuickWidgets/qtquickwidgetsglobal.h \
   C:/QT/6.9.1/mingw_64/include/QtWidgets/QCheckBox \
   C:/QT/6.9.1/mingw_64/include/QtWidgets/QDialog \
   C:/QT/6.9.1/mingw_64/include/QtWidgets/QFrame \
   C:/QT/6.9.1/mingw_64/include/QtWidgets/QMainWindow \
-  C:/QT/6.9.1/mingw_64/include/QtWidgets/QMessageBox \
   C:/QT/6.9.1/mingw_64/include/QtWidgets/QVBoxLayout \
   C:/QT/6.9.1/mingw_64/include/QtWidgets/qabstractbutton.h \
   C:/QT/6.9.1/mingw_64/include/QtWidgets/qboxlayout.h \
   C:/QT/6.9.1/mingw_64/include/QtWidgets/qcheckbox.h \
   C:/QT/6.9.1/mingw_64/include/QtWidgets/qdialog.h \
-  C:/QT/6.9.1/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
   C:/QT/6.9.1/mingw_64/include/QtWidgets/qframe.h \
   C:/QT/6.9.1/mingw_64/include/QtWidgets/qgridlayout.h \
   C:/QT/6.9.1/mingw_64/include/QtWidgets/qlayout.h \
   C:/QT/6.9.1/mingw_64/include/QtWidgets/qlayoutitem.h \
   C:/QT/6.9.1/mingw_64/include/QtWidgets/qmainwindow.h \
-  C:/QT/6.9.1/mingw_64/include/QtWidgets/qmessagebox.h \
   C:/QT/6.9.1/mingw_64/include/QtWidgets/qsizepolicy.h \
   C:/QT/6.9.1/mingw_64/include/QtWidgets/qtabwidget.h \
   C:/QT/6.9.1/mingw_64/include/QtWidgets/qtwidgets-config.h \
@@ -365,6 +438,7 @@ C:/crying/CS370-Team3/370-project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/gthr-default.h \
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/gthr.h \
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/os_defines.h \
+  C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/float.h \
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/limits.h \
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stdarg.h \
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stdbool.h \
@@ -409,5 +483,4 @@ C:/crying/CS370-Team3/370-project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-
   C:/QT/Tools/mingw1310_64/x86_64-w64-mingw32/include/wctype.h \
   C:/crying/CS370-Team3/370-project/class_info_unit.h \
   C:/crying/CS370-Team3/370-project/createclass.h \
-  C:/crying/CS370-Team3/370-project/mainwindow.h \
-  C:/crying/CS370-Team3/370-project/savestuff.h
+  C:/crying/CS370-Team3/370-project/search.h

@@ -9,6 +9,7 @@
 #include <QVBoxLayout>
 
 #include <QMessageBox>
+#include <QStringList>
 #include <fstream>
 #include <string>
 using namespace std;
@@ -28,7 +29,12 @@ public:
 
     void deleteFromSave();
 
-    void loadSaveData(const string& filename, const ClassInfo& data);
+    void loadSaveData(const string& filename, QStringList& unparsed);
+
+    void parseSavaData(const string& filename, QString& arr[], int size);
+
+    // file -> qstringlist of the unparsed lines -> feed one line into parse funct -> return as
+    // second qstringlist -> feed into data card
 };
 
 /* QT_BEGIN_NAMESPACE

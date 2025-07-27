@@ -270,7 +270,3 @@ void Dialog::fourDayChecker(QObject *sender, bool disabled) {
 ClassInfo Dialog::getData() const {
     return class_form_info_;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 7dabfc36730817542fab985d1e88bd8c3b446888

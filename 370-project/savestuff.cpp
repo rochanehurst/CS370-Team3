@@ -56,10 +56,10 @@ void SaveFeature::loadSaveData(const string& filename, const ClassInfo& data) {
         //     }
         // }
         while (!SaveFile.eof()) {
-            getline(SaveFile, hold, '\n');
-            SaveFile.ignore();
-            unparsed[size] = hold;
-            size++;
+            getline(SaveFile, hold, '\n'); // takes entire line until newline char
+            SaveFile.ignore(); // ignore \n
+            unparsed[size] = hold; // place line into array
+            size++; // increase size
         }
 
         // getline the entire string until '\n'
@@ -85,3 +85,5 @@ void SaveFeature::loadSaveData(const string& filename, const ClassInfo& data) {
             // and then the data gets put into an array of classdata
 
 }
+
+void

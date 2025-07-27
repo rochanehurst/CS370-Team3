@@ -7,9 +7,9 @@
 #include <QStringList>
 #include <QDebug>
 
-search::search(QWidget *parent)
+Search::Search(QWidget *parent)
     : QDialog(parent)
-    , ui_(new Ui::search)
+    , ui_(new Ui::Search)
 {
     ui_->setupUi(this);
 
@@ -19,12 +19,12 @@ search::search(QWidget *parent)
     setupConnections();
 }
 
-search::~search()
+Search::~Search()
 {
     delete ui_;
 }
 
-void search::declareCheckboxes(){
+void Search::declareCheckboxes(){
     dayHandlers = {
         { ui_->monday,    [this](int state){ updateSearch(); } },
         { ui_->wednesday, [this](int state){ updateSearch(); } },
@@ -35,19 +35,19 @@ void search::declareCheckboxes(){
     };
 }
 
-void search::setupConnections(){
-    connect(ui_->subject_combo_box, &QComboBox::currentIndexChanged, this, &search::updateSearch);
-    connect(ui_->building_combo_box, &QComboBox::currentIndexChanged, this, &search::updateSearch);
-    connect(ui_->input_class, &QLineEdit::textEdited, this, &search::updateSearch);
-    connect(ui_->time_startafter, &QTimeEdit::timeChanged, this, &search::updateSearch);
-    connect(ui_->time_endbefore, &QTimeEdit::timeChanged, this, &search::updateSearch);
+void Search::setupConnections(){
+    connect(ui_->subject_combo_box, &QComboBox::currentIndexChanged, this, &Search::updateSearch);
+    connect(ui_->building_combo_box, &QComboBox::currentIndexChanged, this, &Search::updateSearch);
+    connect(ui_->input_class, &QLineEdit::textEdited, this, &Search::updateSearch);
+    connect(ui_->time_startafter, &QTimeEdit::timeChanged, this, &Search::updateSearch);
+    connect(ui_->time_endbefore, &QTimeEdit::timeChanged, this, &Search::updateSearch);
 
     for (auto box = dayHandlers.begin(); box != dayHandlers.end(); ++box){
         connect(box.key(), &QCheckBox::checkStateChanged, this, box.value());
     }
 }
 
-void search::loadCSV(const QString& filename){
+void Search::loadCSV(const QString& filename){
     ui_->subject_combo_box->addItem("NO SUBJECT SPECIFIED");
     QFile file(filename);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)){
@@ -64,7 +64,7 @@ void search::loadCSV(const QString& filename){
     file.close();
 }
 
-void search::updateSearch(){
+void Search::updateSearch(){
     qDebug() << sender() << " Updating Search Results";
 }
 

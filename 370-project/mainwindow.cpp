@@ -11,6 +11,7 @@
 #include <QWidget>
 #include <QMessageBox>
 #include <QLayout>
+#include <QStringList>
 using namespace std;
 
 string filename = "cluster_savedata.txt";
@@ -26,6 +27,7 @@ MainWindow::MainWindow(QWidget *parent)
     // Initalize layout in scroll area
     setupClassListLayout();
     setupMenu();
+    QStringList unparsed;
     // load funct here
 }
 
@@ -96,7 +98,8 @@ void MainWindow::createClassButtonHandler() {
         class_infos_.append(classData);                     // Store in MainWindow’s QVector
         createClassFrame(classData);
         s.addToSave(classData, filename);
-
+    }
+}
 
 void MainWindow::clearSchedule() {
     if (class_list_layout_->count() == 0) return;
@@ -107,16 +110,16 @@ void MainWindow::clearSchedule() {
     }
 }
 
-void MainWindow::searchClass(){
-    search search_class;
+/* void MainWindow::searchClass(){
+    Search search_class;
     search_class.setModal(true);
     search_class.exec();
-}
+} */
 
 // Below functions are for debug only
 // ***MARKED FOR REMOVAL***
 
-void MainWindow::debugAddClassToList(ClassInfo* tester) {
+void MainWindow::debugAddClasstoList(ClassInfo* tester) {
     ClassInfoFrame* debug_data = new ClassInfoFrame();
     debug_data->createFrame(*tester);
     class_list_layout_->addWidget(debug_data);

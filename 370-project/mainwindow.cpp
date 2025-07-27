@@ -27,7 +27,17 @@ MainWindow::MainWindow(QWidget *parent)
     // Initalize layout in scroll area
     setupClassListLayout();
     setupMenu();
-    QStringList unparsed;
+
+    /* QStringList unparsed;
+    int size = 0;
+    s.loadSaveData(filename, unparsed, size); // will load all lines of file into unparsed
+    for (int i = 0; i < size; i++) {
+        s.parseSavaData(filename, unparsed[i], data);
+    } */
+
+    // questions:
+        // how to get it to load a widget into the list?  needs to be in another function?
+        // needs another global var?
     // load funct here
 }
 
@@ -65,6 +75,8 @@ void MainWindow::createClassFrame(const ClassInfo& class_info) {
     ClassInfoFrame* class_data = new ClassInfoFrame();
     class_data->createFrame(class_info);
     class_list_layout_->addWidget(class_data);
+
+
     // TODO: Add class info to save file
 }
 
@@ -110,11 +122,11 @@ void MainWindow::clearSchedule() {
     }
 }
 
-/* void MainWindow::searchClass(){
+void MainWindow::searchClass(){
     Search search_class;
     search_class.setModal(true);
     search_class.exec();
-} */
+}
 
 // Below functions are for debug only
 // ***MARKED FOR REMOVAL***

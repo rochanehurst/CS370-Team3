@@ -11,6 +11,7 @@
 #include <QString>
 #include <QApplication>
 #include <filesystem>
+#include <QStringList>
 using namespace std;
 
 SaveFeature::SaveFeature(const string& filename) {
@@ -32,35 +33,34 @@ void SaveFeature::addToSave(const ClassInfo& data, const string& filename) {
     if (!filesystem::is_empty(filename)) { //if file is not empty, add new line before data
         SaveFile << "/n";
     }
-    //SaveFile << data.school.toStdString() << ",";
     SaveFile << data.name.toStdString() << ",";
     SaveFile << data.building.toStdString() << ",";
     SaveFile << data.startTime.toStdString() << ",";
     SaveFile << data.endTime.toStdString() << ",";
     SaveFile << data.days.toStdString();
-    //SaveFile << boolalpha << data.online;
 }
 
 //load function goes here
-void SaveFeature::loadSaveData(const string& filename, QStringList& unparsed) {
+void SaveFeature::loadSaveData(const string& filename, QStringList& unparsed, int& size) {
     if (!filesystem::is_empty(filename)) {
         return;
     } else {
         string hold;
-        int size = 0;
-        string unparsed[15];
+        size = 0;
+        //string unparsed[15];
+        while (!SaveFile.eof()) {
+            getline(SaveFile, hold, '\n'); // takes entire line until newline char
+            SaveFile.ignore(); // ignore \n
+            unparsed.append(QString::fromStdString(hold)); // adds hold to unparsed stringlist as a qstring
+                //unparsed[size] = hold; // place line into array
+            size++; // increase size
+        }
         // void collect_all(istream& input, College c[], int& size) {
         //     while (!input.eof()) {
         //         collect(input, c[size]);
         //         size++;
         //     }
         // }
-        while (!SaveFile.eof()) {
-            getline(SaveFile, hold, '\n'); // takes entire line until newline char
-            SaveFile.ignore(); // ignore \n
-            unparsed[size] = hold; // place line into array
-            size++; // increase size
-        }
 
         // getline the entire string until '\n'
         // then run thru a loop to add it to an array of strings (or maybe in the format of qt's strings)
@@ -86,4 +86,17 @@ void SaveFeature::loadSaveData(const string& filename, QStringList& unparsed) {
 
 }
 
-void
+void parseSavaData(const string& filename, QString line, ClassInfo& data) {
+    QStringList parsed;
+
+    if (!filesystem::is_empty(filename)) {
+        return;
+    } else {
+        parsed = line.split(',');
+        data.name = parsed[0];
+        data.building = parsed[1];
+        data.startTime = parsed[2];
+        data.endTime = parsed[3];
+        data.days = parsed[4];
+    }
+}

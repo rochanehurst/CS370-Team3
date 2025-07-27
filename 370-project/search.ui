@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>search</class>
+ <class>Search</class>
  <widget class="QDialog" name="search">
   <property name="enabled">
    <bool>true</bool>

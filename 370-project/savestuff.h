@@ -31,7 +31,7 @@ public:
 
     void loadSaveData(const string& filename, QStringList& unparsed);
 
-    void parseSavaData(const string& filename, QString& arr[], int size);
+    void parseSavaData(const string& filename, QString line, QStringList& parsed, int size);
 
     // file -> qstringlist of the unparsed lines -> feed one line into parse funct -> return as
     // second qstringlist -> feed into data card

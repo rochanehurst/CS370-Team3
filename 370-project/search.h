@@ -4,19 +4,19 @@
 #include <QDialog>
 #include <QCheckBox>
 
-QT_BEGIN_NAMESPACE
+//QT_BEGIN_NAMESPACE
 namespace Ui {
 class Search;
 }
-QT_END_NAMESPACE
+//QT_END_NAMESPACE
 
 class Search : public QDialog
 {
     Q_OBJECT
 
 public:
-    //explicit Search(QWidget *parent = nullptr);
-    Search(QWidget *parent = nullptr);
+    explicit Search(QWidget *parent = nullptr);
+    //Search(QWidget *parent = nullptr);
     ~Search();
 
 private slots:

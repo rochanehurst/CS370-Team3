@@ -42,7 +42,7 @@ void SaveFeature::addToSave(const ClassInfo& data, const string& filename) {
 }
 
 //load function goes here
-void SaveFeature::loadSaveData(const string& filename, const ClassInfo& data) {
+void SaveFeature::loadSaveData(const string& filename, QStringList& unparsed) {
     if (!filesystem::is_empty(filename)) {
         return;
     } else {

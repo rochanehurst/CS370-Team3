@@ -14,13 +14,18 @@ class class_result : public QFrame
 
 public:
     explicit class_result(const ClassData& data, QWidget *parent = nullptr);
+    ClassData getData();
     ~class_result();
+
+private slots:
+    void on_add_button_clicked();
 
 private:
     void setupData(const ClassData& data);
 
 private:
     Ui::class_result *ui_;
+    ClassData own_data;
 };
 
 #endif // CLASS_RESULT_H

@@ -49,13 +49,15 @@ void ClassInfoFrame::setIcon() {
 }
 
 void ClassInfoFrame::setClassName(const QString &name) {
+    /*
     constexpr int name_length = 24;
-
     QString name_shortened = name;
     if (name.length() > name_length) {
         name_shortened = name_shortened.left(name_length - 3) + "...";
     }
     ui_.class_name_label->setText(name_shortened);
+*/
+    ui_.class_name_label->setText(name);
 }
 
 void ClassInfoFrame::setLocation(const QString& location) {
@@ -70,4 +72,26 @@ void ClassInfoFrame::setTime(const QString& start, const QString& stop) {
 void ClassInfoFrame::setDays(const QString& days) {
     ui_.days_label->setText(days);
 }
+
+void ClassInfoFrame::resizeEvent(QResizeEvent *event)
+{
+    QFrame::resizeEvent(event);
+
+    // Calculate dynamic margin/spacing
+    int margin = layout()->contentsMargins().left() + layout()->contentsMargins().right();
+    int spacing = layout()->spacing();
+
+    // Calculate available width for class name label
+    int availableWidth = width() - ui_.tool_button->width() - margin - spacing - 5; // buffer of 5
+
+    // Elide text so it fits
+    QFontMetrics fm(ui_.class_name_label->font());
+    QString fullText = frame_data_.name;
+    QString elidedText = fm.elidedText(fullText, Qt::ElideRight, availableWidth);
+
+    // Update label text
+    ui_.class_name_label->setText(elidedText);
+}
+
+
 

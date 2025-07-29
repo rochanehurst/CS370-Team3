@@ -11,12 +11,21 @@
 #include <QIcon>
 #include <QSize>
 #include <QWidget>
+#include <QMessageBox>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui_(new Ui::main_window)
 {
     ui_->setupUi(this);
+    int warn_width = ui_->warning_container->maximumWidth();
+    int schedule_width = ui_->class_container->maximumWidth();
+    int map_width = ui_->map_placeholder->maximumWidth();
+
+    ui_->warning_container->parentWidget()->setMaximumWidth(warn_width);
+    ui_->schedule_title->parentWidget()->setMaximumWidth(schedule_width);
+    ui_->map_placeholder->parentWidget()->setMaximumWidth(map_width);
+
     setupConnections();
 
     // Initalize layout in scroll area
@@ -83,13 +92,17 @@ void MainWindow::loadCSV(const QString& filename) {
         if (building_check.isEmpty()) {
             continue;
         }
-
         ClassData new_class;
+        ClassInfo class_conversion;
+
         new_class.subject    = fields[0].trimmed().simplified();
         new_class.name       = fields[1].trimmed().simplified();
         new_class.class_code = fields[2].trimmed().simplified();
         new_class.instructors = extractInstructors(fields[3].trimmed());
         new_class.buildings   = building_check;
+
+        class_conversion.name = new_class.name;
+        class_conversion.building = new_class.buildings.join(", ");
 
         // Handle multiple day/time blocks
         QStringList differentTimes = fields[5].split('|', Qt::SkipEmptyParts);
@@ -108,6 +121,10 @@ void MainWindow::loadCSV(const QString& filename) {
                 }
             }
         }
+        class_conversion.startTime = new_class.start.join(", ");
+        class_conversion.endTime = new_class.end.join(", ");
+        class_conversion.days = new_class.days.join(", ");
+        new_class.data = class_conversion;
         search_classes_.append(new_class);
     }
 }
@@ -192,7 +209,13 @@ void MainWindow::createClassButtonHandler() {
 }
 
 void MainWindow::clearSchedule() {
-    if (class_list_layout_->count() == 0) return;
+    auto clear_all = QMessageBox::question(
+        this,
+        "Clear All?",
+        "Warning: Clearing all will permanently remove all data. Do you want to proceed?",
+        QMessageBox::Yes | QMessageBox::No);
+
+    if (class_list_layout_->count() == 0 || clear_all == QMessageBox::No) return;
     QLayoutItem *child;
     while ((child = class_list_layout_->takeAt(0)) != nullptr) {
         delete child->widget();

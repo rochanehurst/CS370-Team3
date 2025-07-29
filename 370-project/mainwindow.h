@@ -18,6 +18,7 @@ struct ClassData {
     QStringList days;
     QStringList start;
     QStringList end;
+    ClassInfo data;
 
     void print() const {
         qDebug() << "\nSubject: " << subject
@@ -44,17 +45,17 @@ class MainWindow : public QMainWindow
 
 public:
     MainWindow(QWidget *parent = nullptr);
+    void createClassFrame(const ClassInfo& class_info);
     ~MainWindow();
 
 private slots:
     void createClassButtonHandler();
-    void createClassFrame(const ClassInfo& class_info);
+
 
     void editSave();
     void removeFromSave();
     void clearSchedule();
     void searchClass();
-
     void debugPopulateList();
 
 private:

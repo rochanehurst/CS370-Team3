@@ -26,6 +26,7 @@ private:
     void setTime(const QString &start, const QString &stop);
     void setDays(const QString &days);
     void setOnline(bool online);
+    void resizeEvent(QResizeEvent *event);
 
 private:
     Ui::class_info_frame ui_;

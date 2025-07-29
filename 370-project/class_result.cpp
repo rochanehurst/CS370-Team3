@@ -1,5 +1,6 @@
 #include "class_result.h"
 #include "ui_class_result.h"
+#include "mainwindow.h"
 
 class_result::class_result(const ClassData& data, QWidget *parent)
     : QFrame(parent)
@@ -7,6 +8,11 @@ class_result::class_result(const ClassData& data, QWidget *parent)
 {
     ui_->setupUi(this);
     setupData(data);
+    own_data = data;
+}
+
+ClassData class_result::getData(){
+    return own_data;
 }
 
 void class_result::setupData(const ClassData &data) {
@@ -38,3 +44,21 @@ class_result::~class_result()
 {
     delete ui_;
 }
+
+void class_result::on_add_button_clicked()
+{
+    QWidget *p = this->parentWidget();
+    while (p) {
+        MainWindow *mainWindow = qobject_cast<MainWindow*>(p);
+        if (mainWindow) {
+            // Convert ClassData -> ClassInfo if needed
+            mainWindow->createClassFrame(own_data.data);
+            return;
+        }
+        p = p->parentWidget(); // keep climbing
+    }
+
+    qDebug() << "MainWindow not found in parent chain!";
+}
+
+

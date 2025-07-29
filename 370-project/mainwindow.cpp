@@ -4,6 +4,10 @@
 #include "search.h"
 
 #include <QMenu>
+#include <QFile>
+#include <QLineEdit>
+#include <QTextStream>
+#include <QStringList>
 #include <QIcon>
 #include <QSize>
 #include <QWidget>
@@ -18,6 +22,7 @@ MainWindow::MainWindow(QWidget *parent)
     // Initalize layout in scroll area
     setupClassListLayout();
     setupMenu();
+    setupClassSearch();
 }
 
 MainWindow::~MainWindow() {
@@ -46,6 +51,118 @@ void MainWindow::setupClassListLayout() {
         ui_->class_scroll_area->setLayout(class_list_layout_);
     }
     class_list_layout_->setAlignment(Qt::AlignHCenter | Qt::AlignTop);
+}
+
+void MainWindow::setupClassSearch(){
+    QString path = QCoreApplication::applicationDirPath() + "/../../../data/csusm_classes.csv";
+    loadCSV(path);
+}
+
+void MainWindow::loadCSV(const QString& filename) {
+    QFile file(filename);
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        qDebug() << "Failed to open file:" << filename;
+        return;
+    }
+
+    QTextStream in(&file);
+
+    bool firstItem = true;
+
+    while (!in.atEnd()) {
+        QString line = in.readLine();
+        QStringList fields = line.split(',');
+
+        if (firstItem) {     // Skips topic lines
+            firstItem = false;
+            continue;
+        }
+        if (fields.size() < 6) continue; // Safety check for malformed lines
+
+        QStringList building_check = extractBuildings(fields[4].trimmed());
+        if (building_check.isEmpty()) {
+            continue;
+        }
+
+        ClassData new_class;
+        new_class.subject    = fields[0].trimmed().simplified();
+        new_class.name       = fields[1].trimmed().simplified();
+        new_class.class_code = fields[2].trimmed().simplified();
+        new_class.instructors = extractInstructors(fields[3].trimmed());
+        new_class.buildings   = building_check;
+
+        // Handle multiple day/time blocks
+        QStringList differentTimes = fields[5].split('|', Qt::SkipEmptyParts);
+        for (QString &times : differentTimes) {
+            QStringList timeRange = times.split('-', Qt::SkipEmptyParts);
+
+            if (timeRange.size() == 2) {
+                QString left = timeRange[0].trimmed();   // "MoWe 2:00PM"
+                QString right = timeRange[1].trimmed();  // "4:50PM"
+
+                QStringList leftParts = left.split(' ', Qt::SkipEmptyParts);
+                if (leftParts.size() >= 2) {
+                    new_class.days.append(extractDays(leftParts[0]));
+                    new_class.start.append(leftParts[1].trimmed());
+                    new_class.end.append(right);
+                }
+            }
+        }
+        search_classes_.append(new_class);
+    }
+}
+
+
+QString MainWindow::extractDays(const QString &days) {
+    static const QMap<QString, QChar> dayMap = {
+        {"Mo", 'M'}, {"Tu", 'T'}, {"We", 'W'},
+        {"Th", 'R'}, {"Fr", 'F'}, {"Sa", 'S'}, {"Su", 'U'}
+    };
+
+    QString new_days;
+    for (int i = 0; i + 1 < days.length(); i += 2) {  // ensure 2 chars exist
+        QString dayCode = days.mid(i, 2);
+
+        if (dayMap.contains(dayCode)) {
+            new_days.append(dayMap.value(dayCode));
+        } else {
+            qDebug() << "Unknown day code:" << dayCode;
+        }
+    }
+    return new_days;
+}
+
+
+QStringList MainWindow::extractInstructors(const QString &instructors) {
+    QStringList differentInstructors = instructors.split('|', Qt::SkipEmptyParts);
+
+    for (QString &inst : differentInstructors) {
+        inst = inst.trimmed();
+    }
+    return differentInstructors;
+}
+
+QStringList MainWindow::extractBuildings(const QString &buildings) {
+    QStringList differentBuildings = buildings.split('|', Qt::SkipEmptyParts);
+    bool valid = false;
+
+    for (QString &inst : differentBuildings) {
+        inst = inst.trimmed();
+        for (const QString &building : std::as_const(valid_buildings_)) {
+            if (inst.contains(building)) {
+                if (inst == "Synchronous Virtual Instr"){
+                    inst = "ONLINE";
+                }
+                valid = true;
+            }
+        }
+    }
+
+    if (valid){
+        return differentBuildings;
+    }
+
+    return {};
 }
 
 void MainWindow::createClassFrame(const ClassInfo& class_info) {
@@ -84,9 +201,9 @@ void MainWindow::clearSchedule() {
 }
 
 void MainWindow::searchClass(){
-    search search_class;
-    search_class.setModal(true);
-    search_class.exec();
+    search *search_class = new search(search_classes_, this);
+    search_class->setModal(false);
+    search_class->show();
 }
 
 // Below functions are for debug only
@@ -115,11 +232,11 @@ void MainWindow::debugPopulateList() {
 
     debugAddClasstoList(debugCreateClass("testClass1", "M",
                                          "9:30 AM", "1:30 AM",
-                                         "Social and Behavioral Sciences Building (SBSB)"));
+                                         "Social and Behavioral Sciences Building"));
 
     debugAddClasstoList(debugCreateClass("testClass2", "T",
                                          "1:30 PM", "4:45 PM",
-                                         "University Hall (UNIV)"));
+                                         "University Hall"));
 
     debugAddClasstoList(debugCreateClass("testClass3", "MWF",
                                          "7:30 AM", "8:20 AM",
@@ -127,11 +244,11 @@ void MainWindow::debugPopulateList() {
 
     debugAddClasstoList(debugCreateClass("testClass4", "TR",
                                          "5:00 AM", "6:50 AM",
-                                         "Science Hall I (SCI 1)"));
+                                         "Science Hall I"));
 
     debugAddClasstoList(debugCreateClass("testClass5", "F",
                                          "10:00 AM", "1:20 PM",
-                                         "Arts Building (ARTS)"));
+                                         "Arts Building"));
 }
 
 

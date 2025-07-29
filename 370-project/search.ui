@@ -9,7 +9,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>500</width>
+    <width>625</width>
     <height>400</height>
    </rect>
   </property>
@@ -21,13 +21,13 @@
   </property>
   <property name="minimumSize">
    <size>
-    <width>500</width>
+    <width>625</width>
     <height>400</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>500</width>
+    <width>900</width>
     <height>1600</height>
    </size>
   </property>
@@ -517,7 +517,7 @@
    <item row="1" column="0" colspan="2">
     <widget class="QScrollArea" name="results">
      <property name="sizePolicy">
-      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+      <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
        <horstretch>0</horstretch>
        <verstretch>0</verstretch>
       </sizepolicy>
@@ -536,11 +536,33 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>480</width>
+        <width>605</width>
         <height>224</height>
        </rect>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout_2"/>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <layout class="QVBoxLayout" name="scroll_list">
+         <item alignment="Qt::AlignmentFlag::AlignHCenter|Qt::AlignmentFlag::AlignVCenter">
+          <widget class="QLabel" name="no_classes">
+           <property name="font">
+            <font>
+             <family>Courier New</family>
+             <pointsize>20</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>No Classes Found</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignmentFlag::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
      </widget>
     </widget>
    </item>
@@ -563,7 +585,7 @@
      </property>
      <property name="maximumSize">
       <size>
-       <width>16777215</width>
+       <width>125</width>
        <height>150</height>
       </size>
      </property>
@@ -624,99 +646,56 @@
    </item>
    <item row="0" column="0">
     <layout class="QGridLayout" name="search_box">
+     <property name="leftMargin">
+      <number>6</number>
+     </property>
+     <property name="topMargin">
+      <number>6</number>
+     </property>
+     <property name="rightMargin">
+      <number>6</number>
+     </property>
+     <property name="bottomMargin">
+      <number>6</number>
+     </property>
      <property name="verticalSpacing">
       <number>6</number>
      </property>
-     <item row="1" column="0" alignment="Qt::AlignmentFlag::AlignLeft">
-      <widget class="QLabel" name="lbl_building">
+     <item row="0" column="0">
+      <widget class="QLabel" name="lbl_subject">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>100</width>
+         <height>0</height>
+        </size>
        </property>
        <property name="text">
-        <string>Building</string>
+        <string>Subject:</string>
        </property>
       </widget>
      </item>
-     <item row="1" column="1" colspan="3">
-      <widget class="QComboBox" name="building_combo_box">
-       <property name="currentText">
-        <string>NO BUILDING SPECIFIED</string>
-       </property>
-       <property name="maxVisibleItems">
-        <number>15</number>
-       </property>
-       <item>
-        <property name="text">
-         <string>NO BUILDING SPECIFIED</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Academic Hall (ACD)</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Arts Building (ARTS)</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Extended Learning Building (ELB)</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Kellogg Library (KEL)</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Markstein Hall (MARK)</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Science Hall I (SCI 1)</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Science Hall II (SCI 2)</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Social and Behavioral Sciences Building (SBSB)</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>University Hall (UNIV)</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Viasat Engineering Pavilion (VEP)</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>ONLINE CLASS</string>
-        </property>
-       </item>
-      </widget>
-     </item>
-     <item row="3" column="3">
-      <widget class="QTimeEdit" name="time_endbefore">
+     <item row="3" column="2" alignment="Qt::AlignmentFlag::AlignLeft">
+      <widget class="QLabel" name="lbl_endbefore">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>100</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Ends Before:</string>
        </property>
       </widget>
      </item>
@@ -729,11 +708,149 @@
         </sizepolicy>
        </property>
        <property name="text">
-        <string>Class Name</string>
+        <string>Class Name:</string>
        </property>
       </widget>
      </item>
-     <item row="2" column="1" colspan="3">
+     <item row="3" column="3">
+      <widget class="QTimeEdit" name="time_endbefore">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="maximumDateTime">
+        <datetime>
+         <hour>22</hour>
+         <minute>0</minute>
+         <second>0</second>
+         <year>2000</year>
+         <month>1</month>
+         <day>1</day>
+        </datetime>
+       </property>
+       <property name="maximumDate">
+        <date>
+         <year>2000</year>
+         <month>1</month>
+         <day>1</day>
+        </date>
+       </property>
+       <property name="maximumTime">
+        <time>
+         <hour>22</hour>
+         <minute>0</minute>
+         <second>0</second>
+        </time>
+       </property>
+       <property name="minimumTime">
+        <time>
+         <hour>8</hour>
+         <minute>30</minute>
+         <second>0</second>
+        </time>
+       </property>
+       <property name="time">
+        <time>
+         <hour>22</hour>
+         <minute>0</minute>
+         <second>0</second>
+        </time>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0" alignment="Qt::AlignmentFlag::AlignLeft">
+      <widget class="QLabel" name="lbl_building">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>Building:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0" alignment="Qt::AlignmentFlag::AlignVCenter">
+      <widget class="QLabel" name="lbl_startafter">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>100</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Starts After:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QTimeEdit" name="time_startafter">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="maximumDateTime">
+        <datetime>
+         <hour>20</hour>
+         <minute>0</minute>
+         <second>0</second>
+         <year>2000</year>
+         <month>1</month>
+         <day>1</day>
+        </datetime>
+       </property>
+       <property name="minimumDateTime">
+        <datetime>
+         <hour>6</hour>
+         <minute>0</minute>
+         <second>0</second>
+         <year>2000</year>
+         <month>1</month>
+         <day>1</day>
+        </datetime>
+       </property>
+       <property name="maximumDate">
+        <date>
+         <year>2000</year>
+         <month>1</month>
+         <day>1</day>
+        </date>
+       </property>
+       <property name="maximumTime">
+        <time>
+         <hour>20</hour>
+         <minute>0</minute>
+         <second>0</second>
+        </time>
+       </property>
+       <property name="minimumTime">
+        <time>
+         <hour>6</hour>
+         <minute>0</minute>
+         <second>0</second>
+        </time>
+       </property>
+       <property name="time">
+        <time>
+         <hour>6</hour>
+         <minute>0</minute>
+         <second>0</second>
+        </time>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1" colspan="4">
       <widget class="QLineEdit" name="input_class">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
@@ -755,57 +872,110 @@
        </property>
       </widget>
      </item>
-     <item row="3" column="2">
-      <widget class="QLabel" name="lbl_endbefore">
+     <item row="1" column="1" colspan="4">
+      <widget class="QComboBox" name="building_combo_box">
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="currentText">
+        <string>NO BUILDING SELECTED</string>
+       </property>
+       <property name="maxVisibleItems">
+        <number>15</number>
+       </property>
+       <item>
+        <property name="text">
+         <string>NO BUILDING SELECTED</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Academic Hall</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Arts Building</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Extended Learning Building</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Kellogg Library</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Markstein Hall</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Science Hall I</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Science Hall II</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Soc &amp; Behavioral Sci Bldg</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>University Hall</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Viasat Engineering Pav</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>ONLINE</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="0" column="1" colspan="4">
+      <widget class="QComboBox" name="subject_combo_box">
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>16777215</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="4">
+      <widget class="QPushButton" name="reset_time">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
-       <property name="text">
-        <string>Ends Before:</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="0" alignment="Qt::AlignmentFlag::AlignVCenter">
-      <widget class="QLabel" name="lbl_startafter">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
+       <property name="maximumSize">
+        <size>
+         <width>68</width>
+         <height>16777215</height>
+        </size>
        </property>
        <property name="text">
-        <string>Starts After:</string>
+        <string>Reset</string>
        </property>
       </widget>
-     </item>
-     <item row="3" column="1">
-      <widget class="QTimeEdit" name="time_startafter">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="0">
-      <widget class="QLabel" name="lbl_subject">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="text">
-        <string>Subject</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="1" colspan="3">
-      <widget class="QComboBox" name="subject_combo_box"/>
      </item>
     </layout>
    </item>

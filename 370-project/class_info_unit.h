@@ -4,7 +4,6 @@
 
 #include "ui_class_info_unit.h"
 #include "createclass.h"
-#include <QFrame>
 
 class ClassInfoFrame : public QFrame
 {

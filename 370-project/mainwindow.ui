@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1050</width>
-    <height>600</height>
+    <height>619</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -1252,7 +1252,7 @@ QPushButton:hover {
              <x>0</x>
              <y>0</y>
              <width>398</width>
-             <height>530</height>
+             <height>532</height>
             </rect>
            </property>
            <property name="sizePolicy">
@@ -1293,7 +1293,7 @@ QPushButton:hover {
          <number>5</number>
         </property>
         <item alignment="Qt::AlignmentFlag::AlignHCenter|Qt::AlignmentFlag::AlignTop">
-         <widget class="QPushButton" name="debug_populate_button">
+         <widget class="QPushButton" name="update_class_list">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
             <horstretch>0</horstretch>
@@ -1326,7 +1326,7 @@ QPushButton:hover {
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;Debug Button&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
           <property name="text">
-           <string>Populate Schedule</string>
+           <string>Update Class List</string>
           </property>
          </widget>
         </item>
@@ -1359,7 +1359,7 @@ QPushButton:hover {
              <x>0</x>
              <y>0</y>
              <width>198</width>
-             <height>530</height>
+             <height>532</height>
             </rect>
            </property>
            <property name="sizePolicy">
@@ -1521,6 +1521,34 @@ QPushButton:hover {
     </item>
    </layout>
   </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1050</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuDebug">
+    <property name="title">
+     <string>Debug</string>
+    </property>
+    <addaction name="actionPopulate_Schedule"/>
+    <addaction name="actionAdd_Random_Class"/>
+   </widget>
+   <addaction name="menuDebug"/>
+  </widget>
+  <action name="actionPopulate_Schedule">
+   <property name="text">
+    <string>Populate Schedule</string>
+   </property>
+  </action>
+  <action name="actionAdd_Random_Class">
+   <property name="text">
+    <string>Add Random Class</string>
+   </property>
+  </action>
  </widget>
  <resources>
   <include location="resources.qrc"/>

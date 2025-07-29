@@ -1,6 +1,5 @@
 #include "class_result.h"
 #include "ui_class_result.h"
-#include "mainwindow.h"
 
 class_result::class_result(const ClassData& data, QWidget *parent)
     : QFrame(parent)

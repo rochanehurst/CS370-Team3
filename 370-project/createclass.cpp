@@ -3,7 +3,6 @@
 #include "ui_createclass.h"
 
 #include <QMessageBox>
-#include <QCheckBox>
 
 constexpr auto TUESDAY_OBJ_NAME = "tuesday";
 constexpr auto THURSDAY_OBJ_NAME = "thursday";

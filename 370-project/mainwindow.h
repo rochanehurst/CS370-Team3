@@ -5,7 +5,6 @@
 
 #include <QMainWindow>
 #include <QDialog>
-#include <QVector>
 #include <QVBoxLayout>
 #include <QDebug>
 
@@ -50,31 +49,26 @@ public:
 
 private slots:
     void createClassButtonHandler();
-
-
     void editSave();
     void removeFromSave();
-    void clearSchedule();
+    void clearSchedule(bool test = false);
     void searchClass();
     void debugPopulateList();
+    void addRandomClass();
+    void updateClassList();
 
 private:
     void setupConnections();
     void setupClassListLayout();
     void setupMenu();
     void setupClassSearch();
+    void setupWidths();
+    void setup();
 
     void loadCSV(const QString& filePath);
     QString extractDays(const QString& days);
     QStringList extractInstructors(const QString& instructors);
     QStringList extractBuildings(const QString& buildings);
-
-    void debugAddClasstoList(ClassInfo* tester);
-    ClassInfo* debugCreateClass(QString name,
-                          QString days,
-                          QString start,
-                          QString end,
-                          QString building);
 
 
 private:

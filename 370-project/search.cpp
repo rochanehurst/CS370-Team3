@@ -3,10 +3,6 @@
 #include "class_result.h"
 
 #include <QFile>
-#include <QLineEdit>
-#include <QTextStream>
-#include <QStringList>
-#include <QDebug>
 
 search::search(QVector<ClassData> classes_, QWidget *parent)
     : QDialog(parent)
@@ -18,7 +14,7 @@ search::search(QVector<ClassData> classes_, QWidget *parent)
 
     search_classes_ = classes_;
 
-    QString path = QCoreApplication::applicationDirPath() + "/../../../data/subjects.csv";
+    QString path = QCoreApplication::applicationDirPath() + "/../../data/subjects.csv";
     loadCSV(path);
     declareCheckboxes();
     setupConnections();

@@ -4,7 +4,6 @@
 
 #include <QDialog>
 #include <QCheckBox>
-#include <QDebug>
 
 struct ClassInfo {
     QString name;

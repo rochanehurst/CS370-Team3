@@ -1,9 +1,6 @@
 #ifndef SEARCH_H
 #define SEARCH_H
 
-#include <QDialog>
-#include <QCheckBox>
-#include <QTimeEdit>
 #include "mainwindow.h"
 
 namespace Ui {

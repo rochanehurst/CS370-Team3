@@ -5,19 +5,43 @@
 
 #include <QMenu>
 #include <QFile>
-#include <QLineEdit>
-#include <QTextStream>
-#include <QStringList>
-#include <QIcon>
-#include <QSize>
-#include <QWidget>
 #include <QMessageBox>
+#include <QRandomGenerator>
+#include <QAction>
+#include <QProcess>
+#include <QProgressDialog>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui_(new Ui::main_window)
 {
     ui_->setupUi(this);
+    setup();
+#ifndef QT_DEBUG
+    ui_->menuBar->removeAction(ui_->menuDebug->menuAction());
+#endif
+}
+
+
+
+MainWindow::~MainWindow() {
+    // TODO: Persist data to file before exit
+    delete ui_;
+}
+
+
+
+void MainWindow::setup(){
+    setupWidths();
+    setupMenu();
+    setupConnections();
+    setupClassListLayout();
+    setupClassSearch();
+}
+
+
+
+void MainWindow::setupWidths(){
     int warn_width = ui_->warning_container->maximumWidth();
     int schedule_width = ui_->class_container->maximumWidth();
     int map_width = ui_->map_placeholder->maximumWidth();
@@ -25,19 +49,9 @@ MainWindow::MainWindow(QWidget *parent)
     ui_->warning_container->parentWidget()->setMaximumWidth(warn_width);
     ui_->schedule_title->parentWidget()->setMaximumWidth(schedule_width);
     ui_->map_placeholder->parentWidget()->setMaximumWidth(map_width);
-
-    setupConnections();
-
-    // Initalize layout in scroll area
-    setupClassListLayout();
-    setupMenu();
-    setupClassSearch();
 }
 
-MainWindow::~MainWindow() {
-    // TODO: Persist data to file before exit
-    delete ui_;
-}
+
 
 void MainWindow::setupMenu(){
     // Create button options
@@ -47,11 +61,17 @@ void MainWindow::setupMenu(){
     ui_->class_creator_button->setMenu(menu);
 }
 
+
+
 void MainWindow::setupConnections() {
     connect(ui_->class_creator_button, &QAbstractButton::clicked, this, &MainWindow::createClassButtonHandler);
     connect(ui_->clear_schedule_button, &QAbstractButton::clicked, this, &MainWindow::clearSchedule);
-    connect(ui_->debug_populate_button, &QAbstractButton::clicked, this, &MainWindow::debugPopulateList);
+    connect(ui_->update_class_list, &QAbstractButton::clicked, this, &MainWindow::updateClassList);
+    connect(ui_->actionPopulate_Schedule, &QAction::triggered, this, &MainWindow::debugPopulateList);
+    connect(ui_->actionAdd_Random_Class, &QAction::triggered, this, &MainWindow::addRandomClass);
 }
+
+
 
 void MainWindow::setupClassListLayout() {
     class_list_layout_ = qobject_cast<QVBoxLayout*>(ui_->class_scroll_area->layout());
@@ -62,10 +82,15 @@ void MainWindow::setupClassListLayout() {
     class_list_layout_->setAlignment(Qt::AlignHCenter | Qt::AlignTop);
 }
 
+
+
 void MainWindow::setupClassSearch(){
-    QString path = QCoreApplication::applicationDirPath() + "/../../../data/csusm_classes.csv";
+    search_classes_.clear();
+    QString path = QCoreApplication::applicationDirPath() + "/../../data/csusm_classes.csv";
     loadCSV(path);
 }
+
+
 
 void MainWindow::loadCSV(const QString& filename) {
     QFile file(filename);
@@ -73,7 +98,6 @@ void MainWindow::loadCSV(const QString& filename) {
         qDebug() << "Failed to open file:" << filename;
         return;
     }
-
     QTextStream in(&file);
 
     bool firstItem = true;
@@ -95,8 +119,11 @@ void MainWindow::loadCSV(const QString& filename) {
         ClassData new_class;
         ClassInfo class_conversion;
 
+        QString name = fields[1].trimmed().simplified();
+        name.replace(" | ", ", ");
+
         new_class.subject    = fields[0].trimmed().simplified();
-        new_class.name       = fields[1].trimmed().simplified();
+        new_class.name       = name;
         new_class.class_code = fields[2].trimmed().simplified();
         new_class.instructors = extractInstructors(fields[3].trimmed());
         new_class.buildings   = building_check;
@@ -130,6 +157,7 @@ void MainWindow::loadCSV(const QString& filename) {
 }
 
 
+
 QString MainWindow::extractDays(const QString &days) {
     static const QMap<QString, QChar> dayMap = {
         {"Mo", 'M'}, {"Tu", 'T'}, {"We", 'W'},
@@ -150,6 +178,7 @@ QString MainWindow::extractDays(const QString &days) {
 }
 
 
+
 QStringList MainWindow::extractInstructors(const QString &instructors) {
     QStringList differentInstructors = instructors.split('|', Qt::SkipEmptyParts);
 
@@ -158,6 +187,8 @@ QStringList MainWindow::extractInstructors(const QString &instructors) {
     }
     return differentInstructors;
 }
+
+
 
 QStringList MainWindow::extractBuildings(const QString &buildings) {
     QStringList differentBuildings = buildings.split('|', Qt::SkipEmptyParts);
@@ -174,13 +205,13 @@ QStringList MainWindow::extractBuildings(const QString &buildings) {
             }
         }
     }
-
     if (valid){
         return differentBuildings;
     }
-
     return {};
 }
+
+
 
 void MainWindow::createClassFrame(const ClassInfo& class_info) {
     ClassInfoFrame* class_data = new ClassInfoFrame();
@@ -189,13 +220,19 @@ void MainWindow::createClassFrame(const ClassInfo& class_info) {
     // TODO: Add class info to save file
 }
 
+
+
 void MainWindow::editSave() {
     // TODO: Add edited class info to save file
 }
 
+
+
 void MainWindow::removeFromSave() {
     // TODO: Remove deleted class info from save file
 }
+
+
 
 void MainWindow::createClassButtonHandler() {
     Dialog class_creator;
@@ -208,14 +245,18 @@ void MainWindow::createClassButtonHandler() {
     }
 }
 
-void MainWindow::clearSchedule() {
-    auto clear_all = QMessageBox::question(
-        this,
-        "Clear All?",
-        "Warning: Clearing all will permanently remove all data. Do you want to proceed?",
-        QMessageBox::Yes | QMessageBox::No);
 
-    if (class_list_layout_->count() == 0 || clear_all == QMessageBox::No) return;
+
+void MainWindow::clearSchedule(bool test) {
+    if (!test){
+        auto clear_all = QMessageBox::question(
+            this,
+            "Clear All?",
+            "Warning: Clearing all will permanently remove all data. Do you want to proceed?",
+            QMessageBox::Yes | QMessageBox::No);
+        if (class_list_layout_->count() == 0 || clear_all == QMessageBox::No) return;
+    }
+
     QLayoutItem *child;
     while ((child = class_list_layout_->takeAt(0)) != nullptr) {
         delete child->widget();
@@ -223,55 +264,97 @@ void MainWindow::clearSchedule() {
     }
 }
 
+
+
 void MainWindow::searchClass(){
     search *search_class = new search(search_classes_, this);
     search_class->setModal(false);
     search_class->show();
 }
 
+
+
+void MainWindow::updateClassList() {
+    QString path = QCoreApplication::applicationDirPath() + "/../../data/data_extractor.exe";
+
+    // Progress dialog with determinate range
+    QProgressDialog *progress = new QProgressDialog("Updating class list...", "Cancel", 0, 100, this);
+    progress->setWindowModality(Qt::WindowModal);
+    progress->setMinimumDuration(0);
+    progress->setValue(0);
+
+    QProcess *process = new QProcess(this);
+    process->setProcessChannelMode(QProcess::MergedChannels);
+
+    connect(process, &QProcess::readyReadStandardOutput, this, [=]() {
+        QString output = process->readAllStandardOutput();
+
+        for (const QString &line : output.split('\n', Qt::SkipEmptyParts)) {
+            QString trimmed = line.trimmed();
+
+            // Progress updates
+            if (trimmed.startsWith("PROGRESS:")) {
+                QString valueStr = trimmed.section(' ', 1, 1);
+                bool ok;
+                int percent = valueStr.toInt(&ok);
+                if (ok) {
+                    progress->setValue(percent);
+
+                    // Keep the existing label text (log message)
+                    QString currentText = progress->labelText();
+                    if (!currentText.isEmpty() && currentText.contains("Processing:")) {
+                        // Don't overwrite the log message; just update percentage visually
+                    }
+                }
+
+                // Log messages update the label text
+            } else if (trimmed.startsWith("LOG:")) {
+                progress->setLabelText(
+                    QString("Updating class list...\n%1")
+                        .arg(trimmed.mid(4).trimmed())           // message without "LOG:"
+                    );
+
+            } else if (!trimmed.isEmpty()){
+                qDebug() << "[data_extractor]:" << trimmed;
+            }
+        }
+    });
+
+    connect(process, &QProcess::finished, this, [=](int exitCode, QProcess::ExitStatus status) {
+        progress->close();
+        progress->deleteLater();
+
+        if (exitCode == 0) {
+            QMessageBox::information(this, "Done", "Class list updated successfully!");
+            setupClassSearch();
+        } else {
+            QMessageBox::warning(this, "Error", "Update failed!");
+        }
+    });
+
+    connect(progress, &QProgressDialog::canceled, process, &QProcess::kill);
+
+    process->start(path);
+}
+
+
+
 // Below functions are for debug only
 // ***MARKED FOR REMOVAL***
-void MainWindow::debugAddClasstoList(ClassInfo* tester) {
-    ClassInfoFrame* debug_data = new ClassInfoFrame();
-    debug_data->createFrame(*tester);
-    class_list_layout_->addWidget(debug_data);
+void MainWindow::addRandomClass(){
+    int classValue = QRandomGenerator::global()->bounded(search_classes_.size());
+    createClassFrame(search_classes_[classValue].data);
 }
 
-ClassInfo* MainWindow::debugCreateClass(QString name,
-                                  QString days,
-                                  QString start,
-                                  QString end,
-                                  QString building) {
-    ClassInfo* tester = new ClassInfo;
-    tester->name = name;
-    tester->days = days;
-    tester->startTime = start;
-    tester->endTime = end;
-    tester->building = building;
-    return tester;
-}
+
 
 void MainWindow::debugPopulateList() {
-
-    debugAddClasstoList(debugCreateClass("testClass1", "M",
-                                         "9:30 AM", "1:30 AM",
-                                         "Social and Behavioral Sciences Building"));
-
-    debugAddClasstoList(debugCreateClass("testClass2", "T",
-                                         "1:30 PM", "4:45 PM",
-                                         "University Hall"));
-
-    debugAddClasstoList(debugCreateClass("testClass3", "MWF",
-                                         "7:30 AM", "8:20 AM",
-                                         "ONLINE CLASS"));
-
-    debugAddClasstoList(debugCreateClass("testClass4", "TR",
-                                         "5:00 AM", "6:50 AM",
-                                         "Science Hall I"));
-
-    debugAddClasstoList(debugCreateClass("testClass5", "F",
-                                         "10:00 AM", "1:20 PM",
-                                         "Arts Building"));
+    clearSchedule(true);
+    int randomValue = QRandomGenerator::global()->bounded(2, 8);
+    for (;randomValue > 0; randomValue--) {
+        int classValue = QRandomGenerator::global()->bounded(search_classes_.size());
+        createClassFrame(search_classes_[classValue].data);
+    }
 }
 
 

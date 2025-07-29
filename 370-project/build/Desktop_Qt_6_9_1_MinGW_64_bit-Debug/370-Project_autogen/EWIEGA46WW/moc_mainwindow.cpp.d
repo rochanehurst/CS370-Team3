@@ -9,6 +9,7 @@ C:/crying/CS370-Team3/370-project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-
   C:/QT/6.9.1/mingw_64/include/QtCore/QRectF \
   C:/QT/6.9.1/mingw_64/include/QtCore/QSize \
   C:/QT/6.9.1/mingw_64/include/QtCore/QSizeF \
+  C:/QT/6.9.1/mingw_64/include/QtCore/QStringList \
   C:/QT/6.9.1/mingw_64/include/QtCore/QVector \
   C:/QT/6.9.1/mingw_64/include/QtCore/q17memory.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/q20functional.h \
@@ -235,16 +236,19 @@ C:/crying/CS370-Team3/370-project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-
   C:/QT/6.9.1/mingw_64/include/QtWidgets/QDialog \
   C:/QT/6.9.1/mingw_64/include/QtWidgets/QFrame \
   C:/QT/6.9.1/mingw_64/include/QtWidgets/QMainWindow \
+  C:/QT/6.9.1/mingw_64/include/QtWidgets/QMessageBox \
   C:/QT/6.9.1/mingw_64/include/QtWidgets/QVBoxLayout \
   C:/QT/6.9.1/mingw_64/include/QtWidgets/qabstractbutton.h \
   C:/QT/6.9.1/mingw_64/include/QtWidgets/qboxlayout.h \
   C:/QT/6.9.1/mingw_64/include/QtWidgets/qcheckbox.h \
   C:/QT/6.9.1/mingw_64/include/QtWidgets/qdialog.h \
+  C:/QT/6.9.1/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
   C:/QT/6.9.1/mingw_64/include/QtWidgets/qframe.h \
   C:/QT/6.9.1/mingw_64/include/QtWidgets/qgridlayout.h \
   C:/QT/6.9.1/mingw_64/include/QtWidgets/qlayout.h \
   C:/QT/6.9.1/mingw_64/include/QtWidgets/qlayoutitem.h \
   C:/QT/6.9.1/mingw_64/include/QtWidgets/qmainwindow.h \
+  C:/QT/6.9.1/mingw_64/include/QtWidgets/qmessagebox.h \
   C:/QT/6.9.1/mingw_64/include/QtWidgets/qsizepolicy.h \
   C:/QT/6.9.1/mingw_64/include/QtWidgets/qtabwidget.h \
   C:/QT/6.9.1/mingw_64/include/QtWidgets/qtwidgets-config.h \
@@ -483,4 +487,6 @@ C:/crying/CS370-Team3/370-project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-
   C:/QT/Tools/mingw1310_64/x86_64-w64-mingw32/include/wctype.h \
   C:/crying/CS370-Team3/370-project/class_info_unit.h \
   C:/crying/CS370-Team3/370-project/createclass.h \
+  C:/crying/CS370-Team3/370-project/mainwindow.h \
+  C:/crying/CS370-Team3/370-project/savestuff.h \
   C:/crying/CS370-Team3/370-project/search.h

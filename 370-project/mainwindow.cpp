@@ -12,10 +12,12 @@
 #include <QMessageBox>
 #include <QLayout>
 #include <QStringList>
+#include <filesystem>
 using namespace std;
 
 string filename = "cluster_savedata.txt";
 SaveFeature s(filename);
+//QStringList unparsed;
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -28,12 +30,18 @@ MainWindow::MainWindow(QWidget *parent)
     setupClassListLayout();
     setupMenu();
 
-    /* QStringList unparsed;
-    int size = 0;
-    s.loadSaveData(filename, unparsed, size); // will load all lines of file into unparsed
-    for (int i = 0; i < size; i++) {
-        s.parseSavaData(filename, unparsed[i], data);
-    } */
+    //if (!filesystem::is_empty(filename)) { // if save file is NOT empty, can load from it
+        QStringList unparsed;
+        //int size = 0;
+        ClassInfo data;
+        s.loadSaveData(filename, unparsed); // will load all lines of file into unparsed
+        for (qsizetype i = 0; i < unparsed.size(); i++) {
+            QString oneUnparsed = unparsed.at(i);
+            s.parseSavaData(filename, oneUnparsed, data);
+            createClassFrame(data);
+        }
+    //}
+
 
     // questions:
         // how to get it to load a widget into the list?  needs to be in another function?
@@ -44,6 +52,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow() {
     // TODO: Persist data to file before exit
+    s.closeFile();
     delete ui_;
     initMap();
 }
@@ -75,7 +84,7 @@ void MainWindow::createClassFrame(const ClassInfo& class_info) {
     ClassInfoFrame* class_data = new ClassInfoFrame();
     class_data->createFrame(class_info);
     class_list_layout_->addWidget(class_data);
-
+    //s.addToSave(class_info, filename);
 
     // TODO: Add class info to save file
 }
@@ -120,6 +129,8 @@ void MainWindow::clearSchedule() {
         delete child->widget();
         delete child;
     }
+
+    s.clearAll(filename);
 }
 
 void MainWindow::searchClass(){

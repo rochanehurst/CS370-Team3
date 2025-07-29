@@ -3,7 +3,7 @@
 
 #include "createclass.h"
 #include "class_info_unit.h"
-//#include "savestuff.h"
+#include "savestuff.h"
 #include "search.h"
 
 #include <QMainWindow>

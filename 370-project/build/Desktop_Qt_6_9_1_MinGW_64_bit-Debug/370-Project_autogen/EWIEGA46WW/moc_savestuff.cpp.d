@@ -488,4 +488,5 @@ C:/crying/CS370-Team3/370-project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-
   C:/crying/CS370-Team3/370-project/class_info_unit.h \
   C:/crying/CS370-Team3/370-project/createclass.h \
   C:/crying/CS370-Team3/370-project/mainwindow.h \
+  C:/crying/CS370-Team3/370-project/savestuff.h \
   C:/crying/CS370-Team3/370-project/search.h

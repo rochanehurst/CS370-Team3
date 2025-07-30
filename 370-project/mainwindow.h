@@ -43,6 +43,14 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
+    enum class WarningLevel {
+        NOTICE,
+        WARNING,
+        ERROR
+    };
+    Q_ENUM(WarningLevel)
+
+public:
     MainWindow(QWidget *parent = nullptr);
     void createClassFrame(const ClassInfo& class_info);
     ~MainWindow();
@@ -56,6 +64,9 @@ private slots:
     void debugPopulateList();
     void addRandomClass();
     void updateClassList();
+    void createError();
+    void createWarning();
+    void createNotice();
 
 private:
     void setupConnections();
@@ -75,6 +86,7 @@ private:
     Ui::main_window *ui_;
     QVector<ClassInfo> class_infos_;
     QVBoxLayout* class_list_layout_;
+    QVBoxLayout* warning_list_layout_;
     QVector<ClassData> search_classes_;
     QStringList valid_buildings_ = {"Academic Hall", "Arts Building", "Extended Learning Building",
                                     "Kellogg Library", "Markstein Hall", "Science Hall",

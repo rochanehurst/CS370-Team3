@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1050</width>
-    <height>619</height>
+    <height>747</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -1019,7 +1019,7 @@
        <enum>Qt::Orientation::Horizontal</enum>
       </property>
       <property name="handleWidth">
-       <number>6</number>
+       <number>3</number>
       </property>
       <property name="childrenCollapsible">
        <bool>false</bool>
@@ -1251,8 +1251,8 @@ QPushButton:hover {
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>398</width>
-             <height>532</height>
+             <width>400</width>
+             <height>660</height>
             </rect>
            </property>
            <property name="sizePolicy">
@@ -1292,7 +1292,7 @@ QPushButton:hover {
         <property name="bottomMargin">
          <number>5</number>
         </property>
-        <item alignment="Qt::AlignmentFlag::AlignHCenter|Qt::AlignmentFlag::AlignTop">
+        <item alignment="Qt::AlignmentFlag::AlignHCenter|Qt::AlignmentFlag::AlignVCenter">
          <widget class="QPushButton" name="update_class_list">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -1302,13 +1302,13 @@ QPushButton:hover {
           </property>
           <property name="minimumSize">
            <size>
-            <width>180</width>
+            <width>200</width>
             <height>40</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
-            <width>180</width>
+            <width>200</width>
             <height>16777215</height>
            </size>
           </property>
@@ -1333,7 +1333,7 @@ QPushButton:hover {
         <item>
          <widget class="QScrollArea" name="warning_container">
           <property name="sizePolicy">
-           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
@@ -1359,63 +1359,30 @@ QPushButton:hover {
              <x>0</x>
              <y>0</y>
              <width>198</width>
-             <height>532</height>
+             <height>660</height>
             </rect>
            </property>
            <property name="sizePolicy">
-            <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
              <verstretch>0</verstretch>
             </sizepolicy>
            </property>
+           <property name="minimumSize">
+            <size>
+             <width>195</width>
+             <height>0</height>
+            </size>
+           </property>
            <property name="maximumSize">
             <size>
-             <width>200</width>
+             <width>16777215</width>
              <height>16777215</height>
             </size>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_2">
             <item>
-             <layout class="QVBoxLayout" name="warninglist">
-              <item alignment="Qt::AlignmentFlag::AlignHCenter">
-               <widget class="QLabel" name="warning_placeholder">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>160</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
-                <property name="font">
-                 <font>
-                  <family>Courier New</family>
-                  <pointsize>18</pointsize>
-                  <bold>true</bold>
-                 </font>
-                </property>
-                <property name="text">
-                 <string>WARNING PLACEHOLDER</string>
-                </property>
-                <property name="textFormat">
-                 <enum>Qt::TextFormat::MarkdownText</enum>
-                </property>
-                <property name="scaledContents">
-                 <bool>false</bool>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignmentFlag::AlignCenter</set>
-                </property>
-                <property name="wordWrap">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-             </layout>
+             <layout class="QVBoxLayout" name="warninglist"/>
             </item>
            </layout>
           </widget>
@@ -1534,8 +1501,17 @@ QPushButton:hover {
     <property name="title">
      <string>Debug</string>
     </property>
+    <widget class="QMenu" name="menuAdd_Warning">
+     <property name="title">
+      <string>Add Warning</string>
+     </property>
+     <addaction name="actionError"/>
+     <addaction name="actionWarning"/>
+     <addaction name="actionNotice"/>
+    </widget>
     <addaction name="actionPopulate_Schedule"/>
     <addaction name="actionAdd_Random_Class"/>
+    <addaction name="menuAdd_Warning"/>
    </widget>
    <addaction name="menuDebug"/>
   </widget>
@@ -1547,6 +1523,21 @@ QPushButton:hover {
   <action name="actionAdd_Random_Class">
    <property name="text">
     <string>Add Random Class</string>
+   </property>
+  </action>
+  <action name="actionError">
+   <property name="text">
+    <string>Error</string>
+   </property>
+  </action>
+  <action name="actionWarning">
+   <property name="text">
+    <string>Warning</string>
+   </property>
+  </action>
+  <action name="actionNotice">
+   <property name="text">
+    <string>Notice</string>
    </property>
   </action>
  </widget>

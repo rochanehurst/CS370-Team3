@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "class_info_unit.h"
 #include "search.h"
+#include "warning.h"
 
 #include <QMenu>
 #include <QFile>
@@ -69,6 +70,9 @@ void MainWindow::setupConnections() {
     connect(ui_->update_class_list, &QAbstractButton::clicked, this, &MainWindow::updateClassList);
     connect(ui_->actionPopulate_Schedule, &QAction::triggered, this, &MainWindow::debugPopulateList);
     connect(ui_->actionAdd_Random_Class, &QAction::triggered, this, &MainWindow::addRandomClass);
+    connect(ui_->actionError, &QAction::triggered, this, &MainWindow::createError);
+    connect(ui_->actionWarning, &QAction::triggered, this, &MainWindow::createWarning);
+    connect(ui_->actionNotice, &QAction::triggered, this, &MainWindow::createNotice);
 }
 
 
@@ -80,6 +84,9 @@ void MainWindow::setupClassListLayout() {
         ui_->class_scroll_area->setLayout(class_list_layout_);
     }
     class_list_layout_->setAlignment(Qt::AlignHCenter | Qt::AlignTop);
+
+    warning_list_layout_ = qobject_cast<QVBoxLayout*>(ui_->warning_scroll_area->layout());
+    warning_list_layout_->setAlignment(Qt::AlignHCenter | Qt::AlignTop);
 }
 
 
@@ -356,5 +363,28 @@ void MainWindow::debugPopulateList() {
         createClassFrame(search_classes_[classValue].data);
     }
 }
+
+
+
+void MainWindow::createError(){
+    Warning* new_warning = new Warning(WarningLevel::ERROR);
+    ui_->warninglist->addWidget(new_warning);
+}
+
+
+
+void MainWindow::createWarning(){
+    Warning* new_warning = new Warning(WarningLevel::WARNING);
+    ui_->warninglist->addWidget(new_warning);
+}
+
+
+
+void MainWindow::createNotice(){
+    Warning* new_warning = new Warning(WarningLevel::NOTICE);
+    ui_->warninglist->addWidget(new_warning);
+}
+
+
 
 

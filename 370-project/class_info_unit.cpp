@@ -49,14 +49,6 @@ void ClassInfoFrame::setIcon() {
 }
 
 void ClassInfoFrame::setClassName(const QString &name) {
-    /*
-    constexpr int name_length = 24;
-    QString name_shortened = name;
-    if (name.length() > name_length) {
-        name_shortened = name_shortened.left(name_length - 3) + "...";
-    }
-    ui_.class_name_label->setText(name_shortened);
-*/
     ui_.class_name_label->setText(name);
 }
 

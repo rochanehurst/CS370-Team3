@@ -52,7 +52,7 @@ public:
 
 public:
     MainWindow(QWidget *parent = nullptr);
-    void createClassFrame(const ClassInfo& class_info);
+    void createClassFrame(const ClassInfo& class_info, bool loaded = false);
     ~MainWindow();
 
 private slots:
@@ -75,6 +75,8 @@ private:
     void setupClassSearch();
     void setupWidths();
     void setup();
+    void addClass(QWidget* class_to_add, const ClassInfo& info, bool loaded = false);
+    void addWarning(QWidget* warning_to_add);
 
     void loadCSV(const QString& filePath);
     QString extractDays(const QString& days);

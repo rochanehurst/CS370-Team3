@@ -27,18 +27,18 @@ MainWindow::MainWindow(QWidget *parent)
 #endif
 
     setup();
-    s.backupOpen(filename);
+    //s.backupOpen(filename);
 
-    if (!filesystem::is_empty(filename)) { // if save file is NOT empty, can load from it
+    if (!filesystem::is_empty(filename)) {
         QStringList unparsed;
-        //int size = 0;
         ClassInfo data;
-        s.loadSaveData(filename, unparsed); // will load all lines of file into unparsed
+
+        s.loadSaveData(filename, unparsed);
         if (unparsed.isEmpty() != true) {
             for (qsizetype i = 0; i < unparsed.size(); i++) {
                 QString oneUnparsed = unparsed.at(i);
                 s.parseSavaData(filename, oneUnparsed, data);
-                createClassFrame(data);
+                createClassFrame(data, true);
             }
         }
     }
@@ -112,8 +112,12 @@ void MainWindow::setupClassListLayout() {
     }
     class_list_layout_->setAlignment(Qt::AlignHCenter | Qt::AlignTop);
 
-    warning_list_layout_ = qobject_cast<QVBoxLayout*>(ui_->warning_scroll_area->layout());
+    if (!warning_list_layout_) {
+        warning_list_layout_ = new QVBoxLayout(ui_->warning_scroll_area);
+        ui_->warning_scroll_area->setLayout(warning_list_layout_);
+    }
     warning_list_layout_->setAlignment(Qt::AlignHCenter | Qt::AlignTop);
+
 }
 
 
@@ -247,10 +251,10 @@ QStringList MainWindow::extractBuildings(const QString &buildings) {
 
 
 
-void MainWindow::createClassFrame(const ClassInfo& class_info) {
+void MainWindow::createClassFrame(const ClassInfo& class_info, bool loaded) {
     ClassInfoFrame* class_data = new ClassInfoFrame();
     class_data->createFrame(class_info);
-    class_list_layout_->addWidget(class_data);
+    addClass(class_data, class_info, loaded);
     // TODO: Add class info to save file
 }
 
@@ -275,7 +279,6 @@ void MainWindow::createClassButtonHandler() {
         ClassInfo classData = class_creator.getData();       // Retrieve data from the dialog
         class_infos_.append(classData);                     // Store in MainWindow’s QVector
         createClassFrame(classData);
-        s.addToSave(classData, filename);
     }
 }
 
@@ -290,12 +293,12 @@ void MainWindow::clearSchedule(bool test) {
             QMessageBox::Yes | QMessageBox::No);
         if (class_list_layout_->count() == 0 || clear_all == QMessageBox::No) return;
     }
-
     QLayoutItem *child;
     while ((child = class_list_layout_->takeAt(0)) != nullptr) {
         delete child->widget();
         delete child;
     }
+    s.clearAll(filename);
 }
 
 
@@ -367,8 +370,21 @@ void MainWindow::updateClassList() {
     });
 
     connect(progress, &QProgressDialog::canceled, process, &QProcess::kill);
-
     process->start(path);
+}
+
+
+
+
+void MainWindow::addClass(QWidget* class_to_add, const ClassInfo& info, bool loaded){
+    class_list_layout_->addWidget(class_to_add);
+    if (!loaded) s.addToSave(info, filename);
+}
+
+
+
+void MainWindow::addWarning(QWidget* warning_to_add){
+    ui_->warninglist->addWidget(warning_to_add);
 }
 
 
@@ -395,21 +411,21 @@ void MainWindow::debugPopulateList() {
 
 void MainWindow::createError(){
     Warning* new_warning = new Warning(WarningLevel::ERROR);
-    ui_->warninglist->addWidget(new_warning);
+    addWarning(new_warning);
 }
 
 
 
 void MainWindow::createWarning(){
     Warning* new_warning = new Warning(WarningLevel::WARNING);
-    ui_->warninglist->addWidget(new_warning);
+    addWarning(new_warning);
 }
 
 
 
 void MainWindow::createNotice(){
     Warning* new_warning = new Warning(WarningLevel::NOTICE);
-    ui_->warninglist->addWidget(new_warning);
+    addWarning(new_warning);
 }
 
 

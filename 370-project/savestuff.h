@@ -14,7 +14,6 @@
 #include <string>
 using namespace std;
 
-#include "mainwindow.h"
 #include "createclass.h"
 //#include "class_info_unit.h"
 

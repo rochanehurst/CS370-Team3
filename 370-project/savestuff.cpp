@@ -80,12 +80,13 @@ void SaveFeature::loadSaveData(const string& filename, QStringList& unparsed) {
 
         SaveFile.ignore(); // ignores the first \n
         while (!SaveFile.eof()) {
-            getline(SaveFile, hold, '\n'); // takes entire line until newline char
-            //SaveFile.ignore(); // ignore \n
+            getline(SaveFile, hold, '\n');
             unparsed.append(QString::fromStdString(hold)); // adds hold to unparsed stringlist as a qstring
                 //unparsed[size] = hold; // place line into array
             //size++; // increase size
         }
+        SaveFile.close();
+
         //SaveFile.ignore(); //should ignore last newline char
         //SaveFile.ignore();
         // void collect_all(istream& input, College c[], int& size) {
@@ -138,5 +139,5 @@ void SaveFeature::parseSavaData(const string& filename, QString line, ClassInfo&
 }
 
 void SaveFeature::clearAll(const string& filename) {
-    SaveFile.open(filename, ios::out | ios::trunc);
+    ofstream(filename, ios::trunc).close();
 }

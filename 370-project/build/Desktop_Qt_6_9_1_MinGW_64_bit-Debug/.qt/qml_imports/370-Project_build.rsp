@@ -1,9 +1,0 @@
--rootPath
-C:/crying/CS370-Team3/370-project
--cmake-output
--output-file
-C:/crying/CS370-Team3/370-project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/.qt/qml_imports/370-Project_build.cmake
--importPath
-C:/crying/CS370-Team3/370-project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug
--importPath
-C:/QT/6.9.1/mingw_64/qml

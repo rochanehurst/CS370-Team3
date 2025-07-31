@@ -1,2 +1,0 @@
-rejkagr,Science Hall II (SCI 2),7:30 AM,8:30 AM,W
-K,Academic Hall (ACD),7:30 AM,8:30 AM,R

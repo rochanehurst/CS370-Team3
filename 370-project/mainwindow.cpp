@@ -30,17 +30,21 @@ MainWindow::MainWindow(QWidget *parent)
     setupClassListLayout();
     setupMenu();
 
-    //if (!filesystem::is_empty(filename)) { // if save file is NOT empty, can load from it
+    s.backupOpen(filename);
+
+    if (!filesystem::is_empty(filename)) { // if save file is NOT empty, can load from it
         QStringList unparsed;
         //int size = 0;
         ClassInfo data;
         s.loadSaveData(filename, unparsed); // will load all lines of file into unparsed
-        for (qsizetype i = 0; i < unparsed.size(); i++) {
-            QString oneUnparsed = unparsed.at(i);
-            s.parseSavaData(filename, oneUnparsed, data);
-            createClassFrame(data);
+        if (unparsed.isEmpty() != true) {
+            for (qsizetype i = 0; i < unparsed.size(); i++) {
+                QString oneUnparsed = unparsed.at(i);
+                s.parseSavaData(filename, oneUnparsed, data);
+                createClassFrame(data);
+            }
         }
-    //}
+    }
 
 
     // questions:

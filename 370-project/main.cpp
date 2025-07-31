@@ -1,10 +1,9 @@
 #include "mainwindow.h"
 
 #include <QApplication>
-
-// LAST UPDATED:
-// 7/17/2025 4:36PM
-// BY COLE LEAHY
+//#include <iostream>
+#include <fstream>
+using namespace std;
 
 int main(int argc, char *argv[])
 {
@@ -12,4 +11,8 @@ int main(int argc, char *argv[])
     MainWindow w;
     w.show();
     return a.exec();
+
+    //ofstream SaveFile("cluster_save.txt");
+    //this is a test.
+    //i am going to go insane.
 }

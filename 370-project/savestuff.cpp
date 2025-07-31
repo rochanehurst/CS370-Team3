@@ -15,7 +15,7 @@
 using namespace std;
 
 SaveFeature::SaveFeature(const string& filename) {
-    SaveFile.open(filename);
+    SaveFile.open(filename, ios::out | ios::in);
 
     // if (!SaveFile.is_open()) {
     //     //QMessageBox::critical(this, "Error", "Save file has failed to open.");
@@ -64,10 +64,11 @@ void SaveFeature::loadSaveData(const string& filename, QStringList& unparsed) {
     if (filesystem::is_empty(filename)) {
         return;
     } else {
+        SaveFile.close();
+        SaveFile.open(filename, ios::in);
         string hold;
-        //size = 0;
-        //string unparsed[15];
-        SaveFile.ignore();
+
+        SaveFile.ignore(); // ignores the first \n
         while (!SaveFile.eof()) {
             getline(SaveFile, hold, '\n'); // takes entire line until newline char
             //SaveFile.ignore(); // ignore \n

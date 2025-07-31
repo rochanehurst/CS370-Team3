@@ -60,3 +60,4 @@ Testing/
 # Python cache
 __pycache__/
 *.pyc
+/370-project/build

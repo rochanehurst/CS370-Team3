@@ -275,7 +275,7 @@ void MainWindow::createClassButtonHandler() {
         ClassInfo classData = class_creator.getData();       // Retrieve data from the dialog
         class_infos_.append(classData);                     // Store in MainWindow’s QVector
         createClassFrame(classData);
-        // TODO: Append class data to save file
+        s.addToSave(classData, filename);
     }
 }
 

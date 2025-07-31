@@ -25,6 +25,9 @@ private:
 public:
     SaveFeature(const string& filename);
 
+    void backupOpen(const string& filename);
+    bool checkIfOpen(const string& filename);
+
     void closeFile();
 
     //void addToSave(const ClassInfo& data, const string& filename);

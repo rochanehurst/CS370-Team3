@@ -17,10 +17,33 @@ MainWindow::MainWindow(QWidget *parent)
     , ui_(new Ui::main_window)
 {
     ui_->setupUi(this);
-    setup();
+
 #ifndef QT_DEBUG
     ui_->menuBar->removeAction(ui_->menuDebug->menuAction());
 #endif
+
+    setup();
+    s.backupOpen(filename);
+
+    if (!filesystem::is_empty(filename)) { // if save file is NOT empty, can load from it
+        QStringList unparsed;
+        //int size = 0;
+        ClassInfo data;
+        s.loadSaveData(filename, unparsed); // will load all lines of file into unparsed
+        if (unparsed.isEmpty() != true) {
+            for (qsizetype i = 0; i < unparsed.size(); i++) {
+                QString oneUnparsed = unparsed.at(i);
+                s.parseSavaData(filename, oneUnparsed, data);
+                createClassFrame(data);
+            }
+        }
+    }
+
+
+    // questions:
+        // how to get it to load a widget into the list?  needs to be in another function?
+        // needs another global var?
+    // load funct here
 }
 
 

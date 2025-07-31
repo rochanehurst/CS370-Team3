@@ -15,15 +15,24 @@
 using namespace std;
 
 SaveFeature::SaveFeature(const string& filename) {
-    SaveFile.open(filename);
+    SaveFile.open(filename, ios::out | ios::in);
 
-    if (!SaveFile.is_open()) {
-        //QMessageBox::critical(this, "Error", "Save file has failed to open.");
-        return;
-    } else {
-        //QMessageBox::critical(this, "Non-error", "File has opened successfully.");
-        return;
-    }
+    // if (!SaveFile.is_open()) {
+    //     //QMessageBox::critical(this, "Error", "Save file has failed to open.");
+    //     return;
+    // } else {
+    //     //QMessageBox::critical(this, "Non-error", "File has opened successfully.");
+    //     return;
+    // }
+}
+
+void SaveFeature::backupOpen(const string& filename) {
+    SaveFile.open(filename);
+}
+
+bool SaveFeature::checkIfOpen(const string& filename) {
+    bool open = SaveFile.is_open();
+    return open;
 }
 
 void SaveFeature::closeFile() {
@@ -35,18 +44,18 @@ void SaveFeature::addToSave(const ClassInfo& data, const string& filename) {
         return;
     }
 
-    //SaveFile.close();
-    //SaveFile.open(filename);
+    SaveFile.close();
+    SaveFile.open(filename, ios::app);
 
-    /* if (!filesystem::is_empty(filename)) { //if file is not empty, add new line before data
+    /* if (filesystem::is_empty(filename)) { //if file is not empty, add new line before data
         SaveFile << endl;
     } */
 
-    SaveFile << data.name.toStdString() << ",";
+    SaveFile << endl << data.name.toStdString() << ",";
     SaveFile << data.building.toStdString() << ",";
     SaveFile << data.startTime.toStdString() << ",";
     SaveFile << data.endTime.toStdString() << ",";
-    SaveFile << data.days.toStdString() << endl;
+    SaveFile << data.days.toStdString();
 
 }
 
@@ -55,9 +64,11 @@ void SaveFeature::loadSaveData(const string& filename, QStringList& unparsed) {
     if (filesystem::is_empty(filename)) {
         return;
     } else {
+        SaveFile.close();
+        SaveFile.open(filename, ios::in);
         string hold;
-        //size = 0;
-        //string unparsed[15];
+
+        SaveFile.ignore(); // ignores the first \n
         while (!SaveFile.eof()) {
             getline(SaveFile, hold, '\n'); // takes entire line until newline char
             //SaveFile.ignore(); // ignore \n
@@ -65,7 +76,8 @@ void SaveFeature::loadSaveData(const string& filename, QStringList& unparsed) {
                 //unparsed[size] = hold; // place line into array
             //size++; // increase size
         }
-        SaveFile.ignore(); //should ignore last newline char
+        //SaveFile.ignore(); //should ignore last newline char
+        //SaveFile.ignore();
         // void collect_all(istream& input, College c[], int& size) {
         //     while (!input.eof()) {
         //         collect(input, c[size]);
@@ -100,15 +112,18 @@ void SaveFeature::loadSaveData(const string& filename, QStringList& unparsed) {
 void SaveFeature::parseSavaData(const string& filename, QString line, ClassInfo& data) {
     QStringList parsed;
 
-    if (filesystem::is_empty(filename)) {
+    if (filesystem::is_empty(filename) || line == '\n') {
         return;
     } else {
         parsed = line.split(',');
-        data.name = parsed[0];
-        data.building = parsed[1];
-        data.startTime = parsed[2];
-        data.endTime = parsed[3];
-        data.days = parsed[4];
+        int parsedsize = parsed.size();
+        if (parsedsize != 1) {
+            data.name = parsed.at(0);
+            data.building = parsed.at(1);
+            data.startTime = parsed.at(2);
+            data.endTime = parsed.at(3);
+            data.days = parsed.at(4);
+        }
     }
 }
 

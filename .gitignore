@@ -66,3 +66,4 @@ __pycache__/
 370-project/370-Project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/CMakeCache.txt.prev
 /370-project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug
 /370-project/build
+*.xml

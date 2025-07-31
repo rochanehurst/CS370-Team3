@@ -24,9 +24,9 @@ set(PROJECT_SOURCES
         class_info_unit.h
         class_info_unit.cpp
         resources.qrc
-        search.ui
-        search.h
-        search.cpp
+        search_window.ui
+        search_window.h
+        search_window.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
@@ -35,6 +35,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         ${PROJECT_SOURCES}
         class_result.h class_result.cpp class_result.ui
         warning.h warning.cpp warning.ui
+        savestuff.cpp savestuff.h
 
 
     )

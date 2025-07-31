@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1050</width>
-    <height>747</height>
+    <height>600</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -1252,7 +1252,7 @@ QPushButton:hover {
              <x>0</x>
              <y>0</y>
              <width>400</width>
-             <height>660</height>
+             <height>513</height>
             </rect>
            </property>
            <property name="sizePolicy">
@@ -1359,7 +1359,7 @@ QPushButton:hover {
              <x>0</x>
              <y>0</y>
              <width>198</width>
-             <height>660</height>
+             <height>513</height>
             </rect>
            </property>
            <property name="sizePolicy">

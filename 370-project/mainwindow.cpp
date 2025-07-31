@@ -1,8 +1,9 @@
 #include "mainwindow.h"
+#include "search_window.h"
 #include "ui_mainwindow.h"
 #include "class_info_unit.h"
-#include "search.h"
 #include "warning.h"
+#include "savestuff.h"
 
 #include <QMenu>
 #include <QFile>
@@ -11,6 +12,9 @@
 #include <QAction>
 #include <QProcess>
 #include <QProgressDialog>
+
+string filename = "cluster_savedata.txt";
+SaveFeature s(filename);
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -297,7 +301,7 @@ void MainWindow::clearSchedule(bool test) {
 
 
 void MainWindow::searchClass(){
-    search *search_class = new search(search_classes_, this);
+    search_window *search_class = new search_window(search_classes_, this);
     search_class->setModal(false);
     search_class->show();
 }

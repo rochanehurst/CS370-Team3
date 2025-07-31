@@ -15,7 +15,17 @@
 using namespace std;
 
 SaveFeature::SaveFeature(const string& filename) {
-    SaveFile.open(filename, ios::out | ios::in);
+    SaveFile.open(filename, ios::in | ios::out);
+
+    if (!SaveFile.is_open()) {
+        // File didn't exist, so create it first
+        SaveFile.clear(); // reset flags
+        SaveFile.open(filename, std::ios::out); // creates empty file
+        SaveFile.close();
+
+        // Reopen for read/write
+        SaveFile.open(filename, std::ios::in | std::ios::out);
+    }
 
     // if (!SaveFile.is_open()) {
     //     //QMessageBox::critical(this, "Error", "Save file has failed to open.");

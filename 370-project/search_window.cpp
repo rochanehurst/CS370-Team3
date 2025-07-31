@@ -1,12 +1,12 @@
-#include "search.h"
-#include "ui_search.h"
+#include "search_window.h"
+#include "ui_search_window.h"
 #include "class_result.h"
 
 #include <QFile>
 
-search::search(QVector<ClassData> classes_, QWidget *parent)
+search_window::search_window(QVector<ClassData> classes_, QWidget *parent)
     : QDialog(parent)
-    , ui_(new Ui::search)
+    , ui_(new Ui::search_window)
 {
     ui_->setupUi(this);
 
@@ -29,12 +29,12 @@ search::search(QVector<ClassData> classes_, QWidget *parent)
     }};
 }
 
-search::~search()
+search_window::~search_window()
 {
     delete ui_;
 }
 
-void search::declareCheckboxes() {
+void search_window::declareCheckboxes() {
     dayHandlers = {
         { ui_->monday,    [this](int state) { updateSearch(); } },
         { ui_->wednesday, [this](int state) { updateSearch(); } },
@@ -45,19 +45,19 @@ void search::declareCheckboxes() {
     };
 }
 
-void search::setupConnections() {
-    connect(ui_->subject_combo_box, &QComboBox::currentIndexChanged, this, &search::updateSearch);
-    connect(ui_->building_combo_box, &QComboBox::currentIndexChanged, this, &search::updateSearch);
-    connect(ui_->input_class, &QLineEdit::textEdited, this, &search::updateSearch);
-    connect(ui_->time_startafter, &QTimeEdit::userTimeChanged, this, &search::updateSearch);
-    connect(ui_->time_endbefore, &QTimeEdit::userTimeChanged, this, &search::updateSearch);
+void search_window::setupConnections() {
+    connect(ui_->subject_combo_box, &QComboBox::currentIndexChanged, this, &search_window::updateSearch);
+    connect(ui_->building_combo_box, &QComboBox::currentIndexChanged, this, &search_window::updateSearch);
+    connect(ui_->input_class, &QLineEdit::textEdited, this, &search_window::updateSearch);
+    connect(ui_->time_startafter, &QTimeEdit::userTimeChanged, this, &search_window::updateSearch);
+    connect(ui_->time_endbefore, &QTimeEdit::userTimeChanged, this, &search_window::updateSearch);
 
     for (auto box = dayHandlers.begin(); box != dayHandlers.end(); ++box) {
         connect(box.key(), &QCheckBox::checkStateChanged, this, box.value());
     }
 }
 
-void search::loadCSV(const QString& filename) {
+void search_window::loadCSV(const QString& filename) {
     ui_->subject_combo_box->addItem("NO SUBJECT SELECTED");
     QFile file(filename);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
@@ -74,7 +74,7 @@ void search::loadCSV(const QString& filename) {
     file.close();
 }
 
-void search::applyFilters() {
+void search_window::applyFilters() {
     QVector<ClassData> new_classes;
 
     const QString subject = ui_->subject_combo_box->currentText();
@@ -140,7 +140,7 @@ void search::applyFilters() {
     filtered_classes_ = new_classes;
 }
 
-void search::createWidgets(const QVector<ClassData> &data) {
+void search_window::createWidgets(const QVector<ClassData> &data) {
     // Clear existing widgets
     QLayoutItem *child;
     while ((child = ui_->scroll_list->takeAt(0)) != nullptr) {
@@ -163,7 +163,7 @@ void search::createWidgets(const QVector<ClassData> &data) {
 }
 
 
-void search::updateSearch() {
+void search_window::updateSearch() {
     filtered_classes_.clear();
     applyFilters();
     createWidgets(filtered_classes_);
@@ -171,7 +171,7 @@ void search::updateSearch() {
 
 
 
-void search::on_reset_time_clicked()
+void search_window::on_reset_time_clicked()
 {
     QTime start_time = QTime::fromString("6:00 AM", "h:mm AP");
     QTime end_time = QTime::fromString("10:00 PM", "h:mm AP");

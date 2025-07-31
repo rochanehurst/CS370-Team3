@@ -15,7 +15,7 @@
 using namespace std;
 
 SaveFeature::SaveFeature(const string& filename) {
-    SaveFile.open(filename);
+    SaveFile.open(filename, ios::out);
 
     // if (!SaveFile.is_open()) {
     //     //QMessageBox::critical(this, "Error", "Save file has failed to open.");

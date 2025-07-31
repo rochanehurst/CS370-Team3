@@ -62,3 +62,5 @@ __pycache__/
 *.pyc
 /370-project/build
 *.xml
+/370-project/build
+/370-project/.idea

@@ -2,5 +2,8 @@
 #include "EWIEGA46WW/moc_class_info_unit.cpp"
 #include "EWIEGA46WW/moc_createclass.cpp"
 #include "EWIEGA46WW/moc_mainwindow.cpp"
+<<<<<<< HEAD
 #include "EWIEGA46WW/moc_savestuff.cpp"
 #include "EWIEGA46WW/moc_search.cpp"
+=======
+>>>>>>> Coles-Branch

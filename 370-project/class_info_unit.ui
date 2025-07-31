@@ -845,6 +845,12 @@ QToolButton::menu-indicator{
        <height>24</height>
       </size>
      </property>
+     <property name="iconSize">
+      <size>
+       <width>0</width>
+       <height>0</height>
+      </size>
+     </property>
      <property name="popupMode">
       <enum>QToolButton::ToolButtonPopupMode::InstantPopup</enum>
      </property>

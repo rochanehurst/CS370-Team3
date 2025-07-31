@@ -1,5 +1,6 @@
 C:/crying/CS370-Team3/370-project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-Project_autogen/EWIEGA46WW/moc_mainwindow.cpp: C:/crying/CS370-Team3/370-project/mainwindow.h \
   C:/crying/CS370-Team3/370-project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-Project_autogen/moc_predefs.h \
+<<<<<<< HEAD
   C:/QT/6.9.1/mingw_64/include/QtCore/QDebug \
   C:/QT/6.9.1/mingw_64/include/QtCore/QEvent \
   C:/QT/6.9.1/mingw_64/include/QtCore/QList \
@@ -10,6 +11,10 @@ C:/crying/CS370-Team3/370-project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-
   C:/QT/6.9.1/mingw_64/include/QtCore/QSize \
   C:/QT/6.9.1/mingw_64/include/QtCore/QSizeF \
   C:/QT/6.9.1/mingw_64/include/QtCore/QStringList \
+=======
+  C:/QT/6.9.1/mingw_64/include/QtCore/QObject \
+  C:/QT/6.9.1/mingw_64/include/QtCore/QStringListModel \
+>>>>>>> Coles-Branch
   C:/QT/6.9.1/mingw_64/include/QtCore/QVector \
   C:/QT/6.9.1/mingw_64/include/QtCore/q17memory.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/q20functional.h \
@@ -18,7 +23,11 @@ C:/crying/CS370-Team3/370-project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-
   C:/QT/6.9.1/mingw_64/include/QtCore/q20type_traits.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/q20utility.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/q23utility.h \
+<<<<<<< HEAD
   C:/QT/6.9.1/mingw_64/include/QtCore/qabstracteventdispatcher.h \
+=======
+  C:/QT/6.9.1/mingw_64/include/QtCore/qabstractitemmodel.h \
+>>>>>>> Coles-Branch
   C:/QT/6.9.1/mingw_64/include/QtCore/qalgorithms.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qanystringview.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qarraydata.h \
@@ -28,13 +37,19 @@ C:/crying/CS370-Team3/370-project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-
   C:/QT/6.9.1/mingw_64/include/QtCore/qatomic.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qatomic_cxx11.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qbasicatomic.h \
+<<<<<<< HEAD
   C:/QT/6.9.1/mingw_64/include/QtCore/qbasictimer.h \
+=======
+>>>>>>> Coles-Branch
   C:/QT/6.9.1/mingw_64/include/QtCore/qbindingstorage.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qbytearray.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qbytearrayalgorithms.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qbytearraylist.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qbytearrayview.h \
+<<<<<<< HEAD
   C:/QT/6.9.1/mingw_64/include/QtCore/qcalendar.h \
+=======
+>>>>>>> Coles-Branch
   C:/QT/6.9.1/mingw_64/include/QtCore/qchar.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qcompare.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qcompare_impl.h \
@@ -46,6 +61,7 @@ C:/crying/CS370-Team3/370-project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-
   C:/QT/6.9.1/mingw_64/include/QtCore/qcontainerinfo.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qcontainertools_impl.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qcontiguouscache.h \
+<<<<<<< HEAD
   C:/QT/6.9.1/mingw_64/include/QtCore/qcoreapplication.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qcoreapplication_platform.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qcoreevent.h \
@@ -57,6 +73,12 @@ C:/crying/CS370-Team3/370-project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-
   C:/QT/6.9.1/mingw_64/include/QtCore/qelapsedtimer.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qendian.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qeventloop.h \
+=======
+  C:/QT/6.9.1/mingw_64/include/QtCore/qdarwinhelpers.h \
+  C:/QT/6.9.1/mingw_64/include/QtCore/qdatastream.h \
+  C:/QT/6.9.1/mingw_64/include/QtCore/qdebug.h \
+  C:/QT/6.9.1/mingw_64/include/QtCore/qendian.h \
+>>>>>>> Coles-Branch
   C:/QT/6.9.1/mingw_64/include/QtCore/qexceptionhandling.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qflags.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qfloat16.h \
@@ -68,25 +90,37 @@ C:/crying/CS370-Team3/370-project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-
   C:/QT/6.9.1/mingw_64/include/QtCore/qglobalstatic.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qhash.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qhashfunctions.h \
+<<<<<<< HEAD
   C:/QT/6.9.1/mingw_64/include/QtCore/qiodevice.h \
+=======
+>>>>>>> Coles-Branch
   C:/QT/6.9.1/mingw_64/include/QtCore/qiodevicebase.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qiterable.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qiterator.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qlatin1stringview.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qline.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qlist.h \
+<<<<<<< HEAD
   C:/QT/6.9.1/mingw_64/include/QtCore/qlocale.h \
+=======
+>>>>>>> Coles-Branch
   C:/QT/6.9.1/mingw_64/include/QtCore/qlogging.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qmalloc.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qmap.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qmargins.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qmath.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qmetacontainer.h \
+<<<<<<< HEAD
   C:/QT/6.9.1/mingw_64/include/QtCore/qmetaobject.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qmetatype.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qminmax.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qnamespace.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qnativeinterface.h \
+=======
+  C:/QT/6.9.1/mingw_64/include/QtCore/qmetatype.h \
+  C:/QT/6.9.1/mingw_64/include/QtCore/qminmax.h \
+  C:/QT/6.9.1/mingw_64/include/QtCore/qnamespace.h \
+>>>>>>> Coles-Branch
   C:/QT/6.9.1/mingw_64/include/QtCore/qnumeric.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qobject.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qobject_impl.h \
@@ -95,7 +129,10 @@ C:/crying/CS370-Team3/370-project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-
   C:/QT/6.9.1/mingw_64/include/QtCore/qoverload.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qpair.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qpoint.h \
+<<<<<<< HEAD
   C:/QT/6.9.1/mingw_64/include/QtCore/qpointer.h \
+=======
+>>>>>>> Coles-Branch
   C:/QT/6.9.1/mingw_64/include/QtCore/qprocessordetection.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qrect.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qrefcount.h \
@@ -116,6 +153,10 @@ C:/crying/CS370-Team3/370-project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-
   C:/QT/6.9.1/mingw_64/include/QtCore/qstringconverter_base.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qstringfwd.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qstringlist.h \
+<<<<<<< HEAD
+=======
+  C:/QT/6.9.1/mingw_64/include/QtCore/qstringlistmodel.h \
+>>>>>>> Coles-Branch
   C:/QT/6.9.1/mingw_64/include/QtCore/qstringliteral.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qstringmatcher.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qstringtokenizer.h \
@@ -144,30 +185,44 @@ C:/crying/CS370-Team3/370-project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-
   C:/QT/6.9.1/mingw_64/include/QtCore/qtversion.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qtversionchecks.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qtypeinfo.h \
+<<<<<<< HEAD
   C:/QT/6.9.1/mingw_64/include/QtCore/qtyperevision.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qtypes.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qurl.h \
+=======
+  C:/QT/6.9.1/mingw_64/include/QtCore/qtypes.h \
+>>>>>>> Coles-Branch
   C:/QT/6.9.1/mingw_64/include/QtCore/qutf8stringview.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qvariant.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qvarlengtharray.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qvector.h \
+<<<<<<< HEAD
   C:/QT/6.9.1/mingw_64/include/QtCore/qversionnumber.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qversiontagging.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qxptype_traits.h \
   C:/QT/6.9.1/mingw_64/include/QtCore/qyieldcpu.h \
   C:/QT/6.9.1/mingw_64/include/QtGui/QMatrix4x4 \
   C:/QT/6.9.1/mingw_64/include/QtGui/QTransform \
+=======
+  C:/QT/6.9.1/mingw_64/include/QtCore/qversiontagging.h \
+  C:/QT/6.9.1/mingw_64/include/QtCore/qxptype_traits.h \
+  C:/QT/6.9.1/mingw_64/include/QtCore/qyieldcpu.h \
+>>>>>>> Coles-Branch
   C:/QT/6.9.1/mingw_64/include/QtGui/qaction.h \
   C:/QT/6.9.1/mingw_64/include/QtGui/qbitmap.h \
   C:/QT/6.9.1/mingw_64/include/QtGui/qbrush.h \
   C:/QT/6.9.1/mingw_64/include/QtGui/qcolor.h \
   C:/QT/6.9.1/mingw_64/include/QtGui/qcursor.h \
+<<<<<<< HEAD
   C:/QT/6.9.1/mingw_64/include/QtGui/qevent.h \
   C:/QT/6.9.1/mingw_64/include/QtGui/qeventpoint.h \
+=======
+>>>>>>> Coles-Branch
   C:/QT/6.9.1/mingw_64/include/QtGui/qfont.h \
   C:/QT/6.9.1/mingw_64/include/QtGui/qfontinfo.h \
   C:/QT/6.9.1/mingw_64/include/QtGui/qfontmetrics.h \
   C:/QT/6.9.1/mingw_64/include/QtGui/qfontvariableaxis.h \
+<<<<<<< HEAD
   C:/QT/6.9.1/mingw_64/include/QtGui/qgenericmatrix.h \
   C:/QT/6.9.1/mingw_64/include/QtGui/qguiapplication.h \
   C:/QT/6.9.1/mingw_64/include/QtGui/qguiapplication_platform.h \
@@ -177,10 +232,16 @@ C:/crying/CS370-Team3/370-project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-
   C:/QT/6.9.1/mingw_64/include/QtGui/qinputmethod.h \
   C:/QT/6.9.1/mingw_64/include/QtGui/qkeysequence.h \
   C:/QT/6.9.1/mingw_64/include/QtGui/qmatrix4x4.h \
+=======
+  C:/QT/6.9.1/mingw_64/include/QtGui/qicon.h \
+  C:/QT/6.9.1/mingw_64/include/QtGui/qimage.h \
+  C:/QT/6.9.1/mingw_64/include/QtGui/qkeysequence.h \
+>>>>>>> Coles-Branch
   C:/QT/6.9.1/mingw_64/include/QtGui/qpaintdevice.h \
   C:/QT/6.9.1/mingw_64/include/QtGui/qpalette.h \
   C:/QT/6.9.1/mingw_64/include/QtGui/qpixelformat.h \
   C:/QT/6.9.1/mingw_64/include/QtGui/qpixmap.h \
+<<<<<<< HEAD
   C:/QT/6.9.1/mingw_64/include/QtGui/qpointingdevice.h \
   C:/QT/6.9.1/mingw_64/include/QtGui/qpolygon.h \
   C:/QT/6.9.1/mingw_64/include/QtGui/qquaternion.h \
@@ -191,10 +252,17 @@ C:/crying/CS370-Team3/370-project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-
   C:/QT/6.9.1/mingw_64/include/QtGui/qscreen_platform.h \
   C:/QT/6.9.1/mingw_64/include/QtGui/qsurface.h \
   C:/QT/6.9.1/mingw_64/include/QtGui/qsurfaceformat.h \
+=======
+  C:/QT/6.9.1/mingw_64/include/QtGui/qpolygon.h \
+  C:/QT/6.9.1/mingw_64/include/QtGui/qregion.h \
+  C:/QT/6.9.1/mingw_64/include/QtGui/qrgb.h \
+  C:/QT/6.9.1/mingw_64/include/QtGui/qrgba64.h \
+>>>>>>> Coles-Branch
   C:/QT/6.9.1/mingw_64/include/QtGui/qtgui-config.h \
   C:/QT/6.9.1/mingw_64/include/QtGui/qtguiexports.h \
   C:/QT/6.9.1/mingw_64/include/QtGui/qtguiglobal.h \
   C:/QT/6.9.1/mingw_64/include/QtGui/qtransform.h \
+<<<<<<< HEAD
   C:/QT/6.9.1/mingw_64/include/QtGui/qvector2d.h \
   C:/QT/6.9.1/mingw_64/include/QtGui/qvector3d.h \
   C:/QT/6.9.1/mingw_64/include/QtGui/qvector4d.h \
@@ -232,23 +300,36 @@ C:/crying/CS370-Team3/370-project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-
   C:/QT/6.9.1/mingw_64/include/QtQuickWidgets/qquickwidget.h \
   C:/QT/6.9.1/mingw_64/include/QtQuickWidgets/qtquickwidgetsexports.h \
   C:/QT/6.9.1/mingw_64/include/QtQuickWidgets/qtquickwidgetsglobal.h \
+=======
+  C:/QT/6.9.1/mingw_64/include/QtGui/qwindowdefs.h \
+  C:/QT/6.9.1/mingw_64/include/QtGui/qwindowdefs_win.h \
+>>>>>>> Coles-Branch
   C:/QT/6.9.1/mingw_64/include/QtWidgets/QCheckBox \
   C:/QT/6.9.1/mingw_64/include/QtWidgets/QDialog \
   C:/QT/6.9.1/mingw_64/include/QtWidgets/QFrame \
   C:/QT/6.9.1/mingw_64/include/QtWidgets/QMainWindow \
+<<<<<<< HEAD
   C:/QT/6.9.1/mingw_64/include/QtWidgets/QMessageBox \
+=======
+>>>>>>> Coles-Branch
   C:/QT/6.9.1/mingw_64/include/QtWidgets/QVBoxLayout \
   C:/QT/6.9.1/mingw_64/include/QtWidgets/qabstractbutton.h \
   C:/QT/6.9.1/mingw_64/include/QtWidgets/qboxlayout.h \
   C:/QT/6.9.1/mingw_64/include/QtWidgets/qcheckbox.h \
   C:/QT/6.9.1/mingw_64/include/QtWidgets/qdialog.h \
+<<<<<<< HEAD
   C:/QT/6.9.1/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
+=======
+>>>>>>> Coles-Branch
   C:/QT/6.9.1/mingw_64/include/QtWidgets/qframe.h \
   C:/QT/6.9.1/mingw_64/include/QtWidgets/qgridlayout.h \
   C:/QT/6.9.1/mingw_64/include/QtWidgets/qlayout.h \
   C:/QT/6.9.1/mingw_64/include/QtWidgets/qlayoutitem.h \
   C:/QT/6.9.1/mingw_64/include/QtWidgets/qmainwindow.h \
+<<<<<<< HEAD
   C:/QT/6.9.1/mingw_64/include/QtWidgets/qmessagebox.h \
+=======
+>>>>>>> Coles-Branch
   C:/QT/6.9.1/mingw_64/include/QtWidgets/qsizepolicy.h \
   C:/QT/6.9.1/mingw_64/include/QtWidgets/qtabwidget.h \
   C:/QT/6.9.1/mingw_64/include/QtWidgets/qtwidgets-config.h \
@@ -268,14 +349,20 @@ C:/crying/CS370-Team3/370-project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/allocator.h \
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/atomic_base.h \
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/atomic_lockfree_defines.h \
+<<<<<<< HEAD
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_ios.h \
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_ios.tcc \
+=======
+>>>>>>> Coles-Branch
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_string.h \
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_string.tcc \
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/char_traits.h \
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/charconv.h \
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/chrono.h \
+<<<<<<< HEAD
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/codecvt.h \
+=======
+>>>>>>> Coles-Branch
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/concept_check.h \
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/cpp_type_traits.h \
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/cxxabi_forced.h \
@@ -285,7 +372,10 @@ C:/crying/CS370-Team3/370-project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/exception.h \
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/exception_defines.h \
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/exception_ptr.h \
+<<<<<<< HEAD
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fstream.tcc \
+=======
+>>>>>>> Coles-Branch
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/functexcept.h \
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/functional_hash.h \
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/hash_bytes.h \
@@ -293,12 +383,18 @@ C:/crying/CS370-Team3/370-project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/hashtable_policy.h \
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/invoke.h \
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ios_base.h \
+<<<<<<< HEAD
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/istream.tcc \
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/list.tcc \
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_classes.h \
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_classes.tcc \
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets.h \
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets.tcc \
+=======
+  C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/list.tcc \
+  C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_classes.h \
+  C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_classes.tcc \
+>>>>>>> Coles-Branch
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/localefwd.h \
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/memory_resource.h \
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/memoryfwd.h \
@@ -306,7 +402,10 @@ C:/crying/CS370-Team3/370-project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/nested_exception.h \
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/new_allocator.h \
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/node_handle.h \
+<<<<<<< HEAD
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ostream.tcc \
+=======
+>>>>>>> Coles-Branch
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ostream_insert.h \
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/parse_numbers.h \
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/postypes.h \
@@ -371,7 +470,10 @@ C:/crying/CS370-Team3/370-project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstring \
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ctime \
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cwchar \
+<<<<<<< HEAD
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cwctype \
+=======
+>>>>>>> Coles-Branch
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/debug/assertions.h \
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/debug/debug.h \
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/exception \
@@ -382,12 +484,18 @@ C:/crying/CS370-Team3/370-project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/numeric_traits.h \
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/string_conversions.h \
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/type_traits.h \
+<<<<<<< HEAD
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/fstream \
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/functional \
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/initializer_list \
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ios \
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iosfwd \
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/istream \
+=======
+  C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/functional \
+  C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/initializer_list \
+  C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iosfwd \
+>>>>>>> Coles-Branch
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iterator \
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/limits \
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/list \
@@ -396,7 +504,10 @@ C:/crying/CS370-Team3/370-project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/new \
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/numeric \
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/optional \
+<<<<<<< HEAD
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ostream \
+=======
+>>>>>>> Coles-Branch
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/pstl/execution_defs.h \
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/pstl/glue_algorithm_defs.h \
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/pstl/glue_memory_defs.h \
@@ -430,6 +541,7 @@ C:/crying/CS370-Team3/370-project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/variant \
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/vector \
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/atomic_word.h \
+<<<<<<< HEAD
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/basic_file.h \
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++allocator.h \
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \
@@ -438,11 +550,20 @@ C:/crying/CS370-Team3/370-project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/cpu_defines.h \
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_base.h \
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_inline.h \
+=======
+  C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++allocator.h \
+  C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \
+  C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++locale.h \
+  C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/cpu_defines.h \
+>>>>>>> Coles-Branch
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/error_constants.h \
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/gthr-default.h \
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/gthr.h \
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/os_defines.h \
+<<<<<<< HEAD
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/float.h \
+=======
+>>>>>>> Coles-Branch
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/limits.h \
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stdarg.h \
   C:/QT/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stdbool.h \
@@ -484,9 +605,14 @@ C:/crying/CS370-Team3/370-project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-
   C:/QT/Tools/mingw1310_64/x86_64-w64-mingw32/include/time.h \
   C:/QT/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h \
   C:/QT/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
+<<<<<<< HEAD
   C:/QT/Tools/mingw1310_64/x86_64-w64-mingw32/include/wctype.h \
   C:/crying/CS370-Team3/370-project/class_info_unit.h \
   C:/crying/CS370-Team3/370-project/createclass.h \
   C:/crying/CS370-Team3/370-project/mainwindow.h \
   C:/crying/CS370-Team3/370-project/savestuff.h \
   C:/crying/CS370-Team3/370-project/search.h
+=======
+  C:/crying/CS370-Team3/370-project/class_info_unit.h \
+  C:/crying/CS370-Team3/370-project/createclass.h
+>>>>>>> Coles-Branch

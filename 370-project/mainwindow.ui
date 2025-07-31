@@ -1231,7 +1231,7 @@ QPushButton:hover {
           <property name="minimumSize">
            <size>
             <width>400</width>
-            <height>526</height>
+            <height>200</height>
            </size>
           </property>
           <property name="maximumSize">
@@ -1341,7 +1341,7 @@ QPushButton:hover {
           <property name="minimumSize">
            <size>
             <width>200</width>
-            <height>526</height>
+            <height>200</height>
            </size>
           </property>
           <property name="maximumSize">
@@ -1450,7 +1450,7 @@ QPushButton:hover {
           <property name="minimumSize">
            <size>
             <width>400</width>
-            <height>526</height>
+            <height>200</height>
            </size>
           </property>
           <property name="maximumSize">

@@ -2,6 +2,7 @@
 #define SEARCH_WINDOW_H
 
 #include "mainwindow.h"
+#include <qdatetime.h>
 
 namespace Ui {
 class search_window;
@@ -30,12 +31,13 @@ private:
 private:
     Ui::search_window *ui_;
     QMap<QCheckBox*, std::function<void(int)>> dayHandlers;
-    QVBoxLayout* class_list_layout_;
     QVector<ClassData> search_classes_;
     QVector<ClassData> classes_with_subject_;
     QVector<ClassData> classes_with_building_;
     QVector<ClassData> filtered_classes_;
     std::array<std::pair<QCheckBox*, QChar>, 6> day_boxes;
+    QTime default_start = QTime::fromString("6:00AM", "h:mmA");
+    QTime default_end = QTime::fromString("10:00PM", "h:mmA");
 };
 
 #endif // SEARCH_WINDOW_H

@@ -52,7 +52,7 @@ public:
 
 public:
     MainWindow(QWidget *parent = nullptr);
-    void createClassFrame(const ClassInfo& class_info, bool loaded = false);
+    void createClassFrame(ClassInfo& class_info, bool loaded = false);
     ~MainWindow();
 
 private slots:

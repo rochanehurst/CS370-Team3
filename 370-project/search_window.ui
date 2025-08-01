@@ -514,59 +514,20 @@
    <bool>true</bool>
   </property>
   <layout class="QGridLayout" name="gridLayout_3">
-   <item row="1" column="0" colspan="2">
-    <widget class="QScrollArea" name="results">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="maximumSize">
+   <item row="2" column="0" colspan="2" alignment="Qt::AlignmentFlag::AlignHCenter">
+    <widget class="QProgressBar" name="progressBar">
+     <property name="minimumSize">
       <size>
-       <width>16777215</width>
-       <height>16777215</height>
+       <width>200</width>
+       <height>0</height>
       </size>
      </property>
-     <property name="widgetResizable">
-      <bool>true</bool>
+     <property name="value">
+      <number>24</number>
      </property>
-     <widget class="QWidget" name="scrollAreaWidgetContents">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>605</width>
-        <height>224</height>
-       </rect>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout_2">
-       <item>
-        <layout class="QVBoxLayout" name="scroll_list">
-         <item alignment="Qt::AlignmentFlag::AlignHCenter|Qt::AlignmentFlag::AlignVCenter">
-          <widget class="QLabel" name="no_classes">
-           <property name="font">
-            <font>
-             <family>Courier New</family>
-             <pointsize>20</pointsize>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="text">
-            <string>No Classes Found</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignmentFlag::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-      </layout>
-     </widget>
     </widget>
    </item>
-   <item row="0" column="1">
+   <item row="1" column="1">
     <widget class="QFrame" name="days">
      <property name="enabled">
       <bool>true</bool>
@@ -580,7 +541,7 @@
      <property name="minimumSize">
       <size>
        <width>0</width>
-       <height>125</height>
+       <height>150</height>
       </size>
      </property>
      <property name="maximumSize">
@@ -644,7 +605,7 @@
      </layout>
     </widget>
    </item>
-   <item row="0" column="0">
+   <item row="1" column="0">
     <layout class="QGridLayout" name="search_box">
      <property name="leftMargin">
       <number>6</number>
@@ -751,6 +712,9 @@
          <second>0</second>
         </time>
        </property>
+       <property name="displayFormat">
+        <string>h:mmA</string>
+       </property>
        <property name="time">
         <time>
          <hour>22</hour>
@@ -840,6 +804,9 @@
          <minute>0</minute>
          <second>0</second>
         </time>
+       </property>
+       <property name="displayFormat">
+        <string>h:mmA</string>
        </property>
        <property name="time">
         <time>
@@ -978,6 +945,61 @@
       </widget>
      </item>
     </layout>
+   </item>
+   <item row="4" column="0" colspan="2">
+    <widget class="QScrollArea" name="results">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="scrollAreaWidgetContents">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>605</width>
+        <height>93</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <layout class="QVBoxLayout" name="scroll_list">
+         <property name="spacing">
+          <number>8</number>
+         </property>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+   <item row="3" column="0" colspan="2">
+    <widget class="QLabel" name="no_classes">
+     <property name="font">
+      <font>
+       <family>Courier New</family>
+       <pointsize>20</pointsize>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>No Classes Found</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignmentFlag::AlignCenter</set>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>

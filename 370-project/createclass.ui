@@ -705,8 +705,8 @@
        </property>
        <property name="dateTime">
         <datetime>
-         <hour>7</hour>
-         <minute>30</minute>
+         <hour>0</hour>
+         <minute>0</minute>
          <second>0</second>
          <year>2000</year>
          <month>1</month>
@@ -715,9 +715,9 @@
        </property>
        <property name="maximumDateTime">
         <datetime>
-         <hour>21</hour>
-         <minute>0</minute>
-         <second>0</second>
+         <hour>23</hour>
+         <minute>59</minute>
+         <second>59</second>
          <year>2000</year>
          <month>1</month>
          <day>1</day>
@@ -725,8 +725,8 @@
        </property>
        <property name="minimumDateTime">
         <datetime>
-         <hour>7</hour>
-         <minute>30</minute>
+         <hour>0</hour>
+         <minute>0</minute>
          <second>0</second>
          <year>2000</year>
          <month>1</month>
@@ -749,25 +749,25 @@
        </property>
        <property name="maximumTime">
         <time>
-         <hour>21</hour>
-         <minute>0</minute>
-         <second>0</second>
+         <hour>23</hour>
+         <minute>59</minute>
+         <second>59</second>
         </time>
        </property>
        <property name="minimumTime">
         <time>
-         <hour>7</hour>
-         <minute>30</minute>
+         <hour>0</hour>
+         <minute>0</minute>
          <second>0</second>
         </time>
        </property>
        <property name="displayFormat">
-        <string>h:mm AP</string>
+        <string>h:mmA</string>
        </property>
        <property name="time">
         <time>
-         <hour>7</hour>
-         <minute>30</minute>
+         <hour>0</hour>
+         <minute>0</minute>
          <second>0</second>
         </time>
        </property>
@@ -832,18 +832,18 @@
        </property>
        <property name="maximumDateTime">
         <datetime>
-         <hour>22</hour>
+         <hour>0</hour>
          <minute>0</minute>
          <second>0</second>
          <year>2000</year>
-         <month>3</month>
+         <month>1</month>
          <day>1</day>
         </datetime>
        </property>
        <property name="minimumDateTime">
         <datetime>
-         <hour>8</hour>
-         <minute>30</minute>
+         <hour>0</hour>
+         <minute>0</minute>
          <second>0</second>
          <year>2000</year>
          <month>1</month>
@@ -853,7 +853,7 @@
        <property name="maximumDate">
         <date>
          <year>2000</year>
-         <month>3</month>
+         <month>1</month>
          <day>1</day>
         </date>
        </property>
@@ -866,22 +866,25 @@
        </property>
        <property name="maximumTime">
         <time>
-         <hour>22</hour>
+         <hour>0</hour>
          <minute>0</minute>
          <second>0</second>
         </time>
        </property>
        <property name="minimumTime">
         <time>
-         <hour>8</hour>
-         <minute>30</minute>
+         <hour>0</hour>
+         <minute>0</minute>
          <second>0</second>
         </time>
        </property>
+       <property name="displayFormat">
+        <string>h:mmA</string>
+       </property>
        <property name="time">
         <time>
-         <hour>8</hour>
-         <minute>30</minute>
+         <hour>0</hour>
+         <minute>0</minute>
          <second>0</second>
         </time>
        </property>

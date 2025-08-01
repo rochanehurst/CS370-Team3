@@ -27,7 +27,6 @@ MainWindow::MainWindow(QWidget *parent)
 #endif
 
     setup();
-    //s.backupOpen(filename);
 
     if (!filesystem::is_empty(filename)) {
         QStringList unparsed;
@@ -53,7 +52,6 @@ MainWindow::MainWindow(QWidget *parent)
 
 
 MainWindow::~MainWindow() {
-    // TODO: Persist data to file before exit
     delete ui_;
 }
 
@@ -124,7 +122,7 @@ void MainWindow::setupClassListLayout() {
 
 void MainWindow::setupClassSearch(){
     search_classes_.clear();
-    QString path = QCoreApplication::applicationDirPath() + "/../../data/csusm_classes.csv";
+    QString path = QCoreApplication::applicationDirPath() + "/data/data/csusm_classes.csv";
     loadCSV(path);
 }
 
@@ -139,7 +137,6 @@ void MainWindow::loadCSV(const QString& filename) {
     QTextStream in(&file);
 
     bool firstItem = true;
-
     while (!in.atEnd()) {
         QString line = in.readLine();
         QStringList fields = line.split(',');
@@ -203,7 +200,7 @@ QString MainWindow::extractDays(const QString &days) {
     };
 
     QString new_days;
-    for (int i = 0; i + 1 < days.length(); i += 2) {  // ensure 2 chars exist
+    for (int i = 0; i + 1 < days.length(); i += 2) {  // Ensure 2 chars exist
         QString dayCode = days.mid(i, 2);
 
         if (dayMap.contains(dayCode)) {
@@ -230,28 +227,40 @@ QStringList MainWindow::extractInstructors(const QString &instructors) {
 
 QStringList MainWindow::extractBuildings(const QString &buildings) {
     QStringList differentBuildings = buildings.split('|', Qt::SkipEmptyParts);
-    bool valid = false;
+    bool hasValid = false;
 
+    // First check if at least one valid building exists
     for (QString &inst : differentBuildings) {
-        inst = inst.trimmed();
+        QString trimmed = inst.trimmed();
         for (const QString &building : std::as_const(valid_buildings_)) {
-            if (inst.contains(building)) {
-                if (inst == "Synchronous Virtual Instr"){
-                    inst = "ONLINE";
-                }
-                valid = true;
+            if (trimmed.contains(building, Qt::CaseInsensitive)) {
+                hasValid = true;
+                break;
             }
         }
+        if (hasValid) break;
     }
-    if (valid){
+
+    // If at least one valid building is found, return all (with cleanup)
+    if (hasValid) {
+        for (QString &inst : differentBuildings) {
+            inst = inst.trimmed();
+            if (inst == "Synchronous Virtual Instr") {
+                inst = "ONLINE"; // normalize virtual classes
+            }
+        }
         return differentBuildings;
     }
+
+    // Otherwise, return empty (class will be skipped)
     return {};
 }
 
 
 
-void MainWindow::createClassFrame(const ClassInfo& class_info, bool loaded) {
+
+
+void MainWindow::createClassFrame(ClassInfo& class_info, bool loaded) {
     ClassInfoFrame* class_data = new ClassInfoFrame();
     class_data->createFrame(class_info);
     addClass(class_data, class_info, loaded);
@@ -312,7 +321,7 @@ void MainWindow::searchClass(){
 
 
 void MainWindow::updateClassList() {
-    QString path = QCoreApplication::applicationDirPath() + "/../../data/data_extractor.exe";
+    QString path = QCoreApplication::applicationDirPath() + "/data/data_extractor.exe";
 
     // Progress dialog with determinate range
     QProgressDialog *progress = new QProgressDialog("Updating class list...", "Cancel", 0, 100, this);

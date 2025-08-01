@@ -39,10 +39,14 @@ void class_result::setupData(const ClassData &data) {
     ui_->time->setText(time_list);
 }
 
+
+
 class_result::~class_result()
 {
     delete ui_;
 }
+
+
 
 void class_result::on_add_button_clicked()
 {
@@ -50,14 +54,34 @@ void class_result::on_add_button_clicked()
     while (p) {
         MainWindow *mainWindow = qobject_cast<MainWindow*>(p);
         if (mainWindow) {
-            // Convert ClassData -> ClassInfo if needed
-            mainWindow->createClassFrame(own_data.data);
+
+            QVector<QStringList> lists = {own_data.buildings, own_data.days, own_data.start};
+            int maxSize = 0;
+            for (const auto &list : lists) {
+                maxSize = qMax(maxSize, list.size());
+            }
+
+            QString last_building = own_data.buildings.isEmpty() ? "" : own_data.buildings.last();
+            QString last_day      = own_data.days.isEmpty() ? "" : own_data.days.last();
+            QString last_start    = own_data.start.isEmpty() ? "" : own_data.start.last();
+            QString last_end      = own_data.end.isEmpty() ? "" : own_data.end.last();
+
+            for (int i = 0; i < maxSize; i++) {
+                ClassInfo new_info = own_data.data;
+
+                new_info.building  = (i < own_data.buildings.size()) ? own_data.buildings[i] : last_building;
+                new_info.days      = (i < own_data.days.size())      ? own_data.days[i]      : last_day;
+                new_info.startTime = (i < own_data.start.size())     ? own_data.start[i]     : last_start;
+                new_info.endTime   = (i < own_data.end.size())       ? own_data.end[i]       : last_end;
+
+                mainWindow->createClassFrame(new_info);
+            }
             return;
         }
         p = p->parentWidget(); // keep climbing
     }
-
     qDebug() << "MainWindow not found in parent chain!";
 }
+
 
 

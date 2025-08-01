@@ -142,7 +142,13 @@ void Dialog::onMWFStateChanged(int state) {
 
     ui_->thursday->setDisabled(disabled);
     ui_->thursday->setChecked(false);
+
+    if (sender()->objectName() == "friday") {
+        ui_->saturday->setDisabled(false);
+    }
+    else {
     ui_->saturday->setDisabled(sa_disabled);
+    }
 }
 
 void Dialog::onTRStateChanged(int state) {
@@ -172,7 +178,7 @@ void Dialog::onSaStateChanged(int state){
     else sa--;
     for (int i = 0; i < checkboxes_.size(); ++i) {
         QCheckBox* day = checkboxes_.at(i);
-        if (day->objectName() == "saturday") continue;
+        if (day->objectName() == "saturday" || day->objectName() == "friday") continue;
         day->setDisabled(disabled);
     }
 }
@@ -218,9 +224,13 @@ void Dialog::editClassFrame(const ClassInfo& classFormInfo){
     ui_->class_name->setText(classFormInfo.name);
 
     int building_index = ui_->building_name->findText(classFormInfo.building);
+    if (building_index < 0) {
+        ui_->building_name->addItem(classFormInfo.building);
+        building_index = ui_->building_name->findText(classFormInfo.building);
+    }
     ui_->building_name->setCurrentIndex(building_index);
 
-    QString format = "h:mm AP";
+    QString format = "h:mmA";
     ui_->time_start->setTime(QTime::fromString(classFormInfo.startTime, format));
     ui_->time_stop->setTime(QTime::fromString(classFormInfo.endTime, format));
 

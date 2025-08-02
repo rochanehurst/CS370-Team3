@@ -78,7 +78,7 @@ void class_result::on_add_button_clicked()
             }
             return;
         }
-        p = p->parentWidget(); // keep climbing
+        p = p->parentWidget();
     }
     qDebug() << "MainWindow not found in parent chain!";
 }

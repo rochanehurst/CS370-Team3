@@ -57,8 +57,6 @@ public:
 
 private slots:
     void createClassButtonHandler();
-    void editSave();
-    void removeFromSave();
     void clearSchedule(bool test = false);
     void searchClass();
     void debugPopulateList();

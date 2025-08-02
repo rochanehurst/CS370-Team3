@@ -41,12 +41,6 @@ MainWindow::MainWindow(QWidget *parent)
             }
         }
     }
-
-
-    // questions:
-        // how to get it to load a widget into the list?  needs to be in another function?
-        // needs another global var?
-    // load funct here
 }
 
 
@@ -264,19 +258,6 @@ void MainWindow::createClassFrame(ClassInfo& class_info, bool loaded) {
     ClassInfoFrame* class_data = new ClassInfoFrame();
     class_data->createFrame(class_info);
     addClass(class_data, class_info, loaded);
-    // TODO: Add class info to save file
-}
-
-
-
-void MainWindow::editSave() {
-    // TODO: Add edited class info to save file
-}
-
-
-
-void MainWindow::removeFromSave() {
-    // TODO: Remove deleted class info from save file
 }
 
 

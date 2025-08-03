@@ -3,29 +3,38 @@
 #include "data.h"
 
 int main() {
-    // Step 1: Load all class info from database
-    // TO DO: Replace loadClassesFromDB() with actual data loading function
+    // Step 1: Load classes from CSV file
+    const std::string classFile = "csusm_classes.csv";
+    auto classes = loadClassesFromCSV(classFile);
+    if (classes.empty()) {
+        std::cerr << "Failed to load classes from CSV file: " << classFile << std::endl;
+        return 1;
+    }
+
+    // Step 2: Load building distances from CSV file
+    const std::string buildingFile = "CSUSM-Buildings.csv";
+    auto distanceMatrix = loadDistanceMatrixFromCSV(buildingFile);
+    if (distanceMatrix.empty()) {
+        std::cerr << "Failed to load building distances from CSV file: " << buildingFile << std::endl;
+        return 1;
+    }
+
+    // Step 3: Example user-selected classes (hardcoded for now)
     std::vector<std::string> userSelectedClassIDs = {
-        "CS370-01", "BIO210-01", "HIST105-01"
+        "44163",
+        "43050",
+        "43817"
     };
 
-    // Step 2: Define user preferences
-    // TO DO: Replace with real user input or config file for preferences
+    // Step 4: Define user preferences (hardcoded for now)
     UserPreferences userPrefs;
     userPrefs.priority = "Minimize Walking";
-    // userPrefs.priority = "Preferred Building: MARK";
 
-    // Step 3: Load distance matrix
-    // Static data
-    std::map<std::string, std::map<std::string, int>> distanceMatrix = getDistanceMatrix();
-
-    // Step 4: Generate best schedules based on selected classes and preferences
-    // generateSchedule internally calls loadClassesFromDB() to get class data
-    // Must update generateSchedule when changing class loading
+    // Step 5: Generate schedules using scheduler function
     std::vector<std::vector<ClassInfo>> topSchedules = generateSchedule(
         userSelectedClassIDs, userPrefs, distanceMatrix);
 
-    // Step 5: Output schedules or error message
+    // Step 6: Output schedules or message if none found
     if (topSchedules.empty()) {
         std::cout << "No valid schedules found (conflicts or missing data)." << std::endl;
     } else {

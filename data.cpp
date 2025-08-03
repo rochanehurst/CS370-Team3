@@ -1,26 +1,136 @@
 #include "data.h"
+#include <fstream>
+#include <sstream>
+#include <iostream>
 
-//CLASS DATABASE
-std::map<std::string, ClassInfo> loadClassesFromDB() {
-    std::map<std::string, ClassInfo> db;
 
-    db["CS370-01"] = {"CS370-01", "Software Engineering", "MARK", {"M", "W"}, "10:30-11:45"};
-    db["BIO210-01"] = {"BIO210-01", "Biology I", "SCI1", {"M", "W"}, "12:00-13:15"};
-    db["HIST105-01"] = {"HIST105-01", "World History", "SBSB", {"T", "R"}, "10:30-11:45"};
-
-    return db;
+static inline std::string trim(const std::string& s) {
+    size_t start = s.find_first_not_of(" \t\r\n");
+    size_t end = s.find_last_not_of(" \t\r\n");
+    return (start == std::string::npos) ? "" : s.substr(start, end - start + 1);
 }
 
-//DISTANCE MATRIX
-std::map<std::string, std::map<std::string, int>> getDistanceMatrix() {
-    return {
-        {"MARK", {{"MARK", 0}, {"SCI1", 5}, {"SCI2", 6}, {"SBSB", 7}, {"COM", 4}, {"UNIV", 3}, {"ACD", 6}, {"ARTS", 5}}},
-        {"SCI1", {{"MARK", 5}, {"SCI1", 0}, {"SCI2", 2}, {"SBSB", 2}, {"COM", 5}, {"UNIV", 6}, {"ACD", 7}, {"ARTS", 6}}},
-        {"SCI2", {{"MARK", 6}, {"SCI1", 2}, {"SCI2", 0}, {"SBSB", 3}, {"COM", 6}, {"UNIV", 7}, {"ACD", 8}, {"ARTS", 7}}},
-        {"SBSB", {{"MARK", 7}, {"SCI1", 2}, {"SCI2", 3}, {"SBSB", 0}, {"COM", 3}, {"UNIV", 4}, {"ACD", 6}, {"ARTS", 6}}},
-        {"COM",  {{"MARK", 4}, {"SCI1", 5}, {"SCI2", 6}, {"SBSB", 3}, {"COM", 0}, {"UNIV", 2}, {"ACD", 3}, {"ARTS", 2}}},
-        {"UNIV", {{"MARK", 3}, {"SCI1", 6}, {"SCI2", 7}, {"SBSB", 4}, {"COM", 2}, {"UNIV", 0}, {"ACD", 2}, {"ARTS", 3}}},
-        {"ACD",  {{"MARK", 6}, {"SCI1", 7}, {"SCI2", 8}, {"SBSB", 6}, {"COM", 3}, {"UNIV", 2}, {"ACD", 0}, {"ARTS", 1}}},
-        {"ARTS", {{"MARK", 5}, {"SCI1", 6}, {"SCI2", 7}, {"SBSB", 6}, {"COM", 2}, {"UNIV", 3}, {"ACD", 1}, {"ARTS", 0}}}
-    };
+// Load classes CSV into a map keyed by class code/id
+std::map<std::string, ClassInfo> loadClassesFromCSV(const std::string& filename) {
+    std::map<std::string, ClassInfo> classes;
+    std::ifstream file(filename);
+    if (!file.is_open()) {
+        std::cerr << "Failed to open class CSV file: " << filename << std::endl;
+        return {};
+    }
+
+    std::string line;
+
+    std::getline(file, line);
+
+    while (std::getline(file, line)) {
+        std::stringstream ss(line);
+        std::string major, className, classCode, instructor, location, daysTimes;
+
+        // Assuming CSV columns: Major,Class Name,Class Code,Instructor,Location,Days & Times
+        std::getline(ss, major, ',');
+        std::getline(ss, className, ',');
+        std::getline(ss, classCode, ',');
+        std::getline(ss, instructor, ',');
+        std::getline(ss, location, ',');
+        std::getline(ss, daysTimes, ',');
+
+        // Trim fields
+        major = trim(major);
+        className = trim(className);
+        classCode = trim(classCode);
+        location = trim(location);
+        daysTimes = trim(daysTimes);
+
+        // Parse days and times from 'daysTimes'
+        size_t spacePos = daysTimes.find(' ');
+        if (spacePos == std::string::npos) {
+            std::cerr << "Invalid days & times format: " << daysTimes << std::endl;
+            continue;
+        }
+
+        std::string daysStr = daysTimes.substr(0, spacePos);
+        std::string timeStr = daysTimes.substr(spacePos + 1);
+
+        // Parse days string into vector of day abbreviations
+        std::vector<std::string> days;
+        for (size_t i = 0; i < daysStr.size();) {
+            if (daysStr[i] == 'M' || daysStr[i] == 'W' || daysStr[i] == 'F' || daysStr[i] == 'S') {
+                days.push_back(std::string(1, daysStr[i]));
+                i++;
+            } else if (i + 1 < daysStr.size()) {
+                std::string twoChars = daysStr.substr(i, 2);
+                if (twoChars == "Tu" || twoChars == "Th" || twoChars == "Sa" || twoChars == "Su") {
+                    days.push_back(twoChars);
+                    i += 2;
+                } else {
+                    days.push_back(std::string(1, daysStr[i]));
+                    i++;
+                }
+            } else {
+                days.push_back(std::string(1, daysStr[i]));
+                i++;
+            }
+        }
+
+        ClassInfo cls;
+        cls.id = classCode;
+        cls.name = className;
+        cls.building = location;
+        cls.time = timeStr;
+        cls.days = days;
+
+
+        classes[classCode] = cls;
+    }
+    return classes;
+}
+
+// Load the building distance matrix CSV into nested maps
+std::map<std::string, std::map<std::string, int>> loadDistanceMatrixFromCSV(const std::string& filename) {
+    std::map<std::string, std::map<std::string, int>> distanceMatrix;
+    std::ifstream file(filename);
+    if (!file.is_open()) {
+        std::cerr << "Failed to open building CSV file: " << filename << std::endl;
+        return {};
+    }
+
+    std::string line;
+    // Read header line with building names
+    std::getline(file, line);
+    std::stringstream headerStream(line);
+    std::vector<std::string> buildings;
+    std::string cell;
+
+    // Skip first empty cell
+    std::getline(headerStream, cell, ',');
+
+    while (std::getline(headerStream, cell, ',')) {
+        buildings.push_back(trim(cell));
+    }
+
+    // Read rows with building name and distances
+    while (std::getline(file, line)) {
+        std::stringstream lineStream(line);
+        std::string rowBuilding;
+        std::getline(lineStream, rowBuilding, ',');
+        rowBuilding = trim(rowBuilding);
+
+        for (size_t i = 0; i < buildings.size(); ++i) {
+            std::string distStr;
+            if (!std::getline(lineStream, distStr, ',')) break;
+            distStr = trim(distStr);
+
+            int dist = 0;
+            try {
+                dist = std::stoi(distStr);
+            } catch (...) {
+                dist = 0;
+            }
+
+            distanceMatrix[rowBuilding][buildings[i]] = dist;
+        }
+    }
+
+    return distanceMatrix;
 }

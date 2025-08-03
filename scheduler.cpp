@@ -1,8 +1,10 @@
 #include "scheduler.h"
+#include "data.h"  // for loadClassesFromCSV, loadDistanceMatrixFromCSV
 #include <sstream>
 #include <algorithm>
 #include <iostream>
 
+// Converts "HH:MM" time string to total minutes from midnight
 int timeToMinutes(const std::string& timeStr) {
     int hours, minutes;
     char colon;
@@ -11,6 +13,7 @@ int timeToMinutes(const std::string& timeStr) {
     return hours * 60 + minutes;
 }
 
+// Parses a time range string "HH:MM-HH:MM" into start and end minutes
 std::pair<int, int> parseTimeRange(const std::string& timeRange) {
     size_t dashPos = timeRange.find('-');
     std::string startStr = timeRange.substr(0, dashPos);
@@ -18,6 +21,7 @@ std::pair<int, int> parseTimeRange(const std::string& timeRange) {
     return { timeToMinutes(startStr), timeToMinutes(endStr) };
 }
 
+// Checks if two classes conflict based on overlapping days, times, and travel time between buildings
 bool classesConflict(const ClassInfo& class1, const ClassInfo& class2,
                      const std::map<std::string, std::map<std::string, int>>& distanceMatrix) {
     bool sameDay = false;
@@ -38,14 +42,21 @@ bool classesConflict(const ClassInfo& class1, const ClassInfo& class2,
     if (end1 <= start2 || end2 <= start1)
         return false;
 
-    int travelTime = distanceMatrix.at(class1.building).at(class2.building);
+    int travelTime = 0;
+    try {
+        travelTime = distanceMatrix.at(class1.building).at(class2.building);
+    } catch (const std::out_of_range&) {
+        std::cerr << "Warning: Missing travel time between " << class1.building << " and " << class2.building << "\n";
+        travelTime = 0; // Assume 0 if missing; adjust as needed
+    }
+
     if (end1 + travelTime <= start2 || end2 + travelTime <= start1)
         return false;
 
     return true;
 }
 
-// Recursive function to build all valid schedules
+// Recursive backtracking to build all valid schedules (non-conflicting class combinations)
 void backtrackSchedules(
     const std::vector<ClassInfo>& classes,
     const std::map<std::string, std::map<std::string, int>>& distanceMatrix,
@@ -53,51 +64,52 @@ void backtrackSchedules(
     std::vector<ClassInfo>& currentSchedule,
     std::vector<std::vector<ClassInfo>>& allSchedules)
 {
-    // If current schedule is valid, add it to the result list
     if (!currentSchedule.empty()) {
         allSchedules.push_back(currentSchedule);
     }
-    // Try adding each remaining class starting from 'start' index
+
     for (size_t i = start; i < classes.size(); ++i) {
         bool conflict = false;
-        //Check for conflicts with classes already in currentSchedule
         for (const auto& scheduledClass : currentSchedule) {
             if (classesConflict(scheduledClass, classes[i], distanceMatrix)) {
                 conflict = true;
                 break;
             }
         }
-        // If no conflict, include the class and recurse
         if (!conflict) {
             currentSchedule.push_back(classes[i]);
             backtrackSchedules(classes, distanceMatrix, i + 1, currentSchedule, allSchedules);
-            currentSchedule.pop_back(); // backtrack after recursion
+            currentSchedule.pop_back();
         }
     }
 }
 
-// Public function to generate all valid class schedules
+// Generate all non-conflicting class schedules from the selected classes
 std::vector<std::vector<ClassInfo>> generateNonConflictingCombinations(
     const std::vector<ClassInfo>& classes,
     const std::map<std::string, std::map<std::string, int>>& distanceMatrix)
 {
-    std::vector<std::vector<ClassInfo>> allSchedules;   // Stores all valid combos
-    std::vector<ClassInfo> currentSchedule;             // Temporary holder while recursing
-
-    //Begin recursive backtrack
+    std::vector<std::vector<ClassInfo>> allSchedules;
+    std::vector<ClassInfo> currentSchedule;
     backtrackSchedules(classes, distanceMatrix, 0, currentSchedule, allSchedules);
     return allSchedules;
 }
 
+// Calculate total travel time in a schedule by summing distances between consecutive classes
 int calculateTotalTravelTime(const std::vector<ClassInfo>& schedule,
                              const std::map<std::string, std::map<std::string, int>>& distanceMatrix) {
     int total = 0;
     for (size_t i = 0; i + 1 < schedule.size(); ++i) {
-        total += distanceMatrix.at(schedule[i].building).at(schedule[i + 1].building);
+        try {
+            total += distanceMatrix.at(schedule[i].building).at(schedule[i + 1].building);
+        } catch (const std::out_of_range&) {
+            std::cerr << "Warning: Missing travel time between " << schedule[i].building << " and " << schedule[i+1].building << "\n";
+        }
     }
     return total;
 }
 
+// Rank schedules to prioritize minimizing total walking distance (travel time)
 std::vector<std::vector<ClassInfo>> rankByBuildingDistance(
     const std::vector<std::vector<ClassInfo>>& schedules,
     const std::map<std::string, std::map<std::string, int>>& distanceMatrix) {
@@ -108,8 +120,9 @@ std::vector<std::vector<ClassInfo>> rankByBuildingDistance(
         scored.push_back({ travelTime, sched });
     }
 
+    // Sort ascending by travel time (minimize walking)
     std::sort(scored.begin(), scored.end(),
-                [](const auto& a, const auto& b) { return a.first > b.first; });
+              [](const auto& a, const auto& b) { return a.first < b.first; });
 
     std::vector<std::vector<ClassInfo>> ranked;
     for (const auto& [_, sched] : scored) {
@@ -118,6 +131,7 @@ std::vector<std::vector<ClassInfo>> rankByBuildingDistance(
     return ranked;
 }
 
+// Rank schedules by how many classes are in the preferred building
 std::vector<std::vector<ClassInfo>> rankByPreferredBuilding(
     const std::vector<std::vector<ClassInfo>>& schedules,
     const std::string& preferredBuilding) {
@@ -131,6 +145,7 @@ std::vector<std::vector<ClassInfo>> rankByPreferredBuilding(
         scored.push_back({ count, sched });
     }
 
+    // Sort descending by count of classes in preferred building
     std::sort(scored.begin(), scored.end(),
               [](const auto& a, const auto& b) { return a.first > b.first; });
 
@@ -141,6 +156,7 @@ std::vector<std::vector<ClassInfo>> rankByPreferredBuilding(
     return ranked;
 }
 
+// Return top 3 schedules from ranked list
 std::vector<std::vector<ClassInfo>> returnTop3Schedules(
     const std::vector<std::vector<ClassInfo>>& rankedSchedules) {
 
@@ -152,14 +168,16 @@ std::vector<std::vector<ClassInfo>> returnTop3Schedules(
     return top3;
 }
 
+// Main schedule generation function called from main.cpp
 std::vector<std::vector<ClassInfo>> generateSchedule(
     const std::vector<std::string>& userSelectedClassIDs,
     const UserPreferences& userPrefs,
-    const std::map<std::string, std::map<std::string, int>>& distanceMatrix) {
+    const std::map<std::string, std::map<std::string, int>>& distanceMatrix)
+{
+    // Load class data from CSV file
+    std::map<std::string, ClassInfo> classes = loadClassesFromCSV("csusm_classes.csv");
 
-    extern std::map<std::string, ClassInfo> loadClassesFromDB(); // forward declaration
-    std::map<std::string, ClassInfo> classes = loadClassesFromDB();
-
+    // Select classes based on user-selected IDs
     std::vector<ClassInfo> selectedClasses;
     for (const std::string& id : userSelectedClassIDs) {
         if (classes.count(id)) {
@@ -169,8 +187,10 @@ std::vector<std::vector<ClassInfo>> generateSchedule(
         }
     }
 
+    // Generate all non-conflicting class combinations
     auto possibleSchedules = generateNonConflictingCombinations(selectedClasses, distanceMatrix);
 
+    // Rank the schedules according to user preferences
     std::vector<std::vector<ClassInfo>> rankedSchedules;
     if (userPrefs.priority == "Minimize Walking") {
         rankedSchedules = rankByBuildingDistance(possibleSchedules, distanceMatrix);

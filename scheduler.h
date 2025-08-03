@@ -15,6 +15,7 @@ struct UserPreferences {
     std::string priority;
 };
 
+// Functions for generating schedules
 std::vector<std::vector<ClassInfo>> generateSchedule(
     const std::vector<std::string>& userSelectedClassIDs,
     const UserPreferences& userPrefs,
@@ -40,5 +41,3 @@ std::vector<std::vector<ClassInfo>> rankByPreferredBuilding(
 
 std::vector<std::vector<ClassInfo>> returnTop3Schedules(
     const std::vector<std::vector<ClassInfo>>& rankedSchedules);
-
-std::pair<int, int> parseTimeRange(const std::string& timeRange);

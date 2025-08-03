@@ -1,9 +1,9 @@
 #include "mainwindow.h"
 #include "search_window.h"
 #include "ui_mainwindow.h"
-#include "class_info_unit.h"
 #include "warning.h"
 #include "savestuff.h"
+#include "class_info_unit.h"
 
 #include <QMenu>
 #include <QFile>
@@ -27,8 +27,6 @@ MainWindow::MainWindow(QWidget *parent)
 #endif
 
     setup();
-
-    s.backupOpen(filename);
     if (!filesystem::is_empty(filename)) {
         QStringList unparsed;
         ClassInfo data;
@@ -260,20 +258,6 @@ void MainWindow::createClassFrame(ClassInfo& class_info, bool loaded) {
     ClassInfoFrame* class_data = new ClassInfoFrame();
     class_data->createFrame(class_info);
     addClass(class_data, class_info, loaded);
-    //s.addToSave(class_info, filename);
-    // TODO: Add class info to save file
-}
-
-
-
-void MainWindow::editSave() {
-    // TODO: Add edited class info to save file
-}
-
-
-
-void MainWindow::removeFromSave() {
-    // TODO: Remove deleted class info from save file
 }
 
 
@@ -385,8 +369,7 @@ void MainWindow::updateClassList() {
 
 void MainWindow::addClass(QWidget* class_to_add, const ClassInfo& info, bool loaded){
     class_list_layout_->addWidget(class_to_add);
-    //s.addToSave(info, filename);
-    //if (!loaded) s.addToSave(info, filename);
+    if (!loaded) s.addToSave(info, filename);
 }
 
 

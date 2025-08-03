@@ -99,69 +99,41 @@ void SaveFeature::parseSavaData(const string& filename, QString line, ClassInfo&
 void SaveFeature::editSave(const string& filename, string olddata, string newdata) {
     vector<string> file_lines;
     string line;
-    cout << olddata << endl << newdata << endl;
+    cout << "Old Data: " << olddata << endl << "New Data: " << newdata << endl;
 
     if (SaveFile.is_open()) {
         while(getline(SaveFile, line)){
+            cout << "Line read: " << line << endl << " Old Data: " << olddata << endl << "Match? " << (line == olddata) << endl;
             if (line == olddata) {
-                line = newdata;
-                cout << "equals" << endl;
+                cout << "found old data. replacing..." << endl;
+                file_lines.push_back(newdata);
             }
-            file_lines.push_back(line);
-            cout << "pushback" << endl;
+            else {
+                file_lines.push_back(line);
+            }
         }
-    } else {
+    }
+
+    else {
         perror("File unopened");
     }
 
     this->clearAll(filename);
     SaveFile.open(filename, ios::out|ios::app);
     int count = file_lines.size();
-    cout << count << endl << file_lines.at(0) << endl << file_lines.at(1);
 
     if(!SaveFile.is_open()) {
         perror("file unopened");
     }
     for (int i = 0; i < count; i++) {
         SaveFile << endl << file_lines.at(i);
-        cout << "dat: " << file_lines.at(i) << endl;
+        cout << "Data read on line " << i << ": " << file_lines.at(i) << endl;
     }
-    /* string temp_name = "tempfile.txt";
-    ofstream tempfile;
-    tempfile.open(temp_name);
-    if (tempfile.is_open()) {
-        perror("file not opened");
-    }
-    string line;
-    const char* og_filename = filename.c_str();
-    const char* new_filename = temp_name.c_str();
-
-    while (getline(SaveFile, line)) {
-        if (line == olddata) {
-            line = newdata;
-        }
-        tempfile << line << endl;
-    }
-
-    SaveFile.close();
-    tempfile.close();
-
-    int del_status = remove(filename.c_str());
-    int rename_status = rename(og_filename, new_filename);
-    if (del_status != 0) {
-        perror("File not deleted.");
-    }
-    if (rename_status != 0) {
-        //printf(og_filename, new_filename);
-        perror(new_filename);
-        perror("File rename failed.");
-    } */
 }
 
 string SaveFeature::makeString(ClassInfo data) {
     string result;
-    //cout << data.name.toStdString();
-    result = data.name.toStdString() + ',' + data.building.toStdString() + ',' + data.startTime.toStdString() + ',' + data.endTime.toStdString() + ',' + data.days.toStdString() + ',';
+    result = data.name.toStdString() + ',' + data.building.toStdString() + ',' + data.startTime.toStdString() + ',' + data.endTime.toStdString() + ',' + data.days.toStdString();
     return result;
 }
 

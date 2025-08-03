@@ -12,6 +12,7 @@ int tuth = 0;
 int sa = 0;
 
 
+
 // Create form constructor
 Dialog::Dialog(QWidget *parent)
     : QDialog(parent)
@@ -23,6 +24,8 @@ Dialog::Dialog(QWidget *parent)
     setupCheckboxes();
     resetCounters();
 }
+
+
 
 // Edit form constructor
 Dialog::Dialog(const ClassInfo &info, QWidget *parent)
@@ -41,9 +44,13 @@ Dialog::Dialog(const ClassInfo &info, QWidget *parent)
     editClassFrame(info);
 }
 
+
+
 Dialog::~Dialog() {
     delete ui_;
 }
+
+
 
 void Dialog::declareCheckboxes(){
     dayHandlers = {
@@ -55,6 +62,8 @@ void Dialog::declareCheckboxes(){
         { ui_->saturday,  [this](int state){ onSaStateChanged(state); } }
     };
 }
+
+
 
 // Allows pop up warnings without closing window
 void Dialog::setupConnections() {
@@ -80,6 +89,8 @@ void Dialog::setupConnections() {
     connect(ui_->saturday, &QCheckBox::checkStateChanged, this, &Dialog::onSaStateChanged);
 }
 
+
+
 void Dialog::setupCheckboxes() {
     // Create an array of checkboxes
     const auto& children = ui_->days->children();
@@ -90,11 +101,15 @@ void Dialog::setupCheckboxes() {
     }
 }
 
+
+
 void Dialog::resetCounters() {
     mwf = 0;
     tuth = 0;
     sa = 0;
 }
+
+
 
 void Dialog::handleConfirmAccepted() {
     if (ui_->building_name->currentText() == "--SELECT BUILDING--"){
@@ -114,6 +129,7 @@ void Dialog::handleConfirmAccepted() {
 }
 
 
+
 void Dialog::handleConfirmRejected() {
     auto rejected = QMessageBox::question(
         this,
@@ -125,6 +141,8 @@ void Dialog::handleConfirmRejected() {
         reject();
     }
 }
+
+
 
 void Dialog::onMWFStateChanged(int state) {
     if (state == Qt::Checked) {
@@ -151,6 +169,8 @@ void Dialog::onMWFStateChanged(int state) {
     }
 }
 
+
+
 void Dialog::onTRStateChanged(int state) {
     if (state == Qt::Checked) {
         tuth++; sa++;
@@ -172,6 +192,8 @@ void Dialog::onTRStateChanged(int state) {
     ui_->saturday->setDisabled(sa_disabled);
 }
 
+
+
 void Dialog::onSaStateChanged(int state){
     bool disabled = (state ? Qt::Checked : Qt::Unchecked);
     if (disabled) sa++;
@@ -183,6 +205,8 @@ void Dialog::onSaStateChanged(int state){
     }
 }
 
+
+
 // Prevents time start from being higher than time stop
 void Dialog::startTimeChangeHandler(const QTime &time) {
     QTime other_time = ui_->time_stop->time();
@@ -191,6 +215,8 @@ void Dialog::startTimeChangeHandler(const QTime &time) {
         ui_->time_stop->setTime(other_time);
     }
 }
+
+
 
 // Prevents time stop from being lower than time start
 void Dialog::endTimeChangeHandler(const QTime &time) {
@@ -201,6 +227,8 @@ void Dialog::endTimeChangeHandler(const QTime &time) {
     }
 }
 
+
+
 void Dialog::createClassForm() {
     class_form_info_.name = ui_->class_name->text();
     class_form_info_.building = ui_->building_name->currentText();
@@ -210,6 +238,8 @@ void Dialog::createClassForm() {
 
     resetCounters();
 }
+
+
 
 void Dialog::editClassFrame(const ClassInfo& classFormInfo){
     QMap<QChar, QCheckBox*> dayMap {
@@ -247,6 +277,8 @@ void Dialog::editClassFrame(const ClassInfo& classFormInfo){
 
 }
 
+
+
 QString Dialog::dayStringCreate() const {
     QString dayString;
     for (int i = 0; i < checkboxes_.size(); ++i) {
@@ -265,6 +297,8 @@ QString Dialog::dayStringCreate() const {
     return dayString;
 }
 
+
+
 // Prevents all days from being checked
 void Dialog::fourDayChecker(QObject *sender, bool disabled) {
     QCheckBox* checkbox = qobject_cast<QCheckBox*>(sender);
@@ -275,6 +309,8 @@ void Dialog::fourDayChecker(QObject *sender, bool disabled) {
         ui_->tuesday->setDisabled(disabled);
     }
 }
+
+
 
 ClassInfo Dialog::getData() const {
     return class_form_info_;

@@ -66,3 +66,4 @@ __pycache__/
 *.conan
 *.rsp
 *.bat
+/370-project/.idea

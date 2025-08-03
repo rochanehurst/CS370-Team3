@@ -3,7 +3,6 @@
 
 #include <QFrame>
 #include <QMouseEvent>
-#include <QVBoxLayout>
 
 #include "mainwindow.h"
 

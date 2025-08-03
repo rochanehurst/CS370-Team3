@@ -1,18 +1,16 @@
 #include "savestuff.h"
-#include "createclass.h"
-#include <stdio.h>
-#include <cstdio>
-#include <vector>
+//#include "createclass.h"
+//#include <cstdio>
 //#include "ui_createclass.h"
 //#include "class_info_unit.h"
 
 #include <QMessageBox>
 #include <fstream>
-#include <iostream>
+//#include <iostream>
 #include <string>
-#include <QFrame>
+//#include <QFrame>
 #include <QString>
-#include <QApplication>
+//#include <QApplication>
 #include <filesystem>
 #include <QStringList>
 using namespace std;
@@ -29,10 +27,6 @@ SaveFeature::SaveFeature(const string& filename) {
         // Reopen for read/write
         SaveFile.open(filename, ios::in | ios::out);
     }
-}
-
-void SaveFeature::backupOpen(const string& filename) {
-    SaveFile.open(filename);
 }
 
 bool SaveFeature::checkIfOpen(const string& filename) {
@@ -96,6 +90,8 @@ void SaveFeature::parseSavaData(const string& filename, QString line, ClassInfo&
     }
 }
 
+
+/*
 void SaveFeature::editSave(const string& filename, string olddata, string newdata) {
     vector<string> file_lines;
     string line;
@@ -131,11 +127,18 @@ void SaveFeature::editSave(const string& filename, string olddata, string newdat
     }
 }
 
+
+
+
 string SaveFeature::makeString(ClassInfo data) {
     string result;
     result = data.name.toStdString() + ',' + data.building.toStdString() + ',' + data.startTime.toStdString() + ',' + data.endTime.toStdString() + ',' + data.days.toStdString();
     return result;
 }
+
+*/
+
+
 
 void SaveFeature::clearAll(const string& filename) {
     ofstream(filename, ios::trunc).close();

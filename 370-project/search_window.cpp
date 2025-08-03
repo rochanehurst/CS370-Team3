@@ -3,7 +3,6 @@
 #include "class_result.h"
 
 #include <QFile>
-#include <QThread>
 #include <QTimer>
 
 search_window::search_window(QVector<ClassData> classes_, QWidget *parent)

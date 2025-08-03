@@ -1,11 +1,11 @@
 //class_info_unit.cpp
-#include "savestuff.h"
+// #include "savestuff.h"
 #include "class_info_unit.h"
 
 #include <QMenu>
 
 //string filename = "cluster_savedata.txt";
-SaveFeature sv("cluster_savedata.txt");
+// SaveFeature sv("cluster_savedata.txt");
 
 ClassInfoFrame::ClassInfoFrame(QWidget* parent)
     : QFrame(parent)
@@ -31,13 +31,15 @@ void ClassInfoFrame::createFrame(const ClassInfo& class_info) {
 }
 
 void ClassInfoFrame::editFrameData() {
-    string olddata = sv.makeString(this->getFrameData());
+    // string olddata = sv.makeString(this->getFrameData());
     Dialog editor(getFrameData());
     editor.setModal(true);
     if (editor.exec() == QDialog::Accepted) {
         createFrame(editor.getData());
+        /*
         string newdata = sv.makeString(editor.getData());
         sv.editSave("cluster_savedata.txt", olddata, newdata);
+        */
     }
 }
 

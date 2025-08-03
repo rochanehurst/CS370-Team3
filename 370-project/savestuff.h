@@ -24,7 +24,6 @@ private:
 public:
     SaveFeature(const string& filename);
 
-    void backupOpen(const string& filename);
     bool checkIfOpen(const string& filename);
 
     void closeFile();
@@ -41,7 +40,7 @@ public:
 
     void clearAll(const string& filename);
 
-    void editSave(const string& filename, string olddata, string newdata);
+    // void editSave(const string& filename, string olddata, string newdata);
 
     string makeString(ClassInfo data);
 

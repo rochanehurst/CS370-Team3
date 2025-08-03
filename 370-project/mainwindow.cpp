@@ -45,6 +45,16 @@ MainWindow::MainWindow(QWidget *parent)
 
 
 MainWindow::~MainWindow() {
+    s.clearAll(filename);
+    for (int i = 0; i < class_list_layout_->count(); ++i) {
+        QWidget* widget = class_list_layout_->itemAt(i)->widget();
+        if (widget) {
+            ClassInfoFrame* class_info = qobject_cast<ClassInfoFrame*>(widget);
+            if (class_info) {
+                s.addToSave(class_info->getFrameData(), filename);
+            }
+        }
+    }
     s.closeFile();
     delete ui_;
 }
@@ -104,6 +114,7 @@ void MainWindow::setupClassListLayout() {
     }
     class_list_layout_->setAlignment(Qt::AlignHCenter | Qt::AlignTop);
 
+    warning_list_layout_ = qobject_cast<QVBoxLayout*>(ui_->warning_scroll_area->layout());
     if (!warning_list_layout_) {
         warning_list_layout_ = new QVBoxLayout(ui_->warning_scroll_area);
         ui_->warning_scroll_area->setLayout(warning_list_layout_);
@@ -252,8 +263,6 @@ QStringList MainWindow::extractBuildings(const QString &buildings) {
 
 
 
-
-
 void MainWindow::createClassFrame(ClassInfo& class_info, bool loaded) {
     ClassInfoFrame* class_data = new ClassInfoFrame();
     class_data->createFrame(class_info);
@@ -267,9 +276,7 @@ void MainWindow::createClassButtonHandler() {
     class_creator.setModal(true);
     if (class_creator.exec() == QDialog::Accepted) {
         ClassInfo classData = class_creator.getData();       // Retrieve data from the dialog
-        class_infos_.append(classData);                     // Store in MainWindow’s QVector
         createClassFrame(classData);
-        s.addToSave(classData, filename);
     }
 }
 
@@ -369,7 +376,6 @@ void MainWindow::updateClassList() {
 
 void MainWindow::addClass(QWidget* class_to_add, const ClassInfo& info, bool loaded){
     class_list_layout_->addWidget(class_to_add);
-    if (!loaded) s.addToSave(info, filename);
 }
 
 

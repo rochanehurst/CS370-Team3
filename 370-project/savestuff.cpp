@@ -18,22 +18,20 @@ SaveFeature::SaveFeature(const string& filename) {
     SaveFile.open(filename, ios::in | ios::out);
 
     if (!SaveFile.is_open()) {
+<<<<<<< HEAD
         // File didn't exist, so create it first
         SaveFile.clear(); // reset flags
         SaveFile.open(filename, ios::out); // creates empty file
+=======
+        // If file doesn't exist, create it
+        SaveFile.clear();
+        SaveFile.open(filename, std::ios::out);
+>>>>>>> 2a40f8e29fa7d152a0b4892572e74b539e48402b
         SaveFile.close();
 
         // Reopen for read/write
         SaveFile.open(filename, ios::in | ios::out);
     }
-
-    // if (!SaveFile.is_open()) {
-    //     //QMessageBox::critical(this, "Error", "Save file has failed to open.");
-    //     return;
-    // } else {
-    //     //QMessageBox::critical(this, "Non-error", "File has opened successfully.");
-    //     return;
-    // }
 }
 
 void SaveFeature::backupOpen(const string& filename) {
@@ -55,12 +53,16 @@ void SaveFeature::addToSave(const ClassInfo& data, const string& filename) {
     } */
 
     SaveFile.close();
+<<<<<<< HEAD
     SaveFile.open(filename, ios::out|ios::app);
 
     /* if (filesystem::is_empty(filename)) { //if file is not empty, add new line before data
         SaveFile << endl;
     } */
 
+=======
+    SaveFile.open(filename, ios::app);
+>>>>>>> 2a40f8e29fa7d152a0b4892572e74b539e48402b
     SaveFile << endl << data.name.toStdString() << ",";
     SaveFile << data.building.toStdString() << ",";
     SaveFile << data.startTime.toStdString() << ",";
@@ -82,8 +84,6 @@ void SaveFeature::loadSaveData(const string& filename, QStringList& unparsed) {
         while (!SaveFile.eof()) {
             getline(SaveFile, hold, '\n');
             unparsed.append(QString::fromStdString(hold)); // adds hold to unparsed stringlist as a qstring
-                //unparsed[size] = hold; // place line into array
-            //size++; // increase size
         }
         SaveFile.close();
     }

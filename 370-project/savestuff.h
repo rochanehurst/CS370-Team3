@@ -49,5 +49,8 @@ public:
     // second qstringlist -> feed into data card
 };
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2a40f8e29fa7d152a0b4892572e74b539e48402b
 #endif // SAVESTUFF_H

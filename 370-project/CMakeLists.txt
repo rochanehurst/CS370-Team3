@@ -36,6 +36,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         class_result.h class_result.cpp class_result.ui
         warning.h warning.cpp warning.ui
         savestuff.cpp savestuff.h
+        schedulelogic.h schedulelogic.cpp
 
 
     )

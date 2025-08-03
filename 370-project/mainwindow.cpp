@@ -264,9 +264,21 @@ QStringList MainWindow::extractBuildings(const QString &buildings) {
 
 
 void MainWindow::createClassFrame(ClassInfo& class_info, bool loaded) {
+    QVector<ClassInfo> temp = current_schedule_data_;
+    temp.append(class_info);
+
+    if (!schedule_logic_.scheduleIsValid(temp)) {
+        QMessageBox::warning(this, "Schedule Conflict", "This class conflicts with your current schedule.");
+        return;
+    }
+
     ClassInfoFrame* class_data = new ClassInfoFrame();
     class_data->createFrame(class_info);
     addClass(class_data, class_info, loaded);
+
+    if (!loaded) {
+        current_schedule_data_.append(class_info);  // only track when not loading from save
+    }
 }
 
 
@@ -296,6 +308,7 @@ void MainWindow::clearSchedule(bool test) {
         delete child->widget();
         delete child;
     }
+    current_schedule_data_.clear();
     s.clearAll(filename);
 }
 
@@ -381,6 +394,12 @@ void MainWindow::addClass(QWidget* class_to_add, const ClassInfo& info, bool loa
 
 
 void MainWindow::addWarning(QWidget* warning_to_add){
+    if (!warning_list_layout_) {
+        warning_list_layout_ = new QVBoxLayout(ui_->warning_scroll_area);
+        ui_->warning_scroll_area->setLayout(warning_list_layout_);
+        warning_list_layout_->setAlignment(Qt::AlignHCenter | Qt::AlignTop);
+    }
+
     ui_->warninglist->addWidget(warning_to_add);
 }
 

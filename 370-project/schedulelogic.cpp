@@ -5,16 +5,13 @@
 ScheduleLogic::ScheduleLogic() {}
 
 bool ScheduleLogic::classesConflict(const ClassInfo& a, const ClassInfo& b) const {
-
-
     for (QChar day : a.days) {
         if (b.days.contains(day)) {
             QTime startA = QTime::fromString(a.startTime.trimmed(), "h:mma");
-            QTime endA = QTime::fromString(a.endTime.trimmed(), "h:mma");
+            QTime endA   = QTime::fromString(a.endTime.trimmed(), "h:mma");
 
             QTime startB = QTime::fromString(b.startTime.trimmed(), "h:mma");
-            QTime endB = QTime::fromString(b.endTime.trimmed(), "h:mma");
-
+            QTime endB   = QTime::fromString(b.endTime.trimmed(), "h:mma");
 
             if (!startA.isValid() || !endA.isValid() || !startB.isValid() || !endB.isValid()) {
                 qDebug() << "Invalid time format in class data:";
@@ -56,5 +53,5 @@ QMap<QChar, QVector<ClassInfo>> ScheduleLogic::groupByDay(const QVector<ClassInf
 }
 
 bool ScheduleLogic::isValidTimeFormat(const QString& time) const {
-    return QTime::fromString(time.trimmed(), "h:mm AP").isValid();
+    return QTime::fromString(time.trimmed(), "h:mma").isValid();
 }

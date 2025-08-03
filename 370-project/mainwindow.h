@@ -56,6 +56,10 @@ public:
     void createClassFrame(ClassInfo& class_info, bool loaded = false);
     ~MainWindow();
 
+public:
+    QVector<ClassInfo> getCurrentScheduleData() const { return current_schedule_data_; }
+
+
 private slots:
     void createClassButtonHandler();
     void clearSchedule(bool test = false);

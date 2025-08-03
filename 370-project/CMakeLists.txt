@@ -37,6 +37,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         warning.h warning.cpp warning.ui
         savestuff.cpp savestuff.h
         schedulelogic.h schedulelogic.cpp
+        tests/tc01_add_valid_class.h tests/tc01_add_valid_class.cpp
 
 
     )

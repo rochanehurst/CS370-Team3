@@ -41,44 +41,13 @@ public:
 
     void clearAll(const string& filename);
 
+    void editSave(const string& filename);
+
     // 3rd void for convert to widget
 
     // file -> qstringlist of the unparsed lines -> feed one line into parse funct -> return as
     // second qstringlist -> feed into data card
 };
 
-/* QT_BEGIN_NAMESPACE
-namespace Ui {
-
-class MainWindow;
-}
-QT_END_NAMESPACE
-
-class MainWindow : public QMainWindow
-{
-    Q_OBJECT
-
-public:
-    MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
-
-private slots:
-    void createClassButtonHandler();
-
-    void createClassFrame(const ClassInfo& class_info);
-
-    void deleteClassFrame(ClassInfoFrame* class_data);
-
-    void editClassFrame(ClassInfoFrame* class_data);
-
-private:
-    Ui::MainWindow *ui;
-
-    QVector<ClassInfo> class_info;  // stores the data model
-
-    QVector<ClassInfoFrame*> class_data_containers;  // stores the actual QFrame widgets
-
-    QVBoxLayout* classListLayout;  // layout where the frames get added
-}; */
 
 #endif // SAVESTUFF_H

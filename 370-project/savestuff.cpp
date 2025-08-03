@@ -20,11 +20,11 @@ SaveFeature::SaveFeature(const string& filename) {
     if (!SaveFile.is_open()) {
         // File didn't exist, so create it first
         SaveFile.clear(); // reset flags
-        SaveFile.open(filename, std::ios::out); // creates empty file
+        SaveFile.open(filename, ios::out); // creates empty file
         SaveFile.close();
 
         // Reopen for read/write
-        SaveFile.open(filename, std::ios::in | std::ios::out);
+        SaveFile.open(filename, ios::in | ios::out);
     }
 
     // if (!SaveFile.is_open()) {
@@ -50,12 +50,12 @@ void SaveFeature::closeFile() {
 }
 
 void SaveFeature::addToSave(const ClassInfo& data, const string& filename) {
-    if (!SaveFile.is_open()) {
+    /* if (!SaveFile.is_open()) {
         return;
-    }
+    } */
 
     SaveFile.close();
-    SaveFile.open(filename, ios::app);
+    SaveFile.open(filename, ios::out|ios::app);
 
     /* if (filesystem::is_empty(filename)) { //if file is not empty, add new line before data
         SaveFile << endl;
@@ -86,38 +86,7 @@ void SaveFeature::loadSaveData(const string& filename, QStringList& unparsed) {
             //size++; // increase size
         }
         SaveFile.close();
-
-        //SaveFile.ignore(); //should ignore last newline char
-        //SaveFile.ignore();
-        // void collect_all(istream& input, College c[], int& size) {
-        //     while (!input.eof()) {
-        //         collect(input, c[size]);
-        //         size++;
-        //     }
-        // }
-
-        // getline the entire string until '\n'
-        // then run thru a loop to add it to an array of strings (or maybe in the format of qt's strings)
-        // use string length to get how long string should go on for? as var for loop
-
-        /* void collect(istream& input, College& c) {
-            getline(input, c.name, ',');
-            input >> c.cost;
-            input.ignore();
-            input >> c.acceptance;
-            input.ignore();
-        } */
     }
-    // take all data and put it into a string
-    // split everything up, put into an array?
-        // alpha to bool for online
-    // feed it into variables
-
-    // issues:
-        // what to do about multiple lines?
-            // array of strings, and each one gets parsed?
-            // and then the data gets put into an array of classdata
-
 }
 
 void SaveFeature::parseSavaData(const string& filename, QString line, ClassInfo& data) {
@@ -136,6 +105,10 @@ void SaveFeature::parseSavaData(const string& filename, QString line, ClassInfo&
             data.days = parsed.at(4);
         }
     }
+}
+
+void SaveFeature::editSave(const string& filename) {
+    fstream tempfile("tempfile.txt");
 }
 
 void SaveFeature::clearAll(const string& filename) {

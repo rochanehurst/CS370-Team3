@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include "createclass.h"
+#include "schedulelogic.h"
 
 #include <QMainWindow>
 #include <QVBoxLayout>
@@ -55,6 +56,10 @@ public:
     void createClassFrame(ClassInfo& class_info, bool loaded = false);
     ~MainWindow();
 
+public:
+    QVector<ClassInfo> getCurrentScheduleData() const { return current_schedule_data_; }
+
+
 private slots:
     void createClassButtonHandler();
     void clearSchedule(bool test = false);
@@ -84,6 +89,10 @@ private:
 
 private:
     Ui::main_window *ui_;
+
+    ScheduleLogic schedule_logic_;
+    QVector<ClassInfo> current_schedule_data_;
+
     QVector<ClassInfo> class_infos_;
     QVBoxLayout* class_list_layout_;
     QVBoxLayout* warning_list_layout_;

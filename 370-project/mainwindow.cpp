@@ -264,9 +264,31 @@ QStringList MainWindow::extractBuildings(const QString &buildings) {
 
 
 void MainWindow::createClassFrame(ClassInfo& class_info, bool loaded) {
+    QVector<ClassInfo> temp = current_schedule_data_;
+    temp.append(class_info);
+
+    for (const ClassInfo& existing : current_schedule_data_) {
+        if (schedule_logic_.classesConflict(class_info, existing)) {
+            QString message = QString("%1 (%2 %3–%4) conflicts with %5 (%6 %7–%8).")
+                                  .arg(class_info.name)
+                                  .arg(class_info.days)
+                                  .arg(class_info.startTime)
+                                  .arg(class_info.endTime)
+                                  .arg(existing.name)
+                                  .arg(existing.days)
+                                  .arg(existing.startTime)
+                                  .arg(existing.endTime);
+            QMessageBox::warning(this, "Schedule Conflict", message);
+            return;
+        }
+    }
+
     ClassInfoFrame* class_data = new ClassInfoFrame();
     class_data->createFrame(class_info);
     addClass(class_data, class_info, loaded);
+
+    current_schedule_data_.append(class_info);
+
 }
 
 
@@ -296,6 +318,7 @@ void MainWindow::clearSchedule(bool test) {
         delete child->widget();
         delete child;
     }
+    current_schedule_data_.clear();
     s.clearAll(filename);
 }
 

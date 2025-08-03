@@ -404,12 +404,6 @@ void MainWindow::addClass(QWidget* class_to_add, const ClassInfo& info, bool loa
 
 
 void MainWindow::addWarning(QWidget* warning_to_add){
-    if (!warning_list_layout_) {
-        warning_list_layout_ = new QVBoxLayout(ui_->warning_scroll_area);
-        ui_->warning_scroll_area->setLayout(warning_list_layout_);
-        warning_list_layout_->setAlignment(Qt::AlignHCenter | Qt::AlignTop);
-    }
-
     ui_->warninglist->addWidget(warning_to_add);
 }
 

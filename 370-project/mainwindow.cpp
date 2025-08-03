@@ -6,8 +6,11 @@
 #include <QMenu>
 #include <QIcon>
 #include <QSize>
+
+//used to initialize Map
 #include <QWidget>
 #include <QLayout>
+#include <QQmlContext>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -51,7 +54,7 @@ void MainWindow::setupClassListLayout() {
 }
 
 void MainWindow::createClassFrame(const ClassInfo& class_info) {
-    ClassInfoFrame* class_data = new ClassInfoFrame();
+    ClassInfoFrame* class_data = new ClassInfoFrame(apiMap_, this); //added apiMap_, this
     class_data->createFrame(class_info);
     class_list_layout_->addWidget(class_data);
     // TODO: Add class info to save file
@@ -83,6 +86,7 @@ void MainWindow::clearSchedule() {
         delete child->widget();
         delete child;
     }
+    apiMap_->removeAllMap(); //remove markers from classes on the map
 }
 
 void MainWindow::searchClass(){
@@ -94,7 +98,7 @@ void MainWindow::searchClass(){
 // Below functions are for debug only
 // ***MARKED FOR REMOVAL***
 void MainWindow::debugAddClasstoList(ClassInfo* tester) {
-    ClassInfoFrame* debug_data = new ClassInfoFrame();
+    ClassInfoFrame* debug_data = new ClassInfoFrame(apiMap_, this); //added apiMap_, this
     debug_data->createFrame(*tester);
     class_list_layout_->addWidget(debug_data);
 }
@@ -186,7 +190,12 @@ void MainWindow::initMap() {
     // create the map widget
     mapWidget = new QQuickWidget(this);
     mapWidget->setResizeMode(QQuickWidget::SizeRootObjectToView); //resize map
-    mapWidget->setSource(QUrl(QStringLiteral("../../map.qml"))); //load map file
+    //=================================================================
+    // // Expose apiMap_ to QML context
+    apiMap_ = new ApiMap(this);
+    mapWidget->rootContext()->setContextProperty("apiMap", apiMap_);
+    //=================================================================
+     mapWidget->setSource(QUrl(QStringLiteral("../../map.qml"))); //load map file
 
     // remove and hide placeholder widget
     gridLayout->removeWidget(mapPlaceholder);
@@ -198,6 +207,11 @@ void MainWindow::initMap() {
 
     //show map
     mapWidget->show();
+
+    // Example trigger route fetch here or do it elsewhere:
+    QGeoCoordinate start(33.128001, -117.159288);
+    QGeoCoordinate end(33.129955, -117.158007);
+    // apiMap_->fetchWalkingRoute(start, end);
 
 }
 

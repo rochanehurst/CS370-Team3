@@ -2,9 +2,10 @@
 #include "class_info_unit.h"
 
 #include <QMenu>
+#include <QDebug> //for testing
 
-ClassInfoFrame::ClassInfoFrame(QWidget* parent)
-    : QFrame(parent)
+ClassInfoFrame::ClassInfoFrame(ApiMap* apiMap, QWidget* parent) //added ApiMap* apiMap and apiMap_(apiMap)
+    : QFrame(parent), apiMap_(apiMap)
 {
     ui_.setupUi(this);
 
@@ -13,6 +14,8 @@ ClassInfoFrame::ClassInfoFrame(QWidget* parent)
     menu->addAction("Edit", this, &ClassInfoFrame::editFrameData);
     menu->addAction("Delete", this, &ClassInfoFrame::deleteFrameData);
     ui_.tool_button->setMenu(menu);
+
+
 }
 
 void ClassInfoFrame::createFrame(const ClassInfo& class_info) {
@@ -24,6 +27,13 @@ void ClassInfoFrame::createFrame(const ClassInfo& class_info) {
     setLocation(class_info.building);
     setTime(class_info.startTime, class_info.endTime);
     setDays(class_info.days);
+
+    //adding to map when adding a class
+    if(class_info.building != "ONLINE CLASS"){
+        QGeoCoordinate buildingCoord = apiMap_->coordinateForBuilding(class_info.building);
+        apiMap_->showMarkerAt(buildingCoord);
+        apiMap_->addInfoToMap(buildingCoord, class_info.name, class_info.days, class_info.startTime, class_info.endTime);
+    }
 }
 
 void ClassInfoFrame::editFrameData() {
@@ -35,6 +45,13 @@ void ClassInfoFrame::editFrameData() {
 }
 
 void ClassInfoFrame::deleteFrameData() {
+
+    //deleting from map when removing a class
+    if(frame_data_.building != "ONLINE CLASS"){
+        QGeoCoordinate buildCoord = apiMap_->coordinateForBuilding(frame_data_.building);
+        apiMap_->removeMarkerAt(buildCoord);
+        apiMap_->removeInfoMap(buildCoord, frame_data_.name, frame_data_.days, frame_data_.startTime, frame_data_.endTime);
+    }
     deleteLater();
 }
 

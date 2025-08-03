@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include "createclass.h"
+#include "apimap.h" //apimap.h
 
 #include <QMainWindow>
 #include <QDialog>
@@ -52,6 +53,7 @@ private:
     //added for Map
     void initMap();
     QQuickWidget* mapWidget = nullptr;
+    ApiMap* apiMap_ = nullptr;  // added for apimap
 
 private:
     Ui::main_window *ui_;

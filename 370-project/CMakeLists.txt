@@ -15,6 +15,7 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Quick
     QuickWidgets
     Positioning
     Location
+    Network
 )
 
 set(PROJECT_SOURCES
@@ -32,12 +33,15 @@ set(PROJECT_SOURCES
         search.ui
         search.h
         search.cpp
+        apimap.h
+        apimap.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(370-Project
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
+        apimap.h apimap.cpp
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET 370-Project APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
@@ -62,6 +66,7 @@ target_link_libraries(370-Project PRIVATE Qt${QT_VERSION_MAJOR}::Widgets
     Qt${QT_VERSION_MAJOR}::QuickWidgets
     Qt${QT_VERSION_MAJOR}::Positioning
     Qt${QT_VERSION_MAJOR}::Location
+    Qt${QT_VERSION_MAJOR}::Network
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.

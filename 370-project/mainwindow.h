@@ -7,6 +7,7 @@
 #include <QDialog>
 #include <QVBoxLayout>
 #include <QDebug>
+using namespace std;
 
 struct ClassData {
     QString subject;
@@ -75,6 +76,9 @@ private:
     void setup();
     void addClass(QWidget* class_to_add, const ClassInfo& info, bool loaded = false);
     void addWarning(QWidget* warning_to_add);
+
+    void editSave();
+    void removeFromSave();
 
     void loadCSV(const QString& filePath);
     QString extractDays(const QString& days);

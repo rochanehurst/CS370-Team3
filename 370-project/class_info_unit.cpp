@@ -1,7 +1,11 @@
 //class_info_unit.cpp
 #include "class_info_unit.h"
+#include "savestuff.h"
 
 #include <QMenu>
+
+//string filename = "cluster_savedata.txt";
+SaveFeature sv("cluster_savedata.txt");
 
 ClassInfoFrame::ClassInfoFrame(QWidget* parent)
     : QFrame(parent)
@@ -27,10 +31,17 @@ void ClassInfoFrame::createFrame(const ClassInfo& class_info) {
 }
 
 void ClassInfoFrame::editFrameData() {
+    string olddata = sv.makeString(this->getFrameData());
     Dialog editor(getFrameData());
+    //string olddata = sv.makeString(editor.getData());
+    // create function to take from classdata and put into qstringlist
+    // access editor.class_info_form_ i think is what its called?
     editor.setModal(true);
+    //string olddata = sv.makeString(editor.getData());
     if (editor.exec() == QDialog::Accepted) {
         createFrame(editor.getData());
+        string newdata = sv.makeString(editor.getData());
+        sv.editSave("cluster_savedata.txt", olddata, newdata);
     }
 }
 

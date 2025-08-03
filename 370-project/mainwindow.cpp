@@ -260,7 +260,6 @@ void MainWindow::createClassFrame(ClassInfo& class_info, bool loaded) {
     ClassInfoFrame* class_data = new ClassInfoFrame();
     class_data->createFrame(class_info);
     addClass(class_data, class_info, loaded);
-<<<<<<< HEAD
     //s.addToSave(class_info, filename);
     // TODO: Add class info to save file
 }
@@ -275,8 +274,6 @@ void MainWindow::editSave() {
 
 void MainWindow::removeFromSave() {
     // TODO: Remove deleted class info from save file
-=======
->>>>>>> 2a40f8e29fa7d152a0b4892572e74b539e48402b
 }
 
 
@@ -388,6 +385,7 @@ void MainWindow::updateClassList() {
 
 void MainWindow::addClass(QWidget* class_to_add, const ClassInfo& info, bool loaded){
     class_list_layout_->addWidget(class_to_add);
+    //s.addToSave(info, filename);
     //if (!loaded) s.addToSave(info, filename);
 }
 

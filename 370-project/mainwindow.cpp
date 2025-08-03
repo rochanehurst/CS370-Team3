@@ -127,7 +127,7 @@ void MainWindow::setupClassListLayout() {
 
 void MainWindow::setupClassSearch(){
     search_classes_.clear();
-    QString path = QCoreApplication::applicationDirPath() + "/data/data/csusm_classes.csv";
+    QString path = QCoreApplication::applicationDirPath() + "/../../class_finder/data/csusm_classes.csv";
     loadCSV(path);
 }
 
@@ -310,7 +310,7 @@ void MainWindow::searchClass(){
 
 
 void MainWindow::updateClassList() {
-    QString path = QCoreApplication::applicationDirPath() + "/data/data_extractor.exe";
+    QString path = QCoreApplication::applicationDirPath() + "/../../class_finder/data_extractor.exe";
 
     // Progress dialog with determinate range
     QProgressDialog *progress = new QProgressDialog("Updating class list...", "Cancel", 0, 100, this);

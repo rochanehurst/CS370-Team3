@@ -15,7 +15,7 @@ search_window::search_window(QVector<ClassData> classes_, QWidget *parent)
 
     filtered_classes_ = search_classes_;
 
-    QString path = QCoreApplication::applicationDirPath() + "/data/subjects.csv";
+    QString path = QCoreApplication::applicationDirPath() + "/../../class_finder/subjects.csv";
     loadCSV(path);
     declareCheckboxes();
     setupConnections();

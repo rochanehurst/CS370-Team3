@@ -1,7 +1,6 @@
 #include "mainwindow.h"
 #include "search_window.h"
 #include "ui_mainwindow.h"
-#include "warning.h"
 #include "savestuff.h"
 #include "class_info_unit.h"
 
@@ -72,11 +71,9 @@ void MainWindow::setup(){
 
 
 void MainWindow::setupWidths(){
-    int warn_width = ui_->warning_container->maximumWidth();
     int schedule_width = ui_->class_container->maximumWidth();
     int map_width = ui_->map_placeholder->maximumWidth();
 
-    ui_->warning_container->parentWidget()->setMaximumWidth(warn_width);
     ui_->schedule_title->parentWidget()->setMaximumWidth(schedule_width);
     ui_->map_placeholder->parentWidget()->setMaximumWidth(map_width);
 }
@@ -99,9 +96,6 @@ void MainWindow::setupConnections() {
     connect(ui_->update_class_list, &QAbstractButton::clicked, this, &MainWindow::updateClassList);
     connect(ui_->actionPopulate_Schedule, &QAction::triggered, this, &MainWindow::debugPopulateList);
     connect(ui_->actionAdd_Random_Class, &QAction::triggered, this, &MainWindow::addRandomClass);
-    connect(ui_->actionError, &QAction::triggered, this, &MainWindow::createError);
-    connect(ui_->actionWarning, &QAction::triggered, this, &MainWindow::createWarning);
-    connect(ui_->actionNotice, &QAction::triggered, this, &MainWindow::createNotice);
 }
 
 
@@ -113,14 +107,6 @@ void MainWindow::setupClassListLayout() {
         ui_->class_scroll_area->setLayout(class_list_layout_);
     }
     class_list_layout_->setAlignment(Qt::AlignHCenter | Qt::AlignTop);
-
-    warning_list_layout_ = qobject_cast<QVBoxLayout*>(ui_->warning_scroll_area->layout());
-    if (!warning_list_layout_) {
-        warning_list_layout_ = new QVBoxLayout(ui_->warning_scroll_area);
-        ui_->warning_scroll_area->setLayout(warning_list_layout_);
-    }
-    warning_list_layout_->setAlignment(Qt::AlignHCenter | Qt::AlignTop);
-
 }
 
 
@@ -403,12 +389,6 @@ void MainWindow::addClass(QWidget* class_to_add, const ClassInfo& info, bool loa
 
 
 
-void MainWindow::addWarning(QWidget* warning_to_add){
-    ui_->warninglist->addWidget(warning_to_add);
-}
-
-
-
 // Below functions are for debug only
 // ***MARKED FOR REMOVAL***
 void MainWindow::addRandomClass(){
@@ -426,28 +406,6 @@ void MainWindow::debugPopulateList() {
         createClassFrame(search_classes_[classValue].data);
     }
 }
-
-
-
-void MainWindow::createError(){
-    Warning* new_warning = new Warning(WarningLevel::ERROR);
-    addWarning(new_warning);
-}
-
-
-
-void MainWindow::createWarning(){
-    Warning* new_warning = new Warning(WarningLevel::WARNING);
-    addWarning(new_warning);
-}
-
-
-
-void MainWindow::createNotice(){
-    Warning* new_warning = new Warning(WarningLevel::NOTICE);
-    addWarning(new_warning);
-}
-
 
 
 

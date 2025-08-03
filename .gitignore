@@ -67,3 +67,4 @@ __pycache__/
 *.bat
 /370-project/.idea
 370-project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/370-Project.exe
+370-project/CMakeLists.txt

@@ -1,16 +1,9 @@
 #include "savestuff.h"
-//#include "createclass.h"
-//#include <cstdio>
-//#include "ui_createclass.h"
-//#include "class_info_unit.h"
 
 #include <QMessageBox>
 #include <fstream>
-//#include <iostream>
 #include <string>
-//#include <QFrame>
 #include <QString>
-//#include <QApplication>
 #include <filesystem>
 #include <QStringList>
 using namespace std;
@@ -29,20 +22,23 @@ SaveFeature::SaveFeature(const string& filename) {
     }
 }
 
+
+
 bool SaveFeature::checkIfOpen(const string& filename) {
     bool open = SaveFile.is_open();
     return open;
 }
 
+
+
 void SaveFeature::closeFile() {
     SaveFile.close();
 }
 
-void SaveFeature::addToSave(const ClassInfo& data, const string& filename) {
-    /* if (!SaveFile.is_open()) {
-        return;
-    } */
 
+
+// Does not currently handle class names with comma's in them
+void SaveFeature::addToSave(const ClassInfo& data, const string& filename) {
     SaveFile.close();
     SaveFile.open(filename, ios::app);
 
@@ -89,54 +85,6 @@ void SaveFeature::parseSavaData(const string& filename, QString line, ClassInfo&
         }
     }
 }
-
-
-/*
-void SaveFeature::editSave(const string& filename, string olddata, string newdata) {
-    vector<string> file_lines;
-    string line;
-    cout << "Old Data: " << olddata << endl << "New Data: " << newdata << endl;
-
-    if (SaveFile.is_open()) {
-        while(getline(SaveFile, line)){
-            cout << "Line read: " << line << endl << " Old Data: " << olddata << endl << "Match? " << (line == olddata) << endl;
-            if (line == olddata) {
-                cout << "found old data. replacing..." << endl;
-                file_lines.push_back(newdata);
-            }
-            else {
-                file_lines.push_back(line);
-            }
-        }
-    }
-
-    else {
-        perror("File unopened");
-    }
-
-    this->clearAll(filename);
-    SaveFile.open(filename, ios::out|ios::app);
-    int count = file_lines.size();
-
-    if(!SaveFile.is_open()) {
-        perror("file unopened");
-    }
-    for (int i = 0; i < count; i++) {
-        SaveFile << endl << file_lines.at(i);
-        cout << "Data read on line " << i << ": " << file_lines.at(i) << endl;
-    }
-}
-
-
-
-
-string SaveFeature::makeString(ClassInfo data) {
-    string result;
-    result = data.name.toStdString() + ',' + data.building.toStdString() + ',' + data.startTime.toStdString() + ',' + data.endTime.toStdString() + ',' + data.days.toStdString();
-    return result;
-}
-
-*/
 
 
 

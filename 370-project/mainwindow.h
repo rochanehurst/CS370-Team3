@@ -67,9 +67,6 @@ private slots:
     void debugPopulateList();
     void addRandomClass();
     void updateClassList();
-    void createError();
-    void createWarning();
-    void createNotice();
 
 private:
     void setupConnections();
@@ -79,7 +76,6 @@ private:
     void setupWidths();
     void setup();
     void addClass(QWidget* class_to_add, const ClassInfo& info, bool loaded = false);
-    void addWarning(QWidget* warning_to_add);
 
     void loadCSV(const QString& filePath);
     QString extractDays(const QString& days);

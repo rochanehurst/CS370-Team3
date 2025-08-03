@@ -34,7 +34,6 @@ CMakeFiles/
 cmake_install.cmake
 Makefile
 *.cmake
-build*/       # matches build/ and build-* folders
 *.ninja
 .ninja_deps
 .ninja_log
@@ -60,8 +59,10 @@ Testing/
 # Python cache
 __pycache__/
 *.pyc
-/370-project/build
-*.xml
-/370-project/build
-/370-project/.idea
-/370-project/.idea
+370-project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/cluster_savedata.txt
+*.prev
+*.json
+*.qs
+*.conan
+*.rsp
+*.bat

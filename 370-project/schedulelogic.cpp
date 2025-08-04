@@ -4,17 +4,19 @@
 
 ScheduleLogic::ScheduleLogic() {}
 
+
+// Time Format is h:mmA
+// Yes the 'A' must be capitalized
 bool ScheduleLogic::classesConflict(const ClassInfo& a, const ClassInfo& b) const {
     for (QChar day : a.days) {
         if (b.days.contains(day)) {
-            QTime startA = QTime::fromString(a.startTime.trimmed(), "h:mma");
-            QTime endA   = QTime::fromString(a.endTime.trimmed(), "h:mma");
+            QTime startA = QTime::fromString(a.startTime.trimmed(), "h:mmA");
+            QTime endA   = QTime::fromString(a.endTime.trimmed(), "h:mmA");
 
-            QTime startB = QTime::fromString(b.startTime.trimmed(), "h:mma");
-            QTime endB   = QTime::fromString(b.endTime.trimmed(), "h:mma");
+            QTime startB = QTime::fromString(b.startTime.trimmed(), "h:mmA");
+            QTime endB   = QTime::fromString(b.endTime.trimmed(), "h:mmA");
 
             if (!startA.isValid() || !endA.isValid() || !startB.isValid() || !endB.isValid()) {
-                qDebug() << "Invalid time format in class data:";
                 return false;
             }
 
@@ -24,6 +26,8 @@ bool ScheduleLogic::classesConflict(const ClassInfo& a, const ClassInfo& b) cons
     }
     return false;
 }
+
+
 
 bool ScheduleLogic::scheduleIsValid(const QVector<ClassInfo>& schedule) const {
     for (int i = 0; i < schedule.size(); ++i) {
@@ -35,9 +39,13 @@ bool ScheduleLogic::scheduleIsValid(const QVector<ClassInfo>& schedule) const {
     return true;
 }
 
+
+
 void ScheduleLogic::loadBuildingData(const QString& filePath) {
     qDebug() << "Pretending to load building data from:" << filePath;
 }
+
+
 
 QMap<QChar, QVector<ClassInfo>> ScheduleLogic::groupByDay(const QVector<ClassInfo>& schedule) const {
     QMap<QChar, QVector<ClassInfo>> grouped;
@@ -52,6 +60,8 @@ QMap<QChar, QVector<ClassInfo>> ScheduleLogic::groupByDay(const QVector<ClassInf
     return grouped;
 }
 
+
+
 bool ScheduleLogic::isValidTimeFormat(const QString& time) const {
-    return QTime::fromString(time.trimmed(), "h:mma").isValid();
+    return QTime::fromString(time.trimmed(), "h:mmA").isValid();
 }

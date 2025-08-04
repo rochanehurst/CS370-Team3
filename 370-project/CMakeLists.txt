@@ -43,10 +43,6 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         class_result.h class_result.cpp class_result.ui
         warning.h warning.cpp warning.ui
         savestuff.cpp savestuff.h
-        tests/TC08_ScheduleLogicValidation.cpp
-        tests/TC09_ClassInfoFrameData.cpp
-        tests/TC10_SaveFeatureFileCheck.cpp
-
 
 
     )
@@ -100,21 +96,23 @@ endif()
 #  Unit Test Target
 
 #test01
-add_executable(TC01_CheckBoxesInitialState
-    tests/TC01_CheckBoxesInitialState.cpp
-    createclass.cpp
+add_executable(TC01_CheckBoxesInitialState #test executable name
+    tests/TC01_CheckBoxesInitialState.cpp #test source file
+    createclass.cpp #dependencies
     createclass.h
     class_info_unit.cpp
     class_info_unit.h
 )
-target_include_directories(TC01_CheckBoxesInitialState PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+target_include_directories(TC01_CheckBoxesInitialState PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}) #include path for headers
 
 
 target_link_libraries(TC01_CheckBoxesInitialState PRIVATE
-    Qt${QT_VERSION_MAJOR}::Widgets
-    Qt${QT_VERSION_MAJOR}::Test
+    Qt${QT_VERSION_MAJOR}::Widgets #widget library for ui components
+    Qt${QT_VERSION_MAJOR}::Test #test library for test framework
 )
-add_test(NAME TC01_CheckBoxesInitialState COMMAND TC01_CheckBoxesInitialState)
+add_test(NAME TC01_CheckBoxesInitialState COMMAND TC01_CheckBoxesInitialState) #Register with CTest in case is configured
+
+
 #test02
 add_executable(TC02_AddClassToSchedule
     tests/TC02_AddClassToSchedule.cpp

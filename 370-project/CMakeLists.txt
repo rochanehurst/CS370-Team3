@@ -30,7 +30,6 @@ set(PROJECT_SOURCES
     search_window.h
     search_window.cpp
     class_result.h class_result.cpp class_result.ui
-    warning.h warning.cpp warning.ui
     savestuff.cpp savestuff.h
     schedulelogic.h schedulelogic.cpp
 )
@@ -41,7 +40,6 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
         class_result.h class_result.cpp class_result.ui
-        warning.h warning.cpp warning.ui
         savestuff.cpp savestuff.h
 
 
@@ -121,7 +119,6 @@ add_executable(TC02_AddClassToSchedule
     createclass.cpp createclass.h
     schedulelogic.cpp schedulelogic.h
     savestuff.cpp savestuff.h
-    warning.cpp warning.h
     search_window.cpp search_window.h
     class_result.cpp class_result.h
 )

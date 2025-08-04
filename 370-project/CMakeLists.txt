@@ -43,6 +43,9 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         class_result.h class_result.cpp class_result.ui
         warning.h warning.cpp warning.ui
         savestuff.cpp savestuff.h
+        tests/TC08_ScheduleLogicValidation.cpp
+        tests/TC09_ClassInfoFrameData.cpp
+        tests/TC10_SaveFeatureFileCheck.cpp
 
 
 
@@ -200,3 +203,46 @@ target_link_libraries(TC07_SaveScheduleToFile PRIVATE
     Qt${QT_VERSION_MAJOR}::Test
 )
 add_test(NAME TC07_SaveScheduleToFile COMMAND TC07_SaveScheduleToFile)
+
+# Test08
+add_executable(TC08_ScheduleLogicValidation
+    tests/TC08_ScheduleLogicValidation.cpp
+    schedulelogic.cpp schedulelogic.h
+    createclass.cpp createclass.h
+    class_info_unit.cpp class_info_unit.h
+)
+target_include_directories(TC08_ScheduleLogicValidation PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+
+target_link_libraries(TC08_ScheduleLogicValidation PRIVATE
+    Qt${QT_VERSION_MAJOR}::Widgets
+    Qt${QT_VERSION_MAJOR}::Test
+)
+add_test(NAME TC08_ScheduleLogicValidation COMMAND TC08_ScheduleLogicValidation)
+
+# Test09
+add_executable(TC09_ClassInfoFrameData
+    tests/TC09_ClassInfoFrameData.cpp
+    class_info_unit.cpp class_info_unit.h
+    createclass.cpp createclass.h
+)
+target_include_directories(TC09_ClassInfoFrameData PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+
+target_link_libraries(TC09_ClassInfoFrameData PRIVATE
+    Qt${QT_VERSION_MAJOR}::Widgets
+    Qt${QT_VERSION_MAJOR}::Test
+)
+add_test(NAME TC09_ClassInfoFrameData COMMAND TC09_ClassInfoFrameData)
+
+# Test10
+add_executable(TC10_SaveFeatureFileCheck
+    tests/TC10_SaveFeatureFileCheck.cpp
+    savestuff.cpp savestuff.h
+    createclass.cpp createclass.h
+)
+target_include_directories(TC10_SaveFeatureFileCheck PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+
+target_link_libraries(TC10_SaveFeatureFileCheck PRIVATE
+    Qt${QT_VERSION_MAJOR}::Widgets
+    Qt${QT_VERSION_MAJOR}::Test
+)
+add_test(NAME TC10_SaveFeatureFileCheck COMMAND TC10_SaveFeatureFileCheck)

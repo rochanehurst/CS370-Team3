@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.16)
 
 project(370-Project VERSION 0.1 LANGUAGES CXX)
 
+enable_testing()
+
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
@@ -10,24 +12,29 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Test) #edited this. important!
 
 set(PROJECT_SOURCES
-        main.cpp
-        mainwindow.cpp
-        mainwindow.h
-        mainwindow.ui
-        createclass.ui
-        createclass.h
-        createclass.cpp
-        class_info_unit.ui
-        class_info_unit.h
-        class_info_unit.cpp
-        resources.qrc
-        search_window.ui
-        search_window.h
-        search_window.cpp
+    main.cpp
+    mainwindow.cpp
+    mainwindow.h
+    mainwindow.ui
+    createclass.ui
+    createclass.h
+    createclass.cpp
+    class_info_unit.ui
+    class_info_unit.h
+    class_info_unit.cpp
+    resources.qrc
+    search_window.ui
+    search_window.h
+    search_window.cpp
+    class_result.h class_result.cpp class_result.ui
+    warning.h warning.cpp warning.ui
+    savestuff.cpp savestuff.h
+    schedulelogic.h schedulelogic.cpp
 )
+
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(370-Project
@@ -36,8 +43,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         class_result.h class_result.cpp class_result.ui
         warning.h warning.cpp warning.ui
         savestuff.cpp savestuff.h
-        schedulelogic.h schedulelogic.cpp
-        tests/tc01_add_valid_class.h tests/tc01_add_valid_class.cpp
+
 
 
     )
@@ -85,3 +91,112 @@ install(TARGETS 370-Project
 if(QT_VERSION_MAJOR EQUAL 6)
     qt_finalize_executable(370-Project)
 endif()
+
+
+
+#  Unit Test Target
+
+#test01
+add_executable(TC01_CheckBoxesInitialState
+    tests/TC01_CheckBoxesInitialState.cpp
+    createclass.cpp
+    createclass.h
+    class_info_unit.cpp
+    class_info_unit.h
+)
+target_include_directories(TC01_CheckBoxesInitialState PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+
+
+target_link_libraries(TC01_CheckBoxesInitialState PRIVATE
+    Qt${QT_VERSION_MAJOR}::Widgets
+    Qt${QT_VERSION_MAJOR}::Test
+)
+add_test(NAME TC01_CheckBoxesInitialState COMMAND TC01_CheckBoxesInitialState)
+#test02
+add_executable(TC02_AddClassToSchedule
+    tests/TC02_AddClassToSchedule.cpp
+    mainwindow.cpp mainwindow.h
+    class_info_unit.cpp class_info_unit.h
+    createclass.cpp createclass.h
+    schedulelogic.cpp schedulelogic.h
+    savestuff.cpp savestuff.h
+    warning.cpp warning.h
+    search_window.cpp search_window.h
+    class_result.cpp class_result.h
+)
+target_include_directories(TC02_AddClassToSchedule PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+
+target_link_libraries(TC02_AddClassToSchedule PRIVATE
+    Qt${QT_VERSION_MAJOR}::Widgets
+    Qt${QT_VERSION_MAJOR}::Test
+)
+add_test(NAME TC02_AddClassToSchedule COMMAND TC02_AddClassToSchedule)
+
+
+#test03
+add_executable(TC03_ScheduleConflictDetection
+    tests/TC03_ScheduleConflictDetection.cpp
+    schedulelogic.cpp schedulelogic.h
+    createclass.cpp createclass.h
+    class_info_unit.cpp class_info_unit.h
+)
+target_include_directories(TC03_ScheduleConflictDetection PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+
+target_link_libraries(TC03_ScheduleConflictDetection PRIVATE
+    Qt${QT_VERSION_MAJOR}::Widgets
+    Qt${QT_VERSION_MAJOR}::Test
+)
+add_test(NAME TC03_ScheduleConflictDetection COMMAND TC03_ScheduleConflictDetection)
+
+#test04
+add_executable(TC04_TimeComparison
+    tests/TC04_TimeComparison.cpp
+    createclass.cpp createclass.h
+)
+target_include_directories(TC04_TimeComparison PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+
+target_link_libraries(TC04_TimeComparison PRIVATE
+    Qt${QT_VERSION_MAJOR}::Widgets
+    Qt${QT_VERSION_MAJOR}::Test
+)
+add_test(NAME TC04_TimeComparison COMMAND TC04_TimeComparison)
+
+#test05
+add_executable(TC05_ClearAllClasses
+    tests/TC05_ClearAllClasses.cpp
+    createclass.cpp createclass.h
+)
+target_include_directories(TC05_ClearAllClasses PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+
+target_link_libraries(TC05_ClearAllClasses PRIVATE
+    Qt${QT_VERSION_MAJOR}::Widgets
+    Qt${QT_VERSION_MAJOR}::Test
+)
+add_test(NAME TC05_ClearAllClasses COMMAND TC05_ClearAllClasses)
+
+#Test06
+add_executable(TC06_UILoadsClassData
+    tests/TC06_UILoadsClassData.cpp
+    createclass.cpp createclass.h
+)
+target_include_directories(TC06_UILoadsClassData PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+
+target_link_libraries(TC06_UILoadsClassData PRIVATE
+    Qt${QT_VERSION_MAJOR}::Widgets
+    Qt${QT_VERSION_MAJOR}::Test
+)
+add_test(NAME TC06_UILoadsClassData COMMAND TC06_UILoadsClassData)
+
+#Test07
+add_executable(TC07_SaveScheduleToFile
+    tests/TC07_SaveScheduleToFile.cpp
+    savestuff.cpp savestuff.h
+    createclass.cpp createclass.h
+)
+target_include_directories(TC07_SaveScheduleToFile PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+
+target_link_libraries(TC07_SaveScheduleToFile PRIVATE
+    Qt${QT_VERSION_MAJOR}::Widgets
+    Qt${QT_VERSION_MAJOR}::Test
+)
+add_test(NAME TC07_SaveScheduleToFile COMMAND TC07_SaveScheduleToFile)

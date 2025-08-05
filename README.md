@@ -1,5 +1,15 @@
-# 📅 Cluster Scheduler
-An app designed to help you plan your CSUSM classes efficiently.
+<h1 align="center">📅 Cluster Scheduler</h1>
+<p align="center">An app designed to help you plan your CSUSM classes efficiently.</p>
+
+---
+
+## 📚 Table of Contents
+- [Requirements to Run](#-requirements-to-run)
+- [Installation](#-installation)
+- [Notice](#-notice-click-to-expand)
+- [Install Requirements (Developers)](#-install-requirements-for-building-from-source)
+- [Database Update Tool](#-database-update-tool)
+- [Build Instructions](#-build-instructions-for-developers)
 
 ---
 
@@ -33,7 +43,8 @@ You are welcome to scan the file with any antivirus software you use and trust.
 
 ---
 
-## 📦 Install Requirements (For Building from Source)
+<details>
+<summary>## 📦 Install Requirements (For Building from Source)</summary>
 
 Before you can build Cluster Scheduler, make sure you have:
 
@@ -44,22 +55,28 @@ Before you can build Cluster Scheduler, make sure you have:
 - [CMake](https://cmake.org/download/) (minimum version 3.16)
 - Git (to clone the repository)
 - (Optional) [Qt Creator IDE](https://www.qt.io/product/development-tools) for an easier build process
+</details>
 
 ---
 
-## 🐍 Database Update Tool
+<details>
+<summary>## 🐍 Database Update Tool</summary>
 
 Cluster Scheduler includes a small helper program for updating the class database.
 
+### File Location
+If building from source, the Python script can be found at:
+`370-project\Desktop_Qt_6_9_1_MinGW_64_bit-Release\class_finder\data_extractor`
+
 ### Options to Run It
 - **Windows Users (No Python Required):**  
-  Use the included `data_extractor.exe` file in the `/tools` folder (or wherever it’s located).
+  Use the included `data_extractor.exe` file in the `/class_finder` folder.
   
 - **Using Python Directly:**  
   1. Install [Python 3.10+](https://www.python.org/downloads/).
   2. Install required libraries:
      ```bash
-     pip install -r requirements.txt
+     pip install selenium beautifulsoup4 pandas
      ```
   3. Run the script:
      ```bash
@@ -72,9 +89,12 @@ Cluster Scheduler includes a small helper program for updating the class databas
 - Updates the internal database used by Cluster Scheduler
 
 ⚠ **Note:** Running this tool will overwrite your existing database file with the latest data.
+</details>
 
+---
 
-## 🛠 Build Instructions (For Developers)
+<details>
+<summary>## 🛠 Build Instructions (For Developers)</summary>
 
 If you want to modify Cluster Scheduler or build it yourself from source, here’s how:
 
@@ -93,3 +113,12 @@ cd build
 cmake ..
 cmake --build .
 ```
+</details>
+---
+
+## Contributors
+- Cole Leahy (@Crayon-lover)
+- Teammate Name 1 (@githubhandle)
+- Teammate Name 2 (@githubhandle)
+- Teammate Name 3 (@githubhandle)
+- Teammate Name 4 (@githubhandle)

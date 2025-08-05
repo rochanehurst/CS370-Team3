@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="370-project/icons/Cluster Banner.png" alt="Cluster Scheduler Banner" width="400">
+  <img src="370-project/icons/Cluster Banner.png" alt="Cluster Scheduler Banner" width="800">
 </p>
 <p align="center">An app designed to help you plan your CSUSM classes efficiently.</p>
 
@@ -8,7 +8,7 @@
 ## 📚 Table of Contents
 - [Requirements to Run](#-requirements-to-run)
 - [Installation](#-installation)
-- [Notice](#-notice-click-to-expand)
+- [Notice](#-notice)
 - [Install Requirements (Developers)](#-install-requirements-for-building-from-source)
 - [Database Update Tool](#-database-update-tool)
 - [Build Instructions](#-build-instructions-for-developers)
@@ -34,22 +34,24 @@
 
 ---
 
+## ⚠ Notice 
 <details>
-<summary>⚠ Notice (click to expand)</summary>
+<summary>Click to expand</summary>
 
-We do not have $100 to spare to have this program validated by Microsoft.  
-You **will** get a virus alert from Windows Security — this is a **false positive**.  
-You are welcome to scan the file with any antivirus software you use and trust.
+> **Important:**  
+> We do not have $100 to spare to have this program validated by Microsoft.  
+> You **will** get a virus alert from Windows Security — this is a **false positive**.  
+> You are welcome to scan the file with any antivirus software you use and trust.
 
 </details>
 
 ---
 
+## 📦 Install Requirements (For Building from Source)
 <details>
-<summary>## 📦 Install Requirements (For Building from Source)</summary>
-
+<summary>Click to expand</summary>
 Before you can build Cluster Scheduler, make sure you have:
-
+  
 - [Qt Community Edition 17.0.0](https://www.qt.io/download)
 - A C++17-compatible compiler  
   - **Windows:** MSVC (Visual Studio) or MinGW  
@@ -57,13 +59,15 @@ Before you can build Cluster Scheduler, make sure you have:
 - [CMake](https://cmake.org/download/) (minimum version 3.16)
 - Git (to clone the repository)
 - (Optional) [Qt Creator IDE](https://www.qt.io/product/development-tools) for an easier build process
+  
 </details>
 
 ---
 
+## 🐍 Database Update Tool
 <details>
-<summary>## 🐍 Database Update Tool</summary>
-
+<summary>Click to expand</summary>
+  
 Cluster Scheduler includes a small helper program for updating the class database.
 
 ### File Location
@@ -95,8 +99,9 @@ If building from source, the Python script can be found at:
 
 ---
 
+## 🛠 Build Instructions (For Developers)
 <details>
-<summary>## 🛠 Build Instructions (For Developers)</summary>
+<summary>Click to expand</summary>
 
 If you want to modify Cluster Scheduler or build it yourself from source, here’s how:
 
@@ -116,6 +121,7 @@ cmake ..
 cmake --build .
 ```
 </details>
+
 ---
 
 ## Contributors

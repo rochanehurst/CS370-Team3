@@ -50,7 +50,7 @@
 <details>
 <summary>Click to expand</summary>
 
-> We do not have $100 to spare to have this program validated by Microsoft.  
+> We do not have $300 to spare to have this program validated by Microsoft.  
 > You **will** get a virus alert from Windows Security — this is a **false positive**.  
 > You are welcome to scan the file with any antivirus software you use and trust.
 

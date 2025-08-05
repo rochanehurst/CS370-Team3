@@ -18,11 +18,21 @@
 ---
 
 ## 🖥 Requirements to Run
-- Windows 10 or 11
-- A keyboard and mouse you haven't broken... yet
-- A CPU that at least pretends to know what it’s doing
-- One stick of RAM (Two may be pushing it)
-- ~80 MB of free storage space (or roughly 50 billion crabs)
+- Windows 10 or 11 (**64-bit**)
+- CPU: Dual-core, 1.5 GHz or faster (anything that still pretends to function)
+- RAM: 512 MB minimum (1 GB+ recommended — more if your computer also doubles as a space heater)
+- Display: 800×600 resolution or higher
+- Storage: ~80 MB of free space (or roughly 50 billion crabs)
+- **Google Chrome** and an active **Internet connection** — required for updating the course database
+
+---
+
+### Optional (but Highly Recommended)
+- A keyboard and mouse you haven’t smashed yet
+- A CPU that at least *pretends* to know what it’s doing
+- One loose stick of RAM
+- A black-and-white monitor (or a color one, if you’re feeling fancy)
+- That AV cable you’ve been keeping *"just in case"* for the last decade
 
 ---
 
@@ -40,7 +50,6 @@
 <details>
 <summary>Click to expand</summary>
 
-> ⚠ **Important:**  
 > We do not have $100 to spare to have this program validated by Microsoft.  
 > You **will** get a virus alert from Windows Security — this is a **false positive**.  
 > You are welcome to scan the file with any antivirus software you use and trust.

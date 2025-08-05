@@ -90,9 +90,9 @@
    - **Requirements:**
      - Active internet connection  
      - Google Chrome installed  
-
-   - Press the **Update** button to the left of the **Your Schedule** title.  
-   - The update process takes **3–5 minutes** depending on your computer and internet speed.
+   - **Usage**
+     - Press the **Update** button to the left of the **Your Schedule** title.  
+     - The update process takes **3–5 minutes** depending on your computer and internet speed.
 
 
 💡 **Tip:** You can adjust sections of the app’s interface to focus on your schedule or the map of CSUSM.

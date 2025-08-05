@@ -134,7 +134,7 @@ Cluster Scheduler includes a small helper program for updating the class databas
 
 ### File Location
 If building from source, the Python script can be found at:
-`370-project\Desktop_Qt_6_9_1_MinGW_64_bit-Release\class_finder\data_extractor`
+`370-project/Desktop_Qt_6_9_1_MinGW_64_bit-Release/class_finder/data_extractor`
 
 ### Options to Run It
 - **Windows Users (No Python Required):**  

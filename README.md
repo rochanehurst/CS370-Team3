@@ -19,7 +19,7 @@
 
 ## 🖥 Requirements to Run
 - Windows 10 or 11 (**64-bit**)
-- CPU: Dual-core, 1.5 GHz or faster (anything that still pretends to function)
+- CPU: Dual-core, 1.5 GHz or faster
 - RAM: 512 MB minimum (1 GB+ recommended — more if your computer also doubles as a space heater)
 - Display: 800×600 resolution or higher
 - Storage: ~80 MB of free space (or roughly 50 billion crabs)

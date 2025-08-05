@@ -5,12 +5,10 @@ An app designed to help you plan your CSUSM classes efficiently.
 
 ## 🖥 Requirements to Run
 - Windows 10 or 11
-- Functioning **keyboard** (the computer kind, not a piano 🎹)
-- Anything that can **display your computer output**
-- Functioning **mouse** (the computer kind, not a rodent 🐭)
-- CPU  
-- RAM  
-- ~80 MB of free storage space
+- A keyboard and mouse you haven't broken... yet
+- A CPU that at least pretends to know what it’s doing
+- One stick of RAM (Two may be pushing it)
+- ~80 MB of free storage space (You can always download more)
 
 ---
 

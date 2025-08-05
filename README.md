@@ -6,12 +6,14 @@
 ---
 
 ## 📚 Table of Contents
-- [Requirements to Run](#-requirements-to-run)
-- [Installation](#-installation)
-- [Notice](#-notice)
-- [Install Requirements (Developers)](#-install-requirements-for-building-from-source)
-- [Database Update Tool](#-database-update-tool)
-- [Build Instructions](#-build-instructions-for-developers)
+- [🖥 Requirements to Run](#-requirements-to-run)
+- [📥 Installation](#-installation)
+- [⚠ Notice](#-notice)
+- [🚀 Usage](#-usage)
+- [📦 Install Requirements (Developers)](#-install-requirements-for-building-from-source)
+- [🐍 Database Update Tool](#-database-update-tool)
+- [🛠 Build Instructions](#-build-instructions-for-developers)
+- [👥 Contributors](#-contributors)
 
 ---
 
@@ -38,7 +40,7 @@
 <details>
 <summary>Click to expand</summary>
 
-> **Important:**  
+> ⚠ **Important:**  
 > We do not have $100 to spare to have this program validated by Microsoft.  
 > You **will** get a virus alert from Windows Security — this is a **false positive**.  
 > You are welcome to scan the file with any antivirus software you use and trust.
@@ -47,11 +49,63 @@
 
 ---
 
+## 🚀 Usage
+
+1. 🖥 **Launch the Program**
+   - Run `370-project.exe` (Windows).
+   - The main Cluster Scheduler window will appear.
+
+2. ➕ **Add Classes**
+   - Click the **(+)** icon next to the **Your Schedule** title.
+   - Choose one of the two options:
+     1. **Manually Add Class**
+     2. **Search for Class**
+
+3. ✏ **Manually Add Class**
+   - Select a building from the dropdown.
+   - Enter a name for the class.
+   - Select a start time and an end time.
+   - Select the days the class occurs.
+   - Click **OK** to confirm and add the class to **Your Schedule**.
+
+4. 🔍 **Search for Classes**
+   - Use the search bars and dropdowns to filter by:
+     - Subject
+     - Building
+     - Class Name
+     - Time
+     - Day(s)
+   - Combine multiple filters to narrow down results.
+   - To add a class from search results, click the **(+)** icon on the far right of the class frame.
+
+5. 📅 **Plan Your Schedule**
+   - Add classes to your schedule by:
+     - Selecting them from search results
+     - Manually adding them
+   - The app will automatically:
+     - Check for time conflicts
+     - Check walking distance between classes
+
+6. 🔄 **Update the Class Database**
+   - **Requirements:**
+     - Active internet connection  
+     - Google Chrome installed  
+
+   - Press the **Update** button to the left of the **Your Schedule** title.  
+   - The update process takes **3–5 minutes** depending on your computer and internet speed.
+
+
+💡 **Tip:** You can adjust sections of the app’s interface to focus on your schedule or the map of CSUSM.
+
+---
+
+
 ## 📦 Install Requirements (For Building from Source)
 <details>
 <summary>Click to expand</summary>
-Before you can build Cluster Scheduler, make sure you have:
   
+Before you can build Cluster Scheduler, make sure you have:
+
 - [Qt Community Edition 17.0.0](https://www.qt.io/download)
 - A C++17-compatible compiler  
   - **Windows:** MSVC (Visual Studio) or MinGW  
@@ -59,7 +113,6 @@ Before you can build Cluster Scheduler, make sure you have:
 - [CMake](https://cmake.org/download/) (minimum version 3.16)
 - Git (to clone the repository)
 - (Optional) [Qt Creator IDE](https://www.qt.io/product/development-tools) for an easier build process
-  
 </details>
 
 ---
@@ -72,7 +125,6 @@ Cluster Scheduler includes a small helper program for updating the class databas
 
 ### File Location
 If building from source, the Python script can be found at:
-
 `370-project\Desktop_Qt_6_9_1_MinGW_64_bit-Release\class_finder\data_extractor`
 
 ### Options to Run It
@@ -95,7 +147,7 @@ If building from source, the Python script can be found at:
 - Downloads the latest class data
 - Updates the internal database used by Cluster Scheduler
 
-⚠ **Note:** Running this tool will overwrite your existing database file with the latest data.
+> ⚠ **Note:** Running this tool will overwrite your existing database file with the latest data.
 </details>
 
 ---
@@ -125,7 +177,7 @@ cmake --build .
 
 ---
 
-## Contributors
+## 👥 Contributors
 - Cole Leahy (@Crayon-lover)
 - Teammate Name 1 (@githubhandle)
 - Teammate Name 2 (@githubhandle)

@@ -42,7 +42,10 @@ void SaveFeature::addToSave(const ClassInfo& data, const string& filename) {
     SaveFile.close();
     SaveFile.open(filename, ios::app);
 
-    SaveFile << data.name.toStdString() << "," <<
+    QString name = data.name;
+    name.replace(", ", " | ");
+
+    SaveFile << name.toStdString() << "," <<
         data.building.toStdString() << "," <<
         data.startTime.toStdString() << "," <<
         data.endTime.toStdString() << "," <<
@@ -81,13 +84,17 @@ void SaveFeature::parseSavaData(const string& filename, QString line, ClassInfo&
     else {
         parsed = line.split(',');
         int parsedsize = parsed.size();
-        if (parsedsize != 1) {
-            data.name = parsed.at(0);
-            data.building = parsed.at(1);
-            data.startTime = parsed.at(2);
-            data.endTime = parsed.at(3);
-            data.days = parsed.at(4);
+        QString name = parsed.at(0);
+        name.replace(" | ", ", ");
+
+        if (parsedsize != 5) {
+            return;
         }
+        data.name = name;
+        data.building = parsed.at(1);
+        data.startTime = parsed.at(2);
+        data.endTime = parsed.at(3);
+        data.days = parsed.at(4);
     }
 }
 

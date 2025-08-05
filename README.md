@@ -1,8 +1,9 @@
 # 📅 Cluster Scheduler
 An app designed to help you plan your CSUSM classes efficiently.
 
-![GitHub all releases](https://img.shields.io/github/downloads/rochanehurst/CS370-Team3/total?label=Downloads)
-![GitHub release (latest by date)](https://img.shields.io/github/downloads/rochanehurst/CS370-Team3/latest/total?label=Downloads)
+![Total Downloads](https://img.shields.io/github/downloads/rochanehurst/CS370-Team3/total?label=Total%20Downloads)
+![Latest Release Downloads](https://img.shields.io/github/downloads/rochanehurst/CS370-Team3/latest/total?label=Latest%20Release%20Downloads)
+
 
 ---
 

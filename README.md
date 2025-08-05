@@ -1,6 +1,6 @@
-<h1>
-  <img src="370-project/icons/ClusterIcon.png" alt="Cluster Scheduler Icon" width="50" style="vertical-align: middle;"/> Cluster Scheduler
-</h1>
+<p align="center">
+  <img src="370-project/icons/Cluster Banner.png" alt="Cluster Scheduler Banner" width="800">
+</p>
 <p align="center">An app designed to help you plan your CSUSM classes efficiently.</p>
 
 ---

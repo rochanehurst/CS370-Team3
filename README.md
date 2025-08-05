@@ -188,7 +188,7 @@ cmake --build .
 
 ## 👥 Contributors
 - Cole Leahy (@Crayon-lover)
-- Teammate Name 1 (@githubhandle)
+- Rochane Hurst @rochanehurst
 - Teammate Name 2 (@githubhandle)
 - Teammate Name 3 (@githubhandle)
 - Teammate Name 4 (@githubhandle)

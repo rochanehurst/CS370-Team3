@@ -464,7 +464,7 @@ void MainWindow::initMap() {
     apiMap_ = new ApiMap(this);
     mapWidget->rootContext()->setContextProperty("apiMap", apiMap_);
     //=================================================================
-    mapWidget->setSource(QUrl(QStringLiteral("../../map.qml"))); // adjust path if needed
+    mapWidget->setSource(QUrl(QStringLiteral("qrc:/map.qml"))); // adjust path if needed
     mapWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     // set minimum size to placeholder size to prevent shrinking

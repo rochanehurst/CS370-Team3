@@ -1,4 +1,7 @@
-<h1 align="center">📅 Cluster Scheduler</h1>
+<p align="center">
+  <img src="370-project/icons/Cluster Window Icon Placeholder.png" alt="Cluster Scheduler Icon" width="120">
+</p>
+<h1 align="center">Cluster Scheduler</h1>
 <p align="center">An app designed to help you plan your CSUSM classes efficiently.</p>
 
 ---

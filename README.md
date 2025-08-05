@@ -1,10 +1,6 @@
 # 📅 Cluster Scheduler
 An app designed to help you plan your CSUSM classes efficiently.
 
-![Total Downloads](https://img.shields.io/github/downloads/rochanehurst/CS370-Team3/total?label=Total%20Downloads)
-![Latest Release Downloads](https://img.shields.io/github/downloads/rochanehurst/CS370-Team3/latest/total?label=Latest%20Release%20Downloads)
-
-
 ---
 
 ## 🖥 Requirements to Run
@@ -28,10 +24,14 @@ An app designed to help you plan your CSUSM classes efficiently.
 
 ---
 
-### ⚠ Notice ⚠
+<details>
+<summary>⚠ Notice (click to expand)</summary>
+
 We do not have $100 to spare to have this program validated by Microsoft.  
 You **will** get a virus alert from Windows Security — this is a **false positive**.  
 You are welcome to scan the file with any antivirus software you use and trust.
+
+</details>
 
 ---
 

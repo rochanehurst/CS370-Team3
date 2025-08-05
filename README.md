@@ -5,7 +5,7 @@ An app designed to help you plan your CSUSM classes efficiently
 ---
 ## Requirements to run
 - Windows 10/11
-- Functioning Keyboard (The computer kind, not a piano
+- Functioning Keyboard (The computer kind, not a piano)
 - Anything that can display your computer
 - Functioning Mouse (The computer kind, not a rodent)
 - CPU

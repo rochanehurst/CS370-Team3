@@ -7,8 +7,8 @@
 //string filename = "cluster_savedata.txt";
 // SaveFeature sv("cluster_savedata.txt");
 
-ClassInfoFrame::ClassInfoFrame(QWidget* parent)
-    : QFrame(parent)
+ClassInfoFrame::ClassInfoFrame(ApiMap* apiMap, QWidget* parent)
+    : QFrame(parent), apiMap_(apiMap)
 {
     ui_.setupUi(this);
 
@@ -28,6 +28,13 @@ void ClassInfoFrame::createFrame(const ClassInfo& class_info) {
     setLocation(class_info.building);
     setTime(class_info.startTime, class_info.endTime);
     setDays(class_info.days);
+
+     //adding to map when adding a class
+    if(class_info.building != "ONLINE CLASS"){
+        QGeoCoordinate buildingCoord = apiMap_->coordinateForBuilding(class_info.building);
+        apiMap_->showMarkerAt(buildingCoord);
+        apiMap_->addInfoToMap(buildingCoord, frame_data_.name, frame_data_.building);
+    }
 }
 
 void ClassInfoFrame::editFrameData() {
@@ -35,6 +42,11 @@ void ClassInfoFrame::editFrameData() {
     Dialog editor(getFrameData());
     editor.setModal(true);
     if (editor.exec() == QDialog::Accepted) {
+        if(frame_data_.building != "ONLINE CLASS"){
+            QGeoCoordinate buildCoord = apiMap_->coordinateForBuilding(frame_data_.building);
+            apiMap_->removeMarkerAt(buildCoord);
+            apiMap_->removeInfoMap(buildCoord, frame_data_.name, frame_data_.building);
+        }
         createFrame(editor.getData());
         /*
         string newdata = sv.makeString(editor.getData());
@@ -44,6 +56,12 @@ void ClassInfoFrame::editFrameData() {
 }
 
 void ClassInfoFrame::deleteFrameData() {
+    //deleting from map when removing a class
+    if(frame_data_.building != "ONLINE CLASS"){
+        QGeoCoordinate buildCoord = apiMap_->coordinateForBuilding(frame_data_.building);
+        apiMap_->removeMarkerAt(buildCoord);
+        apiMap_->removeInfoMap(buildCoord, frame_data_.name, frame_data_.building);
+    }
     deleteLater();
 }
 

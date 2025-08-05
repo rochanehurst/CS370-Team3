@@ -7,6 +7,8 @@
 #include <QMainWindow>
 #include <QVBoxLayout>
 #include <QDebug>
+#include <QQuickWidget> //for map
+
 using namespace std;
 
 struct ClassData {
@@ -82,6 +84,7 @@ private:
     QStringList extractInstructors(const QString& instructors);
     QStringList extractBuildings(const QString& buildings);
 
+    void initMap(); //initialize map
 
 private:
     Ui::main_window *ui_;
@@ -97,6 +100,8 @@ private:
                                     "Kellogg Library", "Markstein Hall", "Science Hall",
                                     "Science Hall II", "Soc & Behavioral Sci Bldg",
                                     "University Hall","Viasat Engineering Pav", "Synchronous Virtual Instr"};
+    QQuickWidget* mapWidget = nullptr;
+    ApiMap* apiMap_ = nullptr;  // added for apimap
 };
 
 #endif // MAINWINDOW_H

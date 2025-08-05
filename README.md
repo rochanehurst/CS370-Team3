@@ -2,7 +2,7 @@
 An app designed to help you plan your CSUSM classes efficiently.
 
 ![GitHub all releases](https://img.shields.io/github/downloads/rochanehurst/CS370-Team3/total?label=Downloads)
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/rochanehurst/CS370-Team3)
+![GitHub release (latest by date)](https://img.shields.io/github/downloads/rochanehurst/CS370-Team3/latest/total?label=Downloads)
 
 ---
 

@@ -1,28 +1,38 @@
-# Cluster Scheduler
-An app designed to help you plan your CSUSM classes efficiently
+# 📅 Cluster Scheduler
+An app designed to help you plan your CSUSM classes efficiently.
 
-![Downloads](https://github.com/rochanehurst/CS370-Team3/releases)
+![GitHub all releases](https://img.shields.io/github/downloads/rochanehurst/CS370-Team3/total?label=Downloads)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/rochanehurst/CS370-Team3)
+
 ---
-## Requirements to run
-- Windows 10/11
-- Functioning Keyboard (The computer kind, not a piano)
-- Anything that can display your computer
-- Functioning Mouse (The computer kind, not a rodent)
-- CPU
-- RAM
-- 80MB of space (on your harddrive)
+
+## 🖥 Requirements to Run
+- Windows 10 or 11
+- Functioning **keyboard** (the computer kind, not a piano 🎹)
+- Anything that can **display your computer output**
+- Functioning **mouse** (the computer kind, not a rodent 🐭)
+- CPU  
+- RAM  
+- ~80 MB of free storage space
+
 ---
-## Installation
+
+## 📥 Installation
 1. Go to the [Releases](https://github.com/rochanehurst/CS370-Team3/releases/latest) page.
-2. Click on title of preferred version
-3. Click 370-project.zip
-4. Once downloaded, extract files and run 370-project.exe
-5. Done! You should be all set to go!
+2. Click on the **title** of your preferred version.
+3. Download the `370-project.zip` file.
+4. Once downloaded, **extract** the files.
+5. Run `370-project.exe`.
+6. Done! 🎉 You’re ready to schedule like a pro.
 
-### Notice
-This team does not have $100 to spare to have this program validated by microsoft.
-You **WILL** get a virus alert from Windows Security.
-This is a **FALSE POSITIVE**. Feel free to scan the file with any anti-virus software you use and trust.
+---
 
-## Download
+### ⚠ Notice ⚠
+We do not have $100 to spare to have this program validated by Microsoft.  
+You **will** get a virus alert from Windows Security — this is a **false positive**.  
+You are welcome to scan the file with any antivirus software you use and trust.
+
+---
+
+## ⬇ Download
 [**Download Latest Version**](https://github.com/rochanehurst/CS370-Team3/releases/latest)

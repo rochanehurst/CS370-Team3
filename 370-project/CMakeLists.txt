@@ -12,7 +12,14 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Test) #edited this. important!
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Test
+    #following required for map to work
+    Quick
+    QuickWidgets
+    Positioning
+    Location
+    Network
+) #edited this. important!
 
 set(PROJECT_SOURCES
     main.cpp
@@ -41,7 +48,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         ${PROJECT_SOURCES}
         class_result.h class_result.cpp class_result.ui
         savestuff.cpp savestuff.h
-
+        apimap.h apimap.cpp
 
     )
 # Define target properties for Android with Qt 6 as:
@@ -62,7 +69,14 @@ else()
     endif()
 endif()
 
-target_link_libraries(370-Project PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(370-Project PRIVATE Qt${QT_VERSION_MAJOR}::Widgets
+    #following required for map to work    
+    Qt${QT_VERSION_MAJOR}::Quick
+    Qt${QT_VERSION_MAJOR}::QuickWidgets
+    Qt${QT_VERSION_MAJOR}::Positioning
+    Qt${QT_VERSION_MAJOR}::Location
+    Qt${QT_VERSION_MAJOR}::Network
+)
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an

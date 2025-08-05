@@ -12,6 +12,8 @@
 #include <QProcess>
 #include <QProgressDialog>
 
+#include <QQmlCOntext> //for connecting to map.qml
+
 string filename = "cluster_savedata.txt";
 SaveFeature s(filename);
 

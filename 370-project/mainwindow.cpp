@@ -116,7 +116,14 @@ void MainWindow::setupClassListLayout() {
 
 void MainWindow::setupClassSearch(){
     search_classes_.clear();
-    QString path = QCoreApplication::applicationDirPath() + "/class_finder/data/csusm_classes.csv";
+    QString exePath = QCoreApplication::applicationDirPath();
+    QString path = exePath + "/class_finder/data/csusm_classes.csv";
+
+    // fallback for running from Qt Creator
+    if (!QFile::exists(path)) {
+        qDebug() << "I FOUND ITTT";
+        path = exePath + "/../../class_finder/data/csusm_classes.csv";
+    }
     loadCSV(path);
 }
 

@@ -6,6 +6,7 @@
 ---
 
 ## 📚 Table of Contents
+- [📂 Repository Structure](#-repository-structure)
 - [🖥 Requirements to Run](#-requirements-to-run)
 - [📥 Installation](#-installation)
 - [⚠ Notice](#-notice)
@@ -14,6 +15,30 @@
 - [🐍 Database Update Tool](#-database-update-tool)
 - [🛠 Build Instructions](#-build-instructions-for-developers)
 - [👥 Contributors](#-contributors)
+
+---
+
+## 📂 Repository Structure
+
+370-project/            # Main app source code (UI, logic, Qt)
+├── build/              # Build folder, contains build instructions for Qt
+├── icons/              # Icons for various buttons and windows
+├── tests/              # Unit Tests
+├── Main Palette.xml    # Palette used in software
+├── apimap.*            # Api map used to power CSUSM map and directions
+├── app_icon.rc         # Shows directory for .exe icno
+├── class_info_unit.*   # Class Info frame, shown in "My Schedule List"
+├── class_result.*      # Frame for search results
+├── clustericon.ico     # .exe icon
+├── createclass.*       # Handles Manually Add UI and functionality
+├── main.cpp            # Starts the software
+├── mainwindow.*        # Handles Main UI and functionality
+├── map.qml             # Map data used by apimap.*
+├── new_palette.xml     # Alternate Pallete used
+├── resources.qrc       # Directs to icons/ and map.qml 
+├── safestuff.*         # Save data functionality
+├── schedulelogic.*     # Schedule confliction algorithm
+├── search_window.*     # Handles search UI and functionality
 
 ---
 

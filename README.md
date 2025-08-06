@@ -141,8 +141,14 @@
 Before you can build Cluster Scheduler, make sure you have:
 
 - [Qt Community Edition 17.0.0](https://www.qt.io/download)
+  - Qt 6.9.0+
+  - Additional Libraries
+    - Qt Location
+    - Qt Multimedia
+    - Qt Network Authorization
+    - Qt Positioning
 - A C++17-compatible compiler  
-  - **Windows:** MSVC (Visual Studio) or MinGW  
+  - **Windows:** MSVC (Visual Studio) or MinGW 13.0.0+
   - **Linux/macOS:** GCC or Clang
 - [CMake](https://cmake.org/download/) (minimum version 3.16)
 - Git (to clone the repository)

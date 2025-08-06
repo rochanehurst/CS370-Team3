@@ -157,7 +157,9 @@ If building from source, the Python script can be found at:
 - Downloads the latest class data
 - Updates the internal database used by Cluster Scheduler
 
-> ⚠ **Note:** Running this tool will overwrite your existing database file with the latest data.
+> ⚠ **Important:** Running this tool will replace your current database file with the newest data.
+>
+> The update process typically takes 3–5 minutes to complete.
 </details>
 
 ---

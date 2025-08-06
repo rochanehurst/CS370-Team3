@@ -63,6 +63,7 @@ public:
 
 
 private slots:
+    void onClassRemoved(ClassInfoFrame* w);
     void createClassButtonHandler();
     void clearSchedule(bool test = false);
     void searchClass();
@@ -78,6 +79,7 @@ private:
     void setupWidths();
     void setup();
     void addClass(QWidget* class_to_add, const ClassInfo& info, bool loaded = false);
+    void resetVectors();
 
     void loadCSV(const QString& filePath);
     QString extractDays(const QString& days);

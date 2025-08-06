@@ -28,26 +28,13 @@ public:
 
     void closeFile();
 
-    //void addToSave(const ClassInfo& data, const string& filename);
     void addToSave(const ClassInfo& data, const string& filename);
-
-    void deleteFromSave();
 
     void loadSaveData(const string& filename, QStringList& unparsed);
 
-    //void parseSavaData(const string& filename, QString line, QStringList& parsed, int size);
     void parseSavaData(const string& filename, QString line, ClassInfo& data);
 
     void clearAll(const string& filename);
-
-    // void editSave(const string& filename, string olddata, string newdata);
-
-    string makeString(ClassInfo data);
-
-    // 3rd void for convert to widget
-
-    // file -> qstringlist of the unparsed lines -> feed one line into parse funct -> return as
-    // second qstringlist -> feed into data card
 };
 
 #endif // SAVESTUFF_H

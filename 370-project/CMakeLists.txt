@@ -39,16 +39,22 @@ set(PROJECT_SOURCES
     class_result.h class_result.cpp class_result.ui
     savestuff.cpp savestuff.h
     schedulelogic.h schedulelogic.cpp
+    apimap.cpp apimap.h
 )
 
+if (WIN32)
+    set(APP_ICON_RESOURCE "${CMAKE_CURRENT_SOURCE_DIR}/app_icon.rc")
+endif()
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(370-Project
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
+        ${APP_ICON_RESOURCE}
         class_result.h class_result.cpp class_result.ui
         savestuff.cpp savestuff.h
         apimap.h apimap.cpp
+        app_icon.rc
 
     )
 # Define target properties for Android with Qt 6 as:
@@ -65,6 +71,7 @@ else()
     else()
         add_executable(370-Project
             ${PROJECT_SOURCES}
+            ${APP_ICON_RESOURCE}
         )
     endif()
 endif()
@@ -115,14 +122,21 @@ add_executable(TC01_CheckBoxesInitialState #test executable name
     createclass.h
     class_info_unit.cpp
     class_info_unit.h
+    apimap.cpp apimap.h
 )
 target_include_directories(TC01_CheckBoxesInitialState PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}) #include path for headers
 
 
 target_link_libraries(TC01_CheckBoxesInitialState PRIVATE
-    Qt${QT_VERSION_MAJOR}::Widgets #widget library for ui components
-    Qt${QT_VERSION_MAJOR}::Test #test library for test framework
+    Qt${QT_VERSION_MAJOR}::Widgets
+    Qt${QT_VERSION_MAJOR}::Test
+    Qt${QT_VERSION_MAJOR}::Quick
+    Qt${QT_VERSION_MAJOR}::QuickWidgets
+    Qt${QT_VERSION_MAJOR}::Network
+    Qt${QT_VERSION_MAJOR}::Positioning
+    Qt${QT_VERSION_MAJOR}::Location
 )
+
 add_test(NAME TC01_CheckBoxesInitialState COMMAND TC01_CheckBoxesInitialState) #Register with CTest in case is configured
 
 
@@ -136,13 +150,20 @@ add_executable(TC02_AddClassToSchedule
     savestuff.cpp savestuff.h
     search_window.cpp search_window.h
     class_result.cpp class_result.h
+    apimap.cpp apimap.h
 )
 target_include_directories(TC02_AddClassToSchedule PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 
 target_link_libraries(TC02_AddClassToSchedule PRIVATE
     Qt${QT_VERSION_MAJOR}::Widgets
     Qt${QT_VERSION_MAJOR}::Test
+    Qt${QT_VERSION_MAJOR}::Quick
+    Qt${QT_VERSION_MAJOR}::QuickWidgets
+    Qt${QT_VERSION_MAJOR}::Network
+    Qt${QT_VERSION_MAJOR}::Positioning
+    Qt${QT_VERSION_MAJOR}::Location
 )
+
 add_test(NAME TC02_AddClassToSchedule COMMAND TC02_AddClassToSchedule)
 
 
@@ -152,13 +173,20 @@ add_executable(TC03_ScheduleConflictDetection
     schedulelogic.cpp schedulelogic.h
     createclass.cpp createclass.h
     class_info_unit.cpp class_info_unit.h
+    apimap.cpp apimap.h
 )
 target_include_directories(TC03_ScheduleConflictDetection PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 
 target_link_libraries(TC03_ScheduleConflictDetection PRIVATE
     Qt${QT_VERSION_MAJOR}::Widgets
     Qt${QT_VERSION_MAJOR}::Test
+    Qt${QT_VERSION_MAJOR}::Quick
+    Qt${QT_VERSION_MAJOR}::QuickWidgets
+    Qt${QT_VERSION_MAJOR}::Network
+    Qt${QT_VERSION_MAJOR}::Positioning
+    Qt${QT_VERSION_MAJOR}::Location
 )
+
 add_test(NAME TC03_ScheduleConflictDetection COMMAND TC03_ScheduleConflictDetection)
 
 #test04
@@ -171,7 +199,13 @@ target_include_directories(TC04_TimeComparison PRIVATE ${CMAKE_CURRENT_SOURCE_DI
 target_link_libraries(TC04_TimeComparison PRIVATE
     Qt${QT_VERSION_MAJOR}::Widgets
     Qt${QT_VERSION_MAJOR}::Test
+    Qt${QT_VERSION_MAJOR}::Quick
+    Qt${QT_VERSION_MAJOR}::QuickWidgets
+    Qt${QT_VERSION_MAJOR}::Network
+    Qt${QT_VERSION_MAJOR}::Positioning
+    Qt${QT_VERSION_MAJOR}::Location
 )
+
 add_test(NAME TC04_TimeComparison COMMAND TC04_TimeComparison)
 
 #test05
@@ -184,7 +218,13 @@ target_include_directories(TC05_ClearAllClasses PRIVATE ${CMAKE_CURRENT_SOURCE_D
 target_link_libraries(TC05_ClearAllClasses PRIVATE
     Qt${QT_VERSION_MAJOR}::Widgets
     Qt${QT_VERSION_MAJOR}::Test
+    Qt${QT_VERSION_MAJOR}::Quick
+    Qt${QT_VERSION_MAJOR}::QuickWidgets
+    Qt${QT_VERSION_MAJOR}::Network
+    Qt${QT_VERSION_MAJOR}::Positioning
+    Qt${QT_VERSION_MAJOR}::Location
 )
+
 add_test(NAME TC05_ClearAllClasses COMMAND TC05_ClearAllClasses)
 
 #Test06
@@ -197,7 +237,13 @@ target_include_directories(TC06_UILoadsClassData PRIVATE ${CMAKE_CURRENT_SOURCE_
 target_link_libraries(TC06_UILoadsClassData PRIVATE
     Qt${QT_VERSION_MAJOR}::Widgets
     Qt${QT_VERSION_MAJOR}::Test
+    Qt${QT_VERSION_MAJOR}::Quick
+    Qt${QT_VERSION_MAJOR}::QuickWidgets
+    Qt${QT_VERSION_MAJOR}::Network
+    Qt${QT_VERSION_MAJOR}::Positioning
+    Qt${QT_VERSION_MAJOR}::Location
 )
+
 add_test(NAME TC06_UILoadsClassData COMMAND TC06_UILoadsClassData)
 
 #Test07
@@ -211,7 +257,13 @@ target_include_directories(TC07_SaveScheduleToFile PRIVATE ${CMAKE_CURRENT_SOURC
 target_link_libraries(TC07_SaveScheduleToFile PRIVATE
     Qt${QT_VERSION_MAJOR}::Widgets
     Qt${QT_VERSION_MAJOR}::Test
+    Qt${QT_VERSION_MAJOR}::Quick
+    Qt${QT_VERSION_MAJOR}::QuickWidgets
+    Qt${QT_VERSION_MAJOR}::Network
+    Qt${QT_VERSION_MAJOR}::Positioning
+    Qt${QT_VERSION_MAJOR}::Location
 )
+
 add_test(NAME TC07_SaveScheduleToFile COMMAND TC07_SaveScheduleToFile)
 
 # Test08
@@ -220,13 +272,20 @@ add_executable(TC08_ScheduleLogicValidation
     schedulelogic.cpp schedulelogic.h
     createclass.cpp createclass.h
     class_info_unit.cpp class_info_unit.h
+    apimap.cpp apimap.h
 )
 target_include_directories(TC08_ScheduleLogicValidation PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 
 target_link_libraries(TC08_ScheduleLogicValidation PRIVATE
     Qt${QT_VERSION_MAJOR}::Widgets
     Qt${QT_VERSION_MAJOR}::Test
+    Qt${QT_VERSION_MAJOR}::Quick
+    Qt${QT_VERSION_MAJOR}::QuickWidgets
+    Qt${QT_VERSION_MAJOR}::Network
+    Qt${QT_VERSION_MAJOR}::Positioning
+    Qt${QT_VERSION_MAJOR}::Location
 )
+
 add_test(NAME TC08_ScheduleLogicValidation COMMAND TC08_ScheduleLogicValidation)
 
 # Test09
@@ -234,13 +293,20 @@ add_executable(TC09_ClassInfoFrameData
     tests/TC09_ClassInfoFrameData.cpp
     class_info_unit.cpp class_info_unit.h
     createclass.cpp createclass.h
+    apimap.cpp apimap.h
 )
 target_include_directories(TC09_ClassInfoFrameData PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 
 target_link_libraries(TC09_ClassInfoFrameData PRIVATE
     Qt${QT_VERSION_MAJOR}::Widgets
     Qt${QT_VERSION_MAJOR}::Test
+    Qt${QT_VERSION_MAJOR}::Quick
+    Qt${QT_VERSION_MAJOR}::QuickWidgets
+    Qt${QT_VERSION_MAJOR}::Network
+    Qt${QT_VERSION_MAJOR}::Positioning
+    Qt${QT_VERSION_MAJOR}::Location
 )
+
 add_test(NAME TC09_ClassInfoFrameData COMMAND TC09_ClassInfoFrameData)
 
 # Test10
@@ -254,6 +320,12 @@ target_include_directories(TC10_SaveFeatureFileCheck PRIVATE ${CMAKE_CURRENT_SOU
 target_link_libraries(TC10_SaveFeatureFileCheck PRIVATE
     Qt${QT_VERSION_MAJOR}::Widgets
     Qt${QT_VERSION_MAJOR}::Test
+    Qt${QT_VERSION_MAJOR}::Quick
+    Qt${QT_VERSION_MAJOR}::QuickWidgets
+    Qt${QT_VERSION_MAJOR}::Network
+    Qt${QT_VERSION_MAJOR}::Positioning
+    Qt${QT_VERSION_MAJOR}::Location
 )
+
 add_test(NAME TC10_SaveFeatureFileCheck COMMAND TC10_SaveFeatureFileCheck)
 

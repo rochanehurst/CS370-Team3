@@ -11,8 +11,8 @@
 #include <QAction>
 #include <QProcess>
 #include <QProgressDialog>
-
-#include <QQmlCOntext> //for connecting to map.qml
+#include <QQmlEngine>
+#include <QQmlContext> //for connecting to map.qml
 
 string filename = "cluster_savedata.txt";
 SaveFeature s(filename);
@@ -46,20 +46,36 @@ MainWindow::MainWindow(QWidget *parent)
 
 
 MainWindow::~MainWindow() {
+    resetVectors();
+    delete ui_;
+}
+
+
+
+void MainWindow::onClassRemoved(ClassInfoFrame* w){
+    delete w;
+    resetVectors();
+    for (int i = 0; i < current_schedule_data_.count(); i++){
+        current_schedule_data_.at(i).print();
+    }
+}
+
+
+void MainWindow::resetVectors(){
     s.clearAll(filename);
+    current_schedule_data_.clear();
     for (int i = 0; i < class_list_layout_->count(); ++i) {
         QWidget* widget = class_list_layout_->itemAt(i)->widget();
         if (widget) {
             ClassInfoFrame* class_info = qobject_cast<ClassInfoFrame*>(widget);
             if (class_info) {
                 s.addToSave(class_info->getFrameData(), filename);
+                current_schedule_data_.append(class_info->getFrameData());
             }
         }
     }
     s.closeFile();
-    delete ui_;
 }
-
 
 
 void MainWindow::setup(){
@@ -121,10 +137,73 @@ void MainWindow::setupClassSearch(){
 
     // fallback for running from Qt Creator
     if (!QFile::exists(path)) {
-        qDebug() << "I FOUND ITTT";
         path = exePath + "/class_finder/data/csusm_classes.csv";
     }
     loadCSV(path);
+}
+
+
+
+//function that uses the placeholder in mainwindow.ui and initializes a map
+void MainWindow::initMap() {
+    QWidget* mapPlaceholder = ui_->map_placeholder;
+    if (!mapPlaceholder) {
+        qWarning("Map placeholder widget not found!");
+        return;
+    }
+
+    QWidget* parentWidget = mapPlaceholder->parentWidget();
+    if (!parentWidget) {
+        qWarning("Map placeholder has no parent!");
+        return;
+    }
+
+    QLayout* layout = parentWidget->layout();
+    if (!layout) {
+        qWarning("Parent widget has no layout!");
+        return;
+    }
+
+    QVBoxLayout* vboxLayout = qobject_cast<QVBoxLayout*>(layout);
+    if (!vboxLayout) {
+        qWarning("Parent layout is not a QVBoxLayout!");
+        return;
+    }
+
+    int index = vboxLayout->indexOf(mapPlaceholder);
+    if (index == -1) {
+        qWarning("Map placeholder not found in VBox layout!");
+        return;
+    }
+
+    mapWidget = new QQuickWidget(this);
+    mapWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
+
+    // Make sure the engine can find Qt’s QML modules and plugins
+    auto eng = mapWidget->engine();
+    eng->addImportPath("C:/Qt/6.9.1/mingw_64/qml");               // QtLocation / QtPositioning QML
+    QCoreApplication::addLibraryPath("C:/Qt/6.9.1/mingw_64/plugins"); // geoservices (osm) plugin
+
+    // Expose apiMap_ to QML *after* engine exists, still before setSource
+    apiMap_ = new ApiMap(this);
+    mapWidget->rootContext()->setContextProperty("apiMap", apiMap_);
+
+    // Now load the QML
+    mapWidget->setSource(QUrl(QStringLiteral("qrc:/map.qml")));
+    mapWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    mapWidget->setMinimumSize(mapPlaceholder->size());
+
+    vboxLayout->removeWidget(mapPlaceholder);
+    mapPlaceholder->hide();
+    mapPlaceholder->setParent(nullptr);
+
+    vboxLayout->insertWidget(index, mapWidget);
+    mapWidget->resize(mapPlaceholder->size());
+
+    parentWidget->updateGeometry();
+    parentWidget->update();
+
+    mapWidget->show();
 }
 
 
@@ -280,11 +359,10 @@ void MainWindow::createClassFrame(ClassInfo& class_info, bool loaded) {
     }
 
     ClassInfoFrame* class_data = new ClassInfoFrame(apiMap_, this);
+    connect(class_data, &ClassInfoFrame::removing, this, &MainWindow::onClassRemoved);
     class_data->createFrame(class_info);
     addClass(class_data, class_info, loaded);
-
     current_schedule_data_.append(class_info);
-
 }
 
 
@@ -418,83 +496,5 @@ void MainWindow::debugPopulateList() {
     }
 }
 
-//added by Raymond Las Pinas
-//function that uses the placeholder in mainwindow.ui and initializes a map
-void MainWindow::initMap() {
-    // get placeholder widget where the map'll be inserted
-    QWidget* mapPlaceholder = ui_->map_placeholder;
-    if (!mapPlaceholder) {
-        qWarning("Map placeholder widget not found!");
-        return;
-    }
-
-    // get the parent widget containing placeholder
-    QWidget* parentWidget = mapPlaceholder->parentWidget();
-    if (!parentWidget) {
-        qWarning("Map placeholder has no parent!");
-        return;
-    }
-
-    // get layout of parent widget
-    QLayout* layout = parentWidget->layout();
-    if (!layout) {
-        qWarning("Parent widget has no layout!");
-        return;
-    }
-
-    // cast layout into a QVBoxLayout
-    QVBoxLayout* vboxLayout = qobject_cast<QVBoxLayout*>(layout);
-    if (!vboxLayout) {
-        qWarning("Parent layout is not a QVBoxLayout!");
-        return;
-    }
-
-    // find the placeholder's index in the layout
-    int index = vboxLayout->indexOf(mapPlaceholder);
-    if (index == -1) {
-        qWarning("Map placeholder not found in VBox layout!");
-        return;
-    }
-
-    // create the map widget
-    mapWidget = new QQuickWidget(this);
-    mapWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
-    //=================================================================
-    // // Expose apiMap_ to QML context
-    apiMap_ = new ApiMap(this);
-    mapWidget->rootContext()->setContextProperty("apiMap", apiMap_);
-    //=================================================================
-    mapWidget->setSource(QUrl(QStringLiteral("qrc:/map.qml"))); // adjust path if needed
-    mapWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-
-    // set minimum size to placeholder size to prevent shrinking
-    mapWidget->setMinimumSize(mapPlaceholder->size());
-
-    // get original stretch factor at placeholder position
-    int stretch = vboxLayout->stretch(index);
-
-    // zero layout margins and spacing for tighter fit
-    vboxLayout->setContentsMargins(0, 0, 0, 0);
-    vboxLayout->setSpacing(0);
-
-    // remove and hide placeholder widget
-    vboxLayout->removeWidget(mapPlaceholder);
-    mapPlaceholder->hide();
-    mapPlaceholder->setParent(nullptr);
-
-    // insert map widget at the same position with the same stretch
-    vboxLayout->insertWidget(index, mapWidget);
-    vboxLayout->setStretch(index, stretch);
-
-    // explicitly resize map widget to placeholder size
-    mapWidget->resize(mapPlaceholder->size());
-
-    // update geometry to reflect changes
-    parentWidget->updateGeometry();
-    parentWidget->update();
-
-    // show map
-    mapWidget->show();
-}
 
 

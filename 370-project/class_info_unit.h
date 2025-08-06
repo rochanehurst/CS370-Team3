@@ -15,6 +15,9 @@ public:
     void createFrame(const ClassInfo& class_info);
     ClassInfo getFrameData() const;
 
+signals:
+    void removing(ClassInfoFrame* w);
+
 private slots:
     void editFrameData();
     void deleteFrameData();

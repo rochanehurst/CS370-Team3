@@ -19,6 +19,8 @@ ClassInfoFrame::ClassInfoFrame(ApiMap* apiMap, QWidget* parent)
     ui_.tool_button->setMenu(menu);
 }
 
+
+
 void ClassInfoFrame::createFrame(const ClassInfo& class_info) {
     frame_data_ = class_info;
     ui_.class_name_label->setToolTip(class_info.name);
@@ -36,6 +38,8 @@ void ClassInfoFrame::createFrame(const ClassInfo& class_info) {
         apiMap_->addInfoToMap(buildingCoord, frame_data_.name, frame_data_.building);
     }
 }
+
+
 
 void ClassInfoFrame::editFrameData() {
     // string olddata = sv.makeString(this->getFrameData());
@@ -55,6 +59,8 @@ void ClassInfoFrame::editFrameData() {
     }
 }
 
+
+
 void ClassInfoFrame::deleteFrameData() {
     //deleting from map when removing a class
     if(frame_data_.building != "ONLINE CLASS"){
@@ -62,12 +68,16 @@ void ClassInfoFrame::deleteFrameData() {
         apiMap_->removeMarkerAt(buildCoord);
         apiMap_->removeInfoMap(buildCoord, frame_data_.name, frame_data_.building);
     }
-    deleteLater();
+    emit removing(this);
 }
+
+
 
 ClassInfo ClassInfoFrame::getFrameData() const {
     return frame_data_;
 }
+
+
 
 void ClassInfoFrame::setIcon() {
     QIcon icon(":/icons/icons/Windows_Settings_app_icon.png");
@@ -75,22 +85,32 @@ void ClassInfoFrame::setIcon() {
     ui_.tool_button->setIconSize(QSize(24,24));
 }
 
+
+
 void ClassInfoFrame::setClassName(const QString &name) {
     ui_.class_name_label->setText(name);
 }
 
+
+
 void ClassInfoFrame::setLocation(const QString& location) {
     ui_.location_label->setText(location);
 }
+
+
 
 void ClassInfoFrame::setTime(const QString& start, const QString& stop) {
     QString time_range = start + " - " + stop;
     ui_.time_label->setText(time_range);
 }
 
+
+
 void ClassInfoFrame::setDays(const QString& days) {
     ui_.days_label->setText(days);
 }
+
+
 
 void ClassInfoFrame::resizeEvent(QResizeEvent *event)
 {

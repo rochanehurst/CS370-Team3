@@ -4,13 +4,14 @@
 
 #include "ui_class_info_unit.h"
 #include "createclass.h"
+#include "apimap.h"
 
 class ClassInfoFrame : public QFrame
 {
     Q_OBJECT
 
 public:
-    explicit ClassInfoFrame(QWidget* parent = nullptr);
+    explicit ClassInfoFrame(ApiMap* apiMap = nullptr, QWidget* parent = nullptr);
     void createFrame(const ClassInfo& class_info);
     ClassInfo getFrameData() const;
 
@@ -30,6 +31,7 @@ private:
 private:
     Ui::class_info_frame ui_;
     ClassInfo frame_data_;
+    ApiMap* apiMap_ = nullptr;  // added for apimap
 };
 
 #endif // CLASS_INFO_UNIT_H

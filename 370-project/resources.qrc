@@ -10,4 +10,7 @@
         <file>icons/warning_level_notice.png</file>
         <file>icons/warning_level_warning.png</file>
     </qresource>
+    <qresource prefix="/">
+        <file>map.qml</file>
+    </qresource>
 </RCC>

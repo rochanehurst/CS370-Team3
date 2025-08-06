@@ -218,7 +218,7 @@ cmake --build .
 ```
 
 ### If Opening Via QT
-1) After cloning repository, open project in QT Creator by selecting CMakeLists.txt
+1) After cloning repository, open project in QT Creator by selecting CMakeLists.txt within 370-Project folder
 2) Configure project
 3) CTRL + B to build or click Run to build & run program
 

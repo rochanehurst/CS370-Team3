@@ -4,16 +4,19 @@
 
 #include "ui_class_info_unit.h"
 #include "createclass.h"
-#include <QFrame>
+#include "apimap.h"
 
 class ClassInfoFrame : public QFrame
 {
     Q_OBJECT
 
 public:
-    explicit ClassInfoFrame(QWidget* parent = nullptr);
+    explicit ClassInfoFrame(ApiMap* apiMap = nullptr, QWidget* parent = nullptr);
     void createFrame(const ClassInfo& class_info);
     ClassInfo getFrameData() const;
+
+signals:
+    void removing(ClassInfoFrame* w);
 
 private slots:
     void editFrameData();
@@ -26,10 +29,12 @@ private:
     void setTime(const QString &start, const QString &stop);
     void setDays(const QString &days);
     void setOnline(bool online);
+    void resizeEvent(QResizeEvent *event);
 
 private:
     Ui::class_info_frame ui_;
     ClassInfo frame_data_;
+    ApiMap* apiMap_ = nullptr;  // added for apimap
 };
 
 #endif // CLASS_INFO_UNIT_H

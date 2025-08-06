@@ -9,6 +9,22 @@ import pandas as pd
 import time
 import sys
 
+def clean_field(value: str) -> str:
+    if not value:
+        return ""
+    # Remove quotes
+    value = value.replace('"', "")
+    # Split by commas and newlines into individual items
+    parts = [p.strip() for p in value.replace("\n", ",").split(",")]
+    # Deduplicate while preserving order
+    seen = []
+    for p in parts:
+        if p and p not in seen:
+            seen.append(p)
+    # Join cleaned parts with a pipe |
+    return " | ".join(seen)
+
+
 # Check if running from a .exe or .py file
 # Determine system path depending on running file
 if getattr(sys, 'frozen', False):
@@ -78,30 +94,52 @@ for subject in subjects["Subject"]:
 
     soup = BeautifulSoup(driver.page_source, "html.parser")
     subject_classes = 0
+    current_class_name = ""  # track the last seen header
 
-    for tr in soup.find_all("tr", id=lambda x: x and x.startswith("trSSR_CLSRCH_MTG1")):
-        class_name_tag = soup.find("img", class_="PTCOLLAPSE")
-        if class_name_tag: class_name = class_name_tag["alt"].replace(" Collapsible section", "").strip()
-        else: class_name = subject
+    for section_div in soup.find_all("div", id=lambda x: x and x.startswith("win0divSSR_CLSRSLT_WRK_GROUPBOX2")):
+        # Get class name from the header image
+        img_tag = section_div.find("img", class_="PTCOLLAPSE")
+        if not img_tag:
+            continue
+        class_name = img_tag.get("alt", "").replace(" Collapsible section", "").strip()
 
-        class_number = tr.find("span", id=lambda x: x and x.startswith("MTG_CLASS_NBR")).text.strip()
-        instructor = tr.find("span", id=lambda x: x and x.startswith("MTG_INSTR")).text.strip()
-        location = tr.find("span", id=lambda x: x and x.startswith("MTG_ROOM")).text.strip()
-        times = tr.find("span", id=lambda x: x and x.startswith("MTG_DAYTIME")).text.strip()
+        # Find all class rows under this section
+        rows_for_class = section_div.find_all(
+            "tr", id=lambda x: x and x.startswith("trSSR_CLSRCH_MTG1")
+        )
 
-        rows.append({
-            "Major": subject,
-            "Class Name": class_name,
-            "Class Code": class_number,
-            "Instructor": instructor,
-            "Location": location,
-            "Days & Times": times
-        })
+        for tr in rows_for_class:
+            class_number = tr.find("span", id=lambda x: x and x.startswith("MTG_CLASS_NBR"))
+            instructor = tr.find("span", id=lambda x: x and x.startswith("MTG_INSTR"))
+            location = tr.find("span", id=lambda x: x and x.startswith("MTG_ROOM"))
+            times = tr.find("span", id=lambda x: x and x.startswith("MTG_DAYTIME"))
 
-        subject_classes += 1
+            class_number = class_number.text.strip() if class_number else ""
+            instructor = instructor.text.strip() if instructor else ""
+            location = location.text.strip() if location else ""
+            times = times.text.strip() if times else ""
+
+            if "TBA" in times:
+                continue
+
+            rows.append({
+                "Major": clean_field(subject.replace(",", "")),
+                "Class Name": clean_field(class_name),
+                "Class Code": clean_field(class_number),
+                "Instructor": clean_field(instructor),
+                "Location": clean_field(location),
+                "Days & Times": clean_field(times)
+            })
+            subject_classes += 1
+
+
         
-    print(f"Found {subject_classes} class{"es" if subject_classes != 1 else ""} for {subject}")
-    numOfClass += subject_classes
+    if subject_classes == 0:
+        print(f"No classes found for {subject}")
+    else:
+        print(f"Found {subject_classes} class{'es' if subject_classes != 1 else ''} for {subject}")
+        numOfClass += subject_classes
+
     # click New Search to reset form
     new_search = wait.until(EC.element_to_be_clickable((By.ID, "CLASS_SRCH_WRK2_SSR_PB_NEW_SEARCH")))
     new_search.click()

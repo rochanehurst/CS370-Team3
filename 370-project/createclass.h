@@ -4,7 +4,6 @@
 
 #include <QDialog>
 #include <QCheckBox>
-#include <QDebug>
 
 struct ClassInfo {
     QString name;
@@ -13,7 +12,7 @@ struct ClassInfo {
     QString endTime;
     QString days;
 
-    void print() const{
+    void print() const {
         qDebug() << "\nName: " << name
                  << "\nBuilding: " << building
                  << "\nStarts at: " << startTime

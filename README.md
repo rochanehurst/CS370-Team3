@@ -194,4 +194,4 @@ cmake --build .
 - Rochane Hurst (@rochanehurst)
 - Noah Jumnainpol (@JumGC)
 - Raymond Las Pinas (@Rcalp)
-- Teammate Name 4 (@githubhandle)
+- Cassidy Klein (@klein057)

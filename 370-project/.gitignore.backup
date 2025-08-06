@@ -1,0 +1,23 @@
+# macOS
+.DS_Store
+
+# Qt build artifacts
+build/
+*.user
+*.autosave
+*.pro.user*
+*.qbs.user*
+*.qmlproject.user*
+*.moc
+*.o
+*.obj
+*.so
+*.a
+*.exe
+*.dll
+*.app
+*.dSYM/
+
+# Editor files
+*.swp
+*.swo

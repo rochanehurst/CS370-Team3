@@ -19,7 +19,7 @@ public:
 private:
     bool isValidTimeFormat(const QString& time) const;
 
-    friend class TC08_ScheduleLogicValidation; // friend declaration to allow test access
+    friend class TC08_ScheduleLogicValidation; // friend declaration to allow test access into private
 };
 
 

@@ -122,7 +122,7 @@ void MainWindow::setupClassSearch(){
     // fallback for running from Qt Creator
     if (!QFile::exists(path)) {
         qDebug() << "I FOUND ITTT";
-        path = exePath + "/../../class_finder/data/csusm_classes.csv";
+        path = exePath + "/class_finder/data/csusm_classes.csv";
     }
     loadCSV(path);
 }

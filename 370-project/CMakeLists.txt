@@ -87,6 +87,7 @@ install(TARGETS 370-Project
 
 if(QT_VERSION_MAJOR EQUAL 6)
     qt_finalize_executable(370-Project)
+
 endif()
 
 
@@ -241,3 +242,4 @@ target_link_libraries(TC10_SaveFeatureFileCheck PRIVATE
     Qt${QT_VERSION_MAJOR}::Test
 )
 add_test(NAME TC10_SaveFeatureFileCheck COMMAND TC10_SaveFeatureFileCheck)
+
